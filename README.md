@@ -98,10 +98,34 @@ Inicio
   Imprimir C
 Fin
   </pre>
-<b>Programa En Pseudocódigo:<\b> 
+<b>Programa En Pseudocódigo:</b> 
 El programa que se implementa a continuación tiene una típica estructura secuencial, es decir que consta de instrucciones que se van ejecutando una a continuación de la otra, en el orden en que fueron escritas de arriba hacia abajo. Debe notarse que las instrucciones utilizadas no alteran esa secuencia, como sucederá en las siguientes prácticas al introducir condiciones que expresen ejecuciones alternativas o ciclos repetitivos.
 Además, en este código se introducen algunas cuestiones de estilo que tienen que ver con una buena práctica en la codificación de programas y que se consideran importantes a la hora de integrar equipos de trabajo. Por ello la secuencia de comentarios al comienzo y antes de cada tramo importante del programa, así como los carteles que se muestran al usuario y el manejo de los espacios en blanco para alinear las instrucciones (este manejo suele llamarse indentación).
 </details>
+
+<pre>
+   Programa Sumas // Este es el primer programa en PSEUDOCODIGO
+ // Programa escrito por: Gustavo
+ // Fecha: 11 de Abril del 2020
+ // Versión: 04
+ // Nombre del archivo: Sumas
+ // Este programa permite sumar dos números enteros
+ Variables // definición de las variables
+ A, B, C: Entero 5
+ Hacer // Comienzo del programa
+ // Ingreso de datos
+ Imprimir: 'Ingrese el primer valor: '
+ Leer: A
+ Imprimir: 'Ingrese el segundo valor: '
+ Leer: B
+ // Cálculo de los resultados
+ C:= A+B
+ // Salida de la información
+ Imprimir: 'La suma de los dos valores dados es: ', C
+ (* Fin del programa *)
+ Fin Hacer
+ Fin Programa Sumas
+</pre>
 
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
