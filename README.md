@@ -67,7 +67,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
   
   <h4>Definición de Variables y Operaciones</h4>
   <p>
-    <strong>Variables:</strong> Son espacios de almacenamiento en los que se guardan datos que pueden cambiar durante la ejecución de un programa. Cada variable tiene un nombre (identificador), un tipo de dato (como entero, cadena o booleano) y un valor asignado.
+    <strong>Variables:</strong> Son espacios de almacenamiento en los que se guardan datos (en espacio de memoria) que pueden cambiar durante la ejecución de un programa. Cada variable tiene un nombre (identificador), un tipo de dato (como entero, cadena o booleano) y un valor asignado.
   </p>
   <p>
     <strong>Operaciones:</strong>
@@ -98,6 +98,9 @@ Inicio
   Imprimir C
 Fin
   </pre>
+<b>Programa En Pseudocódigo:<\b> 
+El programa que se implementa a continuación tiene una típica estructura secuencial, es decir que consta de instrucciones que se van ejecutando una a continuación de la otra, en el orden en que fueron escritas de arriba hacia abajo. Debe notarse que las instrucciones utilizadas no alteran esa secuencia, como sucederá en las siguientes prácticas al introducir condiciones que expresen ejecuciones alternativas o ciclos repetitivos.
+Además, en este código se introducen algunas cuestiones de estilo que tienen que ver con una buena práctica en la codificación de programas y que se consideran importantes a la hora de integrar equipos de trabajo. Por ello la secuencia de comentarios al comienzo y antes de cada tramo importante del programa, así como los carteles que se muestran al usuario y el manejo de los espacios en blanco para alinear las instrucciones (este manejo suele llamarse indentación).
 </details>
 
 <a name="algebra-y-geometria-analitica"></a>
