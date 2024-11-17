@@ -54,7 +54,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
 
   <details>
   <summary><strong>1. Uso de Variables y Operaciones</strong></summary>
-  <h4>Introducción</h4>
+  <h4>Objetivo</h4>
   <p>
     El propósito es que los estudiantes desarrollen sus primeros pseudocódigos comprendiendo los conceptos de secuencia y variable. Se destaca la importancia del tipo de datos como un determinante en los valores y operaciones aplicables en pseudocódigo para manejar variables.
   </p>
@@ -125,7 +125,21 @@ Además, en este código se introducen algunas cuestiones de estilo que tienen q
    Fin Hacer
  Fin Programa Sumas
 </pre>
+Los ejercicios estan en la primera practica del material teorico.
 </details>
+
+<details>
+  <summary><strong>2. Estructura de control de decisión</strong></summary>
+  <h4>Objetivo</h4>
+  <p>
+     Que los estudiantes puedan tomar decisiones en los pseudocódigos que construyen para la resolución de problemas. </p>
+  <p>
+     La primera fase de la resolución de un Problema con Pseudocódigo es el Análisis del Problema. Esta fase requiere comprender con claridad el problema, de modo que permita dar una clara definición de todos los aspectos involucrados para de ese modo llegar a una solución. </p>
+  <p>  
+    A continuación deben estudiarse las características de esa solución a fin de encontrar la mejor manera de llevarla adelante. De eso se encarga la fase del Diseño, cuyo producto final es el Pseudocódigo. Para obtenerlo, también se precisan especificaciones detalladas de las Entradas y Salidas. Así, las tareas a realizar pueden resumirse en:
+</p>
+<details>
+
 </details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
