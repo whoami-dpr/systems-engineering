@@ -53,60 +53,51 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
   <p>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></p>
 
   <details>
-    <summary><strong>1. Uso de Variables y Operaciones</strong></summary>
-
-    <details>
-      <summary><strong>Introducción</strong></summary>
-      <p>
-        El propósito es que los estudiantes desarrollen sus primeros pseudocódigos comprendiendo los conceptos de secuencia y variable. Se destaca la importancia del tipo de datos como un determinante en los valores y operaciones aplicables en pseudocódigo para manejar variables.
-      </p>
-      <p>
-        Para crear un programa, primero se debe analizar el problema. En problemas grandes, el proceso sigue un diseño descendente, refinándose hasta construir el algoritmo en pseudocódigo. Luego, una vez verificado el algoritmo, se podría codificar en un lenguaje específico como Pascal.
-      </p>
-      <p>
-        <strong>Nota:</strong> A lo largo del curso se evita enseñar un lenguaje específico, enfocándose en la descripción de soluciones que puedan ser codificadas en cualquier lenguaje de programación.
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>Definición de Variables y Operaciones</strong></summary>
-      <p>
-        <strong>Variables:</strong> Son espacios de almacenamiento en los que se guardan datos que pueden cambiar durante la ejecución de un programa. Cada variable tiene un nombre (identificador), un tipo de dato (como entero, cadena o booleano) y un valor asignado.
-      </p>
-      <p>
-        <strong>Operaciones:</strong>
-        <ul>
-          <li><strong>Aritméticas:</strong> Suma (+), resta (-), multiplicación (*), división (/).</li>
-          <li><strong>Lógicas:</strong> AND, OR, NOT, utilizadas para evaluar condiciones.</li>
-          <li><strong>Asignación:</strong> Asignar un valor a una variable (por ejemplo, <code>x = 5</code>).</li>
-          <li><strong>Relacionales:</strong> Mayor que (>), menor que (<), igual a (==), utilizadas para comparar valores.</li>
-        </ul>
-      </p>
-    </details>
-
-    <details>
-      <summary><strong>Ejemplos</strong></summary>
-      <p>Primer intento: A grandes rasgos</p>
-      <code>
-      Inicio<br>
-      Obtener un número entero<br>
-      Obtener otro número entero<br>
-      Calcular la suma de los números obtenidos<br>
-      Imprimir dicha suma<br>
-      Fin
-      </code>
-      <br>
-      <p>Segundo intento: Detallado</p>
-      <code>
-      Inicio<br>
-      Leer A // obtener el primer número<br>
-      Leer B // obtener el otro<br>
-      Calcular la suma de A y B y guardarla en C<br>
-      Imprimir C<br>
-      Fin
-      </code>
-    </details>
-  </details>
+  <summary><strong>1. Uso de Variables y Operaciones</strong></summary>
+  <h4>Introducción</h4>
+  <p>
+    El propósito es que los estudiantes desarrollen sus primeros pseudocódigos comprendiendo los conceptos de secuencia y variable. Se destaca la importancia del tipo de datos como un determinante en los valores y operaciones aplicables en pseudocódigo para manejar variables.
+  </p>
+  <p>
+    Para crear un programa, primero se debe analizar el problema. En problemas grandes, el proceso sigue un diseño descendente, refinándose hasta construir el algoritmo en pseudocódigo. Luego, una vez verificado el algoritmo, se podría codificar en un lenguaje específico como Pascal.
+  </p>
+  <p>
+    <strong>Nota:</strong> A lo largo del curso se evita enseñar un lenguaje específico, enfocándose en la descripción de soluciones que puedan ser codificadas en cualquier lenguaje de programación.
+  </p>
+  
+  <h4>Definición de Variables y Operaciones</h4>
+  <p>
+    <strong>Variables:</strong> Son espacios de almacenamiento en los que se guardan datos que pueden cambiar durante la ejecución de un programa. Cada variable tiene un nombre (identificador), un tipo de dato (como entero, cadena o booleano) y un valor asignado.
+  </p>
+  <p>
+    <strong>Operaciones:</strong>
+    <ul>
+      <li><strong>Aritméticas:</strong> Suma (+), resta (-), multiplicación (*), división (/).</li>
+      <li><strong>Lógicas:</strong> AND, OR, NOT, utilizadas para evaluar condiciones.</li>
+      <li><strong>Asignación:</strong> Asignar un valor a una variable (por ejemplo, <code>x = 5</code>).</li>
+      <li><strong>Relacionales:</strong> Mayor que (>), menor que (<), igual a (==), utilizadas para comparar valores.</li>
+    </ul>
+  </p>
+  
+  <h4>Ejemplos</h4>
+  <p><strong>Primer intento: A grandes rasgos</strong></p>
+  <pre>
+Inicio
+  Obtener un número entero
+  Obtener otro número entero
+  Calcular la suma de los números obtenidos
+  Imprimir dicha suma
+Fin
+  </pre>
+  <p><strong>Segundo intento: Detallado</strong></p>
+  <pre>
+Inicio
+  Leer A // obtener el primer número
+  Leer B // obtener el otro
+  Calcular la suma de A y B y guardarla en C
+  Imprimir C
+Fin
+  </pre>
 </details>
 
 <a name="algebra-y-geometria-analitica"></a>
