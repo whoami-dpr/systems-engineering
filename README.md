@@ -11,7 +11,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Ademas voy
 
 <h2>Primer Año</h2>
 
- - Algoritmos y estructura de datos
+ - [Algoritmos y estructura de datos](#algoritmos-y-estructura-de-datos-primer-ano)
  - Arquitectura de Computadoras
  - Algebra y Geometria analitica
  - Fisica 1
@@ -20,3 +20,13 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Ademas voy
  - Sistemas y Procesos de Negocio
 
 <h2>Segundo Año</h2>
+
+- [Sintaxis y Semantica de los lenguajes](#algoritmos-y-estructura-de-datos-primer-ano)
+ - Paradigmas de la Programacion
+ - Fisica 2
+ - Analisis Matematico 2
+ - Sistemas Operativos
+ - Analisis de Sistemas de informacion
+ - Ingenieria y Sociedad
+   
+<a name="algoritmos-y-estructura-de-datos-primer-ano"></a> <h2>Algoritmos y estructura de datos</h2>
