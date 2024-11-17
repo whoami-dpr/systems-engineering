@@ -126,7 +126,7 @@ Además, en este código se introducen algunas cuestiones de estilo que tienen q
  Fin Programa Sumas
 </pre>
 </details>
-
+</details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
 <p>Contenido en desarrollo...</p>
