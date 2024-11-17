@@ -51,6 +51,7 @@ Material Teorico: https://modsfire.com/c18PhtG354235T8
  como por ejemplo Pascal. A lo largo del curso, obviamos la codificación en un lenguaje
  específico, ya que la materia no apunta a enseñar un lenguaje en particular, sino a la
  descripción de soluciones que puedan ser codificadas en algún lenguaje sin importar cuál.
+ 
  ```
  Primer intento: a grandes rasgos
  Inicio
@@ -59,6 +60,9 @@ Material Teorico: https://modsfire.com/c18PhtG354235T8
  Calcular la suma de los números obtenidos
  Imprimir dicha suma
  Fin
+```
+
+```
  Segundo intento: buscando los detalles
  Inicio
  Leer A // obtener el primer número
