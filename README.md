@@ -17,6 +17,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
 <p>
 Todos los creditos van para todas las personas que ayudaron, colaboraron e hicieron que este repositorio tenga los contenidos que tiene.
 </p>
+
 ---
 
 <h2>Primer Año</h2>
