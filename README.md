@@ -50,8 +50,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
 <h2>Algoritmos y Estructura de Datos</h2>
 <details>
   <summary><strong>Teoría</strong></summary>
-  <p>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></p>
-
+  <br>
   <details>
   <summary><strong>1. Uso de Variables y Operaciones</strong></summary>
   <h4>Objetivo</h4>
@@ -97,7 +96,7 @@ Inicio
   Calcular la suma de A y B y guardarla en C
   Imprimir C
 Fin
-  </pre>
+</pre>
 <b>Programa En Pseudocódigo:</b> 
 El programa que se implementa a continuación tiene una típica estructura secuencial, es decir que consta de instrucciones que se van ejecutando una a continuación de la otra, en el orden en que fueron escritas de arriba hacia abajo. Debe notarse que las instrucciones utilizadas no alteran esa secuencia, como sucederá en las siguientes prácticas al introducir condiciones que expresen ejecuciones alternativas o ciclos repetitivos.
 Además, en este código se introducen algunas cuestiones de estilo que tienen que ver con una buena práctica en la codificación de programas y que se consideran importantes a la hora de integrar equipos de trabajo. Por ello la secuencia de comentarios al comienzo y antes de cada tramo importante del programa, así como los carteles que se muestran al usuario y el manejo de los espacios en blanco para alinear las instrucciones (este manejo suele llamarse indentación).
@@ -125,6 +124,18 @@ Además, en este código se introducen algunas cuestiones de estilo que tienen q
    Fin Hacer
  Fin Programa Sumas
 </pre>
+
+![image](https://github.com/user-attachments/assets/2c4cc4b2-9fde-47ca-b4ba-0a872bdabcb9)
+![image](https://github.com/user-attachments/assets/da65ed4d-54c4-4992-baf1-f03e7b028597)
+![image](https://github.com/user-attachments/assets/aea55f9b-2373-49a5-9e42-9d2ee60eda94)
+![image](https://github.com/user-attachments/assets/220be88d-a451-4343-998e-ccd5e7aaf6df)
+<details>
+  <summary><strong><b>Introduccion a C</b></strong></summary>
+  ![image](https://github.com/user-attachments/assets/173bb3d5-5cd3-4679-9d3e-00478f42adc4)
+  ![image](https://github.com/user-attachments/assets/e6d9ae0a-ed26-44fe-86d5-9aff0add8a37)
+  ![image](https://github.com/user-attachments/assets/d1a35abb-3e54-4a18-b86b-ec979435cd2f)
+
+</details>
 </details>
 
 <details>
@@ -294,8 +305,63 @@ La repetición fija o incondicional ejecuta un bloque de instrucciones un númer
 
 </details>
 
+<details>
+  <summary><strong>4. Funciones y Procedimientos</strong></summary>
+  <h4>Objetivo</h4>
+  <p>Utilizar en los pseudocódigos las herramientas de modularización de programas y comunicación entre módulos</p>
+  
+---
 
+<p>Hemos visto que al construir programas resulta muy útil pensar que el problema puede descomponerse en subproblemas a partir de cuyas soluciones se obtiene una solución al problema original. Hasta ahora, eso nos sirvió para darle forma al código de nuestros programas en segmentos que podían ser bien diferenciados (usando comentarios). Sin embargo, en ocasiones estos segmentos pueden ser un poco largos y llevar a que al ver el programa en su conjunto, se pierda de vista la distinción y el código se vuelve confuso. Esto se nota particularmente bien en programas de mediana o gran envergadura, aunque puede ocurrir también en algunos más pequeños. Así, los procedimientos y funciones (en general subprogramas) vienen a ayudarnos a organizar la programación, pues nos permiten que esos segmentos de código que podían resultar confusos se codifican por separado con algunas ventajas adicionales: </p>
+
+- se les asocia un nombre, por lo que si el segmento de código debía repetirse en diferentes partes del programa, ahora puede reemplazarse todo el segmento por su nombre en cada uno de los lugares donde antes se repetía el segmento completo, permitiendo además que el código termine siendo más breve y por tanto más ágil para la lectura; en el lugar donde está el nombre del subprograma se dice que hay una invocación al mismo;
+
+- en ocasiones, las repeticiones no eran totalmente idénticas, sino que había ciertos datos que cambiaban de una a otra: a los subprogramas se les pueden asociar parámetros, es decir datos que pueden cambiar de valor de una invocación a otra; los valores que se asocian con los parámetros en cada invocación del subprograma suelen conocerse como argumentos, y la correspondencia se da por cantidad y posición: el primer argumento que se indica en la invocación corresponde al valor que se asigna al primer parámetro del procedimiento, el segundo argumento corresponde al valor asignado al segundo parámetros, y así hasta el último, por lo que debe haber tantos argumentos en la invocación como parámetros se definieron en la declaración del subprograma.
+
+<p>La introducción de subprogramas en la codificación de los programas lleva a introducir algunos conceptos relacionados con el uso de variables: los subprogramas tienen la misma estructura interna que un programa completo, de modo que pueden declararse variables que ayuden a lograr lo que se pretende pero que solo sirven para ese subprograma: son variables locales al subprograma, y tienen la característica fundamental de que los valores que tomen sólo se conocen dentro del subprograma. Por su parte, las que se declaran a nivel del programa principal (el único que codificábamos hasta ahora, son globales para los subprogramas: cualquier subprograma puede hacer uso de ellas y cualquier cambio que un subprograma (o el principal) haga a una de ellas, afectará al resto de los subprogramas que la utilicen o al mismo programa principal en cualquier ejecución posterior al cambio.</p>
+
+<b>El subprograma (o el programa principal) que hace una invocación a otro subprograma se conoce como el llamador.</b>
+
+<p>Los parámetros de un subprograma pueden ser de dos clases, por ahora: por valor o por referencia. Los parámetros por valor son variables locales al procedimiento cuyo valor se asigna en la invocación, y por ser variables locales su cambio no se nota fuera del subprograma. Los parámetros por valor constituyen datos de entrada para el subprograma y los argumentos correspondientes pueden estar dados como constantes o variables. En cambio, los parámetros por referencia sólo pueden estar asociados con argumentos variables, pues cualquier alteración de los mismos en el subprograma afectará el valor asociado a la variable argumento del llamador; la principal utilidad de estos parámetros es la de poder hacer referencia a dichos valores con un nombre que resulta significativo dentro del subprograma,independientemente de cómo se lo conozca en el resto. Los parámetros por referencia, pueden ser de entrada o de salida para el subprograma.</p>
+
+<p>Como se dijo, hay dos clases de subprogramas: los procedimientos y las funciones:</p>
+
+- Las funciones sólo admiten parámetros por valor y siempre tienen un valor asociado (el resultado), pues están pensadas para ser utilizadas como parte de una expresión (igual que las funciones primitivas). Así, solo pueden devolver valores de tipos simples, como los que hemos utilizado hasta ahora.
+
+- Los procedimientos admiten parámetros de ambas clases, por lo que podrían tene varias salidas. No pueden formar parte de expresiones, su invocación se realiza como si fuesen una instrucción más en el lenguaje.
+
+<p>En ocasiones, hay un grupo de subprogramas que pueden considerarse relacionados entre sí por algún criterio, pudiendo eventualmente compartir algunos datos (o no). Dichos subprogramas forman un módulo y aparecen con frecuencia al resolver problemas de mediana o gran envergadura.</p>
+
+<b>Características:</b>
+- Tienen un **nombre** que las identifica.
+- Pueden aceptar **parámetros** (datos de entrada).
+- Siempre **devuelven un valor**.
+- Facilitan la reutilización del código.
+
+<b>Estructura General de una Función:</b>
+```
+def nombre_funcion(parámetros):
+    # Código que realiza la tarea
+    return valor
+```
+
+<b>Diferencias entre Funciones y Procedimientos</b>
+
+| **Aspecto**             | **Función**                              | **Procedimiento**                        |
+|-------------------------|------------------------------------------|------------------------------------------|
+| **Devuelve un valor**    | Sí, siempre devuelve un valor mediante `return`. | No devuelve un valor directamente.       |
+| **Propósito principal**  | Calcular y devolver un resultado.        | Ejecutar una acción o tarea específica.  |
+| **Estructura típica**    | Incluye la instrucción `return`.         | No incluye la instrucción `return`.      |
+| **Uso común**            | Cálculos matemáticos, procesamiento de datos. | Mostrar mensajes, modificar variables globales. |
+| **Parámetros**           | Puede recibir parámetros opcionales o requeridos. | Puede recibir parámetros opcionales o requeridos. |
+| **Estado de salida**     | Finaliza cuando devuelve un valor.       | Finaliza después de ejecutar todas sus instrucciones. |
+| **Interacción externa**  | Generalmente no modifica variables globales. | Puede modificar variables globales.     |
+
+</details>
 <p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
+<p><b>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></b></p>
+
+
 
 </details>
 <a name="algebra-y-geometria-analitica"></a>
