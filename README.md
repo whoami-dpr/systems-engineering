@@ -1,6 +1,6 @@
 # Systems Engineering
 
-Siempre he creído que las personas autodidactas son las que cambian el mundo, porque tienen la capacidad de tomar sus propias observaciones de su aprendizaje. Por eso, he decidido compartir todos mis recursos, para que quienes quieran aprender puedan acceder a ellos y estudiarlos libremente. En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero de Software. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
+Siempre he creído que las personas autodidactas son las que cambian el mundo, porque tienen la capacidad de tomar sus propias observaciones de su aprendizaje. Por eso, he decidido compartir todos mis recursos, para que quienes quieran aprender puedan acceder a ellos y estudiarlos libremente. En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero en Sistemas. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
 
 Aunque es posible que no necesites profundizar tanto como yo en las materias básicas, considero que son fundamentales. Aunque a veces se subestiman, son la base sólida sobre la cual se construye cualquier tecnología que usamos hoy en día. Por eso, creo que tener acceso a estos materiales puede marcar una gran diferencia en tu aprendizaje. De todos modos, todo lo que necesitas, está aquí.
 
@@ -10,9 +10,13 @@ Aunque es posible que no necesites profundizar tanto como yo en las materias bá
 
 <h2>Cómo Funciona</h2>
 <p>
-Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, voy a dejar un espacio adicional donde, en cada materia, iré subiendo cosas que fui aprendiendo por mi cuenta. Si querés dejar algún recurso en este repositorio, podés hacer un fork.
+Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, voy a dejar un espacio adicional donde, en cada materia, iré subiendo cosas que fui aprendiendo por mi cuenta. Es de esperar que no tenga todo el contenido que exista, por lo que si quieres colaborar de alguna forma puedes hacer un pull request.
 </p>
 
+<h2>Creditos</h2>
+<p>
+Todos los creditos van para todas las personas que ayudaron, colaboraron e hicieron que este repositorio tenga los contenidos que tiene.
+</p>
 ---
 
 <h2>Primer Año</h2>
