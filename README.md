@@ -212,10 +212,91 @@ Programa Pares
  Fin Hacer
  Fin Programa Pares
   </pre>
+
 </details>
-<p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
+
 <details>
-  
+  <summary><strong>3. Estructuras de Control de Repetición Incondicional (fija) y Repetición Condicional</strong></summary>
+  <h4>Objetivo</h4>
+  <p> Utilizar la Repetición Incondicional y Condicional en la resolución de problemas con Pseudocódigo.</p>
+
+Las **estructuras de control de repetición** permiten ejecutar un conjunto de instrucciones varias veces, ya sea con un número predefinido de iteraciones o dependiendo de una condición lógica.
+
+---
+
+## **1. Estructuras de Control de Repetición**
+
+Las estructuras de repetición son fundamentales en programación, ya que nos permiten realizar tareas repetitivas de manera eficiente. Pueden dividirse en:
+
+1. **Repetición Incondicional (Fija)**: El número de iteraciones es fijo y se conoce antes de ejecutar el ciclo.
+2. **Repetición Condicional**: El número de iteraciones depende de una condición que se evalúa durante la ejecución.
+
+---
+
+### **A. Repetición Incondicional (Fija)**
+
+La repetición fija o incondicional ejecuta un bloque de instrucciones un número específico y conocido de veces antes de iniciar la ejecución.
+
+#### **Características:**
+- El número de iteraciones se define de antemano.
+- No depende de condiciones variables durante la ejecución.
+- Se utiliza en tareas donde el número de repeticiones es fijo.
+
+#### **Estructuras Comunes:**
+- **For**: Muy usado en lenguajes como Python, C, Java, entre otros.
+- **Repeat...Until**: Disponible en algunos lenguajes.
+
+  <b>Ejemplo, Con Repetición Incondicional (Fija):</b>
+  <p>Se desea visualizar la Tabla de Multiplicación de un número dado por los números del 1 al 20. La Tabla debe visualizarse con el siguiente formato, por ejemplo: ' 2 x 3 = 6'.</p>
+  <p><b>¿Qué Entradas se requieren? (Tipo y Cantidad)</b> Un número entero</p>
+  <p><b>¿Cuál es la Salida deseada? (Tipo y Cantidad)</b> La Tabla en el formato pedido</p>
+  <b>¿Qué método produce la Salida deseada?</b> Multiplicar el número entero dado con cada Número entre 1 y 20.</p>
+
+  <b>Primer intento: a grandes rasgos</b>
+  <pre>
+  inicio
+    Leer el número entero Num
+    Repetir 20 veces
+    // Calculo de la Multiplicación
+    Imprimo los números a multiplicar en el formato pedido
+    // El índice es el contador de iteraciones
+    Realizo la multiplicación entre el Num y el Índice
+    Imprimo resultado
+  Fin
+  </pre>
+
+  <b>Segundo intento:</b>
+  <pre>
+  // Programa escrito por: XXXX
+  // Fecha: 30 de Mayo de 2011
+  // Versión: 1.1
+  // Nombre del archivo: Tablas_de_Multiplicar
+  // Este programa multiplica un numero por índice que se incrementa 20 veces de a uno
+  Variables // definición de las variables
+  Num, Indice: Entero 2
+  Tabla: Entero 4
+  Hacer // Comienzo del programa //
+  // Ingreso de datos
+  Imprimir: 'Ingrese un Número para Generar su Tabla de Multiplicar: '
+  Leer: Num
+  // Inicio la Generación de la Tabla de Multiplicar
+  Imprimir: ' Tabla del ‘, Num
+  REPETIR PARA Índice:= 1, 20, 1
+  Tabla:= Num * Indice // calculo el valor del resultado
+  // Imprimo en el formato pedido
+  Imprimir: Num , ' x ' , Indice , ' = ' , Tabla
+  FIN REPETIR PARA
+  Fin Hacer
+  Fin Programa Tablas_de_Multiplicar
+  </pre>
+
+  ![image](https://github.com/user-attachments/assets/b258200b-251b-403b-9fad-4086f4bde6d5)
+
+</details>
+
+
+<p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
+
 </details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
