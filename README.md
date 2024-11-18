@@ -458,26 +458,29 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 
 <details>
   <summary>Teoría</summary>
-
+</br>
   <details>
     <summary>Módulo 1</summary>
+    </br>
     <!-- Contenido del Módulo 1 -->
   </details>
 
   <details>
     <summary>Módulo 2</summary>
+    </br>
     <!-- Contenido del Módulo 2 -->
   </details>
 
   <details>
     <summary>Apuntes</summary>
+    </br>
     <!-- Contenido de Apuntes -->
   </details>
 </details>
 
 <details>
   <summary>Práctica</summary>
-
+</br>
   <details>
     <summary>TP1: Manejo de comandos, directorios y archivos</summary>
     <!-- Contenido del TP1 -->
@@ -521,5 +524,8 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 
 <details>
   <summary>Videos de las clases</summary>
+  </br>
   <!-- Enlaces o notas relacionadas con los videos -->
+    <p>Canal de la <b>teoría</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@rodriguezlisardoluis3893/videos" target="_blank">Ver</a></p>
+    <p>Canal de la <b>practica</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@sistemasoperativosutnfrlp4917" target="_blank">Ver</a></p>
 </details>
