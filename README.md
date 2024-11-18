@@ -358,12 +358,96 @@ def nombre_funcion(parámetros):
 | **Estado de salida**     | Finaliza cuando devuelve un valor.       | Finaliza después de ejecutar todas sus instrucciones. |
 | **Interacción externa**  | Generalmente no modifica variables globales. | Puede modificar variables globales.     |
 
+<details>
+
+<summary>Programación modular</summary>
+La usamos para resolver el problema en pequeños subproblemas, un proyecto de algoritmos normalmente se compone de un programa principal y de un conjunto de subprogramas que se invocan o llaman desde el principal.
+
+Utilizamos la estrategia antes mencionada de top-down, diseño descendente o modular, divide y venceras. El proceso de subdividir se llama refinamiento sucesivo.
+
+Los subprogramas son unidades de programa que hacen una tarea especifica. Pueden ser procedimientos o funciones
+
+- Procedimiento: subprograma que puede recibir cero o mas valores desde la unidad que lo llama y lo activa, y devolver cero o mas valores a dicha unidad llamadora. Admiten parametros de ambas clases por lo que pueden tener varias salidas. No pueden formar parte de una expresion, se las invoca como una instruccion del programa principal.
+- Funcion: es un subprograma que recibe cero o mas valores pero siempre devuelve un solo resultado y de tipo estandar: entero, real, caracter o booleano, en su nombre. Solo admiten parametros por valor y siempre tiene un valor asociado (el resultado) porque estan pensadas para usarse en una expresion.
+- Parametros: es el conjunto de datos que se envia como comunicacion entre las unidades de programa.
+
+Para que un programa pueda utilizar un subprograma este tiene que estar declarado y definido dentro del mismo. Para declarar un subprograma se debe especificar el tipo (funcion o proocedimiento), su nombre y la lista de parametros (si corresponde)
+
+Para su invocacion, los procedimientos se invocan a traves de su nombre acompañado, si corresponde, de la lista de parametros actuales. Las funciones se invocan a traves de su nombre, acompañado o no de la lista de parametros actuales, segun corresponda, pero SOLO se invocan dentro de otra expresion aritmetico-logica o de una impresion.
+
+<details>
+
+<summary>Procedimientos</summary>
+
+![image](https://github.com/user-attachments/assets/508855a8-7f52-426d-9d78-1616a105b97f)
+![image](https://github.com/user-attachments/assets/f6f40de1-019e-4195-9bbc-1888201119a9)
+
+</details>
+
+<details>
+
+<summary>Funciones</summary>
+
+![image](https://github.com/user-attachments/assets/22f9a449-f13e-4b2c-a5dc-93ff956abcd6)
+![image](https://github.com/user-attachments/assets/1054b17b-2e4f-475b-a15e-63c1422897fc)
+![image](https://github.com/user-attachments/assets/00984225-b214-4a54-97bb-f97079edc7dd)
+
+</details>
+
+<details>
+
+<summary>Representación grafica</summary>
+
+![image](https://github.com/user-attachments/assets/65de740e-4db3-4efa-98a8-f4d854f6d3f1)
+![image](https://github.com/user-attachments/assets/2adbecf1-c2a0-41d3-8c7b-ec5f41ef0433)
+![image](https://github.com/user-attachments/assets/5984ecc1-a016-41df-b758-68413285fe46)
+![image](https://github.com/user-attachments/assets/530a54c3-6d18-4e3c-9e0d-6ef5ec325d54)
+![image](https://github.com/user-attachments/assets/ca151f52-8e8f-4842-a94b-d5fe3ac67eb3)
+
+</details>
+</details>
+</details>
+
+<details>
+
+<summary><strong>5. Tipos de datos definidos por el usuario</strong></summary>
+</br>
+Los datos que no puedan representarse mediante un tipo estándar se definirán utilizando tipos de datos personalizados. Para crearlos, es necesario especificar su nombre y estructura. Estos datos se declaran en una sección específica llamada tipos estructurados.
+
+El nombre de un tipo personalizado debe ser único y no coincidir con los tipos predefinidos del lenguaje. Su definición se basa en la combinación de tipos estándar y/o otros tipos definidos previamente por el usuario.
+
+Tipos de datos estándar o simples: permiten definir variables individuales con valores únicos.
+Tipos de datos definidos por el usuario: posibilitan la creación de variables compuestas que agrupan valores relacionados de manera lógica bajo un mismo identificador.
+Al resolver un problema, es crucial identificar el conjunto de datos que forman parte de su universo. Los datos básicos extraídos del problema, junto con aquellos deducidos de su análisis, se conectan de forma lógica para definir diversas estructuras de datos.
+
+Estructura de datos: un esquema o mecanismo para organizar y almacenar datos.
+Estas estructuras pueden clasificarse según:
+Cantidad de datos que gestionan: simples o compuestos.
+Tipo de datos: homogéneos o heterogéneos.
+Tiempo en memoria: temporales o permanentes.
+Modo de asignación de memoria: estáticas o dinámicas.
+Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundario).
+
+<details>
+  
+<summary>Estructuras de datos compuestas</summary>
+
+- Una estructura de datos compuesta es un grupo de datos agrupados bajo un único nombre, organizados de manera específica y con un conjunto definido de operaciones permitidas.
+- Para su análisis, se clasifican en homogéneas y heterogéneas:
+  - Homogéneas: contienen únicamente datos de un mismo tipo (por ejemplo, todos los elementos del conjunto son números reales o enteros).
+  - Heterogéneas: permiten combinar datos de diferentes tipos en un mismo conjunto.
+
+</details>
+</details>
+
+<details>
+  <summary><strong>6. Estructuras homogéneas - Arreglos</strong></summary>
+
+</details>
+
 </details>
 <p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
 <p><b>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></b></p>
-
-
-
 </details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
