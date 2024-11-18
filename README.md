@@ -138,8 +138,8 @@ Los ejercicios estan en la primera practica del material teorico.
   <p>  
     A continuación deben estudiarse las características de esa solución a fin de encontrar la mejor manera de llevarla adelante. De eso se encarga la fase del Diseño, cuyo producto final es el Pseudocódigo. Para obtenerlo, también se precisan especificaciones detalladas de las Entradas y Salidas. Así, las tareas a realizar pueden resumirse en:
 </p>
-  ![algoritmos1](https://github.com/jmontesw/systems-engineering/blob/main/images/ayed1.png)
-<details>
+  ![ayed1](https://github.com/user-attachments/assets/f9a6b20f-7c5b-422f-9794-69ba1a8a0512)
+
 </details>
 
 <a name="algebra-y-geometria-analitica"></a>
