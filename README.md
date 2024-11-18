@@ -455,7 +455,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 <p><b>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></b></p>
 </details>
 <a name="algebra-y-geometria-analitica"></a>
-<h2>Álgebra y Geometría Analítica</h2>
+# Álgebra y Geometría Analítica
 <p>Contenido en desarrollo...</p>
 
 <a name="sistemas-operativos"></a>
