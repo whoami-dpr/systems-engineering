@@ -34,7 +34,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
   <li><a href="#">Paradigmas de la Programación</a></li>
   <li><a href="#">Física 2</a></li>
   <li><a href="#">Análisis Matemático 2</a></li>
-  <li><a href="#">Sistemas Operativos</a></li>
+  <li><a href="#sistemas-operativos">Sistemas Operativos</a></li>
   <li><a href="#">Análisis de Sistemas de Información</a></li>
   <li><a href="#">Ingeniería y Sociedad</a></li>
 </ul>
@@ -47,7 +47,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
 ---
 
 <a name="algoritmos-y-estructura-de-datos"></a>
-<h2>Algoritmos y Estructura de Datos</h2>
+# Algoritmos y Estructura de Datos
 <details>
   <summary><strong>Teoría</strong></summary>
   <br>
@@ -452,3 +452,74 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
 <p>Contenido en desarrollo...</p>
+
+<a name="sistemas-operativos"></a>
+# Sistemas Operativos
+
+<details>
+  <summary>Teoría</summary>
+
+  <details>
+    <summary>Módulo 1</summary>
+    <!-- Contenido del Módulo 1 -->
+  </details>
+
+  <details>
+    <summary>Módulo 2</summary>
+    <!-- Contenido del Módulo 2 -->
+  </details>
+
+  <details>
+    <summary>Apuntes</summary>
+    <!-- Contenido de Apuntes -->
+  </details>
+</details>
+
+<details>
+  <summary>Práctica</summary>
+
+  <details>
+    <summary>TP1: Manejo de comandos, directorios y archivos</summary>
+    <!-- Contenido del TP1 -->
+  </details>
+
+  <details>
+    <summary>TP2: Scripts</summary>
+    <!-- Contenido del TP2 -->
+  </details>
+
+  <details>
+    <summary>TP3: Scripts</summary>
+    <!-- Contenido del TP3 -->
+  </details>
+
+  <details>
+    <summary>TP4: Administración de CPU – Procesos</summary>
+    <!-- Contenido del TP4 -->
+  </details>
+
+  <details>
+    <summary>TP5: Semáforos – Hilos – Administración de Memoria</summary>
+    <!-- Contenido del TP5 -->
+  </details>
+
+  <details>
+    <summary>TP6: Administración e instalación de servicios en Linux</summary>
+    <!-- Contenido del TP6 -->
+  </details>
+
+  <details>
+    <summary>TP7: File System</summary>
+    <!-- Contenido del TP7 -->
+  </details>
+
+  <details>
+    <summary>Parciales</summary>
+    <!-- Contenido de Parciales -->
+  </details>
+</details>
+
+<details>
+  <summary>Videos de las clases</summary>
+  <!-- Enlaces o notas relacionadas con los videos -->
+</details>
