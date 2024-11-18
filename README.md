@@ -55,7 +55,7 @@ Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, v
   <details>
   <summary><strong>1. Uso de Variables y Operaciones</strong></summary>
   <h4>Objetivo</h4>
-  <p>
+  <p> 
     El propósito es que los estudiantes desarrollen sus primeros pseudocódigos comprendiendo los conceptos de secuencia y variable. Se destaca la importancia del tipo de datos como un determinante en los valores y operaciones aplicables en pseudocódigo para manejar variables.
   </p>
   <p>
@@ -125,7 +125,6 @@ Además, en este código se introducen algunas cuestiones de estilo que tienen q
    Fin Hacer
  Fin Programa Sumas
 </pre>
-Los ejercicios estan en la primera practica del material teorico.
 </details>
 
 <details>
@@ -139,9 +138,83 @@ Los ejercicios estan en la primera practica del material teorico.
     A continuación deben estudiarse las características de esa solución a fin de encontrar la mejor manera de llevarla adelante. De eso se encarga la fase del Diseño, cuyo producto final es el Pseudocódigo. Para obtenerlo, también se precisan especificaciones detalladas de las Entradas y Salidas. Así, las tareas a realizar pueden resumirse en:
 </p>
   ![ayed1](https://github.com/user-attachments/assets/f9a6b20f-7c5b-422f-9794-69ba1a8a0512)
+ <p> En problemas de pequeña o mediana envergadura, lo anterior puede llevarse a cabo respondiendo a las siguientes preguntas: </p>
+ <p>¿Qué Entradas se requieren? (Tipo y Cantidad)</p>
+ <p>¿Cuál es la Salida deseada? (Tipo y Cantidad)</p>
+ <p>¿Qué debe hacerse para lograr la Salida deseada a partir de los datos disponibles?</p>
+ <p>Ejemplo:</p>
+ <p>Determinar si la suma de cualquier pareja de tres números dados es igual al tercero. Si se cumple esta condición, escribir “Iguales” y, caso contrario, escribir “Distintos”. Análisis del Problema: </p>
+ <p><b>¿Qué Entradas se requieren? (Tipo y Cantidad)</b> Tres números Reales </p>
+ <p><b>¿Cuál es la Salida deseada? (Tipo y Cantidad)</b> Un mensaje</p>
+ <b>¿Qué método produce la Salida deseada?</b> La comparación de las suma de las parejas de números con el número que queda</p>
+ <p><b>Primer intento: a grandes rasgos</b></p>
+  <pre>
+    Obtener tres números reales
+    Calcular las sumas dos en dos de los números obtenidos
+    Si alguna de ellas es igual al tercer número, mostrar el cartel “Iguales” y terminar; de lo contrario, mostrar
+    Si cartel “Distintos” y terminar.
+ Fin
+  </pre>
+ <p><b>Segundo intento: buscando los detalles</b></p>
+  <pre>
+Inicio
+ // Obtener los tres números reales
+   Leer A
+   Leer B
+   Leer C
+ // Calcular cada suma y compararla con el tercer número
+   Si A+B = C
+     Imprimir “Iguales”
+   Terminar
+   Si A+C = B
+     Imprimir “Iguales”
+   Terminar
+   Si B+C = A
+     Imprimir “Iguales”
+   Terminar
+   Imprimir “Distintas “
+   // Terminar
+  </pre>
 
+  <p><b>Tercer intento</b></p>
+  <pre>
+Programa Pares
+ // Programa escrito por: XXXX
+ // Fecha: 26 de Abril de 2009
+ // Versión: 05
+ // Nombre del archivo: Pares
+ // Este programa suma tres números de a pares y compara con el número restante.
+ // Se utilizan SI anidados.
+   Variables
+   A, B, C: Real 5,2
+   Hacer // Comienzo del programa
+   // Ingreso de datos
+    Imprimir: 'Ingrese el primer valor: '
+    Leer: A
+    Imprimir: 'Ingrese el segundo valor: '
+    Leer: B
+    Imprimir: 'Ingrese el tercer valor: '
+    Leer: C
+ // Se aplican SI anidados para comparar
+   SI (A+B)=C ENTONCES
+     Imprimir: ‘ Son Iguales....! ‘
+   SINO
+     SI (A+C)=B ENTONCES
+     Imprimir: ‘ Son Iguales....! ‘
+   SINO
+     SI (B+C)=A ENTONCES
+     Imprimir: ‘ Son Iguales....! ‘
+   SINO
+     Imprimir: ‘ Son Distintos...! ‘
+   FIN SI
+ FIN SI
+ FIN SI
+ Fin Hacer
+ Fin Programa Pares
+  </pre>
 </details>
-
+<p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
+</details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
 <p>Contenido en desarrollo...</p>
