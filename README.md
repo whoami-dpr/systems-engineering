@@ -532,6 +532,6 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
   <summary>Videos de las clases</summary>
   </br>
   <!-- Enlaces o notas relacionadas con los videos -->
-    <p>Canal de la <b>teoría</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@rodriguezlisardoluis3893/videos" target="_blank">Ver</a></p>
-    <p>Canal de la <b>practica</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@sistemasoperativosutnfrlp4917" target="_blank">Ver</a></p>
+    <p>Canal de la <b>teoría</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@rodriguezlisardoluis3893/videos" target="_blank"><b>Ver</b></a></p>
+    <p>Canal de la <b>practica</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@sistemasoperativosutnfrlp4917" target="_blank"><b>Ver</b></a></p>
 </details>
