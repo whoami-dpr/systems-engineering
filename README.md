@@ -454,6 +454,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 <p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
 <p><b>Material Teórico: <a href="https://modsfire.com/c18PhtG354235T8" target="_blank">Descargar</a></b></p>
 </details>
+
 <a name="algebra-y-geometria-analitica"></a>
 # Álgebra y Geometría Analítica
 <p>Contenido en desarrollo...</p>
