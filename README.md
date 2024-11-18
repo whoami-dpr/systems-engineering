@@ -214,6 +214,8 @@ Programa Pares
   </pre>
 </details>
 <p>Ejercicios sugeridos para trabajar en clase en el material teorico.</p>
+<details>
+  
 </details>
 <a name="algebra-y-geometria-analitica"></a>
 <h2>Álgebra y Geometría Analítica</h2>
