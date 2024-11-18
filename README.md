@@ -131,6 +131,7 @@ Además, en este código se introducen algunas cuestiones de estilo que tienen q
 ![image](https://github.com/user-attachments/assets/220be88d-a451-4343-998e-ccd5e7aaf6df)
 <details>
   <summary><strong><b>Introduccion a C</b></strong></summary>
+  
   ![image](https://github.com/user-attachments/assets/173bb3d5-5cd3-4679-9d3e-00478f42adc4)
   ![image](https://github.com/user-attachments/assets/e6d9ae0a-ed26-44fe-86d5-9aff0add8a37)
   ![image](https://github.com/user-attachments/assets/d1a35abb-3e54-4a18-b86b-ec979435cd2f)
