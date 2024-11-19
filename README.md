@@ -468,13 +468,21 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
   <details>
     <summary>Módulo 1</summary>
     </br>
-    <!-- Contenido del Módulo 1 -->
+    <details>
+      <summary><b>Clase 1 (software libre, licencias, distribuciones)</b></summary>
+      <br>
+      <p>¿Que significa Software Libre?</p>
+      ![image](https://github.com/user-attachments/assets/01f884e3-7118-46e5-9210-00bac40cff41)
+      ![image](https://github.com/user-attachments/assets/ca083ff2-bfcf-4ed6-a27d-fb7bb4d8d34f)
+      ![image](https://github.com/user-attachments/assets/996d7195-f41b-45f6-8aad-979295d150fa)
+      
+  </details>
   </details>
 
   <details>
     <summary>Módulo 2</summary>
     </br>
-    <!-- Contenido del Módulo 2 -->
+    
   </details>
 
   <details>
