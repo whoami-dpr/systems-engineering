@@ -536,7 +536,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
     <summary><b>Ejemplo de GUI</b></summary>
     </br>
     
-  <img src="https://github.com/user-attachments/assets/313ee92b-afea-40c4-89ec-1758d1f4ccd8" alt="Descripción de la imagen" width="400">
+<img src="https://github.com/user-attachments/assets/313ee92b-afea-40c4-89ec-1758d1f4ccd8" alt="Descripción de la imagen" width="400">
 
 </details>
 
@@ -547,6 +547,17 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
     - <b>Interoperabilidad</b>:** Podemos compartir información con otros sistemas que usen la misma interfaz
     - <b>Mantenibilidad</b>: Podemos hacer mejoras o adaptaciones dentro del SO sin obligar a hacer cambios en los programas de usuario
     - <b>Productividad</b>: por todo lo anterior
+
+**📝 Nota:** Los sistemas operativos como Windows se comenzaron a programar en C para que sean más portables.
+
+El <b>Sistema Operativo (SO)</b> como administrador de recursos:
+- Procesos y Recursos:
+    - Procesos : Es una entidad dinámica.
+    - Recursos: Puede ser algo físico o virtual, (requiere de un proceso)
+- Los Recursos son escasos, los proceso compiten entre ellos.
+- El SO actúa como <b>arbitro/mediador</b>, asigna recursos en forma <b>segura y eficiente.</b>
+- El SO debe determinar a quien le entrega recursos, cantidad, en que momento, por cuanto tiempo.
+- Por todo estos puntos debemos tener: <b>Políticas de gestión de recursos</b>.
 
  </details>
   
