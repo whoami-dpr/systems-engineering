@@ -656,60 +656,222 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 <summary><strong>Guia de trabajos practicos</strong></summary>
 
 <p><b>Guia de trabajos Practicos: </b><a href="https://modsfire.com/oN5BJq6w9WEsb3W"_blank"><b>Descargar</b></a></p>
+
+
 <details>
 <summary><strong>Enunciado 1</strong></summary>
 <img src="https://github.com/user-attachments/assets/13dfb2b3-4ff9-4408-bfbb-e40e0593ccd2" alt="Descripción de la imagen" width="600">
+
 <details>
 <summary><strong>Casos de Uso</strong></summary>
 <img src="https://github.com/user-attachments/assets/085f4b8b-4cbc-4b45-983a-9e8788fe1118" alt="Descripción de la imagen" width="500">
 </details>
+
 <details>
 <summary><strong>Diagrama de Clases</strong></summary>
 <img src="https://github.com/user-attachments/assets/93f66959-afac-4099-a680-a35e6cebbb38" alt="Descripción de la imagen" width="500">
 </details>
+
 <details>
-<summary><strong>Maquinas de Estado</strong></summary>
+<summary><strong>Maquinas de Estados</strong></summary>
 </details>
+
 </details>
+
+
 <details>
 <summary><strong>Enunciado 3</strong></summary>
 <img src="https://github.com/user-attachments/assets/2667c5ee-a7a0-463f-8069-48f19d4ec090" alt="Descripción de la imagen" width="600">
+
 <details>
 <summary><strong>Casos de Uso</strong></summary>
 </details>
+
 <details>
 <summary><strong>Diagrama de Clases</strong></summary>
 </details>
+
 <details>
-<summary><strong>Maquinas de Estado</strong></summary>
+<summary><strong>Maquinas de Estados</strong></summary>
 <img src="https://github.com/user-attachments/assets/34938ad0-5ea6-4a05-ae3c-a321a4b3668d" alt="Descripción de la imagen" width="500">
 </details>
+
 </details>
+
+
 <details>
 <summary><strong>Enunciado 4</strong></summary>
+<img src="https://github.com/user-attachments/assets/4597b60c-1f51-469c-9135-b4928458051e" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+<img src="https://github.com/user-attachments/assets/649480e1-6b16-4992-8f4d-8fee9768aa0f" alt="Descripción de la imagen" width="500">
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 5</strong></summary>
+<img src="https://github.com/user-attachments/assets/9ab5db7d-1e87-4f78-b681-b0efe16cf562" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/a72ccf2c-aa8d-435a-82cd-2522b889c753" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+<img src="https://github.com/user-attachments/assets/f89ee7ce-b536-435a-b842-bd365fdfa0e0" alt="Descripción de la imagen" width="500">
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 6</strong></summary>
+<img src="https://github.com/user-attachments/assets/a4fa2227-9429-4591-bc14-832eae81c2ef" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/fc6dd1d1-a0d1-441c-8cc7-9db2175c7ca3" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+<img src="https://github.com/user-attachments/assets/86397fc1-455e-4f31-a824-c4d143ae1297" alt="Descripción de la imagen" width="500">
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+<img src="https://github.com/user-attachments/assets/afac0a2c-ce4c-4b01-955f-367ba45645c2" alt="Descripción de la imagen" width="500">
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 7</strong></summary>
+<img src="https://github.com/user-attachments/assets/26a6112a-d25a-4745-9294-bff4818a03a8" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/e9f878b0-e3eb-4dd7-976a-ec8676d9c7fb" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 8</strong></summary>
+<img src="https://github.com/user-attachments/assets/dcf17774-db4e-4e41-8968-7fdd1fed47d5" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/55747c62-6fdf-4b22-8208-337b3c16094e" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 9</strong></summary>
+<img src="https://github.com/user-attachments/assets/24b87158-1428-4fc5-8738-fa2a8761a9f0" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/904120e6-01a0-45ef-83fb-653d059a921e" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+
+</details>
+
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado 10</strong></summary>
+<img src="https://github.com/user-attachments/assets/9e59fba2-1fd4-4fd9-bfea-ad677ef3da64" alt="Descripción de la imagen" width="600">
 </details>
+
+
 <details>
 <summary><strong>Ejemplo Pizzería</strong></summary>
+<img src="https://github.com/user-attachments/assets/ad91e55f-bd69-4127-8ea6-bd7e584010f9" alt="Descripción de la imagen" width="600">
+
+<details>
+<summary><strong>Casos de Uso (hecho por el profe)</strong></summary>
+<img src="https://github.com/user-attachments/assets/bf1d8d11-d0af-4d94-a3c2-bcd92731a9e1" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+
+</details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
+
+</details>
+
+</details>
+
+
 <details>
 <summary><strong>Enunciado Semáforos</strong></summary>
+<p>Modelar, un semáforo. Este puede estar activo o intermitente. Cuando esta activo permanece 45 segundos rojo, a continuación 3 segundos amarillo y luego 15 segundos verde y 3 segundos amarillo y vuelve a empezar el ciclo. Entre las 0 y 6 horas de la madrugada permanece intermitente. Inicialmente se inicia en rojo.</p>
+
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+<img src="https://github.com/user-attachments/assets/80002f53-c750-48dc-a4f9-c57cbe3ce4d6" alt="Descripción de la imagen" width="500">
 </details>
+
+<details>
+<summary><strong>Maquinas de Estados</strong></summary>
 </details>
+
+</details>
+
+
+</details>
+
