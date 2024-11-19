@@ -465,7 +465,6 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 
 <details>
   <summary><strong>Teoría</strong></summary>
-</br>
   <details>
     <summary><strong>Módulo 1</strong></summary>
     </br>
@@ -601,7 +600,6 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 
 <details>
   <summary><b>Práctica</b></summary>
-</br>
   <details>
     <summary><b>TP1: Manejo de comandos, directorios y archivos</b></summary>
     <!-- Contenido del TP1 -->
@@ -649,4 +647,69 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
   <!-- Enlaces o notas relacionadas con los videos -->
     <p>Canal de la <b>teoría</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@rodriguezlisardoluis3893/videos" target="_blank"><b>Ver</b></a></p>
     <p>Canal de la <b>practica</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@sistemasoperativosutnfrlp4917" target="_blank"><b>Ver</b></a></p>
+</details>
+
+<a name="analisis-de-sistemas-de-informacion"></a>
+# Analisis de sistemas de informacion
+
+<details>
+<summary><strong>Guia de trabajos practicos</strong></summary>
+
+<p><b>Guia de trabajos Practicos: </b><a href="https://modsfire.com/oN5BJq6w9WEsb3W"_blank"><b>Descargar</b></a></p>
+<details>
+<summary><strong>Enunciado 1</strong></summary>
+<img src="https://github.com/user-attachments/assets/13dfb2b3-4ff9-4408-bfbb-e40e0593ccd2" alt="Descripción de la imagen" width="600">
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+<img src="https://github.com/user-attachments/assets/085f4b8b-4cbc-4b45-983a-9e8788fe1118" alt="Descripción de la imagen" width="500">
+</details>
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+<img src="https://github.com/user-attachments/assets/93f66959-afac-4099-a680-a35e6cebbb38" alt="Descripción de la imagen" width="500">
+</details>
+<details>
+<summary><strong>Maquinas de Estado</strong></summary>
+</details>
+</details>
+<details>
+<summary><strong>Enunciado 3</strong></summary>
+<img src="https://github.com/user-attachments/assets/2667c5ee-a7a0-463f-8069-48f19d4ec090" alt="Descripción de la imagen" width="600">
+<details>
+<summary><strong>Casos de Uso</strong></summary>
+</details>
+<details>
+<summary><strong>Diagrama de Clases</strong></summary>
+</details>
+<details>
+<summary><strong>Maquinas de Estado</strong></summary>
+<img src="https://github.com/user-attachments/assets/34938ad0-5ea6-4a05-ae3c-a321a4b3668d" alt="Descripción de la imagen" width="500">
+</details>
+</details>
+<details>
+<summary><strong>Enunciado 4</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 5</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 6</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 7</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 8</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 9</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado 10</strong></summary>
+</details>
+<details>
+<summary><strong>Ejemplo Pizzería</strong></summary>
+</details>
+<details>
+<summary><strong>Enunciado Semáforos</strong></summary>
+</details>
 </details>
