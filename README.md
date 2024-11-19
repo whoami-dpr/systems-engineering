@@ -1,4 +1,4 @@
-# Systems Engineering
+# Ingenieria en Sistemas
 
 Siempre he creído que las personas autodidactas son las que cambian el mundo, porque tienen la capacidad de tomar sus propias observaciones de su aprendizaje. Por eso, he decidido compartir todos mis recursos, para que quienes quieran aprender puedan acceder a ellos y estudiarlos libremente. En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero en Sistemas. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
 
@@ -444,7 +444,6 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 
 </details>
 </details>
-
 <details>
   <summary><strong>6. Estructuras homogéneas - Arreglos</strong></summary>
 
@@ -463,24 +462,98 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 # Sistemas Operativos
 
 <details>
-  <summary>Teoría</summary>
+  <summary><b>Teoría</b></summary>
 </br>
   <details>
-    <summary>Módulo 1</summary>
+    <summary><b>Módulo 1</b></summary>
     </br>
     <details>
-      <summary><b>Clase 1 (software libre, licencias, distribuciones)</b></summary>
+      <summary><b>Clase 1 (Software libre, licencias y distribuciones)</b></summary>
       <br>
-      <p>¿Que significa Software Libre?</p>
-      ![image](https://github.com/user-attachments/assets/01f884e3-7118-46e5-9210-00bac40cff41)
-      ![image](https://github.com/user-attachments/assets/ca083ff2-bfcf-4ed6-a27d-fb7bb4d8d34f)
-      ![image](https://github.com/user-attachments/assets/996d7195-f41b-45f6-8aad-979295d150fa)
+      <p>¿Que significa <b>Software Libre</b>?</p>
       
+  ![image](https://github.com/user-attachments/assets/01f884e3-7118-46e5-9210-00bac40cff41)
+  ![image](https://github.com/user-attachments/assets/ca083ff2-bfcf-4ed6-a27d-fb7bb4d8d34f)
+  ![image](https://github.com/user-attachments/assets/996d7195-f41b-45f6-8aad-979295d150fa)
+  ![image](https://github.com/user-attachments/assets/6f12f294-d87d-4985-bd78-8c996b1fb517)
+  ![image](https://github.com/user-attachments/assets/54ab721d-19cd-4b69-8bac-9dcdc0ee4c67)
+  ![image](https://github.com/user-attachments/assets/f5822d94-c8e3-4c09-b502-11389b792e42)
+  ![image](https://github.com/user-attachments/assets/bb0dd18f-8d03-4271-957b-e47b9697b73d)
+  ![image](https://github.com/user-attachments/assets/350d7f87-4fda-406b-a0ff-e644fefc3c53)
+  ![image](https://github.com/user-attachments/assets/cf3f7d21-3a94-4534-aad3-e5d4028add38)
   </details>
-  </details>
-
+  
   <details>
-    <summary>Módulo 2</summary>
+    </br>
+    <summary><b>Clase 2 (Sistemas Operativos)</b></summary>  
+    <p>Un <b>Sistema Operativo (SO)</b> es un conjunto de programas de un sistema informático que <b>gestiona los recursos del hardware y provee servicios a los programas de aplicación de software</b>. Este mismo se encarga de actuar como intermediario entre el hardware y las aplicaciones.</p>
+    <p>Podemos analizar los tres componentes principales involucrados en el entorno de los sistemas operativos: <b>hardware, software y personas</b>.</p>
+    <p>El <b>Hardware</b> incluye todos los componentes físicos de la computadora que el sistema operativo administra. El sistema operativo actúa como un puente entre el hardware y la aplicaciones que lo utilizan. El <b>Software</b> en el contexto de sistemas operativos incluye tanto el propio sistema operativo como las aplicaciones que interactúan con él. En cuanto a las <b>Personas</b> se incluyen los usuarios y administradores que interactúan con el sistema operativo, así como los desarrolladores que crean software para él.</p>
+    <p>Entonces el sistema operativo se divide en:
+    </p>
+    
+- Hardware: Componentes físicos como memoria, disco duro, etc.
+- Software: Incluye el núcleo (kernel) y aplicaciones.
+- Personas: Usuarios, administradores y desarrolladores.
+ 
+<p>El sistema operativo se divide en capas: hardware, núcleo, aplicaciones, interfaz, etc.</p>
+    
+<img src="https://github.com/user-attachments/assets/e86c0f8a-65c5-4a58-98ef-e4b32bd28f53" alt="Descripción de la imagen" width="600">
+</br>
+<img src="https://github.com/user-attachments/assets/beb89d78-c67b-4c99-9617-31b797ec4601" alt="Descripción de la imagen" width="600">
+ <p>El Sistema Operativo tiene <b>2</b> roles principales:</p>
+
+ - <b>Interfaz con el hardware: </b>
+    - Añade características no existentes en el HW.
+    - Oculta características/inconvenientes del HW.
+    - Ofrece una máquina extendida.
+- <b>Administrador de recursos: </b>
+    - Concede recursos de forma segura, justa y eficiente.
+    - No realiza trabajo productivo o función útil por si mismo.
+ </br>
+<p>Principalmente el Sistema Operativo funciona como una interfaz entre el usuario, las aplicaciones, y el hardware de un sistema computacional. Este actúa como mediador, proporcionando un entorno en el cual las aplicaciones pueden ejecutarse y el hardware puede ser utilizado de manera eficiente y segura. <b>Lo vemos como una capa que envuelve al hardware.</b></p>
+
+<img src="https://github.com/user-attachments/assets/f5348bc8-7126-48e3-bf00-fd2765f56a59" alt="Descripción de la imagen" width="400">
+
+- <b>Nos ofrece una maquina abstracta con otras características:</b>
+    - Oculta detalles incomodos del hardware.
+    - Amplia características no presentes en el hardware.
+
+- <b>¿Qué aspecto tiene la interfaz?</b>
+    - Texto <b>(CLI = Command Line Interface).</b>
+    - Gráfica <b>(GUI = Graphical User Interface).</b>
+    - <b>Servicios de programación (API)</b>
+    
+<details>
+    <summary><b>Ejemplo de CLI</b></summary>
+    </br>
+
+<img src="https://github.com/user-attachments/assets/b1ddfd9f-e017-4cb5-8ba8-bb058ee9e878" alt="Descripción de la imagen" width="400">
+
+</details>
+
+<details>
+    <summary><b>Ejemplo de GUI</b></summary>
+    </br>
+    
+    <img src="https://github.com/user-attachments/assets/313ee92b-afea-40c4-89ec-1758d1f4ccd8" alt="Descripción de la imagen" width="400">
+
+</details>
+
+- <b>Qué ganamos interponiendo esta interfaz entre los programas y el hardware</b>
+    - <b>Usabilidad</b>: La interfaz es más cómoda que el HW
+    - <b>Seguridad</b>: Se ocultan vulnerabilidades del interior del hardware
+    - <b>Portabilidad</b>: Independencia del hardware
+    - <b>Interoperabilidad</b>:** Podemos compartir información con otros sistemas que usen la misma interfaz
+    - <b>Mantenibilidad</b>: Podemos hacer mejoras o adaptaciones dentro del SO sin obligar a hacer cambios en los programas de usuario
+    - <b>Productividad</b>: por todo lo anterior
+
+ </details>
+  
+ </details>
+
+ <details>
+    <summary><b>Módulo 2</b></summary>
     </br>
     
   </details>
@@ -488,56 +561,56 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
   <details>
     <summary>Apuntes</summary>
     </br>
-    <!-- Contenido de Apuntes -->
+    
   </details>
 </details>
 
 <details>
-  <summary>Práctica</summary>
+  <summary><b>Práctica</b></summary>
 </br>
   <details>
-    <summary>TP1: Manejo de comandos, directorios y archivos</summary>
+    <summary><b>TP1: Manejo de comandos, directorios y archivos</b></summary>
     <!-- Contenido del TP1 -->
   </details>
 
   <details>
-    <summary>TP2: Scripts</summary>
+    <summary><b>TP2: Scripts</b></summary>
     <!-- Contenido del TP2 -->
   </details>
 
   <details>
-    <summary>TP3: Scripts</summary>
+    <summary><b>TP3: Scripts</b></summary>
     <!-- Contenido del TP3 -->
   </details>
 
   <details>
-    <summary>TP4: Administración de CPU – Procesos</summary>
+    <summary><b>TP4: Administración de CPU – Procesos</b></summary>
     <!-- Contenido del TP4 -->
   </details>
 
   <details>
-    <summary>TP5: Semáforos – Hilos – Administración de Memoria</summary>
+    <summary><b>TP5: Semáforos – Hilos – Administración de Memoria</b></summary>
     <!-- Contenido del TP5 -->
   </details>
 
   <details>
-    <summary>TP6: Administración e instalación de servicios en Linux</summary>
+    <summary><b>TP6: Administración e instalación de servicios en Linux</b></summary>
     <!-- Contenido del TP6 -->
   </details>
 
   <details>
-    <summary>TP7: File System</summary>
+    <summary><b>TP7: File System</b></summary>
     <!-- Contenido del TP7 -->
   </details>
 
   <details>
-    <summary>Parciales</summary>
+    <summary><b>Parciales</b></summary>
     <!-- Contenido de Parciales -->
   </details>
 </details>
 
 <details>
-  <summary>Videos de las clases</summary>
+  <summary><b>Videos de las clases</b></summary>
   </br>
   <!-- Enlaces o notas relacionadas con los videos -->
     <p>Canal de la <b>teoría</b> Sistemas Operativos UTN FRLP: <a href="https://www.youtube.com/@rodriguezlisardoluis3893/videos" target="_blank"><b>Ver</b></a></p>
