@@ -536,7 +536,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
     <summary><b>Ejemplo de GUI</b></summary>
     </br>
     
-    <img src="https://github.com/user-attachments/assets/313ee92b-afea-40c4-89ec-1758d1f4ccd8" alt="Descripción de la imagen" width="400">
+  <img src="https://github.com/user-attachments/assets/313ee92b-afea-40c4-89ec-1758d1f4ccd8" alt="Descripción de la imagen" width="400">
 
 </details>
 
