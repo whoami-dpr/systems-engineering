@@ -13,6 +13,8 @@ Aunque es posible que no necesites profundizar tanto como yo en las materias bá
 Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, voy a dejar un espacio adicional donde, en cada materia, iré subiendo cosas que fui aprendiendo por mi cuenta. Es de esperar que no tenga todo el contenido que exista, por lo que si quieres colaborar de alguna forma puedes hacer un pull request.
 </p>
 
+---
+
 <h2>Creditos</h2>
 <p>
 Todos los creditos van para todas las personas que ayudaron, colaboraron e hicieron que este repositorio tenga los contenidos que tiene.
