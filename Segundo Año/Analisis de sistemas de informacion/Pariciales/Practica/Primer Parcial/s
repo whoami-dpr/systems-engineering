@@ -1,1 +1,31 @@
+Ejemplo Parcial ASI 
 
+// PROBLEMA
+El conductor debe acudir al Centro Emisor de Licencias más cercano a su domicilio. El trámite se inicia cuando presenta la documentación requerida: DNI, libre deuda de infracciones, certificado Nacional de Antecedentes de Tránsito (CeNaT), certificado de curso teórico. 
+
+El personal administrativo debe corroborar la documentación (que se hayan adjuntado todas las copias requeridas, que sean copias fieles de los originales, etc.). Si hay algo incorrecto, el proceso finaliza. En caso contrario, se crea un nuevo trámite: se registran los datos especificados en la Ley 24.449, se consigna la categoria de licencia que solicita el conductor (automóvil, motocicleta, camión, maquinaria agrícola, etc.), y se completan los demás pasos necesarios para la creación del trámite. 
+
+Al finalizar la creación del trámite, el personal administrativo toma una fotografía al conductor. La fotografia debe tomarse tantas veces como sea necesario, hasta que cumpla con los requisitos (ojos abiertos, mentón no llevado hacia el pecho, etc.). Luego se guarda la foto, y se deriva el conductor a la evaluación psico-fisica. Mientras tanto, el personal administrativo arma el legajo del trámite. 
+
+Una vez que el profesional médico haya registrado el resultado de la evaluación, y que el legajo esté completo, se procede de la siguiente manera: 
+
+Si el conductor no es apto psico-fisicamente, el personal administrativo cierra el trámite por incapacidad. 
+
+Si es apto, el conductor debe presentarse el examen teórico, que es un multiple choice con un tiempo limite de 45 minutos. El instructor vial a cargo, debe registrar el resultado del mismo. Si desaprueba el teórico, el conductor debe esperar 5 días para volver a presentarse. Puede presentarse las veces que quiera, pues el trámite queda abierto. Pero siempre debe respetar los 5 días de separación entre cada intento.
+
+Cuando aprueba el teórico, el conductor debe rendir el examen práctico, en la pista. El resultado es registrado por un instructor vial. Si desaprueba el examen práctico, el personal administrativo cierra el trámite por práctica insuficiente, y el proceso termina. El conductor puede iniciar otro trámite para obtener la licencia, cuando lo desee.
+
+Después de una semana de haber aprobado todos los exámenes, el conductor vuelve al Centro Emisor. En el sector de Caja se le cobran los sellados, y el personal administrativo le entrega su LNC. Dicha LNC es impresa, plastificada y codificada por el personal administrativo durante esa semana de espera. Finalmente, el conductor firma su legajo, dando su conformidad al recibir la LNC. 
+
+//CONSIGNAS 
+Se pide: 
+1) Realizar un diagrama de actividades en UML que represente al proceso descripto. 
+
+2) Realizar un diagrama de requerimientos en SysML para un sistema de información que gestione: conductores, trámites, resultados de exámenes (teóricos y prácticos), evaluaciones psico-fisicas y licencias otorgadas. Tenga en cuenta, además, que: 
+El sistema debe imprimir la LNC respetando el formato (tamaños, colores, etc.) normado en la Disposición 108/10 de la Agencia Nacional de Seguridad Vial del Ministerio del Interior de la Nación 
+El sistema debe proporcionar mensajes de error que sean informativos y orientados a usuario final. 
+El sistema debe responder una consulta de un trámite en a lo sumo 2,5 segundos.
+El sistema no debe permitir iniciar un trámite de nueva licencia, si existe una licencia anterior vigente.
+El sistema debe calcular el plazo de vigencia de cada LNC, que puede ir desde 180 días hasta 5 años, dependiendo de la edad, la aptitud física y otros factores.
+
+3) Realizar un diagrama de casos de uso de negocio para el sistema de información modelado en el inciso anterior.
