@@ -13,8 +13,6 @@ Aunque es posible que no necesites profundizar tanto como yo en las materias bá
 Voy a ir dejando los recursos sobre cada año en el que fui cursando. Además, voy a dejar un espacio adicional donde, en cada materia, iré subiendo cosas que fui aprendiendo por mi cuenta. Es de esperar que no tenga todo el contenido que exista, por lo que si quieres colaborar de alguna forma puedes hacer un pull request.
 </p>
 
----
-
 <h2>Creditos</h2>
 <p>
 Todos los creditos van para todas las personas que ayudaron, colaboraron e hicieron que este repositorio tenga los contenidos que tiene.
@@ -403,7 +401,7 @@ Para su invocacion, los procedimientos se invocan a traves de su nombre acompañ
 
 <details>
 
-<summary>Representación grafica</summary>
+<summary><strong>Representación grafica</strong></summary>
 
 ![image](https://github.com/user-attachments/assets/65de740e-4db3-4efa-98a8-f4d854f6d3f1)
 ![image](https://github.com/user-attachments/assets/2adbecf1-c2a0-41d3-8c7b-ec5f41ef0433)
@@ -464,13 +462,13 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 # Sistemas Operativos
 
 <details>
-  <summary><b>Teoría</b></summary>
+  <summary><strong>Teoría</strong></summary>
 </br>
   <details>
-    <summary><b>Módulo 1</b></summary>
+    <summary><strong>Módulo 1</strong></summary>
     </br>
     <details>
-      <summary><b>Clase 1 (Software libre, licencias y distribuciones)</b></summary>
+      <summary><strong>Clase 1 (Software libre, licencias y distribuciones)</strong></summary>
       <br>
       <p>¿Que significa <b>Software Libre</b>?</p>
       
@@ -487,7 +485,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
   
   <details>
     </br>
-    <summary><b>Clase 2 (Sistemas Operativos)</b></summary>  
+    <summary><strong>Clase 2 (Sistemas Operativos)</strong></summary>  
     <p>Un <b>Sistema Operativo (SO)</b> es un conjunto de programas de un sistema informático que <b>gestiona los recursos del hardware y provee servicios a los programas de aplicación de software</b>. Este mismo se encarga de actuar como intermediario entre el hardware y las aplicaciones.</p>
     <p>Podemos analizar los tres componentes principales involucrados en el entorno de los sistemas operativos: <b>hardware, software y personas</b>.</p>
     <p>El <b>Hardware</b> incluye todos los componentes físicos de la computadora que el sistema operativo administra. El sistema operativo actúa como un puente entre el hardware y la aplicaciones que lo utilizan. El <b>Software</b> en el contexto de sistemas operativos incluye tanto el propio sistema operativo como las aplicaciones que interactúan con él. En cuanto a las <b>Personas</b> se incluyen los usuarios y administradores que interactúan con el sistema operativo, así como los desarrolladores que crean software para él.</p>
@@ -550,7 +548,8 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
     - <b>Mantenibilidad</b>: Podemos hacer mejoras o adaptaciones dentro del SO sin obligar a hacer cambios en los programas de usuario
     - <b>Productividad</b>: por todo lo anterior
 
-**📝 Nota:** Los sistemas operativos como Windows se comenzaron a programar en C para que sean más portables.
+> [!NOTE]
+> Los sistemas operativos como Windows se comenzaron a programar en C para que sean más portables. Esto debido a que permite escribir código más independiente del hardware, fácil de adaptar a nuevas arquitecturas y más eficiente que ensamblador. Además, facilita el mantenimiento y la escalabilidad gracias a sus herramientas estándar y balance entre control del hardware y legibilidad.
 
 El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 - Procesos y Recursos:
@@ -561,12 +560,32 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 - El SO debe determinar a quien le entrega recursos, cantidad, en que momento, por cuanto tiempo.
 - Por todo estos puntos debemos tener: <b>Políticas de gestión de recursos</b>.
 
+<b>Criterios que deben cumplir las políticas del SO - seguridad:</b>
+- Optimizar el rendimiento del sistema.
+- Justicia en el reparto, evitar acaparamiento del algún recurso.
+- Garantizar la Seguridad del sistema (confidencialidad, Integridad, disponibilidad).
+
+<b>No podemos dar el máximo rendimiento y al mismo tiempo dar un reparto justo</b>
+
+ </details>
+  
+ <details>
+    <summary><strong>Clase 3-4-5 (Generaciónes de los SO)</strong></summary>
+    
+- Generación 0 (2IGM)
+    - Surgen de la guerrera, de la mano de Alan Turing
+    - Eran maquinas electromecánicas
+    - Las primera computadora fue la ENIAC, después las maquinas de Turing, después las Colosas (Mark 1 y Mark 2)
+    - No tenían SOs
+    - Se hacían solo cálculos numéricos
+    - La memoria se manejaba con registros
+    - Se manejaba con ceros y unos, cada cero y uno se representaba con una válvula, por eso antes eran muy grandes las computadoras
  </details>
   
  </details>
 
  <details>
-    <summary><b>Módulo 2</b></summary>
+    <summary><strong>Módulo 2</strong></summary>
     </br>
     
   </details>
