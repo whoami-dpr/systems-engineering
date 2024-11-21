@@ -1,6 +1,4 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
-Clear
-
 
 # Ingenieria en Sistemas
 
