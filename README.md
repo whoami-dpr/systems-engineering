@@ -1,3 +1,6 @@
+[![Discord server](https://img.shields.io/discord/988743885121548329?color=%235865F2&logo=discord&logoColor=%23fff)](https://discord.gg/yWRr2YnD9c)
+
+
 # Ingenieria en Sistemas
 
 Siempre he creído que las personas autodidactas son las que cambian el mundo, porque tienen la capacidad de tomar sus propias observaciones de su aprendizaje. Por eso, he decidido compartir todos mis recursos, para que quienes quieran aprender puedan acceder a ellos y estudiarlos libremente. En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero en Sistemas. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
