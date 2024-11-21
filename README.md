@@ -462,6 +462,79 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
 # Álgebra y Geometría Analítica
 <p>Contenido en desarrollo...</p>
 
+<a name="analisis-matematico-2"></a>
+# Analisis Matematico 2
+
+<details>
+    <summary><strong>Módulo 1<strong></summary>
+</details>
+
+<details>
+    <summary><strong>Módulo 2<strong></summary>
+        <details>
+        <summary><strong>Integrales Múltiples<strong></summary>
+            <details>
+                <summary><strong>Unidad 10 (Integrales dobles)</strong></summary>
+                <details>
+                <summary><strong>Integrales dobles en coordenadas Cartesianas</strong></summary>
+                    <details>
+                    <summary><strong>Definicion</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/77c65c3d-9b2e-4638-9846-1ce50e9ecb77" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/e203b30f-9740-4d89-95e5-898ce4d73e2c" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                    <summary><strong>Tipos de regiones</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/dacbf8e7-ccbf-40d4-8f98-92437580ad83" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/94e3740e-36a0-4bbf-b330-84e9d085a4e2" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/666fcba4-49e8-46a8-a3ec-45b03babeb8e" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                <summary><strong>Notas Mías</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/0b8d19a0-89c7-4773-9caa-127d9c64b82b" alt="Descripción de la imagen" width="700">
+                    <img src="https://github.com/user-attachments/assets/d027c515-5f58-4ac4-9462-aad2a30d5116" alt="Descripción de la imagen" width="700">
+                    <img src="https://github.com/user-attachments/assets/c6b96082-04a4-48a0-8e17-f3d8108c6ecc" alt="Descripción de la imagen" width="700">
+                    <img src="https://github.com/user-attachments/assets/f6a9bf7c-5b12-4a5f-8b4b-e73cfa1b7e21" alt="Descripción de la imagen" width="700">
+                </details>
+                </details>
+                <details>
+                <summary><strong>Integrales dobles en coordenadas Polares</strong></summary>
+                <details>
+                    <summary><strong>Sistema de Coordenadas Polares</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/f8e3dc6b-0bab-424c-8242-13ed822fd7b4" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                    <summary><strong>Definición</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/f806c2ae-dbb1-46c4-a983-2e2314143a74" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/575c60f9-d620-40f6-91ed-40114edcaf27" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/fc7ecc77-4629-410a-b587-5989fadeb639" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                    <summary><strong>Tipos de Regiones</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/2a9003a7-61a3-47f9-9a4e-1df4215f53f0" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                    <summary><strong>Parámetros singulares de curvas en coordenadas polares</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/9f195e77-9426-4c41-a077-eaab662307a8" alt="Descripción de la imagen" width="600">
+                    <img src="https://github.com/user-attachments/assets/93832349-54da-475c-8feb-9c53fdf82268" alt="Descripción de la imagen" width="600">
+                </details>
+                </details>
+                <details>
+                <summary><strong>Propiedades de las integrales dobles</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/88c6e679-4230-46c1-ac57-656e36be74cd" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                <summary><strong>Calculo de Volumen</strong></summary>
+                    <img src="https://github.com/user-attachments/assets/d34a3e6c-da7d-4832-b728-3fd9a8f6feb1" alt="Descripción de la imagen" width="600">
+                </details>
+                <details>
+                <summary><strong>Area de superficies Alabeadas</strong></summary>
+                </details>
+            </details>
+            <details>
+                <summary><strong>Unidad 10 (Integrales triples)</strong></summary>
+        </details>
+</details>
+
 <a name="sistemas-operativos"></a>
 # Sistemas Operativos
 
@@ -833,13 +906,12 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 
 <details>
 <summary><strong>Enunciado 10</strong></summary>
-<img src="https://github.com/user-attachments/assets/9e59fba2-1fd4-4fd9-bfea-ad677ef3da64" alt="Descripción de la imagen" width="600">
+<img src="https://github.com/user-attachments/assets/ad91e55f-bd69-4127-8ea6-bd7e584010f9" alt="Descripción de la imagen" width="600">
 </details>
-
 
 <details>
 <summary><strong>Ejemplo Pizzería</strong></summary>
-<img src="https://github.com/user-attachments/assets/ad91e55f-bd69-4127-8ea6-bd7e584010f9" alt="Descripción de la imagen" width="600">
+<img src="https://github.com/user-attachments/assets/9e59fba2-1fd4-4fd9-bfea-ad677ef3da64" alt="Descripción de la imagen" width="600">
 
 <details>
 <summary><strong>Casos de Uso (hecho por el profe)</strong></summary>
@@ -876,4 +948,6 @@ El <b>Sistema Operativo (SO)</b> como administrador de recursos:
 
 
 </details>
+
+
 
