@@ -534,6 +534,7 @@ Ubicación de almacenamiento: internas (RAM) o externas (almacenamiento secundar
                 <summary><strong>Unidad 10 (Integrales triples)</strong></summary>
         </details>
 </details>
+</details>
 
 <a name="sistemas-operativos"></a>
 # Sistemas Operativos
