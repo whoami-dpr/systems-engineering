@@ -1,0 +1,58 @@
+Resolucion SegundoParcial S21-2024-1eraFecha
+
+Archivo S21-2024.c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    for (int i = 0; i < 2; i++) {
+        int var = fork();
+        if (var == 1) {
+            printf("ERROR");
+            return -1;
+        } else if (var == 0) {
+            printf("PID Propio: %d, PID Padre: %d \n", getpid(), getppid());
+            break;
+        }
+    }
+}
+
+
+Archivo S21-2024.sh
+
+#!/bin/bash
+echo "A. Compilar punto 1"
+echo "B. Ejecutar el punto 1 y guardar el texto resultante en archivo_resultante.txt"
+echo "C. Tarea Programada"
+echo "D. Si quiere salir"
+read -p "Ingrese una opcion: " op
+
+case $op in
+        "A")
+                echo "--------------------"
+                echo "Compilando punto 1"
+                gcc -o S21-2024 S21-2024.c
+                ./S21-2024.sh
+        ;;
+        "B")
+                echo "-------------------"
+                echo "Ejecutando punto 1"
+                ./S21-2024
+        ;;
+        "C")
+                touch crontab.cron
+                echo "*/4 * 3 1,5 * /home/usuario/S21-2024" >> crontab.cron
+                ./S21-2024
+        ;;
+        "D")
+                echo "Saliendo"
+                exit
+        ;;
+        *)
+                echo "Ingrese una opcion Valida"
+                ./S21-2024.sh
+        ;;
+esac
+
