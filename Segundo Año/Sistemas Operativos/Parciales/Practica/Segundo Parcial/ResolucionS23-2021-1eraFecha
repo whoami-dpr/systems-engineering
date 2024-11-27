@@ -1,6 +1,6 @@
-Resolucion SegundoParcial S21-2021-1eraFecha
+Resolucion SegundoParcial S23-2021-1eraFecha
 
-Archivo S21-2024.c
+Archivo S23-2024.c
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +16,7 @@ int main(){
         }
 }
 
-Archivo S21-2021.sh
+Archivo S23-2021.sh
 
 #!/bin/bash
 echo "a. Si quiere compilar el punto 1"
@@ -28,19 +28,19 @@ case $op in
         "a")
                 echo "-------------"
                 echo "Compilando punto 1"
-                gcc -o S21-2021 S21-2021.c
-                ./S21-2021.sh
+                gcc -o S23-2021 S23-2021.c
+                ./S23-2021.sh
         ;;
         "b")
                 echo "------------"
                 echo "Ejecuntando punto 1"
-                ./S21-2021
-                ./S21-2021.sh
+                ./S23-2021
+                ./S23-2021.sh
         ;;
         "c")
                 touch archivo_resultante.txt
                 echo "* 00 1,4 8 * /home/XXXX/Ejercicios/Parciales/S21-2021.sh" >> archivo_resultante.txt
-                ./S21-2021.sh
+                ./S23-2021.sh
         ;;
         "d")
                 echo "Saliendo"
@@ -48,7 +48,7 @@ case $op in
         ;;
         *)
                 echo "Ingrese una opcion valida"
-                ./S21-2021.sh
+                ./S23-2021.sh
         ;;
 esac
 
