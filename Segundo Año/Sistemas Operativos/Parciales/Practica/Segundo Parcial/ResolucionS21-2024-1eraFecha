@@ -38,7 +38,7 @@ case $op in
         ;;
         "B")
                 echo "-------------------"
-                echo "Ejecutando punto 1"
+                echo "Ejecutando punto 1" > archivo_resultante.txt
                 ./S21-2024
         ;;
         "C")
