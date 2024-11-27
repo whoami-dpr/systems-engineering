@@ -1,6 +1,6 @@
-Resolucion SegundoParcial S21-2024-1eraFecha
+Resolucion SegundoParcial S22-2024-1eraFecha
 
-Archivo S21-2024.c
+Archivo S22-2024.c
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@ int main() {
 }
 
 
-Archivo S21-2024.sh
+Archivo S22-2024.sh
 
 #!/bin/bash
 echo "A. Compilar punto 1"
@@ -33,19 +33,19 @@ case $op in
         "A")
                 echo "--------------------"
                 echo "Compilando punto 1"
-                gcc -o S21-2024 S21-2024.c
-                ./S21-2024.sh
+                gcc -o S22-2024 S22-2024.c
+                ./S22-2024.sh
         ;;
         "B")
                 echo "-------------------"
                 echo "Ejecutando punto 1" > archivo_resultante.txt
-                ./S21-2024
-                ./S21-2024.sh
+                ./S22-2024
+                ./S22-2024.sh
         ;;
         "C")
                 touch crontab.cron
-                echo "*/4 * 3 1,5 * /home/usuario/S21-2024" >> crontab.cron
-                ./S21-2024.sh
+                echo "*/4 * 3 1,5 * /home/XXXX/Ejercicios/Parciales/S21-2024" >> crontab.cron
+                ./S22-2024.sh
         ;;
         "D")
                 echo "Saliendo"
@@ -53,7 +53,7 @@ case $op in
         ;;
         *)
                 echo "Ingrese una opcion Valida"
-                ./S21-2024.sh
+                ./S22-2024.sh
         ;;
 esac
 
