@@ -1,0 +1,5 @@
+1)
+Realice un script que reciba como parametro un directorio y copie en una carpeta llamada bk los archivos de ese directorio que fueron modificados en el anio 2023. Tambien informar por pantalla la cantidad de archivos que fueron copiados
+
+2) 
+Realice un script que reciba como parametro un directorio y guarde en un archivo llamado permisos.txt los nombres de los archivos que tienen permiso de escritura para el grupo y fueron modificados en los ultimos 10 dias. Tener en cuenta los subdirectorios.
