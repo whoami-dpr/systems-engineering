@@ -40,11 +40,12 @@ case $op in
                 echo "-------------------"
                 echo "Ejecutando punto 1" > archivo_resultante.txt
                 ./S21-2024
+                ./S21-2024.sh
         ;;
         "C")
                 touch crontab.cron
                 echo "*/4 * 3 1,5 * /home/usuario/S21-2024" >> crontab.cron
-                ./S21-2024
+                ./S21-2024.sh
         ;;
         "D")
                 echo "Saliendo"
