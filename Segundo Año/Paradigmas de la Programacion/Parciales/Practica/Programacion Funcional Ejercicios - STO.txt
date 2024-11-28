@@ -1,0 +1,276 @@
+------Programacion Funcional Ejercicios------
+
+TP Integrador 2023:
+
+1. Dada una lista de enteros, retorne el promedio de los mismos.
+2. Dada una lista de listas, reemplazar todos los caracteres ‘i’ por la letra ‘y’.
+3. Dada una lista de listas, retorne una lista que contenga los 3eros elementos de
+cada lista, siempre y cuando estos sean mayores a 5.
+4. Dado una lista de listas, concatenar las listas en la que todos sus elementos
+sean pares.
+
+
+Parciales Viejos (2012 a 2023):
+
+Hacer una funcion que:
+
+5. Dada una lista de listas, y una lista, retorne verdadero si esta lista esta incluida en la lista de listas y falso en caso contrario (30-11-12)
+6. Dada una lista de listas, retorne todas las listas de longitud par (15-02-13)
+7. Dada una lista de listas y un numero, retorne las listas en las que dicho numero aparece mas de 2 veces (14-12-12)
+8. Dadas dos listas de numeros de la misma longitud, retorne otra lista que resulte de sumar el 1er elemento de la lista 1 con el 1er elemento de la lista 2, y asi sucesivamente (01-03-13)
+9. Dada una lista de listas, retorne una lista con las reversas de las listas internas (11-12-13)
+10. Dadas dos lista de listas, ambas con misma longitud, retorne la cantidad total de elementos (27-11-13)
+11. Dada una lista de listas de numeros, y un numero, retorne la cantidad de veces que aparece el numero en cada lista (30-11-18)
+12. Dada una lista de listas de numeros, y un numero, retorne la lista eliminando el numero dado (23-11-17)
+13. Dada una lista de listas, retorne una lista con todas las listas concatenadas, eliminando el numero dado (24-11-17)
+14. Dada una lista de listas, retorne una lista con la cantidad de elementos mayores a 4 que tiene cada una de sus listas (16-11-22)
+15. Dada una lista de listas de numeros, y dos numeros, retorne la misma lista de listas reemplazando el primer numero por el segundo (15-11-23)
+16. Dadas dos listas de listas, ambas con la misma longitud, retorne la cantidad total de elementos (29-11-23)
+17. Dada una lista de listas, retorne la suma de los elementos de la sublista mas larga (29-11-23)
+18. Dada una lista de listas de numeros, retorne una lista con el promedio de sus elementos, solo si la cantidad de elementos es par (17-11-23)
+19. Dada una lista de listas de numeros, retorne una lista con el producto de sus elementos, solo si la cantidad de elementos es impar (17-11-23)
+
+TP6
+20. Dada una lista, retornar la misma lista pero sin elementos repetidos adyacentes
+
+---------------------------------------------
+Resolucion TP Integrador 2023:
+---------------------------------------------
+1.
+--Dada una lista de enteros, retorne el promedio de los mismos.
+
+prom::[int]->float
+prom [ ] = 0
+prom(x:xs)=sumatotal(x:xs)/longitud(x:xs)
+
+sumatotal::[int]->int
+sumatotal [ ] = 0
+sumatotal(x:xs)= x + sumatotal xs
+
+longitud::[int]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+---------------------------------------------
+2.
+--Dada una lista de listas, reemplazar todos los caracteres ‘i’ por la letra ‘y’.
+
+reemplazo::[[a]]->[[a]]
+reemplazo [ ] = [ ]
+reemplazo(xs:xss)= iPorY xs : reemplazo xss
+
+iPorY::[a]->[b]
+iPorY [ ] = [ ]
+iPorY(x:xs)	| x=='i' = 'y' : iPorY xs    --si x es igual a la letra 'i', entonces concateno 'y'
+		| otherwise = x: iPorY xs    --si x NO es igual a la letra 'i', entonces la dejo como esta
+---------------------------------------------
+3.
+--Dada una lista de listas, retorne una lista que contenga los 3eros elementos de
+cada lista, siempre y cuando estos sean mayores a 5.
+
+terceroselementos::[[int]]->[int]
+terceroselementos [ ] = [ ]
+terceroselementos(xs:xss)	| (longitud xs>=3) && (tercero xs 1 > 5) = tercero xs 1 : terceroselementos xss    --uso 1 para arrancar de la pos. 1
+				| otherwise = terceroselementos xss
+
+tercero::[int]->int->int
+tercero [ ] k = 0
+tercero(x:xs) k	| k==3 = x
+		| otherwise = tercero xs (k+1)    --como le envie un k=1 (arriba), va a aumentar de posicion (k+1) hasta llegar al tercero
+
+longitud::[int]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+---------------------------------------------
+4.
+--Dado una lista de listas, concatenar las listas en la que todos sus elementos
+sean pares.
+
+solopares::[[int]]->[[int]]
+solopares [ ] = [ ]
+solopares(xs:xss)	| todopar xs = xs : solopares xss
+			| otherwise = solopares xss
+
+todopar::[int]->bool
+todopar [ ] = true
+todopar(x:xs)	| mod x 2 == 0 = listapar xs    --mod "algo" 2 == 0 para verificar si es par
+		| otherwise = false
+
+---------------------------------------------
+Resolucion Parciales Viejos (2012 a 2023):
+---------------------------------------------
+5. 
+--Dada una lista de listas, y una lista, retorne verdadero si esta lista esta incluida en la lista de listas y falso en caso contrario
+
+listaincluida::[[a]]->[a]->bool
+listaincluida [ ] ys = false	--caso base, si no encuentra la lista, entonces significa que no esta incluida
+listaincluida(xs:xss) ys	| xs == ys = true
+				| otherwise = listaincluida xss ys
+---------------------------------------------
+6.
+--Dada una lista de listas, retorne todas las listas de longitud par
+
+retornepares::[[a]]->[[a]]
+retornepares [ ] = [ ]
+retornepares(xs:xss)	| (mod (longitud xs) 2 == 0) = xs : retornepares xss
+			| otherwise = retornepares xss
+
+longitud::[a]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+---------------------------------------------
+7.
+--Dada una lista de listas y un numero, retorne las listas en las que dicho numero aparece mas de 2 veces
+
+masdedosveces::[[a]]->int->[[a]]
+masdedosveces [ ] k = [ ]
+masdedosveces(xs:xss) k	| (contador xs k > 2) = xs : masdedosveces xss k
+			| otherwise = masdedosveces xss k
+
+contador::[a]->int->int
+contador [ ] k = 0
+contador(x:xs) k	| x==k = 1 + contador xs k
+			| otherwise = contador xs k
+---------------------------------------------
+8.
+--Dadas dos listas de numeros de la misma longitud, retorne otra lista que resulte de sumar el 1er elemento de la lista 1 con el 1er elemento de la lista 
+
+sumarelementos::[int]->[int]->[int]
+sumarelementos [ ] [ ] = [ ]
+sumarelementos(x:xs) (y:ys) = x + y : sumarelementos xs ys
+---------------------------------------------
+9.
+--Dada una lista de listas, retorne una lista con las reversas de las listas internas
+
+reversas::[[a]]->[[a]]
+reversas [ ] = [ ]
+reversas(xs:xss) = listareversa xs : reversas xss
+
+listareversa::[a]->[a]
+listareversa [x] = [x]    --caso base, si queda un solo elemento en la lista, es igual a si mismo
+listareversa(x:xs) = listareversa xs ++ [x]    --invierto orden, y con el ++ concateno una lista de un solo elemento (el [x])
+---------------------------------------------
+10.
+--Dadas dos lista de listas, ambas con misma longitud, retorne la cantidad total de elementos
+
+totalelementos::[[a]]->[[a]]->int
+totalelementos [ ] [ ] = 0
+totalelementos(xs:xss) (ys:yss) = longitudlista xs + longitudlista ys + totalelementos xss yss
+
+longitudlista::[a]->int
+longitudlista [ ] = 0
+longitudlista(x:xs) = 1 + longitudlista xs
+---------------------------------------------
+11.
+--Dada una lista de listas de numeros, y un numero, retornw la cantidad de veces que aparece el numero en cada lista
+
+aparicionesdenumero::[[int]]->int->[int]
+aparicionesdenumero [ ] k = [ ]
+aparicionesdenumero(xs:xss) k = contadordenumero xs k : aparicionesdenumero xss k
+
+contadordenumero::[int]->int->int
+contadordenumero [ ] k = 0
+contadordenumero(x:xs) k	| x == k = 1 + contadordenumero xs k
+				| otherwise = contadordenumero xs k
+---------------------------------------------
+12.
+--Dada una lista de listas de numeros, y un numero, retorne la lista eliminando el numero dado
+
+eliminarnumero::[[int]]->int->[[int]]
+eliminarnumero [ ] k = [ ]
+eliminarnumero(xs:xss) k = eliminar xs k : eliminarnumero xss k
+
+eliminar::[int]->int->[int]
+eliminar [ ] k = [ ]
+eliminar(x:xs) k	| x==k = eliminar xs k    --si x es igual a k, entonces NO se incluye en la nueva lista (se "elimina")
+			| otherwise = x : eliminar xs k    --si x NO es igual a k, entonces SI se incluye en la nueva lista (se "conserva")
+---------------------------------------------
+13.
+--Mismo que el anterior, ejercicio 12
+---------------------------------------------
+14.
+--Dada una lista de listas, retorne una lista con la cantidad de elementos mayores a 4 que tiene cada una de sus listas
+
+mayoresa4::[[a]]->[int]
+mayoresa4 [ ] = [ ]
+mayoresa4(xs:xss) = cantmayora4 xs : mayoresa4 xss
+
+cantmayora4::[a]->int
+cantmayora4 [ ] = 0
+cantmayora4(x:xs)	| (x > 4) = 1 + cantmayora4 xs
+			| otherwise = cantmayora4 xs
+---------------------------------------------
+15.
+--Dada una lista de listas de numeros, y dos numeros, retorne la misma lista de listas reemplazando el primer numero por el segundo
+
+primeroporsegundo::[[int]]->int->int->[[int]]
+primerporsegundo [ ] k m = [ ]
+primerporsegundo(xs:xss) k m = reemplazar xs k m : primerporsegundo xss k m
+
+reemplazar::[int]->int->int->[int]
+reemplazar [ ] k m = [ ]
+reemplazar(x:xs) k m	| x==k = m : reemplazar xs k m
+			| otherwise = x : reemplazar xs k m
+---------------------------------------------
+16.
+--Mismo que el ejercicio 10
+---------------------------------------------
+17.
+--Dada una lista de listas, retorne la suma de los elementos de la sublista mas larga
+
+sublistamaslarga::[[a]]->int
+sublistamaslarga [ ] = 0
+sublistamaslarga(xs:xss)	| (longitud xs > longitud(sublistamaslarga xss)) = sumarelementos xs
+				| otherwise = sublistamaslarga xss
+
+longitud::[a]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+
+sumarelementos::[int]->int
+sumarelementos [ ] = 0
+sumarelementos(x:xs) = x + sumarelementos xs
+---------------------------------------------
+18.
+--Dada una lista de listas de numeros, retorne una lista con el promedio de sus elementos, solo si la cantidad de elementos es par
+
+prompares::[[int]]->[float]
+prompares [ ] = [ ]
+prompares(xs:xss)	| (mod (longitud xs) 2 == 0) = (sumarelementos xs / longitud xs) : prompares xss
+			| otherwise = prompares xss
+
+longitud::[int]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+
+sumarelementos::[int]->int
+sumarelementos [ ] = 0
+sumarelementos(x:xs) = x + sumarelementos xs
+---------------------------------------------
+19.
+--Dada una lista de listas de numeros, retorne una lista con el producto de sus elementos, solo si la cantidad de elementos es impar
+
+prodimpares::[[int]]->[int]
+prodimpares [ ] = [ ]
+prodimpares(xs:xss)	| (mod (longitud xs) 2 == 1) = producto xs : prodimpares xss
+
+producto::[int]->int
+producto [ ] = 1
+producto(x:xs) = x * producto xs
+
+longitud::[int]->int
+longitud [ ] = 0
+longitud(x:xs) = 1 + longitud xs
+---------------------------------------------
+20.
+--Dada una lista, retornar la misma lista pero sin elementos repetidos adyacentes
+
+eliminarepetidos::[int]->[int]
+eliminarrepetidos [ ] = [ ]
+eliminarrepetidos(x:xs)	| x==head xs = eliminarrepetidos xs
+			| otherwise = x : eliminarrepetidos xs
+
+head::[int]->int
+head(x:xs) = x
+
+
+
