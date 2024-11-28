@@ -1,0 +1,28 @@
+Resolucion ejercicios paradigma funcional sww441:
+
+Dada una lista de listas de enteros devolver una lista con todos los numeros impares.
+
+funcion1:: [[num]]->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss):= funcion2(Xs):funcion1(Xss)
+
+funcion2:: [num]->[num]
+funcion2([]):=[]
+funcion2(X:Xs):= X:funcion2(Xs) if mod X 2 != 0
+	      := funcion2(Xs) otherwise
+
+
+Dada una lista de listas de letras devolver una lista con todas las letras que no son vocales.
+
+funcion1:: [[char]]->[char]
+funcion1([]):=[]
+funcion1(Xs:Xss):= funcion2(Xs):funcion1(Xss)
+
+funcion2:: [char]->[char]
+funcion2([]):=[]
+funcion2(X:Xs):= X:funcion2(Xs) if X != 'A'
+	      := X:funcion2(Xs) if X != 'E'
+              := X:funcion2(Xs) if X != 'I'
+              := X:funcion2(Xs) if X != 'O'
+              := X:funcion2(Xs) if X != 'U'
+	      := funcion2(Xs) otherwise  
