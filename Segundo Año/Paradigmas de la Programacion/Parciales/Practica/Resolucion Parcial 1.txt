@@ -1,0 +1,132 @@
+Resolucion Parcial 1 Paradigmas:
+
+1) Dadas las clases supermercado y producto, con los atributos codigo, precio, stock, desc y rubro:
+	i) Implementar el metodo agregarProducto
+En una aplicacion, hacer:
+	ii) Cargar supermercado con los prod
+	iii) Modificar los precios de un determinado prod y mostrar sus datos
+	iv) Mostrar todos los prod. con stock = 0
+	v) Retornar en un diccionario la cant. de prod. por rubro
+
+
+i) 
+>>agregarProd: unProd
+colProd add: unProd
+
+ii) 
+"Aplicacion Smalltalk supermercado"
+
+TranscriptShell show. 
+flag:= 's'.
+unNom:= Prompter prompt: 'Ingrese nombre del super'.
+super:= Supermercado crear: unNom.
+
+[flag='s'] whileTrue:[
+	listaOpciones:=#(
+	'1) Cargar productos
+	'2) Modificar precios de un producto y ver datos
+	'3) Mostrar productos sin stock
+	'4) Retornar en un diccionario la cant. de prod. por rubro
+	).
+	
+	tmp:= ChoicePrompter choices: (listaOpiones)caption: 'Menu'.
+	opcion:= listaOpciones indexOf: tmp.
+	
+(opcion==1) iFTrue:[
+	flag:= true.
+	[flag] whileTrue:[
+		cod:= (Prompter prompt: 'Ingrese cod del prod')asNumber.
+		pre:= (Prompter prompt: 'Ingrese precio del prod')asNumber.
+		stock:= (Prompter prompt: 'Ingrese stock del prod')asNumber.
+		rubro:= (Prompter prompt: 'Ingrese rubro del prod')asNumber.
+		desc:= Prompter prompt: 'Ingrese descripcion del prod'.
+		flag:= Message confirm: 'Desea cargar otro prod?'
+	].
+].
+
+(opcion==2) ifTrue:[
+	colS:= super verProductos.
+	cod:= (Prompter prompt: 'Ingrese cod del prod. a modificar')asNumber.
+	mod:= colS detect:[:prod | prod verCodigo=cod] ifNone:[nil].
+	[mod=nil] whileTrue:[
+		MessageBox notify: 'Producto no encontrado'.
+		colS:= super verProductos.
+		cod:= (Prompter prompt: 'Ingrese cod del prod. a modificar')asNumber.
+		mod:= colS detect:[:prod | prod verCodigo=cod] ifNone:[nil].
+	].
+	pre ,:= (Prompter prompt:'Ingrese nuevo precio')asNumber.
+	mod modPrecio: pre.
+	Transcript show: 'Nuevo Precio:', (mod verPrecio)displayString.
+].
+
+(opcion==3) ifTrue:[
+	colS:= super verProductos.
+	prod:= colS select:[:prod | prod verStock=0].
+	prod do:[:prod |
+		Transcript show: 'Producto:', (prod verCodigo)displayString;cr;
+		show: 'Rubro:', prod verRubro;cr;
+		show: 'Descripcion:', prod verDesc;cr;
+		show: 'Stock:', prod verStock;cr;
+	].
+].
+
+(opcion==4) ifTrue:[
+	dic:= Dictionary new.
+	colS:= super verProductos.
+	rubros:= colS collect:[:prod | prod verRubro].
+	rubrosolo:= rubros asSet.
+	rubrosolo do:[:elem | dic at:elem put:(rubros ocurrencesOf: elem)].
+	dic KeysDo:[:cla | Transcript show:'El rubro:', cla, 'tiene', (dic at:cla)displayString, 'productos'].
+].
+
+
+2) Utilizando programacion funcional, escribir una funcion donde, dada una lista de listas, permita retornar una lista con la cantidad de elementos mayores a 4 que tiene cada una de sus listas (o sea, listas internas).
+
+//Es decir, contabilizar cuantos elementos superan el 4 en cada una de las lista interna, y devolver dicha cantidad en una lista final//
+
+
+cantmayoresA4::[[int]]->[int]
+cantmayoresA4 []=[]
+cantmayoresA4(xs:xss)	| contarmayoresA4(xs):cantmayoresA4(xss)
+
+contarmayoresA4::[int]->int
+contarmayoresA4 []=0
+contarmayoresA4(x:xs)	| (x > 4) = 1 + contarmayoresA4(xs)
+			| otherwise contarmayoresA4(xs)
+
+
+3)
+//Base de conocimiento:
+
+producto(NUMERO, NUMCATEGORIA, NOMBRE)
+precio(NUMERO, PRECIO)
+stock(NOMBRE, CANT)
+flete(CATEGORIA, PRECIOFLETE)
+categoria(NUMCATEGORIA, CATEGORIA) //m 
+
+i) Genere una regla que me devuelva el nombre y el stock de los productos de la categoria electro que su precio sea mayor a 12500.
+ii) Generar una consulta que me devuelva el nombre, precio y precio de flete de categoria jardin.
+iii) Generar una regla que me devuelva el precio total de la compra de un producto determinado, incluyendo su flete.
+iv) Generar una consulta que me devuelva el codigo, stock y precio de flete de los productos de escritorio.
+v) Generar una consulta que me devuelva descripcion del producto (nombre), precio y precio de flete de un codigo dado. 
+
+
+i) regla1('electro', NOMBRE, STOCK):- categoria(NUMCATEGORIA, 'electro'), producto(NUMERO,NUMCATEGORIA,NOMBRE), stock(NOMBRE, CANT), precio(NUMERO, PRECIO), PRECIO > 12500
+
+ii) flete('jardin', PRECIOFLETE), categoria(NUMCATEGORIA, 'jardin'), producto(NUMERO, NUMCATEGORIA, NOMBRE), precio(NUMERO, PRECIO)
+
+iii) regla2('numero', PRECIOTOTAL):- precio('numero', PRECIO), producto('numero', NUMCATEGORIA,_), categoria(NUMCATEGORIA, CATEGORIA), flete(CATEGORIA, PRECIOFLETE), PRECIOTOTAL=PRECIO+PRECIOFLETE
+
+iv) categoria(NUMCATEGORIA, 'escritorio'), producto(NUMERO, NUMCATEGORIA, NOMBRE), stock(NOMBRE, CANT), flete('escritorio', PRECIOFLETE)
+
+v) producto('numero', NUMCATEGORIA, NOMBRE), precio('numero', PRECIO), categoria(NUMCATEGORIA, CATEGORIA), flete(CATEGORIA, PRECIOFLETE)
+
+
+
+
+ 
+
+
+			
+
+
