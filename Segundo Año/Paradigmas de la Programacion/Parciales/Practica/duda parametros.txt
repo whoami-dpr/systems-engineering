@@ -1,0 +1,10 @@
+Dada una lista de listas de numeros, y dos numeros, retorne la misma lista de listas reemplazando el primer numero por el segundo:
+
+funcion1:: [[num]]->num->num-[[num]]
+funcion1([], K, P):=[]
+funcion1(Xs:Xss, K, P):= funcion2(Xs, K, P):funcion1(Xss, K, P)
+
+funcion2:: [num]->num->num-[num]
+funcion2([], K, P):=[]
+funcion2(X:Xs, K, P):= P:funcion2(Xs, K, P) if X = K
+	      := X:funcion2(Xs, K, P) otherwise 
