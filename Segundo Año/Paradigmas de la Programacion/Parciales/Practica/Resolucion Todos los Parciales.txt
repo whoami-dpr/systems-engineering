@@ -1,0 +1,74 @@
+Resolucion 1era fecha S24:
+
+funcion1:: [[num]]->num->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss, K):= funcion2(Xs, K):funcion1(Xss, K)
+
+funcion2:: [num]->num->num
+funcion2([], K):= 0
+funcion2(X:Xs, K):= 1+funcion2(Xs, K) if X = K
+		    := funcion2(Xs, K) otherwise  
+
+
+Resolucion 1era fecha S21 TEMA1:
+
+funcion1:: [[num]]->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss):= funcion2(Xs):funcion1(Xss)
+
+funcion2:: [num]->[num]
+funcion2([]):=[]
+funcion2(X:Xs):= -X+funcion2(Xs) if MOD 2 X == 0
+	      := X+funcion2(Xs) otherwise
+
+
+
+Resolucion 1era fecha TURNO NOCHE:
+
+funcion1:: [[num]]->num->num->num->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss, K, P, Q):= funcion2(Xs, K,P,Q):funcion1(Xss)
+
+funcion2:: [num]->num->num->num->[num]
+funcion2([], K, P, Q):=[]
+funcion2(X:Xs, K, P, Q):= P:Q:funcion2(Xs, K, P, Q) if X = K
+	      	       := X:funcion2(Xs, K, P, Q) otherwise
+
+
+
+resolucion 1era fecha 16/11/2022:
+
+funcion1:: [[num]]->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss):= funcion2(Xs):funcion1(Xss)
+
+funcion2:: [num]->num
+funcion2([]):=0
+funcion2(X:Xs):= 1+funcion2(Xs) if X>4
+	      := funcion2(Xs) otherwise
+
+
+
+resolucion 1era fecha 30/11/18:
+
+funcion1:: [[num]]->num->[num]
+funcion1([]):=[]
+funcion1(Xs:Xss, K):= funcion2(Xs, K):funcion1(Xss)
+
+funcion2:: [num]->num->num
+funcion2([], K):=0
+funcion2(X:Xs, K):= 1+funcion2(Xs) if X=K
+		 := funcion2(Xs) otherwise
+
+
+
+resolucion 1era fecha Turno Tarde 15/11/23:
+
+funcion1::[[num]]->num->num->[[num]]
+funcion1([], K, P):=[]
+funcion1(Xs:Xss, K, P):= funcion2(Xs, K, P):funcion1(Xss,  K, P)
+
+funcion2:: [[num]]>num->num->[[num]]
+funcion2([], K, P):=[]
+funcion2(Xs:Xss, K, P):= X:P:funcion2(Xss) if X = K
+		      := X:funcion2(Xss) otherwise
