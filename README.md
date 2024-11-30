@@ -1,6 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
 
-## Ingenieria en Sistemas
+# Ingenieria en Sistemas
 
 En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero en Sistemas. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
 
