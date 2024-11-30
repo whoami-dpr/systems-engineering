@@ -1,0 +1,14 @@
+
+
+Práctica:
+
+	- 1er Punto: 
+		- Te daba todos los xi y n y tenias que sacar x y s2 y calcular el intervalo de confianza con t-student, 
+	- 2do Punto: 
+		- Prueba de hipótesis con proporción de dos poblaciones, distribución normal. 
+
+Teoria:
+	- Función densidad de probabilidad. 
+	- Probabilidad axiomática.
+	- Pasos para sacar el intervalo de confianza de cociente de varianzas.
+	- Por qué un estimador tiene que ser eficiente (y más características)?
