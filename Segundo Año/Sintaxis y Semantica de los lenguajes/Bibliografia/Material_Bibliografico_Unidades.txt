@@ -1,0 +1,41 @@
+
+Material Bibliográfico por Unidad
+
+Unidad Temática I: Tipos Abstractos de Datos
+- Joyanes Aguilar, L. Programación en TURBO Pascal 7.0. Madrid: Mc. Graw Hill. (2006).
+- Horowitz, E. Fundamentals of Programming Languages. W.H. Freeman & Company. (1984). Cap. 8.
+- Sebesta, R. Concepts of Programming Languages. Addison-Wesley. (2007). Cap. 11.
+- Barnes, J. Programming in Ada 2012. Cambridge University Press. (2014). ISBN 978-1-107-42481-4.
+- Louden, K. Lenguajes de Programación. Principios y práctica. Ed. Cengage Learning Latin American. (2008).
+
+Unidad Temática II: El lenguaje en el desarrollo de software
+- Hopcroft, J., Motwani, R. y Ullman, J. Introducción a la Teoría de Autómatas, Lenguajes y Computación. Madrid: Addison Wesley–Pearson. (2007). Cap. 1 Sección 5.
+- Brena Pinnero, R. Autómatas y lenguajes. Un enfoque de diseño. Tecnológico de Monterrey. (2003). Cap. 1 Sección 4.
+- Sebesta, R. Concepts of Programming Languages. Addison-Wesley. (2007). Cap. 1 Sección 3 y 4.
+- Ghezzi, C., Jazayeri, M. Programming Language Concepts. Buenos Aires: John Wiley & Sons. (1998). Cap. 9.
+- Horowitz, E. Fundamentals of Programming Languages. W.H. Freeman & Company. (1984). Cap. 2 y 3.
+
+Unidad Temática III: Máquinas de Estado y Autómatas finitos
+- Hopcroft, J., Motwani, R. y Ullman, J. Introducción a la Teoría de Autómatas, Lenguajes y Computación. Madrid: Addison Wesley–Pearson. (2007). Cap. 1 y 2.
+- Brena Pinnero, R. Autómatas y lenguajes. Un enfoque de diseño. Tecnológico de Monterrey. (2003). Cap. 2.
+- Gaudioso Vázquez, E. Autómatas, gramáticas y lenguajes formales. Problemas resueltos. Ed. Sanz y Torres. (2010).
+
+Unidad Temática IV: Gramáticas regulares y libres de contexto. Autómatas de Pila
+- Hopcroft, J., Motwani, R. y Ullman, J. Introducción a la Teoría de Autómatas, Lenguajes y Computación. Madrid: Addison Wesley–Pearson. (2007). Cap. 5.
+- Brena Pinnero, R. Autómatas y lenguajes. Un enfoque de diseño. Tecnológico de Monterrey. (2003). Cap. 3, 4 y 5.
+- Sebesta, R. Concepts of Programming Languages. Addison-Wesley. (2007). Cap. 3 y 4.
+- Ghezzi, C., Jazayeri, M. Programming Language Concepts. Buenos Aires: John Wiley & Sons. (1998). Cap. 2.
+- Horowitz, E. Fundamentals of Programming Languages. W.H. Freeman & Company. (1984). Cap. 3.
+- Gaudioso Vázquez, E. Autómatas, gramáticas y lenguajes formales. Problemas resueltos. Ed. Sanz y Torres. (2010).
+
+Unidad Temática V: Máquinas de Turing
+- Hopcroft, J., Motwani, R. y Ullman, J. Introducción a la Teoría de Autómatas, Lenguajes y Computación. Madrid: Addison Wesley–Pearson. (2007). Cap. 5.
+- Brena Pinnero, R. Autómatas y lenguajes. Un enfoque de diseño. Tecnológico de Monterrey. (2003). Cap. 6.
+- Horowitz, E. Fundamentals of Programming Languages. W.H. Freeman & Company. (1984). Cap. 3.
+- Gaudioso Vázquez, E. Autómatas, gramáticas y lenguajes formales. Problemas resueltos. Ed. Sanz y Torres. (2010).
+
+Unidad Temática VI: Introducción a la Semántica de Lenguajes
+- Ghezzi, C., Jazayeri, M. Programming Language Concepts. Buenos Aires: John Wiley & Sons. (1998). Cap. 2.
+- Horowitz, E. Fundamentals of Programming Languages. W.H. Freeman & Company. (1984). Cap. 4, 6 y 7.
+- Sebesta, R. Concepts of Programming Languages. Madrid: Addison-Wesley. (2007). Cap. 1, 5, 9 y 10.
+- Louden, K. Lenguajes de Programación. Principios y práctica. Ed. Cengage Learning Latin American. (2008).
