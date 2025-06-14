@@ -1,5 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
-![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVR4nO3YMQ7CMBAF0RssQXYI6Sl0FjoKxTxKF+TbEvT0aa2k2A/fMF8yZIHbn1lAAAiCIAiCIAiCIAiCIAiCIAiCIAiCIAiCILiPZK78Z2TaKNuTfK9y3v9c2arEorHKGrTHkbGeAY9BPmfsMOCfc3ZcNMKOOY8UCRiEtp96EFuvtHkADChSxLktMoS3FwAsGlMsbqAMrYYCBChGUqCdfvM4Q47RyoJAsIC/9yF2UKz2UdEv4gLt1A8BJe9L3ufAqqvVQMgCMRhjIEj+F02HCe7XZIGRa28mWv0y/ugSwWsiHh/su/AIAAAAAAAAAAAAAAAAgPAybAbjxKw4pxaPLVgAAAABJRU5ErkJggg==&labelColor=gray)
+![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
+
 
 
 
