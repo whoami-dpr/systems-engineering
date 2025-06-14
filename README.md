@@ -1,6 +1,7 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
 ![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/-An%C3%A1lisis%20Funcional%20de%20Sistemas-blue?logo=codeforces&labelColor=gray)
+![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=cisco&labelColor=gray)
 
 
 
