@@ -1,4 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
+![Sistemas Operativos](https://img.shields.io/badge/Materia-Sistemas%20Operativos-green)
 
 # Ingeniería en Sistemas
 
