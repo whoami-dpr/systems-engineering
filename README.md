@@ -3,14 +3,6 @@
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/-An%C3%A1lisis%20Funcional%20de%20Sistemas-blue?logo=codeforces&labelColor=gray)
 ![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=cisco&labelColor=gray)
 
-
-
-
-
-
-
-
-
 # Ingeniería en Sistemas
 
 En este repositorio encontrarás todo lo que estoy utilizando para formarme como Ingeniero en Sistemas. Actualmente estoy en tercer año, por lo que la lista irá creciendo a medida que avance en mi carrera y complete nuevas materias.
