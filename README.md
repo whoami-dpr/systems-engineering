@@ -1,7 +1,7 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
 ![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/-An%C3%A1lisis%20Funcional%20de%20Sistemas-blue?logo=codeforces&labelColor=gray)
-![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=data:image/png;base64,<BASE64_DE_TU_ICONO>&labelColor=gray)
+![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHBhdGggZD0iTTMyIDQ4YTMgMyAwIDEgMCAwLTZhMyAzIDAgMCAwIDAgNnoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzIgMzFjLTIuNjMgMC01LjItMS4wNi03LjA0LTIuOTQtMS40Ny0xLjQ3LTEuNDctMy44NSAwLTUuMzFsMy41LTMuNWMzLjg4LTMuODggMTAuMTMtMy44OCAxNC45MSAwbDMuNSAzLjVjMS40NyAxLjQ3IDEuNDcgMy44NSAwIDUuMzEtMS40NyAxLjQ3LTMuODUgMS40Ny01LjMxIDB2MCIgZmlsbD0iI2ZmZiIvPjxnIGZpbGw9IiNmZmYiPjxwYXRoIGQ9Ik0zMiAzOWMtMi4yMSAwLTQuMTMtMC45LTEuNzM5LTEuNzQtMS42NTYtMS42Ni0zLjE4LTEuNzItNC40Ni0wLjk1TDMyIDEyLjUgTDQwLjEwMyAxM2MuNDgzLjExLjg5LjI4IDEuMjMuNTcuNjI1LjU0IDEuMDMuODk1IDEuMTMgMS42NC4wMzQuMjguMzYuMjUuNjYgMC41MzcuMzU4LjI4Ny41OTcuNzQ0Ljc2LjE0MS4wNS4xNzcuMzYxLjAuNTRsLTIuNSAzLjVjLTEuMjUtMS4yNS0zLjMtMS4wNC0zLjMtMS4wNS0xIDEuMjUtMS4xNiAyLjUtLjU5IDMuODFMMzIgMzkuMDB6Ii8+PC9nPjwvc3ZnPg==&labelColor=gray)
 
 
 
