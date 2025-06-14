@@ -1,6 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
 ![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
-![Análisis Funcional de Sistemas](https://img.shields.io/badge/-Análisis%20Funcional%20de%20Sistemas-f9c74f?logo=lucidchart&labelColor=gray)
+![Análisis Funcional de Sistemas](https://img.shields.io/badge/An%C3%A1lisis%20Funcional%20de%20Sistemas-Azul-007acc?style=for-the-badge&logo=visualstudio&logoColor=white)
 
 
 
