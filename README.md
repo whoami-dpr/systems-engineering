@@ -34,7 +34,8 @@ Todos los créditos van para todas las personas que ayudaron, colaboraron e hici
 - Análisis Matemático 1
 - Lógica y Estructuras Discretas
 - Sistemas y Procesos de Negocio
-
+- Ingles 1
+  
 ---
 
 ## Segundo Año
@@ -46,11 +47,18 @@ Todos los créditos van para todas las personas que ayudaron, colaboraron e hici
 - Sistemas Operativos
 - Análisis de Sistemas de Información
 - Ingeniería y Sociedad
-
+- Ingles 2
+  
 ---
 
 ## Tercer Año
 
-En progreso...
+- Base de Datos
+- Diseño de sistemas de informacion
+- Probabilidad y Estadistica
+- Comunicacion de Datos
+- Analisis Numerico
+- Desarrollo de Software
+- Tecnologia y gestion web
 
-
+---
