@@ -1,0 +1,80 @@
+PROGRAMA restaurante
+
+TIPOS ESTRUCTURADOS
+
+    Mesas = Arreglo [50] de Real 10,2
+
+VARIABLES
+
+    opcion,mesa,mesa, comensales: Entero 2
+    mesasTotales: Mesas
+    cubierto: Real 5,2
+    bandera: booleano
+
+
+HACER
+
+    RepetirPara(i=1,50)
+        mesasTotales[i]=0
+    FinRepetirPara
+
+    IMPRIMR("Ingrese el valor del cubierto")
+    LEER(cubierto)
+
+    RepetirMientras(opcion <> 0)
+
+        IMPRIMIR("1-Asignar Mesa")
+        IMPRIMIR("2-Ingresar Pedido")
+        IMPRIMIR("3-Liberar Mesa")
+        IMPRIMIR("0-Salir")
+        LEER(opcion)
+
+        CASO opcion
+
+            1: 
+                bandera = False
+                i:=1
+                RepetirMientras(bandera = False)and(i <= 50)   
+                    SI (mesasTotales[i] = 0) ENTONCES
+                        mesa = i;
+                        bandera = true;
+                    FINSI
+                FinRepetirMientras
+                SI(bandera = true) ENTONCES
+                    IMPRIMIR("Su mesa es ",mesa)
+                    IMPRIMIR("Ingrese la cantidad de personas")
+                    LEER(comensales)
+                    mesasTotales[mesa] = comensales * cubierto
+                SINO 
+                    IMPRIMIR("No hay mesas dispoibles")
+                FINSI
+
+            2:
+                IMPRIMIR("Ingrese el numero de mesa 1-50\r\n")
+                LEER(mesa);
+                IMPRIMIR("Ingrese el monto del nuevo pedido\r\n")
+                LEER(montoVenta);
+                if ((mesa >= 1)and(mesa <= 50)) {
+                    mesasTotales[mesa] = mesasTotales[mesa] + montoVenta
+                
+                SINO
+                    IMPRIMIR("Numero de mesa no valido, intente nuevamente\r\n")
+                FINSI
+
+            3:
+                IMPRIMIR("Ingrese el numero de mesa a liberar 1-50\r\n")
+                LEER(mesa)
+                SI ((mesa >= 1)and(mesa <= 50)) ENTONCES
+
+                    IMPRIMIR("Mesa: ",mesa)
+                    IMPRIMIR("TOTAL = ",mesasTotales[mesa])
+                    
+                    mesasTotales[mesa] = 0
+                SINO
+                    IMPRIMIR("Numero de mesa no valido, intente nuevamente\r\n")
+                FINSI
+        FINCASO
+    FinRepetirMientras
+
+FinHacer
+FinPrograma

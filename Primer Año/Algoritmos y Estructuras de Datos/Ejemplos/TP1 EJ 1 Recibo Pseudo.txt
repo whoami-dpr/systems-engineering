@@ -1,0 +1,52 @@
+Nom y app, sueldo basico, Premio, Comida,viaticos,ausentes, obra social 3%, ley 3%, jubilacion 11%
+
+PROGRAMA Presentacion 
+VARIABLES
+    
+    nombreApellido : Caracter[40]
+    sueldoBasico,sueldoFinal : Real[8,2]
+    comida, viaticos, premio, ausentismo, montoAusentismo, obraSocial,ley,jubilacion : Real[4,2]
+    cantDiasAusentes : Entero[2]
+
+HACER
+    
+    IMPRIMIR('Ingrese el nombre y el apellido del empleado')
+    LEER(nombreApellido)
+    IMPRIMIR('Ingrese el sueldo basico')
+    LEER(sueldoBasico)
+    
+    IMPRIMIR('Ingrese la cantidad de dias que estuvo ausente')
+    LEER(cantDiasAusentes)
+    IMPRIMIR('Ingrese el monto a descontar por cada dia ausente')
+    LEER(montoAusentismo)
+
+    IMPRIMIR('Ingrese, en el caso de poseer: ')
+    IMPRIMIR('Premio:')
+    LEER(premio)
+    IMPRIMIR('Comida')
+    LEER(comida)
+    IMPRIMIR('viaticos')
+    LEER(viaticos)
+
+    obraSocial = sueldoBasico * 0.03
+    ley = sueldoBasico * 0.03
+    jubilacion = sueldoBasico * 0.11
+    ausentismo = cantDiasAusentes * montoAusentismo
+
+    sueldoFinal = sueldoBasico + comida + viaticos + premio - obraSocial - ley - jubilacion
+
+    IMPRIMIR('==========RECIBO DE SUELDO==========')
+    IMPRIMIR('Empleado: ',nombreApellido)
+    IMPRIMIR('Comida: ',comida)
+    IMPRIMIR('Premio: ',premio)
+    IMPRIMIR('Viaticos: ',viaticos)
+    IMPRIMIR('Desc obra social: ',obraSocial)
+    IMPRIMIR('Desc jubilacion',jubilacion)
+    IMPRIMIR('Desc dias ausente: ',ausentismo)
+    IMPRIMIR('SUELDO BASICO: ',sueldoBasico)
+    IMPRIMIR('SUELDO FINAL: ',sueldoFinal)
+
+FIN HACER
+FIN PROGRAMA
+
+
