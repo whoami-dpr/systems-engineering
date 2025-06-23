@@ -1,0 +1,40 @@
+PROGRAMA Porc_Prom
+
+VARIABLES
+   Total: Real 5,2
+   Nota: Real 4,2
+   Prom: Real 4,2
+   Cant_Aprob: Entero 2
+   i: Entero 2
+   Porc: Real 5,2
+   Rta: Carácter 1
+
+HACER
+   Total := 0
+   Cant_Aprob := 0
+   IMPRIMIR: "¿Hay nota para cargar? S/N "
+   LEER: Rta
+   i: = 1
+   REPETIR MIENTRAS ((Rta == "S") || (Rta == "s"))
+      IMPRIMIR: "Ingrese la nota del alumno ", i
+      LEER: Nota
+      SI (Nota >= 4) ENTONCES
+         Total := Total + Nota
+         Cant_Aprob := Cant_Aprob + 1
+      FIN SI
+      i := i + 1
+      IMPRIMIR: "¿Hay nota para cargar? S/N "
+      LEER: Rta
+      FIN REPETIR MIENTRAS
+      SI (Cant_Aprob > 0) ENTONCES
+         Prom := Total / Cant_Aprob
+         Porc := (Cant_Aprob * 100) / i
+         IMPRIMIR: "Promedio de aprobados: ", Prom
+         IMPRIMIR: "Porcentaje de aprobados sobre total: ", Porc
+      SINO
+         IMPRIMIR: "No hay alumnos aprobados"
+      FIN SI
+
+FIN HACER
+
+FIN PROGRAMA

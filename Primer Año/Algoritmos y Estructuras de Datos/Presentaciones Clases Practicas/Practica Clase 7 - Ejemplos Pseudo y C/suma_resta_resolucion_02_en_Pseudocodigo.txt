@@ -1,0 +1,28 @@
+// Programa para sumar y restar dos números dados
+PROGRAMA suma_resta
+
+PROCEDIMIENTO sumar_restar (REF Resul_S: Entero, REF Resul_R: Entero,
+      Nro1:Entero, Nro2:Entero)
+HACER
+   Resul_S := Nro1 + Nro2
+   Resul_R := Nro1 - Nro2
+FIN HACER
+FIN PROCEDIMIENTO
+
+VARIABLES
+RS, RR, N1, N2: Entero 2
+
+HACER
+  IMPRIMIR: "Ingrese el primer valor > "
+  LEER: N1
+  IMPRIMIR: "Ingrese el segundo valor > "
+  LEER: N2
+
+  sumar_restar(RS, RR, N1, N2)
+
+  IMPRIMIR: "Resultado Suma --> ", RS
+  IMPRIMIR: "Resultado Resta --> ", RR
+
+FIN HACER
+FIN PROGRAMA
+

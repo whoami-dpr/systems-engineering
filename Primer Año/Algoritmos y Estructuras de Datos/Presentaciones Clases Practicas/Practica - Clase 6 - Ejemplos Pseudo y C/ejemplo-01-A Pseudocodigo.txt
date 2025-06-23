@@ -1,0 +1,23 @@
+PROGRAMA Promedio
+
+VARIABLES
+Total: Real 5,2
+Nota: Real 4,2
+Prom: Real 4,2
+i: Entero 2
+
+HACER
+
+Total := 0
+
+REPETIR PARA i := 1, 40
+         IMPRIMIR: "Ingrese la nota del alumno ", i
+         LEER: Nota
+         Total := Total + Nota
+FIN REPETIR PARA
+Promm :=  Redondear(Total / 40,2)
+
+IMPRIMIR: "Promedio: ", Prom
+FIN HACER
+
+FIN PROGRAMA

@@ -1,0 +1,23 @@
+Funciones de Pseudocódigo
+ 
+POTENCIA(𝑏,𝑛): calcula el valor 𝑏 a la 𝑛 siendo 𝑏 ∈ ℝ y 𝑛 ∈ ℕ
+
+RAIZ(𝑏, 𝑛): calcula la raiz de 𝑏 a siendo 𝑏 ∈ ℝ y 𝑛 ∈ ℕ
+
+NUEVALINEA(): Al imprimir su valor, el cursor va al inicio de la siguiente
+               linea.
+               
+CENTRAR(𝑐, 𝑛): Agrega espacios en blanco a la izquierda y derecha de la cadena
+                de caracteres 𝑐 de modo que la cadena resultante tenga
+                exactamente 𝑛 caracteres y 𝑐 quede en el centro.
+
+CONCATENAR(𝑐1, 𝑐2, 𝑐3, ..., 𝑐k): pega todas las cadenas dadas en una sola en el
+                                  mismo orden dado (es decir, construye la
+                                  cadena 𝑐1+𝑐2+𝑐3+...+𝑐k).
+
+TRUNCAR(𝑛): obtiene un entero que surge de eliminar la parte decimal de 𝑛 ∈ ℝ.
+
+REDONDEAR(𝑛,𝑑): redondea el valor del número 𝑛 ∈ ℝ para que quede con 𝑑 decimales.
+                Por ejemplo, al redondear a 3 decimales los números 3,14159;
+                1,4121 y 3,1255 se obtienen respectivamente 3,142; 1,414 y 
+                3,126.

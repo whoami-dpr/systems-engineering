@@ -1,0 +1,23 @@
+En la obra social "OSDE", los trámites realizados fuera del horario de atención se gestionan telefónicamente y se almacenan en una pila para su posterior procesamiento. Cada trámite cuenta con el siguiente detalle:
+
+	Código de afiliado (cod_afiliado)
+	Tipo de trámite (reintegro o consulta)
+	Código de trámite (cod_tramite)
+
+Además, se dispone de una lista de afiliados ordenada por su código (cod_afiliado), con la siguiente información:
+
+	Código de afiliado (cod_afiliado)
+	Plan (puede ser 210, 310, 410 o 510)
+	Apellido y Nombre (apyNom)
+
+El objetivo es procesar esta información para organizar las tareas administrativas correspondientes. Para ello, se solicita lo siguiente:
+
+ -> Filtrar los trámites de reintegro de la pila y generar una lista que contenga los siguientes datos:
+
+	Código de afiliado (cod_afiliado)	
+	Plan
+	DNI
+	Apellido y Nombre (apYNom)
+	Código de trámite (cod_tramite)
+
+ -> Recorrer la lista de reintegros de forma recursiva y obtener el total de trámites correspondientes al Plan 210.
