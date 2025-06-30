@@ -60,5 +60,6 @@ Todos los créditos van para todas las personas que ayudaron, colaboraron e hici
 - Analisis Numerico
 - Desarrollo de Software
 - Tecnologia y gestion web
+- Economia
 
 ---
