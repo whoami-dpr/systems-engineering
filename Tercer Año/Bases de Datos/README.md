@@ -14,10 +14,10 @@
   <summary>Base de datos (BD)</summary>
   Una base de datos es una coleccion de datos relacionados.
   > **Definicion completa**: Una base de datos es una colección o conjunto de datos interrelacionados con un propósito específico vinculado a la resolución de un problema del mundo real
-  **Definir** una B. D. **implica** especificar los **tipos de datos, estructuras y restricciones** de los datos que se almacenarán en la B. D.
-  La **construcción** de la B. D. es el proceso consistente en **almacenar los datos en algún medio de almacenamiento controlado por el DBMS.**
-  La **manipulación** de una B. D. incluye funciones como la **consulta** de la B. D. para **recuperar datos específicos**, **actualizar** la B. D. para reflejar los cambios introducidos en el minimundo y **generar informes** a partir de los datos.
-  **Compartir** una B. D. **permite** que varios usuarios y programas **accedan** a la B. D. en forma **simultánea**.
+  <span style="color: red">**Definir**</span> una B. D. **implica** especificar los **tipos de datos, estructuras y restricciones** de los datos que se almacenarán en la B. D.
+  La <span style="color: red">**construcción**</span> de la B. D. es el proceso consistente en **almacenar los datos en algún medio de almacenamiento controlado por el DBMS.**
+  La <span style="color: red">**manipulación**</span> de una B. D. incluye funciones como la **consulta** de la B. D. para **recuperar datos específicos**, **actualizar** la B. D. para reflejar los cambios introducidos en el minimundo y **generar informes** a partir de los datos.
+  <span style="color: red">**Compartir**</span> una B. D. **permite** que varios usuarios y programas **accedan** a la B. D. en forma **simultánea**.
   </details>
   <details>
   <summary>Caracteristicas implicitas de las bases de datos</summary>
@@ -208,19 +208,19 @@
     ### Conversión de relaciones
     
     1. La clave primaria de Presidente se almacena en la tabla País como un atributo y pasa a ser foreing key.
-    Presidente = (DNI, nombre, apellido)
+    <span style="color: red">Presidente = (DNI, nombre, apellido)
     Pais = (id, nombre, cantidad_habitantes, DNI)
-    - DNI: FOREING KEY de Presidente
+    - DNI: FOREING KEY de Presidente</span>
     2. La clave primaria de País almacena en la tabla Presidente como un atributo y pasa a ser foreing key.
-    Pais = (id, nombre, cantidad_habitantes)
+    <span style="color: red">Pais = (id, nombre, cantidad_habitantes)
     Presidente = (DNI, nombre, apellido, id_país)
-    - id_país: FOREING KEY de País
+    - id_país: FOREING KEY de País</span>
     3. Las claves primarias de ambas entidades se guardan en la tabla de la otra entidad. Es decir, la tabla Presidente guardaría la clave primaria de País y la tabla País guardaría también la clave primaria de Presidente. Esta solución puede presentar redundancia,
     pero puede ser interesante en algunas ocasiones, dependiendo de las consultas que se vayan a realizar sobre estas tablas a nivel de aplicación. En este caso los atributos id_país y id_presidente serían foreign key (FK).
-    Presidente = (DNI, nombre, apellido, id_país)
+    <span style="color: red">Presidente = (DNI, nombre, apellido, id_país)
     id_país: FOREING KEY de País
     Pais = (id, nombre, cantidad_habitantes, DNI)
-    DNI: FOREING KEY de Presidente
+    DNI: FOREING KEY de Presidente</span>
     
     ![Captura de pantalla_2025-04-07_09-06-02.png](assets/Captura_de_pantalla_2025-04-07_09-06-02.png)
     
@@ -507,29 +507,6 @@
     </details>
     <details>
     <summary>TP's SQL</summary>
-    ...
-    </details>
-
-</details>
-
-<details>
-<summary>Proyecto</summary>
-
-- **Proyecto**
-    <details>
-    <summary>Entrega 1 (Fase 1 y 2)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Entrega 2 (Fase 3, 4 y 5)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Entrega 3 (Fase 6 y 7)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Integrantes</summary>
     ...
     </details>
 
