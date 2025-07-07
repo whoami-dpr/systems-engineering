@@ -1,7 +1,8 @@
-![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
-![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
-![Análisis Funcional de Sistemas](https://img.shields.io/badge/-An%C3%A1lisis%20Funcional%20de%20Sistemas-blue?logo=codeforces&labelColor=gray)
-![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=cisco&labelColor=gray)
+![UTN](https://img.shields.io/badge/UTN-V1.0-blue?style=for-the-badge&logo=github&color=blue)
+![Sistemas Operativos](https://img.shields.io/badge/SISTEMAS%20OPERATIVOS-blue?style=for-the-badge&logo=arch-linux&labelColor=gray&logoColor=white)
+![Análisis Funcional de Sistemas](https://img.shields.io/badge/AN%C3%81LISIS%20FUNCIONAL%20DE%20SISTEMAS-blue?style=for-the-badge&logo=codeforces&labelColor=gray&logoColor=white)
+![Redes y Comunicaciones](https://img.shields.io/badge/REDES%20Y%20COMUNICACIONES-blue?style=for-the-badge&logo=cisco&labelColor=gray&logoColor=white)
+
 
 ---
 ## Lenguajes Vistos
