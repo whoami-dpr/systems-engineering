@@ -121,9 +121,9 @@
     
     ### Diagrama E-R correspondiente a clientes y préstamos.
     
-    ![Captura de pantalla_2025-03-31_08-42-54.png](Captura_de_pantalla_2025-03-31_08-42-54.png)
+    ![Captura de pantalla_2025-03-31_08-42-54.png](assets/Captura_de_pantalla_2025-03-31_08-42-54.png)
     
-    ![Captura de pantalla_2025-03-31_09-14-50.png](Captura_de_pantalla_2025-03-31_09-14-50.png)
+    ![Captura de pantalla_2025-03-31_09-14-50.png](assets/Captura_de_pantalla_2025-03-31_09-14-50.png)
     
     Aunque los conceptos básicos de **E-R** pueden modelar la mayoría de las características de las bases de datos, algunos aspectos de una base de datos pueden ser más adecuadamente expresados mediante ciertas extensiones:
     
@@ -134,7 +134,7 @@
     
     ### Especializacion y Generaclizacion
     
-    ![Captura de pantalla_2025-03-31_09-15-34.png](Captura_de_pantalla_2025-03-31_09-15-34.png)
+    ![Captura de pantalla_2025-03-31_09-15-34.png](assets/Captura_de_pantalla_2025-03-31_09-15-34.png)
     
     Este diagrama es **Parcial y Superpuesto (Asumido por defecto)**
     
@@ -170,7 +170,7 @@
     - El proceso de conversión para obtener el esquema físico de una BD comienza con el análisis de las entidades definidas en el modelo lógico.
     - El proceso de conversión muestra que cada una de las entidades fuertes y débiles definidas deben transformarse en una tabla del modelo.
         
-        ![Captura de pantalla_2025-04-07_08-25-51.png](Captura_de_pantalla_2025-04-07_08-25-51.png)
+        ![Captura de pantalla_2025-04-07_08-25-51.png](assets/Captura_de_pantalla_2025-04-07_08-25-51.png)
         
     
     ### **Conversión de atributos multivalorados**
@@ -180,16 +180,16 @@
     - Se **agrega como atributo la clave primaria de la tabla** que modela la entidad o relación a la cual pertenece el multivalorado.
     - **La clave primaria se forma con todos sus atributos**
         
-        ![Captura de pantalla_2025-04-07_08-29-20.png](Captura_de_pantalla_2025-04-07_08-29-20.png)
+        ![Captura de pantalla_2025-04-07_08-29-20.png](assets/Captura_de_pantalla_2025-04-07_08-29-20.png)
         
     
     ### Conversión de atributos compuestos
     
-    ![Captura de pantalla_2025-04-07_08-36-13.png](Captura_de_pantalla_2025-04-07_08-36-13.png)
+    ![Captura de pantalla_2025-04-07_08-36-13.png](assets/Captura_de_pantalla_2025-04-07_08-36-13.png)
     
     ### Conversión de relaciones
     
-    ![Captura de pantalla_2025-04-07_08-48-25.png](Captura_de_pantalla_2025-04-07_08-48-25.png)
+    ![Captura de pantalla_2025-04-07_08-48-25.png](assets/Captura_de_pantalla_2025-04-07_08-48-25.png)
     
     No toda entidad tiene que tener un foreign key (F.K.) con otra entidad
     
@@ -210,7 +210,7 @@
     Pais = (id, nombre, cantidad_habitantes, DNI)
     DNI: FOREING KEY de Presidente
     
-    ![Captura de pantalla_2025-04-07_09-06-02.png](Captura_de_pantalla_2025-04-07_09-06-02.png)
+    ![Captura de pantalla_2025-04-07_09-06-02.png](assets/Captura_de_pantalla_2025-04-07_09-06-02.png)
     
     ### Generalizaciones/Especializaciones
     
@@ -218,15 +218,15 @@
     
     1. **Eliminar las subentidades**, dejando sólo la entidad padre a la cual se le incorporan todos los atributos de sus hijos. Cada uno de ellos deberá ser no obligatorio.
         
-        ![Captura de pantalla_2025-04-07_09-36-18.png](Captura_de_pantalla_2025-04-07_09-36-18.png)
+        ![Captura de pantalla_2025-04-07_09-36-18.png](assets/Captura_de_pantalla_2025-04-07_09-36-18.png)
         
     2. **Eliminar la entidad padre**, dejando sólo las subentidades. Con esta solución, los atributos del padre deberán incluirse en cada uno de los hijos.
         
-        ![Captura de pantalla_2025-04-07_09-36-34.png](Captura_de_pantalla_2025-04-07_09-36-34.png)
+        ![Captura de pantalla_2025-04-07_09-36-34.png](assets/Captura_de_pantalla_2025-04-07_09-36-34.png)
         
     3. **Dejar todas las entidades de la jerarquía**, convirtiéndolas en relaciones uno a uno entre el padre y cada uno de los hijos.
         
-        ![Captura de pantalla_2025-04-07_09-37-02.png](Captura_de_pantalla_2025-04-07_09-37-02.png)
+        ![Captura de pantalla_2025-04-07_09-37-02.png](assets/Captura_de_pantalla_2025-04-07_09-37-02.png)
         
     
     Las tres soluciones **no** son aplicables en todos los casos.
@@ -268,9 +268,9 @@
     
     Una **dependencia funcional** es una **propiedad de la semántica** o significado de los atributos. Los diseñadores de la B. D. utilizarán su comprensión de la semántica de los atributos de R (esto es, cómo se relacionan unos con otros) para especificar las dependencias funcionales que deben mantenerse en todos los estados de relación r de R.
     
-    ![Captura de pantalla_2025-04-03_12-17-57.png](Captura_de_pantalla_2025-04-03_12-17-57.png)
+    ![Captura de pantalla_2025-04-03_12-17-57.png](assets/Captura_de_pantalla_2025-04-03_12-17-57.png)
     
-    ![Captura de pantalla_2025-04-03_12-23-30.png](Captura_de_pantalla_2025-04-03_12-23-30.png)
+    ![Captura de pantalla_2025-04-03_12-23-30.png](assets/Captura_de_pantalla_2025-04-03_12-23-30.png)
     
     ### Dependencia funcional transitiva
     
@@ -310,7 +310,7 @@
         
         **Filtra filas (tuplas) que cumplen una condición.**
         
-        ![Captura de pantalla_2025-04-14_08-45-04.png](Captura_de_pantalla_2025-04-14_08-45-04.png)
+        ![Captura de pantalla_2025-04-14_08-45-04.png](assets/Captura_de_pantalla_2025-04-14_08-45-04.png)
         
     - **Proyección ($π$)**
         - Permite presentar los atributos especificados de una relación y no presentar el resto.
@@ -320,18 +320,18 @@
         
         **Elige columnas específicas.**
         
-        ![Captura de pantalla_2025-04-14_08-48-03.png](Captura_de_pantalla_2025-04-14_08-48-03.png)
+        ![Captura de pantalla_2025-04-14_08-48-03.png](assets/Captura_de_pantalla_2025-04-14_08-48-03.png)
         
-        ![Captura de pantalla_2025-04-14_08-49-17.png](Captura_de_pantalla_2025-04-14_08-49-17.png)
+        ![Captura de pantalla_2025-04-14_08-49-17.png](assets/Captura_de_pantalla_2025-04-14_08-49-17.png)
         
     - **Renombre ($ρ$)**
         - Define un alias para una relación.
         - Útil para evitar ambigüedades cuando una relación aparece más de una vez en una consulta.
         - Esta operación aplicada a una relación R de grado n aparece denotada de cualquiera de estas tres formas:
             
-            ![Captura de pantalla_2025-04-14_08-50-32.png](Captura_de_pantalla_2025-04-14_08-50-32.png)
+            ![Captura de pantalla_2025-04-14_08-50-32.png](assets/Captura_de_pantalla_2025-04-14_08-50-32.png)
             
-            ![Captura de pantalla_2025-04-14_08-51-04.png](Captura_de_pantalla_2025-04-14_08-51-04.png)
+            ![Captura de pantalla_2025-04-14_08-51-04.png](assets/Captura_de_pantalla_2025-04-14_08-51-04.png)
             
             **Combina dos relaciones con el mismo esquema (atributos).**
             
@@ -345,7 +345,7 @@
         - Número de tuplas de $R x S$ = Tuplas de R * Tuplas de S
         - Para evitar ambigüedades: Usar sintaxis tabla.columna
             
-            ![Captura de pantalla_2025-04-14_08-56-55.png](Captura_de_pantalla_2025-04-14_08-56-55.png)
+            ![Captura de pantalla_2025-04-14_08-56-55.png](assets/Captura_de_pantalla_2025-04-14_08-56-55.png)
             
     - **Unión (U)**
         - Equivale a la unión matemática de conjuntos.
@@ -353,7 +353,7 @@
         - Las relaciones a unir deben ser **compatibles** (Igual número de atributos
         Dominios iguales dos a dos)
         
-        ![Captura de pantalla_2025-04-14_09-00-28.png](Captura_de_pantalla_2025-04-14_09-00-28.png)
+        ![Captura de pantalla_2025-04-14_09-00-28.png](assets/Captura_de_pantalla_2025-04-14_09-00-28.png)
         
     - **Diferencia (-)**
         - Equivale a la diferencia matemática de conjuntos.
@@ -370,14 +370,14 @@
         *(Es lo mismo que realizar una operación de selección posterior a un
         producto cartesiano.)*
         
-        ![Captura de pantalla_2025-04-14_09-16-15.png](Captura_de_pantalla_2025-04-14_09-16-15.png)
+        ![Captura de pantalla_2025-04-14_09-16-15.png](assets/Captura_de_pantalla_2025-04-14_09-16-15.png)
         
     - **Intersección ($∩$)**
         - Equivale a la intersección matemática de conjuntos.
         - Incluye tuplas que están en todas las relaciones.
         - Incluye las tuplas que están en $R$ y en $S$.
             
-            ![Captura de pantalla_2025-04-14_09-17-49.png](Captura_de_pantalla_2025-04-14_09-17-49.png)
+            ![Captura de pantalla_2025-04-14_09-17-49.png](assets/Captura_de_pantalla_2025-04-14_09-17-49.png)
             
     - **Asignación (🡨)**
         - Crea una nueva relación a partir de otra.
@@ -389,20 +389,20 @@
         - Retorna aquellos elementos de la primera relación que se relacionan con todos los elementos de la segunda relación.
         - $A/B$ retorna los elementos de A que se relacionan con todos los elementos de B, donde las columnas de B deben estar incluidas en las columnas de A.
         
-        ![Captura de pantalla_2025-04-14_09-44-10.png](Captura_de_pantalla_2025-04-14_09-44-10.png)
+        ![Captura de pantalla_2025-04-14_09-44-10.png](assets/Captura_de_pantalla_2025-04-14_09-44-10.png)
         
     
     - **Ejercicios**
         
-        ![Captura de pantalla_2025-04-14_09-25-59.png](Captura_de_pantalla_2025-04-14_09-25-59.png)
+        ![Captura de pantalla_2025-04-14_09-25-59.png](assets/Captura_de_pantalla_2025-04-14_09-25-59.png)
         
         **$σ_{Libros.añoEdicion=2015}$**($π_{Libro-Edicion.AñoEdicion, Libros.titulo}$(Libro-Editorial $X$ Libros))
         
-        ![Captura de pantalla_2025-04-14_09-56-31.png](Captura_de_pantalla_2025-04-14_09-56-31.png)
+        ![Captura de pantalla_2025-04-14_09-56-31.png](assets/Captura_de_pantalla_2025-04-14_09-56-31.png)
         
         ($σ_{Editoriales.Denominacion = "Ediciones A"}$)
         
-        ![Captura de pantalla_2025-04-14_09-19-24.png](Captura_de_pantalla_2025-04-14_09-19-24.png)
+        ![Captura de pantalla_2025-04-14_09-19-24.png](assets/Captura_de_pantalla_2025-04-14_09-19-24.png)
         
         $σ_{codigo, apellido, nombre}$(Socios)
         
@@ -412,39 +412,39 @@
     
     - **Transacciones (Conceptos - Estados de ejecución - Planificiones)**
         
-        ![image.png](image.png)
+        ![image.png](assets/image.png)
         
-        El procesamiento de transacciones en bases de datos se refiere a la **gestión de operaciones que cambian el estado de una base de datos, garantizando que estas operaciones se completen de manera consistente y fiable**. Las transacciones son unidades de trabajo que deben completarse en su totalidad o no se completan, asegurando la integridad de los datos. 
+        El procesamiento de transacciones en bases de datos se refiere a la**gestión de operaciones que cambian el estado de una base de datos, garantizando que estas operaciones se completen de manera consistente y fiable**. Las transacciones son unidades de trabajo que deben completarse en su totalidad o no se completan, asegurando la integridad de los datos. 
         
-        ![image.png](image%201.png)
+        ![image.png](assets/image%201.png)
         
-        ![Sin título.png](Sin_ttulo.png)
+        ![Sin título.png](assets/Sin_ttulo.png)
         
         - **Transaccion - Definicion**
             
-            ![image.png](image%202.png)
+            ![image.png](assets/image%202.png)
             
             Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.
             
-            ![image.png](image%203.png)
+            ![image.png](assets/image%203.png)
             
-            ![image.png](image%204.png)
+            ![image.png](assets/image%204.png)
             
         - **Concurrencia**
             
-            ![image.png](image%205.png)
+            ![image.png](assets/image%205.png)
             
             Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.
             
             - **Actualizacion a perdida**
                 
-                ![image.png](image%206.png)
+                ![image.png](assets/image%206.png)
                 
                 Cuando dos transacciones que intentan modificar la BD ambas leen datos antiguos y una modifica el dato pero se pierde porque la otra tambien lo hace y la escribe (guarda) sin haberse escrito la primera transaccion. Una forma de controlarlo es que las transacciones tienen que pedir permiso para acceder al recurso compartido
                 
             - **Lectura sucia**
                 
-                ![image.png](image%207.png)
+                ![image.png](assets/image%207.png)
                 
                 T1 lee A luego que la T2 lo escribio, osea que el valor que lee T1 es un valor que produjo T2. Si hay un problema en T2, la misma no se pudo completar, porque no se pueden hacer por partes las transacciones, deben cumplir las propiedades **ACID**:
                 
@@ -454,24 +454,24 @@
                 - **Durabilidad**: si una transaccion finaliza bien, los cambios deben perdurar en el tiempo.
             - **Analisis Inconsistente**
                 
-                ![image.png](image%208.png)
+                ![image.png](assets/image%208.png)
                 
                 T1 llega a un **análisis inconsistente** porque **lee datos que ya fueron modificados por otra transacción (T2), pero no desde el inicio**, generando así una **mezcla de valores antiguos y nuevos** que no reflejan ningún estado real de la base de datos.
                 
             
-            ![image.png](image%209.png)
+            ![image.png](assets/image%209.png)
             
         - **¿Por qué es necesaria la recuperación?**
             
-            ![image.png](image%2010.png)
+            ![image.png](assets/image%2010.png)
             
-            ![image.png](image%2011.png)
+            ![image.png](assets/image%2011.png)
             
         - **Estados de ejecución**
             
-            ![image.png](image%2012.png)
+            ![image.png](assets/image%2012.png)
             
-            ![image.png](image%2013.png)
+            ![image.png](assets/image%2013.png)
             
             - Una transacción entra en **estado activo** inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones LEER y ESCRIBIR. Cuando la transacción termina, pasa al **estado de parcialmente confirmada**.
             - En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el **estado de confirmada**.
@@ -479,7 +479,7 @@
             - El **estado terminado** se alcanza cuando la transacción abandona el sistema.
         - **Propiedades ACID**
             
-            ![image.png](image%2014.png)
+            ![image.png](assets/image%2014.png)
             
             **Las transacciones poseen las siguientes propiedades:**
             
@@ -489,232 +489,232 @@
             - **Durabilidad**: Los cambios aplicados a la B. D. por una transacción confirmada deben persistir en la B. D. Estos cambios no deben perderse por culpa de un fallo.
         - **Planificaciones**
             
-            ![image.png](image%2015.png)
+            ![image.png](assets/image%2015.png)
             
-            ![image.png](image%2016.png)
+            ![image.png](assets/image%2016.png)
             
             - **Ejemplo**
                 
-                ![image.png](image%2017.png)
+                ![image.png](assets/image%2017.png)
                 
-                ![image.png](image%2018.png)
+                ![image.png](assets/image%2018.png)
                 
-                ![image.png](image%2019.png)
+                ![image.png](assets/image%2019.png)
                 
-                ![image.png](image%2020.png)
+                ![image.png](assets/image%2020.png)
                 
             
-            ![image.png](image%2021.png)
+            ![image.png](assets/image%2021.png)
             
-            ![image.png](image%2022.png)
+            ![image.png](assets/image%2022.png)
             
-            ![image.png](image%2023.png)
+            ![image.png](assets/image%2023.png)
             
             - **Ejercicio 1**
                 
                 **Dos planificaciones son equivalentes por conflicto si el orden de cualquier par de operaciones en conflicto es el mismo en las dos planificaciones.**
                 
-                ![image.png](image%2024.png)
+                ![image.png](assets/image%2024.png)
                 
-                ![image.png](image%2025.png)
+                ![image.png](assets/image%2025.png)
                 
-                ![image.png](image%2026.png)
+                ![image.png](assets/image%2026.png)
                 
             - **Ejercicio 2**
                 
-                ![image.png](image%2027.png)
+                ![image.png](assets/image%2027.png)
                 
             
-            ![image.png](image%2028.png)
+            ![image.png](assets/image%2028.png)
             
-            ![image.png](image%2029.png)
+            ![image.png](assets/image%2029.png)
             
-            ![image.png](image%2030.png)
+            ![image.png](assets/image%2030.png)
             
-            ![image.png](image%2031.png)
+            ![image.png](assets/image%2031.png)
             
             - **Ejercicio 3**
                 
-                ![image.png](image%2032.png)
+                ![image.png](assets/image%2032.png)
                 
-                ![image.png](image%2033.png)
+                ![image.png](assets/image%2033.png)
                 
-                ![image.png](image%2034.png)
+                ![image.png](assets/image%2034.png)
                 
-                ![image.png](image%2035.png)
+                ![image.png](assets/image%2035.png)
                 
-                ![image.png](image%2036.png)
+                ![image.png](assets/image%2036.png)
                 
-                ![image.png](image%2037.png)
+                ![image.png](assets/image%2037.png)
                 
             - **Planificaciones en Serie (Secuenciales)**
                 
-                ![image.png](image%2038.png)
+                ![image.png](assets/image%2038.png)
                 
-                ![image.png](image%2039.png)
+                ![image.png](assets/image%2039.png)
                 
             - **Planificaciones serializables**
                 
-                ![image.png](image%2040.png)
+                ![image.png](assets/image%2040.png)
                 
     - **Transacciones (Control de concurrencia - Bloqueos - Protocolos - Granularidad - Interbloqueos)**
         
-        ![Sin título.png](Sin_ttulo%201.png)
+        ![Sin título.png](assets/Sin_ttulo%201.png)
         
         - **Bloqueos**
             
-            ![image.png](image%2041.png)
+            ![image.png](assets/image%2041.png)
             
             - **Bloqueo Compartido**
                 
-                ![image.png](image%2042.png)
+                ![image.png](assets/image%2042.png)
                 
             - **Bloqueo Exlusivo**
                 
-                ![image.png](image%2043.png)
+                ![image.png](assets/image%2043.png)
                 
             
-            ![image.png](image%2044.png)
+            ![image.png](assets/image%2044.png)
             
-            ![image.png](image%2045.png)
+            ![image.png](assets/image%2045.png)
             
             - **Ejemplos**
                 
-                ![image.png](image%2046.png)
+                ![image.png](assets/image%2046.png)
                 
-                ![image.png](image%2047.png)
+                ![image.png](assets/image%2047.png)
                 
-                ![image.png](image%2048.png)
+                ![image.png](assets/image%2048.png)
                 
-                ![image.png](image%2049.png)
+                ![image.png](assets/image%2049.png)
                 
-                ![image.png](image%2050.png)
+                ![image.png](assets/image%2050.png)
                 
-                ![image.png](image%2051.png)
+                ![image.png](assets/image%2051.png)
                 
-                ![image.png](image%2052.png)
+                ![image.png](assets/image%2052.png)
                 
         - **Protocolos de bloqueo**
             
-            ![image.png](image%2053.png)
+            ![image.png](assets/image%2053.png)
             
-            ![image.png](image%2054.png)
+            ![image.png](assets/image%2054.png)
             
             - **Protocolos de bloqueo de dos fases**
                 
-                ![image.png](image%2055.png)
+                ![image.png](assets/image%2055.png)
                 
-                ![image.png](image%2056.png)
+                ![image.png](assets/image%2056.png)
                 
-                ![image.png](image%2057.png)
+                ![image.png](assets/image%2057.png)
                 
-                ![image.png](image%2058.png)
+                ![image.png](assets/image%2058.png)
                 
-                ![image.png](image%2059.png)
+                ![image.png](assets/image%2059.png)
                 
-                ![image.png](image%2060.png)
+                ![image.png](assets/image%2060.png)
                 
                 - **Ejercicio 4**
                     
-                    ![image.png](image%2061.png)
+                    ![image.png](assets/image%2061.png)
                     
-                    ![Captura de pantalla_2025-05-12_09-18-50.png](Captura_de_pantalla_2025-05-12_09-18-50.png)
+                    ![Captura de pantalla_2025-05-12_09-18-50.png](assets/Captura_de_pantalla_2025-05-12_09-18-50.png)
                     
             - **Protocolo basado en marcas temporales**
                 
-                ![image.png](image%2062.png)
+                ![image.png](assets/image%2062.png)
                 
-                ![image.png](image%2063.png)
+                ![image.png](assets/image%2063.png)
                 
-                ![image.png](image%2064.png)
+                ![image.png](assets/image%2064.png)
                 
-                ![image.png](image%2065.png)
+                ![image.png](assets/image%2065.png)
                 
-                ![image.png](image%2066.png)
+                ![image.png](assets/image%2066.png)
                 
-                ![image.png](image%2067.png)
+                ![image.png](assets/image%2067.png)
                 
-                ![image.png](image%2068.png)
+                ![image.png](assets/image%2068.png)
                 
-                ![image.png](image%2069.png)
+                ![image.png](assets/image%2069.png)
                 
-                ![image.png](image%2070.png)
+                ![image.png](assets/image%2070.png)
                 
-                ![image.png](image%2071.png)
+                ![image.png](assets/image%2071.png)
                 
         - **Granularidad**
             
-            ![image.png](image%2072.png)
+            ![image.png](assets/image%2072.png)
             
-            ![image.png](image%2073.png)
+            ![image.png](assets/image%2073.png)
             
-            ![image.png](image%2074.png)
+            ![image.png](assets/image%2074.png)
             
-            ![image.png](image%2075.png)
+            ![image.png](assets/image%2075.png)
             
-            ![image.png](image%2076.png)
+            ![image.png](assets/image%2076.png)
             
-            ![image.png](image%2077.png)
+            ![image.png](assets/image%2077.png)
             
-            ![image.png](image%2078.png)
+            ![image.png](assets/image%2078.png)
             
-            ![image.png](image%2079.png)
+            ![image.png](assets/image%2079.png)
             
-            ![image.png](image%2080.png)
+            ![image.png](assets/image%2080.png)
             
         - **Interbloqueos**
             
-            ![image.png](image%2081.png)
+            ![image.png](assets/image%2081.png)
             
             - **Prevención de Interbloqueos**
                 
-                ![image.png](image%2082.png)
+                ![image.png](assets/image%2082.png)
                 
-                ![image.png](image%2083.png)
+                ![image.png](assets/image%2083.png)
                 
-                ![image.png](image%2084.png)
+                ![image.png](assets/image%2084.png)
                 
             - **Deteccion de Interbloqueos**
                 
-                ![image.png](image%2085.png)
+                ![image.png](assets/image%2085.png)
                 
-                ![image.png](image%2086.png)
+                ![image.png](assets/image%2086.png)
                 
-                ![image.png](image%2087.png)
+                ![image.png](assets/image%2087.png)
                 
-                ![image.png](image%2088.png)
+                ![image.png](assets/image%2088.png)
                 
             - **Interbloqueos**
                 
-                ![image.png](image%2089.png)
+                ![image.png](assets/image%2089.png)
                 
     - **Transacciones (Técnicas de recuperación de Bases de Datos)**
         
-        ![image.png](image%2090.png)
+        ![image.png](assets/image%2090.png)
         
-        ![image.png](image%2091.png)
+        ![image.png](assets/image%2091.png)
         
-        ![image.png](image%2092.png)
+        ![image.png](assets/image%2092.png)
         
-        ![image.png](image%2093.png)
+        ![image.png](assets/image%2093.png)
         
-        ![image.png](image%2094.png)
+        ![image.png](assets/image%2094.png)
         
-        ![image.png](image%2095.png)
+        ![image.png](assets/image%2095.png)
         
-        ![image.png](image%2096.png)
+        ![image.png](assets/image%2096.png)
         
-        ![Captura de pantalla_2025-05-12_09-36-52.png](Captura_de_pantalla_2025-05-12_09-36-52.png)
+        ![Captura de pantalla_2025-05-12_09-36-52.png](assets/Captura_de_pantalla_2025-05-12_09-36-52.png)
         
-        ![Captura de pantalla_2025-05-12_09-37-40.png](Captura_de_pantalla_2025-05-12_09-37-40.png)
+        ![Captura de pantalla_2025-05-12_09-37-40.png](assets/Captura_de_pantalla_2025-05-12_09-37-40.png)
         
         - **Tecnicas de recuperacion basadas en la actualizacion diferida**
             
-            ![Captura de pantalla_2025-05-12_09-42-56.png](Captura_de_pantalla_2025-05-12_09-42-56.png)
+            ![Captura de pantalla_2025-05-12_09-42-56.png](assets/Captura_de_pantalla_2025-05-12_09-42-56.png)
             
-            ![Captura de pantalla_2025-05-12_09-44-11.png](Captura_de_pantalla_2025-05-12_09-44-11.png)
+            ![Captura de pantalla_2025-05-12_09-44-11.png](assets/Captura_de_pantalla_2025-05-12_09-44-11.png)
             
-            ![Captura de pantalla_2025-05-12_09-45-44.png](Captura_de_pantalla_2025-05-12_09-45-44.png)
+            ![Captura de pantalla_2025-05-12_09-45-44.png](assets/Captura_de_pantalla_2025-05-12_09-45-44.png)
             
         - **Recuperación mediante la actualización diferida en un entorno multiusuario**
         
@@ -726,7 +726,7 @@
     
     - **Guia de comandos**
         
-        ![carbon (10).png](carbon_(10).png)
+        ![carbon (10).png](assets/carbon_(10).png)
         
 
 ---
@@ -738,20 +738,20 @@
         
         - **1) Pequeña empresa**
             
-            ![image.png](image%2097.png)
+            ![image.png](assets/image%2097.png)
             
         - **2) Gabinete de abogados**
             
             Se quiere diseñar una base de datos relacional para almacenar información sobre los asuntos que lleva un gabinete de abogados. Cada asunto tiene un número de expediente que lo identifica, y corresponde a un solo cliente. Del asunto se debe almacenar el período (fecha de inicio y fecha de archivo o finalización), su estado (en trámite, archivado, etc.), así como los datos personales del cliente al que pertenece (DNI, nombre, dirección, etc.). Algunos asuntos son llevados por uno o varios procuradores, de los que nos interesa también los datos personales. Realizar el diagrama de ER
             
-            ![Diagrama1.jpeg](Diagrama1.jpeg)
+            ![Diagrama1.jpeg](assets/Diagrama1.jpeg)
             
         - **3) Club náutico**
             
             Se quiere diseñar una base de datos relacional para gestionar los datos de los socios de un club náutico. De cada socio se guardan los datos personales y los datos del barco o barcos que posee: número de matrícula, nombre, número del amarre y cuota que paga por el mismo. Además, se quiere mantener información sobre las salidas realizadas por cada barco, como la fecha y hora de salida, el destino y los datos personales del patrón, que no tiene porque ser el propietario del barco, ni es necesario que sea socio del club.
             Realizar el diagrama de ER.
             
-            ![Diagrama1.jpeg](Diagrama1%201.jpeg)
+            ![Diagrama1.jpeg](assets/Diagrama1%201.jpeg)
             
         - **4) Sedes olímpicas**
             
@@ -762,7 +762,7 @@
             
             Cada complejo celebra una serie de eventos (ejemplo: la pista del estadio puede celebrar muchas carreras distintas.). Para cada evento está prevista una fecha, duración, número de participantes, número de comisarios. Una lista de todos los comisarios se conservará junto con la lista de los eventos en los que esté involucrado cada comisario ya sea cumpliendo la tarea de juez u observador. Tanto para cada evento como para el mantenimiento se necesitará cierto equipamiento (ejemplo: arcos, pértigas, barras paralelas, etc).
             
-            ![null (8).png](null_(8).png)
+            ![null (8).png](assets/null_(8).png)
             
         - **5) Sistema de control de vuelos**
             
@@ -782,7 +782,7 @@
             pasajeros?
             Explicar cómo se podría representar esta nueva situación. → se necesitaria poner una nueva entidad y relacion
             
-            ![vuelo.jpeg](vuelo.jpeg)
+            ![vuelo.jpeg](assets/vuelo.jpeg)
             
         - **6) Cadena editorial**
             
@@ -799,7 +799,7 @@
             9. Almacenaremos también las secciones fijas de cada revista, que tendrán un título y una extensión (no todas las revistas tienen las mismas secciones fijas).
             10. De los ejemplares editados por una revista guardaremos: número de la edición (para cada vez que sale la revista), fecha edición, número de páginas y el número de ejemplares vendidos.
                 
-                ![CadenaEditorial.jpeg](CadenaEditorial.jpeg)
+                ![CadenaEditorial.jpeg](assets/CadenaEditorial.jpeg)
                 
         - **7) Pedidos de viajen en remis**
             
@@ -818,7 +818,7 @@
             - Agencias que trabajaron a lo largo del tiempo con una institución determinada y entre qué fechas lo hicieron.
             - Conocer la dirección, nombre, teléfono y código de una agencia determinada.
                 
-                ![remises.jpeg](remises.jpeg)
+                ![remises.jpeg](assets/remises.jpeg)
                 
     - **Tp2 (Modelo Relacional)**
         
@@ -826,7 +826,7 @@
         
         - **1) Biblioteca**
             
-            ![image.png](image%2098.png)
+            ![image.png](assets/image%2098.png)
             
             Libro = (ISBN, año, titulo, idioma).
             
@@ -840,14 +840,14 @@
             
             Libro_Autor = (nombre, ISBN).
             
-            ![drawSQL-image-export-2025-04-19.png](drawSQL-image-export-2025-04-19.png)
+            ![drawSQL-image-export-2025-04-19.png](assets/drawSQL-image-export-2025-04-19.png)
             
         - **2) Farmacias**
             
             
         - **3) AXB**
             
-            ![image.png](image%2099.png)
+            ![image.png](assets/image%2099.png)
             
             A = (A1, A21, A22)
             
@@ -863,14 +863,14 @@
             
             B2x = (B1,B2)
             
-            ![drawSQL-image-export-2025-04-19 (2).png](drawSQL-image-export-2025-04-19_(2).png)
+            ![drawSQL-image-export-2025-04-19 (2).png](assets/drawSQL-image-export-2025-04-19%20(2).png)
             
         
         **Convertir los diagramas de ER obtenidos en la práctica anterior en modelos relacionales**
         
         - **1) Pequeña empresa**
             
-            ![image.png](image%20100.png)
+            ![image.png](assets/image%20100.png)
             
             Cliente =(#Cliente, Saldo, Limite de Credito, Descuento)
             
@@ -886,11 +886,11 @@
             
             Fabrica = (#Fabrica, Telefono, N**º** Articulos provistos)
             
-            ![drawSQL-image-export-2025-04-19 (3).png](drawSQL-image-export-2025-04-19_(3).png)
+            ![drawSQL-image-export-2025-04-19 (3).png](assets/drawSQL-image-export-2025-04-19%20(3).png)
             
         - **2) Gabinete de abogados**
             
-            ![Diagrama1.jpeg](Diagrama1%202.jpeg)
+            ![Diagrama1.jpeg](assets/Diagrama1%202.jpeg)
             
             Persona = (DNI, Nombre, Direccion)
             
@@ -902,11 +902,11 @@
             
             Procurador_lleva_Asunto = (#Expediente, Legajo)
             
-            ![drawSQL-image-export-2025-04-19 (4).png](drawSQL-image-export-2025-04-19_(4).png)
+            ![drawSQL-image-export-2025-04-19 (4).png](assets/drawSQL-image-export-2025-04-19%20(4).png)
             
         - **3) Club náutico**
             
-            ![Diagrama1.jpeg](Diagrama1%203.jpeg)
+            ![Diagrama1.jpeg](assets/Diagrama1%203.jpeg)
             
             Persona = (DNI, Nombre)
             
@@ -921,7 +921,7 @@
         - **4) Sedes olímpicas**
         - **5) Sistema de control de vuelos**
             
-            ![image.png](image%20101.png)
+            ![image.png](assets/image%20101.png)
             
             Aeropuerto = (Codigo, Nombre, Ciudad, Pais)
             
@@ -935,7 +935,7 @@
             
         - **6) Cadena editorial**
             
-            ![image.png](image%20102.png)
+            ![image.png](assets/image%20102.png)
             
     - **Tp3 (Algebra Relacional)**
         
@@ -945,19 +945,19 @@
         
         - **Ejercicio 1**
             
-            ![image.png](image%20103.png)
+            ![image.png](assets/image%20103.png)
             
-            ![null (18).png](null_(18).png)
+            ![null (18).png](assets/null_(18).png)
             
         - **Ejercicio 2**
             
-            ![image.png](image%20104.png)
+            ![image.png](assets/image%20104.png)
             
-            ![null (20).png](null_(20).png)
+            ![null (20).png](assets/null_(20).png)
             
         - **Ejercicio 3**
             
-            ![image.png](image%20105.png)
+            ![image.png](assets/image%20105.png)
             
             - **Ejercicio 1**
                 
@@ -1035,51 +1035,51 @@
         
         - **Ejercicio 1**
             
-            ![image.png](image%20106.png)
+            ![image.png](assets/image%20106.png)
             
         - **Ejercicio 2**
             
-            ![image.png](image%20107.png)
+            ![image.png](assets/image%20107.png)
             
         - **Ejercicio 3**
             
-            ![image.png](image%20108.png)
+            ![image.png](assets/image%20108.png)
             
         - **Ejercicio 4**
             
-            ![image.png](image%20109.png)
+            ![image.png](assets/image%20109.png)
             
         - **Ejercicio 5**
             
-            ![image.png](image%20110.png)
+            ![image.png](assets/image%20110.png)
             
         - **Ejercicio 6**
             
-            ![image.png](image%20111.png)
+            ![image.png](assets/image%20111.png)
             
         - **Ejercicio 7**
             
-            ![image.png](image%20112.png)
+            ![image.png](assets/image%20112.png)
             
         - **Ejercicio 8**
             
-            ![image.png](image%20113.png)
+            ![image.png](assets/image%20113.png)
             
         - **Ejercicio 9**
             
-            ![image.png](image%20114.png)
+            ![image.png](assets/image%20114.png)
             
         - **Ejercicio 10**
             
-            ![image.png](image%20115.png)
+            ![image.png](assets/image%20115.png)
             
         - **Ejercicio 11**
             
-            ![image.png](image%20116.png)
+            ![image.png](assets/image%20116.png)
             
         - **Ejercicio 12**
             
-            ![image.png](image%20117.png)
+            ![image.png](assets/image%20117.png)
             
         - **Ejercicio 13**
             
@@ -1093,11 +1093,11 @@
         
         - **Ejercicio 1**
             
-            ![image.png](image%20118.png)
+            ![image.png](assets/image%20118.png)
             
             Estos son los **estados** por los que puede pasar una transaccion:
             
-            ![image.png](image%20119.png)
+            ![image.png](assets/image%20119.png)
             
             - Una transacción entra en **estado activo** inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones **LEER** y **ESCRIBIR**. Cuando la transacción termina, pasa al **estado de parcialmente confirmada**.
             - En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el **estado de confirmada**.
@@ -1105,120 +1105,120 @@
             - El **estado terminado** se alcanza cuando la transacción abandona el sistema.
         - **Ejercicio 2**
             
-            ![image.png](image%20120.png)
+            ![image.png](assets/image%20120.png)
             
             Los tres problemas de concurrencia que pueden surgir al momento de acceder a los datos son:
             
             - **Actualizacion a perdida**
                 
-                ![image.png](image%20121.png)
+                ![image.png](assets/image%20121.png)
                 
             - **Lectura sucia**
                 
-                ![image.png](image%20122.png)
+                ![image.png](assets/image%20122.png)
                 
             - **Analisis Inconsistente**
                 
-                ![image.png](image%20123.png)
+                ![image.png](assets/image%20123.png)
                 
             
         - **Ejercicio 3**
             
-            ![image.png](image%20124.png)
+            ![image.png](assets/image%20124.png)
             
         - **Ejercicio 4**
             
-            ![image.png](image%20125.png)
+            ![image.png](assets/image%20125.png)
             
             Planificacion 1:
             
-            ![image.png](image%20126.png)
+            ![image.png](assets/image%20126.png)
             
-            ![image.png](image%20127.png)
+            ![image.png](assets/image%20127.png)
             
             La planificacion 1 es serializable por conflicto ya que no contiene ciclos.
             
             Planificacion 2:
             
-            ![image.png](image%20128.png)
+            ![image.png](assets/image%20128.png)
             
-            ![image.png](image%20129.png)
+            ![image.png](assets/image%20129.png)
             
             La planificacion 2 es serializable por conflicto ya que no contiene ciclos.
             
             Planificacion 3:
             
-            ![image.png](image%20130.png)
+            ![image.png](assets/image%20130.png)
             
-            ![image.png](image%20131.png)
+            ![image.png](assets/image%20131.png)
             
             La planificacion 3 no es serializable por conflicto ya que contiene ciclos.
             
         - **Ejercicio 5**
             
-            ![image.png](image%20132.png)
+            ![image.png](assets/image%20132.png)
             
             1. Los posibles resultados con la ejecucion en serie de estas transacciones son 2!=2, ya que la cantidad de transacciones posibles son *n!*
             2. 
         - **Ejercicio 6**
             
-            ![image.png](image%20133.png)
+            ![image.png](assets/image%20133.png)
             
             Los posibles resultados con la ejecucion en serie de estas transacciones son 3!=6, ya que la cantidad de transacciones posibles son *n!*, sin embargo los resultados correctos son 3, ya que los otros 3 son iguales.
             
-            ![image.png](image%20134.png)
+            ![image.png](assets/image%20134.png)
             
-            ![image.png](image%20135.png)
+            ![image.png](assets/image%20135.png)
             
-            ![image.png](image%20136.png)
+            ![image.png](assets/image%20136.png)
             
         - **Ejercicio 7**
             
-            ![Sin título.png](Sin_ttulo%202.png)
+            ![Sin título.png](assets/Sin_ttulo%202.png)
             
         - **Ejercicio 8**
             
-            ![image.png](image%20137.png)
+            ![image.png](assets/image%20137.png)
             
-            ![image.png](image%20138.png)
+            ![image.png](assets/image%20138.png)
             
-            ![image.png](image%20139.png)
+            ![image.png](assets/image%20139.png)
             
         - **Ejercicio 9**
             
-            ![image.png](image%20140.png)
+            ![image.png](assets/image%20140.png)
             
         - **Ejercicio 10**
             
-            ![image.png](image%20141.png)
+            ![image.png](assets/image%20141.png)
             
-            ![image.png](image%20142.png)
+            ![image.png](assets/image%20142.png)
             
         - **Ejercicio 11**
             
-            ![image.png](image%20143.png)
+            ![image.png](assets/image%20143.png)
             
-            ![image.png](image%20144.png)
+            ![image.png](assets/image%20144.png)
             
             **La planificación NO cumple con el protocolo de bloqueo de dos fases**, porque la transacción (T1) **libera bloqueos antes de terminar de adquirirlos**, violando la fase de crecimiento del protocolo.
             
         - **Ejercicio 12**
             
-            ![image.png](image%20145.png)
+            ![image.png](assets/image%20145.png)
             
             a.
             
-            ![image.png](image%20146.png)
+            ![image.png](assets/image%20146.png)
             
             b.
             
         - **Ejercicio 13**
             
-            ![image.png](image%20147.png)
+            ![image.png](assets/image%20147.png)
             
         - **Ejercicio 14**
             
-            ![image.png](image%20148.png)
+            ![image.png](assets/image%20148.png)
             
     - **TP's SQL**
         - **TP1 - SQL Creación y Generación de Información**
@@ -1227,39 +1227,39 @@
             
             - **Ejercicio 1**
                 
-                ![image.png](image%20149.png)
+                ![image.png](assets/image%20149.png)
                 
-                ![image.png](image%20150.png)
+                ![image.png](assets/image%20150.png)
                 
             - **Ejercicio 2**
                 
-                ![image.png](image%20151.png)
+                ![image.png](assets/image%20151.png)
                 
-                ![image.png](image%20152.png)
+                ![image.png](assets/image%20152.png)
                 
                 En **SQL Server**, `UNIQUEIDENTIFIER` es un tipo de dato que almacena un **GUID** (Globally Unique Identifier), es decir, un **identificador único global**. Tiene una longitud fija de **16 bytes** (128 bits).
                 
-                ![image.png](image%20153.png)
+                ![image.png](assets/image%20153.png)
                 
-                ![image.png](image%20154.png)
+                ![image.png](assets/image%20154.png)
                 
-                ![image.png](image%20155.png)
+                ![image.png](assets/image%20155.png)
                 
-                ![image.png](image%20156.png)
+                ![image.png](assets/image%20156.png)
                 
-                ![image.png](image%20157.png)
+                ![image.png](assets/image%20157.png)
                 
-                ![image.png](image%20158.png)
+                ![image.png](assets/image%20158.png)
                 
-                ![image.png](image%20159.png)
+                ![image.png](assets/image%20159.png)
                 
-                ![image.png](image%20160.png)
+                ![image.png](assets/image%20160.png)
                 
                 Se le agrega **`DEFAULT NEWID()`** para que se asigne automaticamente.
                 
             - **Ejercicio 3**
                 
-                ![image.png](image%20161.png)
+                ![image.png](assets/image%20161.png)
                 
                 ```sql
                 USE ventas_e;
@@ -1290,9 +1290,9 @@
                 
             - **Ejercicio 4**
                 
-                ![image.png](image%20162.png)
+                ![image.png](assets/image%20162.png)
                 
-                ![image.png](image%20163.png)
+                ![image.png](assets/image%20163.png)
                 
                 ```sql
                 USE ventas_e;
@@ -1323,7 +1323,7 @@
                 
             - **Ejercicio 5**
                 
-                ![image.png](image%20164.png)
+                ![image.png](assets/image%20164.png)
                 
                 **Primero ingreso los datos necesarios para resolver el ejercicio:**
                 
@@ -1363,7 +1363,7 @@
                 
             - **Ejercicio 6**
                 
-                ![image.png](image%20165.png)
+                ![image.png](assets/image%20165.png)
                 
                 ```sql
                 USE ventas_e;
@@ -1396,19 +1396,19 @@
             
             [TP2.sql](assets/TP2.sql)
             
-            ![image.png](image%20166.png)
+            ![image.png](assets/image%20166.png)
             
             - **Query para crear la base de datos para la practica**
                 
                 
             
-            ![image.png](image%20167.png)
+            ![image.png](assets/image%20167.png)
             
             ```sql
             SELECT * FROM Cliente;
             ```
             
-            ![image.png](image%20168.png)
+            ![image.png](assets/image%20168.png)
             
             ```sql
             SELECT Apellido, Nombre
@@ -1416,7 +1416,7 @@
             ORDER BY Apellido DESC;
             ```
             
-            ![image.png](image%20169.png)
+            ![image.png](assets/image%20169.png)
             
             ```sql
             SELECT IDTipoIva, COUNT(*) AS CantidadCliente
@@ -1424,13 +1424,13 @@
             GROUP BY IDTipoIVA;
             ```
             
-            ![image.png](image%20170.png)
+            ![image.png](assets/image%20170.png)
             
             ```sql
             SELECT * FROM Cliente WHERE Apellido = 'Martinez'
             ```
             
-            ![image.png](image%20171.png)
+            ![image.png](assets/image%20171.png)
             
             ```sql
             SELECT C.RazonSocial, COUNT(C.Token) AS Cantidad
@@ -1439,7 +1439,7 @@
             HAVING COUNT(C.Token) > 1;
             ```
             
-            ![image.png](image%20172.png)
+            ![image.png](assets/image%20172.png)
             
             ```sql
             SELECT A.Descripcion, COUNT(IV.idVenta) AS CantVecesVendida
@@ -1450,7 +1450,7 @@
             GROUP BY A.Descripcion;
             ```
             
-            ![image.png](image%20173.png)
+            ![image.png](assets/image%20173.png)
             
             ```sql
             SELECT RazonSocial, DNI 
@@ -1459,7 +1459,7 @@
             ORDER BY DNI ASC;
             ```
             
-            ![image.png](image%20174.png)
+            ![image.png](assets/image%20174.png)
             
             ```sql
             SELECT * FROM Cliente
@@ -1467,7 +1467,7 @@
             AND (CUIT IS NULL OR CUIT = '');
             ```
             
-            ![image.png](image%20175.png)
+            ![image.png](assets/image%20175.png)
             
             ```sql
             SELECT 
@@ -1481,7 +1481,7 @@
             ORDER BY promedio DESC;
             ```
             
-            ![image.png](image%20176.png)
+            ![image.png](assets/image%20176.png)
             
             ```sql
             SELECT 
@@ -1496,7 +1496,7 @@
             ORDER BY E.RazonSocial, S.NombreSeccion;
             ```
             
-            ![image.png](image%20177.png)
+            ![image.png](assets/image%20177.png)
             
             ```sql
             SELECT 
@@ -1513,13 +1513,13 @@
             ORDER BY E.RazonSocial;
             ```
             
-            ![image.png](image%20178.png)
+            ![image.png](assets/image%20178.png)
             
             ```sql
             SELECT Descripcion, Precio FROM Articulo WHERE Descripcion LIKE '%unipolar%';
             ```
             
-            ![image.png](image%20179.png)
+            ![image.png](assets/image%20179.png)
             
             ```sql
             SELECT 
@@ -1533,7 +1533,7 @@
             ORDER BY E.RazonSocial, A.Descripcion;
             ```
             
-            ![image.png](image%20180.png)
+            ![image.png](assets/image%20180.png)
             
             ```sql
             SELECT U.AyN, COUNT(*) AS UsuariosRegistrados
@@ -1545,7 +1545,7 @@
             HAVING COUNT(DISTINCT UXE.idEmpresa) > 1
             ```
             
-            ![image.png](image%20181.png)
+            ![image.png](assets/image%20181.png)
             
             ```sql
             SELECT A.idArticulo, A.Descripcion
@@ -1559,7 +1559,7 @@
             FROM ArticulosNoVendidos;
             ```
             
-            ![image.png](image%20182.png)
+            ![image.png](assets/image%20182.png)
             
             ```sql
             SELECT 
@@ -1577,7 +1577,7 @@
             ORDER BY E.RazonSocial, Mes;
             ```
             
-            ![image.png](image%20183.png)
+            ![image.png](assets/image%20183.png)
             
             ```sql
             SELECT 
@@ -1597,7 +1597,7 @@
             
             [TP3.sql](assets/TP3.sql)
             
-            ![image.png](image%20184.png)
+            ![image.png](assets/image%20184.png)
             
             ```sql
             CREATE PROCEDURE SP_CantidadVendida
@@ -1615,7 +1615,7 @@
             END;
             ```
             
-            ![image.png](image%20185.png)
+            ![image.png](assets/image%20185.png)
             
             ```sql
             CREATE PROCEDURE SP_ListadoClientes
@@ -1642,7 +1642,7 @@
             
             ```
             
-            ![image.png](image%20186.png)
+            ![image.png](assets/image%20186.png)
             
             ```sql
             CREATE PROCEDURE SP_ListarMontoClientes
@@ -1663,7 +1663,7 @@
             
             ```
             
-            ![image.png](image%20187.png)
+            ![image.png](assets/image%20187.png)
             
             ```sql
             ALTER TABLE Articulo
@@ -1690,7 +1690,7 @@
             END;
             ```
             
-            ![image.png](image%20188.png)
+            ![image.png](assets/image%20188.png)
             
             ```sql
             CREATE PROCEDURE SP_SeccionesSinRubro
@@ -1701,7 +1701,7 @@
             END;
             ```
             
-            ![image.png](image%20189.png)
+            ![image.png](assets/image%20189.png)
             
             ```sql
             CREATE PROCEDURE SP_RankingClientes
@@ -1719,7 +1719,7 @@
             END;
             ```
             
-            ![image.png](image%20190.png)
+            ![image.png](assets/image%20190.png)
             
             ```sql
             CREATE PROCEDURE SP_BuenosClientes
