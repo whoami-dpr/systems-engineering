@@ -1,5 +1,5 @@
 <a href="https://utn.edu.ar/">
-  <img src="https://diagonalalaro.com.ar/wp-content/uploads/2018/03/UTN.png" alt="UTN Logo" height="25"/>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQxDogY_QPvIai_GqjWgiHGJVSL7TwaMS4jA&s" alt="UTN Logo" height="25"/>
   <img src="https://img.shields.io/badge/Plan%202023-blue?style=for-the-badge&labelColor=gray" alt="Plan 2023"/>
 </a>
 
