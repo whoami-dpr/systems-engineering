@@ -1,7 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/UTN-V1.0-blue?style=flat&logo=github&color=blue)
 ![Sistemas Operativos](https://img.shields.io/badge/-Sistemas%20Operativos-blue?logo=arch-linux&labelColor=gray)
-![Arch](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge)
-![Kali](https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white)
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/-An%C3%A1lisis%20Funcional%20de%20Sistemas-blue?logo=codeforces&labelColor=gray)
 ![Redes y Comunicaciones](https://img.shields.io/badge/-Redes%20y%20Comunicaciones-blue?logo=cisco&labelColor=gray)
 
@@ -15,6 +13,11 @@
 ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 
+---
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Arch](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge)
+![Kali](https://img.shields.io/badge/Kali-268BEE?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
 # Ingeniería en Sistemas
 
