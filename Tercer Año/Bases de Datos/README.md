@@ -13,11 +13,16 @@
   <details>
   <summary>Base de datos (BD)</summary>
   Una base de datos es una coleccion de datos relacionados.
-  > **Definicion completa**: Una base de datos es una colección o conjunto de datos interrelacionados con un propósito específico vinculado a la resolución de un problema del mundo real
-  <span style="color: red">**Definir**</span> una B. D. **implica** especificar los **tipos de datos, estructuras y restricciones** de los datos que se almacenarán en la B. D.
-  La <span style="color: red">**construcción**</span> de la B. D. es el proceso consistente en **almacenar los datos en algún medio de almacenamiento controlado por el DBMS.**
-  La <span style="color: red">**manipulación**</span> de una B. D. incluye funciones como la **consulta** de la B. D. para **recuperar datos específicos**, **actualizar** la B. D. para reflejar los cambios introducidos en el minimundo y **generar informes** a partir de los datos.
-  <span style="color: red">**Compartir**</span> una B. D. **permite** que varios usuarios y programas **accedan** a la B. D. en forma **simultánea**.
+
+  > **Definicion completa:** Una base de datos es una colección o conjunto de datos interrelacionados con un propósito específico vinculado a la resolución de un problema del mundo real
+
+  <span style="color: red">**Definir**</span> una B. D. <strong>implica</strong> especificar los <strong>tipos de datos, estructuras y restricciones</strong> de los datos que se almacenarán en la B. D.
+
+  <span style="color: red">**La construcción**</span> de la B. D. es el proceso consistente en <strong>almacenar los datos en algún medio de almacenamiento controlado por el DBMS.</strong>
+
+  <span style="color: red">**La manipulación**</span> de una B. D. incluye funciones como la <strong>consulta</strong> de la B. D. para <strong>recuperar datos específicos</strong>, <strong>actualizar</strong> la B. D. para reflejar los cambios introducidos en el minimundo y <strong>generar informes</strong> a partir de los datos.
+
+  <span style="color: red">**Compartir**</span> una B. D. <strong>permite</strong> que varios usuarios y programas <strong>accedan</strong> a la B. D. en forma <strong>simultánea</strong>.
   </details>
   <details>
   <summary>Caracteristicas implicitas de las bases de datos</summary>
@@ -509,8 +514,6 @@
     <summary>TP's SQL</summary>
     ...
     </details>
-
-</details>
 
 </details>
 
