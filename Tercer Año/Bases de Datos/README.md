@@ -1,1808 +1,979 @@
-# Base de Datos
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Base de Datos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-<details>
-<summary>Conceptos Basicos</summary>
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
-- **Conceptos Basicos**
-    
-    [Conceptos básicos.pdf](assets/Conceptos_bsicos.pdf)
-    
-    - Datos: Son la **mínima unidad semántica**, por sí solos son irrelevantes
-    como apoyo a la toma de decisiones.
-    - Informacion:  **Conjunto de datos procesados y que tienen un significado** (relevancia, propósito y contexto), y que por lo tanto son de utilidad para quién debe tomar decisiones, al disminuir su incertidumbre.
-    - **Base de datos (BD)**
-        
-        Una base de datos es una coleccion de datos relacionados.
-        
-        > **Definicion completa**: Una base de datos es una colección o conjunto de datos interrelacionados con un propósito específico vinculado a la resolución de un problema del mundo real
-        > 
-        
-        **Definir** una B. D. **implica** especificar los **tipos de datos, estructuras y restricciones** de los datos que se almacenarán en la B. D.
-        
-        La **construcción** de la B. D. es el proceso consistente en **almacenar los datos en algún medio de almacenamiento controlado por el DBMS.**
-        
-        La **manipulación** de una B. D. incluye funciones como la **consulta** de la B. D. para **recuperar datos específicos**, **actualizar** la B. D. para reflejar los cambios introducidos en el minimundo y **generar informes** a partir de los datos.
-        
-        **Compartir** una B. D. **permite** que varios usuarios y programas **accedan** a la B. D. en forma **simultánea**.
-        
-    - **Caracteristicas implicitas de las bases de datos**
-        - Una B. D. representa algún aspecto del mundo real, lo que en ocasiones se denomina minimundo o universo de discurso. Los cambios introducidos en el minimundo se reflejan en ella.
-        - Una B. D. es una colección de datos lógicamente coherente con algún tipo de significado inherente. No es correcto denominar B. D. a un surtido aleatorio de datos.
-        - Una B. D. se diseña, construye y rellena con datos para un propósito específico. Dispone de un grupo pretendido de usuarios y algunas aplicaciones preconcebidas en las que esos usuarios están interesados.
-    - **Database management system (DBMS)**
-        
-        **Objetivos**
-        
-        - Evitar redundancia e inconsistencia de datos
-        - Permitir acceso a los datos en todo momento
-        - Evitar anomalias en el acceso concurrente
-        - Restriccion a accesos no autorizados→seguridad
-        - Suministro de almacenamiento persitente de datos ante fallos
-        - Integridad de los datos
-        - Backups
-    
-    **Normalizar** los datos significa que los vamos a llevar a un esquema que **garantiza** la calidad de los datos
-    
-    Una dependencia funcional es una restriccion que se establece entre dos relaciones de base de datos
-    
-    ---
-    
-    - **Trabajo Practico: Conceptos Basicos**
-        
-        [Bases de Datos 2025 - Trabajo Práctico_ Conceptos básicos.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Conceptos_bsicos.pdf)
-        
-        1. Las principales caracteristicas que presenta la metodologia de bases de datos frente a la metodologia de procesamiento de archivos son:
-            - **Naturaleza autodescriptiva de un sistema de base de datos**: Un sistema de bases de datos no solo contiene la propia base de datos, sino tambien una completa definicion de la estructura de la bases de datos y sus restricciones.
-            - **Aislamiento entre programas y datos, y abstraccion de datos**: Los DBMS permiten la independencia entre programas y datos, evitando que cambios en la estructura de datos afecten a los programas. Además, las bases de datos orientadas a objetos incluyen operaciones sobre datos, facilitando la abstracción y simplificando el acceso sin conocer los detalles internos.
-            - **Soporte de varias vistas de los datos**: Un DBMS multiusuario cuyos usuarios tienen variedad de diferentes aplicaciones debe ofrecer facilidades para definir varias vistas, una **vista** puede ser un subconjunto de la base de datos o puede contener datos virtuales derivados de los arDBMSchivos de la base de datos pero que no estan explicitamente almacenados
-            - **Comparticion de datos y procesamiento de transacciones multiusuario**: Un DBMS multiusuario permite que varios usuarios accedan a la base de datos simultáneamente, asegurando el control de concurrencia para evitar conflictos. Los sistemas OLTP garantizan transacciones seguras y correctas. Las transacciones deben cumplir propiedades como aislamiento y atomicidad para mantener la integridad de los datos.
-        2. Los actores que intervienen en el diseño, uso y mantenimiento de una Base de Datos puede depender de la estrcutura organizacional, en el caso de una base de datos pequeña un usuario normalmente define, contruye y manipula la base de datos. Sin embargo en organizaciones mas grandes los actores que inetervienen son:
-            - **Administradores de las bases de datos**: la administracion de la base de datos es responsabilidad del DBA ***(database administrator).*** el DBA es responsable del acceso autorizado a la base de datos, de la coordinacion y monitorizacion de su uso, y de adquirir los recursos software y hardware necesarios.
-            - **Diseñadores de las bases de datos**: Estos son los responsables de identificar los datos que se almacenaran y de elegir las estructuras apropiadas para representar y almacenar estos datos, ademas es responsabilidad de ellos comunicarse con todos los presuntos usuarios para conocer sus requisitos a fines de conseguir lograr un diseño que cumpla con sus necesidades.
-            - **Usuarios finales**: Estas son las personas cuyos trabajos requiren acceso a la base de datos para realizar consultas, actualizaciones e informes
-            
-            Pregunta: Que actor interviene en el mantenimiento, es el administrador?
-            
-        3. Las diferentes ventajas de utilizar una metodologia DBMS *(database managament system),* son:
-            - **Control de la redundancia:** se refiere, a la capacidad de la base de datos de no cometer errores de guardar un mismo tipo de dato con distintos datos.
-            - **Restriccion del acceso no autorizado**: Es la capacidad de no permitir que cualquier persona que utiliza la base de datos, pueda acceder a la base de datos completa. Por ejemplo, los datos financieros se puede considerar confidenciales, y solo las personas autorizadas pueden acceder a ellos.
-            - **Almacenamiento persistente para los objetos del programa:** La metodologia DBMS se encarga de guardar y recuperar directamente estructuras de objetos, manteniendo la compatibilidad con los lenguajes de programacion orientado a objetos.
-            - **Suministro de estructuras de almacenamiento para un procesamiento eficaz de las consultas:** Esta especializado en acelerar la busqueda de datos en los discos de los registros utilizando unos archivos auxiliares utilizando indices.
-            - **Copia de seguridad y recuperacion**
-        4. 
-    
-</details>
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
 
-<details>
-<summary>Modelo Entidad Relacion</summary>
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
 
-- **Modelo Entidad Relacion**
-    
-    [Modelo Entidad Relación.pdf](assets/Modelo_Entidad_Relacin.pdf)
-    
-    > El modelado de datos es un proceso que permite a las organizaciones descubrir, diseñar, visualizar, estandarizar e implementar activos de datos de alta calidad a través de una interfaz gráfica intuitiva.
-    > 
-    - Está basado en una percepción del mundo real consistente en objetos básicos, llamados entidades, y de relaciones entre estos objetos. es uno de los diferentes modelos de datos semánticos.
-    - El aspecto semántico del modelo yace en la representación del significado de los datos.
-    - Es extremadamente útil para hacer corresponder los significados e interacciones de las empresas del mundo real con un esquema conceptual.
-    
-    Hay **tres** nociones básicas que emplea el modelo de datos E-R:
-    
-    - Conjuntos de entidades
-    - Conjuntos de relaciones
-    - Atributos.
-    - **Conjunto de entidades**
-    - **Conjunto de relaciones**
-    - **Atributos**
-        - Describen propiedades que posee cada miembro de un conjunto de entidades
-        - Posibles atributos del conjunto de entidades cliente son id-cliente, nombre-cliente, calle-cliente y ciudad-cliente.
-        - Para cada atributo hay un conjunto de valores permitidos, llamados el dominio.
-        - En ciertas ocasiones, **las relaciones también pueden tener atributos.**
-        - El atributo que permite identificar unívocamente a la entidad, recibe el nombre de clave primaria. (identificar univocamente la entidad significa que esta no se puede repetir, por ejemplo para una persona seria el DNI).
-        
-        ### Clasificacion de atributos
-        
-        Los atributos pueden ser:
-        
-        - **Simples y compuestos:**
-            - Los **simples** NO pueden subdividirse.
-            - Los compuestos, en cambio, se pueden dividir en subpartes (es decir, en otros atributos). Por ejemplo, una dirección **puede** estar compuesta por los atributos calle, número y localidad
-        - **Monovalorados y multivalorados:**
-            - Los **monovalorados** tiene un valor sólo para una entidad; por ejemplo, el atributo número-préstamo.
-            - El atributo número-teléfono para cualquier empleado puede tener cero, uno o más números de teléfono. Este tipo de atributo se llama **multivalorado**.
-        - **Derivados**: El valor para este tipo de atributo se puede derivar de los valores de otros atributos o entidades relacionados. Por ejemplo, si la entidad cliente tiene el atributo fecha-nacimiento y edad, la edad deriva de la fecha de nacimiento. Si la entidad cliente tiene un atributo cantidad-préstamos, se puede derivar contando el número de entidades préstamo asociadas con ese cliente.
-    
-    ### Diagrama entidad- relación
-    
-    **Expresar gráficamente estructura lógica general de una base de datos.**
-    
-    **Consta de los siguientes componentes principales:**
-    
-    - **Rectángulos**, que representan entidades.
-    - **Elipses**, que representan atributos **(el atributo clave se subraya).**
-    - **Rombos**, que representan relaciones.
-    - **Líneas**, que unen atributos a conjuntos de entidades y entidades a relaciones.
-    - **Elipses dobles**, que representan atributos multivalorados.
-    - **Elipses discontinuas**, que denotan atributos derivados.
-    - **Líneas dobles**, que indican participación total de una entidad en una relación.
-    - **Rectángulos dobles**, que representan conjuntos de entidades débiles.
-    
-    ### Diagrama E-R correspondiente a clientes y préstamos.
-    
-    ![Captura de pantalla_2025-03-31_08-42-54.png](assets/Captura_de_pantalla_2025-03-31_08-42-54.png)
-    
-    ![Captura de pantalla_2025-03-31_09-14-50.png](assets/Captura_de_pantalla_2025-03-31_09-14-50.png)
-    
-    Aunque los conceptos básicos de **E-R** pueden modelar la mayoría de las características de las bases de datos, algunos aspectos de una base de datos pueden ser más adecuadamente expresados mediante ciertas extensiones:
-    
-    - Especialización.
-    - Generalización.
-    - Herencia de atributos
-    - Agregación.
-    
-    ### Especializacion y Generaclizacion
-    
-    ![Captura de pantalla_2025-03-31_09-15-34.png](assets/Captura_de_pantalla_2025-03-31_09-15-34.png)
-    
-    Este diagrama es **Parcial y Superpuesto (Asumido por defecto)**
-    
-    **Cuando se usa especialización o generalización se debe definir la cobertura. Existen dos coberturas:**
-    
-    - **Total o parcial:** Es **total** cuando **cada entidad** de nivel más alto **debe pertenecer a una entidad de nivel más bajo**. Es parcial cuando algunas entidades de nivel más alto pueden no pertenecer a alguna entidad de nivel más bajo.
-    - **Exclusiva o superpuesta**: Lo que se analiza es si un entidad del nivel más alto puede o no estar en más de una entidad del nivel más bajo. Si solo puede estar en una entidad de nivel más bajo, la cobertura es exclusiva; en tanto, si puede estar en varias, se denomina superpuesta.
-    
-    ### **Agregacion**
-    
-    Mecanismo de **abstracción** que lleva a considerar una interrelación y las entidades que participan, como una nueva entidad.
-    
-</details>
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
 
-<details>
-<summary>Modelo Relacional</summary>
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
 
-- **Modelo Relacional**
-    
-    [Modelo Relacional.pdf](assets/Modelo_Relacional.pdf)
-    
-    ### Conceptos Basicos
-    
-    - El modelo relacional representa a una BD como una **colección de tablas**, las cuales se conforman por registros.
-    - **Cada tabla se denomina relación** y está formada por filas horizontales y columnas verticales. **Cada fila representa un registro y se denomina tupla, mientras que cada columna representa un atributo del registro.**
-    
-    ### Selección de claves
-    
-    Si una entidad solo tiene un identificador, este identificador es clave primaria. Si la entidad tuviese varios identificadores, la selección de la **clave primaria (CP)** debe realizarse del siguiente modo:
-    
-    - Entre un identificador simple y uno compuesto, **debe tomarse el simple**.
-    - Entre dos identificadores, **se debe optar por aquel de menos tamaño físico**.
-    
-    El resto de los identificadores será definido como **Clave Candidata (CC)**.
-    
-    ### Conversión de entidades
-    
-    - El proceso de conversión para obtener el esquema físico de una BD comienza con el análisis de las entidades definidas en el modelo lógico.
-    - El proceso de conversión muestra que cada una de las entidades fuertes y débiles definidas deben transformarse en una tabla del modelo.
-        
-        ![Captura de pantalla_2025-04-07_08-25-51.png](assets/Captura_de_pantalla_2025-04-07_08-25-51.png)
-        
-    
-    ### **Conversión de atributos multivalorados**
-    
-    - Por cada atributo multivalorado (ya sea de entidad o de relación) **se crea una tabla**.
-    - Se **agrega un atributo** para el multivalorado.
-    - Se **agrega como atributo la clave primaria de la tabla** que modela la entidad o relación a la cual pertenece el multivalorado.
-    - **La clave primaria se forma con todos sus atributos**
-        
-        ![Captura de pantalla_2025-04-07_08-29-20.png](assets/Captura_de_pantalla_2025-04-07_08-29-20.png)
-        
-    
-    ### Conversión de atributos compuestos
-    
-    ![Captura de pantalla_2025-04-07_08-36-13.png](assets/Captura_de_pantalla_2025-04-07_08-36-13.png)
-    
-    ### Conversión de relaciones
-    
-    ![Captura de pantalla_2025-04-07_08-48-25.png](assets/Captura_de_pantalla_2025-04-07_08-48-25.png)
-    
-    No toda entidad tiene que tener un foreign key (F.K.) con otra entidad
-    
-    ### Conversión de relaciones
-    
-    1. La clave primaria de Presidente se almacena en la tabla País como un atributo y pasa a ser foreing key.
-    Presidente = (DNI, nombre, apellido)
-    Pais = (id, nombre, cantidad_habitantes, DNI)
-    - DNI: FOREING KEY de Presidente
-    2. La clave primaria de País almacena en la tabla Presidente como un atributo y pasa a ser foreing key.
-    Pais = (id, nombre, cantidad_habitantes)
-    Presidente = (DNI, nombre, apellido, id_país)
-    - id_país: FOREING KEY de País
-    3. Las claves primarias de ambas entidades se guardan en la tabla de la otra entidad. Es decir, la tabla Presidente guardaría la clave primaria de País y la tabla País guardaría también la clave primaria de Presidente. Esta solución puede presentar redundancia,
-    pero puede ser interesante en algunas ocasiones, dependiendo de las consultas que se vayan a realizar sobre estas tablas a nivel de aplicación. En este caso los atributos id_país y id_presidente serían foreign key (FK).
-    Presidente = (DNI, nombre, apellido, id_país)
-    id_país: FOREING KEY de País
-    Pais = (id, nombre, cantidad_habitantes, DNI)
-    DNI: FOREING KEY de Presidente
-    
-    ![Captura de pantalla_2025-04-07_09-06-02.png](assets/Captura_de_pantalla_2025-04-07_09-06-02.png)
-    
-    ### Generalizaciones/Especializaciones
-    
-    Básicamente, **hay tres opciones para tratar una especialización**.
-    
-    1. **Eliminar las subentidades**, dejando sólo la entidad padre a la cual se le incorporan todos los atributos de sus hijos. Cada uno de ellos deberá ser no obligatorio.
-        
-        ![Captura de pantalla_2025-04-07_09-36-18.png](assets/Captura_de_pantalla_2025-04-07_09-36-18.png)
-        
-    2. **Eliminar la entidad padre**, dejando sólo las subentidades. Con esta solución, los atributos del padre deberán incluirse en cada uno de los hijos.
-        
-        ![Captura de pantalla_2025-04-07_09-36-34.png](assets/Captura_de_pantalla_2025-04-07_09-36-34.png)
-        
-    3. **Dejar todas las entidades de la jerarquía**, convirtiéndolas en relaciones uno a uno entre el padre y cada uno de los hijos.
-        
-        ![Captura de pantalla_2025-04-07_09-37-02.png](assets/Captura_de_pantalla_2025-04-07_09-37-02.png)
-        
-    
-    Las tres soluciones **no** son aplicables en todos los casos.
-    
-    - Si la cobertura fuese parcial, la segunda solución no sería aplicable debido a que la conversión generaría un modelo no equivalente ya que se perdería información
-    - La cobertura es la que determina la solución viable en cada caso.
-    
-    Si se analiza la cobertura superpuesta, la segunda solución no resulta práctica. Algunos elementos del padre se repiten en varios hijos, esto significa que se deberá repetir información en las subentidades generadas.
-    
-    Se puede afirmar que la tercera alternativa de solución es la que capta mejor la esencia de la
-    herencia y, por ende, la que resulta más interesante aplicar. Sin embargo, esta solución es la que genera mayor número de entidades y relaciones en el modelo final. Esto podría significar, a futuro, problema de performance en la utilización de la B.D.
-    
-    ### Integridad referencial (IR)
-    
-    Propiedad deseable de las BD.
-    
-    - Asegura que un valor que aparece para un atributo en una tabla, aparezca además en otra tabla para el mismo atributo.
-    - Plantea restricciones entre tablas y sirve para mantener la consistencia entre las tuplas de dichas tablas.
-    - Ejemplo:
-    Facturas = (nroFactura, fecha, monto, nroCliente (CF))
-    Clientes = (nroCliente, nombre, dirección)
-        - En la tabla Facturas, nroCliente es una CF. Esta CF permite establecer IR entre las tablas Facturas y Clientes. Notar que nroCliente es CP en Clientes.
-    
-    **Resumen de conversion con Multiplicidades**
-    
-    0..n → 1..1 Se guarda la cp de la entidad de 0..n en la tabla 1..1
-    
-    1..1 → 1..1 Se guarda la cp en la entidad que prefiera, pero siempre se guarda en alguna
-    
-    0..n → 0..n Se guarda la relacion con ambas claves primarias
-    
-</details>
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
 
-<details>
-<summary>Normalizacion</summary>
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
 
-- **Normalizacion**
-    
-    [Normalizacion.pdf](assets/Normalizacion.pdf)
-    
-    ### Dependencias funcionales
-    
-    Una **dependencia funcional** es una **restricción** que se establece entre dos conjuntos de atributos de una tabla de la Base de Datos. 
-    
-    Una **dependencia funcional** es una **propiedad de la semántica** o significado de los atributos. Los diseñadores de la B. D. utilizarán su comprensión de la semántica de los atributos de R (esto es, cómo se relacionan unos con otros) para especificar las dependencias funcionales que deben mantenerse en todos los estados de relación r de R.
-    
-    ![Captura de pantalla_2025-04-03_12-17-57.png](assets/Captura_de_pantalla_2025-04-03_12-17-57.png)
-    
-    ![Captura de pantalla_2025-04-03_12-23-30.png](assets/Captura_de_pantalla_2025-04-03_12-23-30.png)
-    
-    ### Dependencia funcional transitiva
-    
-    ## Normalización
-    
-    > Técnica de diseño de BD que comienza examinando las relaciones que existen entre los atributos (dependencias funcionales). La normalización identifica el agrupamiento óptimo de estos atributos, con el fin de identificar un conjunto de relaciones que soporten adecuadamente los requisitos de datos de la organización.
-    > 
-    
-    El **proposito** es producir un conjunto de relaciones (tablas) con una serie de propiedades deseables partiendo de los requisitos de datos de una organización.
-    
-    La **normalización** es un mecanismo que permite que un conjunto de tablas, que integran una BD, **cumpla** una serie de propiedades deseables. Estas **propiedades** consisten en evitar:
-    
-    - Redundancia de datos. → Evitar redundancia de datos no claves
-    - Anomalías de actualización.
-    - Pérdida de integridad de datos.
-        
-        [BASE DE DATOS 24-4.pdf](assets/BASE_DE_DATOS_24-4.pdf)
-        
-</details>
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
 
-<details>
-<summary>Algebra Relacional</summary>
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
 
-- **Algebra Relacional**
-    
-    [Álgebra Relacional_modif_11-4.pdf](assets/lgebra_Relacional_modif_11-4.pdf)
-    
-    - Un modelo de datos debe incluir un conjunto de operaciones para manipular la base de datos junto con los conceptos necesarios para la definición de su estructura y restricciones.
-    - El conjunto de operaciones básicas del modelo relacional es el **álgebra relacional**, el cual permite al usuario especificar las peticiones fundamentales de recuperación.
-    - El resultado de una recuperación es una nueva relación, la cual puede estar constituida por una o más relaciones.
-    - Razones por las que es importante el algebra relacional
-        - El álgebra relacional es muy importante por varias razones. La primera, porque **proporciona** un **fundamento formal para las operaciones del modelo formal**.
-        - La segunda razón, es que se utiliza como base para la implementación y optimización de consultas en los RDBMS (Sistemas de administración de bases de datos relacionales). Tercera, porque algunos de sus conceptos se han incorporado al lenguaje estándar de consultas SQL para los RDBMS.
-    
-    ### Tipos de Operadores Básicos
-    
-    **Unarios: Operan sobre una sola relación:**
-    
-    - **Selección ($σ$)**
-        - Se emplea para seleccionar un subconjunto de las tuplas que satisfacen un predicado.
-        - Se puede considerar esta operación como un filtro que mantiene sólo las tuplas que satisfacen una determinada condición.
-        
-        **Filtra filas (tuplas) que cumplen una condición.**
-        
-        ![Captura de pantalla_2025-04-14_08-45-04.png](assets/Captura_de_pantalla_2025-04-14_08-45-04.png)
-        
-    - **Proyección ($π$)**
-        - Permite presentar los atributos especificados de una relación y no presentar el resto.
-        - Esta operación selecciona ciertas columnas de la tabla y descarta otras.
-        
-        Va a ser 0 si la tabla original es vacia, sino un elemento al menos va tener
-        
-        **Elige columnas específicas.**
-        
-        ![Captura de pantalla_2025-04-14_08-48-03.png](assets/Captura_de_pantalla_2025-04-14_08-48-03.png)
-        
-        ![Captura de pantalla_2025-04-14_08-49-17.png](assets/Captura_de_pantalla_2025-04-14_08-49-17.png)
-        
-    - **Renombre ($ρ$)**
-        - Define un alias para una relación.
-        - Útil para evitar ambigüedades cuando una relación aparece más de una vez en una consulta.
-        - Esta operación aplicada a una relación R de grado n aparece denotada de cualquiera de estas tres formas:
-            
-            ![Captura de pantalla_2025-04-14_08-50-32.png](assets/Captura_de_pantalla_2025-04-14_08-50-32.png)
-            
-            ![Captura de pantalla_2025-04-14_08-51-04.png](assets/Captura_de_pantalla_2025-04-14_08-51-04.png)
-            
-            **Combina dos relaciones con el mismo esquema (atributos).**
-            
-    
-    **Binarios: operan sobre dos relaciones:**
-    
-    - **Producto cartesiano ($x$)**
-        - El producto cartesiano es una operación que, a partir de dos relaciones vincula cada tupla de una de las relaciones con cada tupla de la otra relación.
-        - La operación aplicada es, por sí misma, absurda. Es útil cuando va seguida por una selección que correlaciones los valores de los atributos procedentes de las relaciones componentes.
-        - Número de columnas de $R x S$ = Cols. de R + Cols. de S
-        - Número de tuplas de $R x S$ = Tuplas de R * Tuplas de S
-        - Para evitar ambigüedades: Usar sintaxis tabla.columna
-            
-            ![Captura de pantalla_2025-04-14_08-56-55.png](assets/Captura_de_pantalla_2025-04-14_08-56-55.png)
-            
-    - **Unión (U)**
-        - Equivale a la unión matemática de conjuntos.
-        - Las tuplas repetidas son eliminadas.
-        - Las relaciones a unir deben ser **compatibles** (Igual número de atributos
-        Dominios iguales dos a dos)
-        
-        ![Captura de pantalla_2025-04-14_09-00-28.png](assets/Captura_de_pantalla_2025-04-14_09-00-28.png)
-        
-    - **Diferencia (-)**
-        - Equivale a la diferencia matemática de conjuntos.
-        - Incluye tuplas que están en una relación pero no en la otra.
-    
-    ### Operaciones adicionales.
-    
-    - **Producto natural (⨝)**
-        - Combina los elementos de la primera relación que se relacionan con los elementos de la segunda relación.
-        - Simplifica consultas que combinan varias relaciones.
-        - Es una reunión con el operador de igualdad para combinar los atributos comunes de las relaciones.
-        - No especifica explícitamente el predicado de combinación y la selección se hace en base a los campos comunes.
-        
-        *(Es lo mismo que realizar una operación de selección posterior a un
-        producto cartesiano.)*
-        
-        ![Captura de pantalla_2025-04-14_09-16-15.png](assets/Captura_de_pantalla_2025-04-14_09-16-15.png)
-        
-    - **Intersección ($∩$)**
-        - Equivale a la intersección matemática de conjuntos.
-        - Incluye tuplas que están en todas las relaciones.
-        - Incluye las tuplas que están en $R$ y en $S$.
-            
-            ![Captura de pantalla_2025-04-14_09-17-49.png](assets/Captura_de_pantalla_2025-04-14_09-17-49.png)
-            
-    - **Asignación (🡨)**
-        - Crea una nueva relación a partir de otra.
-        - Lo que se asigna puede ser una relación existente o el resultado de una operación.
-        
-        > Nueva 🡨 Expresión de AR
-        > 
-    - **División (”/”)**
-        - Retorna aquellos elementos de la primera relación que se relacionan con todos los elementos de la segunda relación.
-        - $A/B$ retorna los elementos de A que se relacionan con todos los elementos de B, donde las columnas de B deben estar incluidas en las columnas de A.
-        
-        ![Captura de pantalla_2025-04-14_09-44-10.png](assets/Captura_de_pantalla_2025-04-14_09-44-10.png)
-        
-    
-    - **Ejercicios**
-        
-        ![Captura de pantalla_2025-04-14_09-25-59.png](assets/Captura_de_pantalla_2025-04-14_09-25-59.png)
-        
-        **$σ_{Libros.añoEdicion=2015}$**($π_{Libro-Edicion.AñoEdicion, Libros.titulo}$(Libro-Editorial $X$ Libros))
-        
-        ![Captura de pantalla_2025-04-14_09-56-31.png](assets/Captura_de_pantalla_2025-04-14_09-56-31.png)
-        
-        ($σ_{Editoriales.Denominacion = "Ediciones A"}$)
-        
-        ![Captura de pantalla_2025-04-14_09-19-24.png](assets/Captura_de_pantalla_2025-04-14_09-19-24.png)
-        
-        $σ_{codigo, apellido, nombre}$(Socios)
-        
-</details>
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
 
-<details>
-<summary>Transacciones</summary>
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
 
-- **Transacciones**
-    
-    [Transacciones.pdf](assets/Transacciones.pdf)
-    
-    - **Transacciones (Conceptos - Estados de ejecución - Planificiones)**
-        
-        ![image.png](assets/image.png)
-        
-        El procesamiento de transacciones en bases de datos se refiere a la**gestión de operaciones que cambian el estado de una base de datos, garantizando que estas operaciones se completen de manera consistente y fiable**. Las transacciones son unidades de trabajo que deben completarse en su totalidad o no se completan, asegurando la integridad de los datos. 
-        
-        ![image.png](assets/image%201.png)
-        
-        ![Sin título.png](assets/Sin_ttulo.png)
-        
-        - **Transaccion - Definicion**
-            
-            ![image.png](assets/image%202.png)
-            
-            Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.
-            
-            ![image.png](assets/image%203.png)
-            
-            ![image.png](assets/image%204.png)
-            
-        - **Concurrencia**
-            
-            ![image.png](assets/image%205.png)
-            
-            Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.
-            
-            - **Actualizacion a perdida**
-                
-                ![image.png](assets/image%206.png)
-                
-                Cuando dos transacciones que intentan modificar la BD ambas leen datos antiguos y una modifica el dato pero se pierde porque la otra tambien lo hace y la escribe (guarda) sin haberse escrito la primera transaccion. Una forma de controlarlo es que las transacciones tienen que pedir permiso para acceder al recurso compartido
-                
-            - **Lectura sucia**
-                
-                ![image.png](assets/image%207.png)
-                
-                T1 lee A luego que la T2 lo escribio, osea que el valor que lee T1 es un valor que produjo T2. Si hay un problema en T2, la misma no se pudo completar, porque no se pueden hacer por partes las transacciones, deben cumplir las propiedades **ACID**:
-                
-                - **Atomicidad**: una transaccion no se puede dividir en partes.
-                - **Consistencia**: se refiere a que la informacion guardada en la BD es fiel a la realidad.
-                - **Aislamiento**: ninguna transaccion debe interferir con otra, se deben ejecutar de manera unica.
-                - **Durabilidad**: si una transaccion finaliza bien, los cambios deben perdurar en el tiempo.
-            - **Analisis Inconsistente**
-                
-                ![image.png](assets/image%208.png)
-                
-                T1 llega a un **análisis inconsistente** porque **lee datos que ya fueron modificados por otra transacción (T2), pero no desde el inicio**, generando así una **mezcla de valores antiguos y nuevos** que no reflejan ningún estado real de la base de datos.
-                
-            
-            ![image.png](assets/image%209.png)
-            
-        - **¿Por qué es necesaria la recuperación?**
-            
-            ![image.png](assets/image%2010.png)
-            
-            ![image.png](assets/image%2011.png)
-            
-        - **Estados de ejecución**
-            
-            ![image.png](assets/image%2012.png)
-            
-            ![image.png](assets/image%2013.png)
-            
-            - Una transacción entra en **estado activo** inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones LEER y ESCRIBIR. Cuando la transacción termina, pasa al **estado de parcialmente confirmada**.
-            - En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el **estado de confirmada**.
-            - No obstante, una transacción puede entrar en el **estado de fallo** si falla alguna de las comprobaciones o si la transacción es cancelada durante su estado activo.
-            - El **estado terminado** se alcanza cuando la transacción abandona el sistema.
-        - **Propiedades ACID**
-            
-            ![image.png](assets/image%2014.png)
-            
-            **Las transacciones poseen las siguientes propiedades:**
-            
-            - **Atomicidad**: Una transacción es una unidad atómica de procesamiento; o se ejecuta en su totalidad o no se ejecuta en absoluto.
-            - **Conservación de la consistencia**: Una transacción está conservando la consistencia si su ejecución completa lleva a la B. D. de un estado consistente a otro.
-            - **Aislamiento (Isolation)**: Una transacción debe aparecer como si estuviera ejecutándose de forma aislada a las demás. Es decir, la ejecución de una transacción no debe interferir con la ejecución de ninguna otra transacción simultánea.
-            - **Durabilidad**: Los cambios aplicados a la B. D. por una transacción confirmada deben persistir en la B. D. Estos cambios no deben perderse por culpa de un fallo.
-        - **Planificaciones**
-            
-            ![image.png](assets/image%2015.png)
-            
-            ![image.png](assets/image%2016.png)
-            
-            - **Ejemplo**
-                
-                ![image.png](assets/image%2017.png)
-                
-                ![image.png](assets/image%2018.png)
-                
-                ![image.png](assets/image%2019.png)
-                
-                ![image.png](assets/image%2020.png)
-                
-            
-            ![image.png](assets/image%2021.png)
-            
-            ![image.png](assets/image%2022.png)
-            
-            ![image.png](assets/image%2023.png)
-            
-            - **Ejercicio 1**
-                
-                **Dos planificaciones son equivalentes por conflicto si el orden de cualquier par de operaciones en conflicto es el mismo en las dos planificaciones.**
-                
-                ![image.png](assets/image%2024.png)
-                
-                ![image.png](assets/image%2025.png)
-                
-                ![image.png](assets/image%2026.png)
-                
-            - **Ejercicio 2**
-                
-                ![image.png](assets/image%2027.png)
-                
-            
-            ![image.png](assets/image%2028.png)
-            
-            ![image.png](assets/image%2029.png)
-            
-            ![image.png](assets/image%2030.png)
-            
-            ![image.png](assets/image%2031.png)
-            
-            - **Ejercicio 3**
-                
-                ![image.png](assets/image%2032.png)
-                
-                ![image.png](assets/image%2033.png)
-                
-                ![image.png](assets/image%2034.png)
-                
-                ![image.png](assets/image%2035.png)
-                
-                ![image.png](assets/image%2036.png)
-                
-                ![image.png](assets/image%2037.png)
-                
-            - **Planificaciones en Serie (Secuenciales)**
-                
-                ![image.png](assets/image%2038.png)
-                
-                ![image.png](assets/image%2039.png)
-                
-            - **Planificaciones serializables**
-                
-                ![image.png](assets/image%2040.png)
-                
-    - **Transacciones (Control de concurrencia - Bloqueos - Protocolos - Granularidad - Interbloqueos)**
-        
-        ![Sin título.png](assets/Sin_ttulo%201.png)
-        
-        - **Bloqueos**
-            
-            ![image.png](assets/image%2041.png)
-            
-            - **Bloqueo Compartido**
-                
-                ![image.png](assets/image%2042.png)
-                
-            - **Bloqueo Exlusivo**
-                
-                ![image.png](assets/image%2043.png)
-                
-            
-            ![image.png](assets/image%2044.png)
-            
-            ![image.png](assets/image%2045.png)
-            
-            - **Ejemplos**
-                
-                ![image.png](assets/image%2046.png)
-                
-                ![image.png](assets/image%2047.png)
-                
-                ![image.png](assets/image%2048.png)
-                
-                ![image.png](assets/image%2049.png)
-                
-                ![image.png](assets/image%2050.png)
-                
-                ![image.png](assets/image%2051.png)
-                
-                ![image.png](assets/image%2052.png)
-                
-        - **Protocolos de bloqueo**
-            
-            ![image.png](assets/image%2053.png)
-            
-            ![image.png](assets/image%2054.png)
-            
-            - **Protocolos de bloqueo de dos fases**
-                
-                ![image.png](assets/image%2055.png)
-                
-                ![image.png](assets/image%2056.png)
-                
-                ![image.png](assets/image%2057.png)
-                
-                ![image.png](assets/image%2058.png)
-                
-                ![image.png](assets/image%2059.png)
-                
-                ![image.png](assets/image%2060.png)
-                
-                - **Ejercicio 4**
-                    
-                    ![image.png](assets/image%2061.png)
-                    
-                    ![Captura de pantalla_2025-05-12_09-18-50.png](assets/Captura_de_pantalla_2025-05-12_09-18-50.png)
-                    
-            - **Protocolo basado en marcas temporales**
-                
-                ![image.png](assets/image%2062.png)
-                
-                ![image.png](assets/image%2063.png)
-                
-                ![image.png](assets/image%2064.png)
-                
-                ![image.png](assets/image%2065.png)
-                
-                ![image.png](assets/image%2066.png)
-                
-                ![image.png](assets/image%2067.png)
-                
-                ![image.png](assets/image%2068.png)
-                
-                ![image.png](assets/image%2069.png)
-                
-                ![image.png](assets/image%2070.png)
-                
-                ![image.png](assets/image%2071.png)
-                
-        - **Granularidad**
-            
-            ![image.png](assets/image%2072.png)
-            
-            ![image.png](assets/image%2073.png)
-            
-            ![image.png](assets/image%2074.png)
-            
-            ![image.png](assets/image%2075.png)
-            
-            ![image.png](assets/image%2076.png)
-            
-            ![image.png](assets/image%2077.png)
-            
-            ![image.png](assets/image%2078.png)
-            
-            ![image.png](assets/image%2079.png)
-            
-            ![image.png](assets/image%2080.png)
-            
-        - **Interbloqueos**
-            
-            ![image.png](assets/image%2081.png)
-            
-            - **Prevención de Interbloqueos**
-                
-                ![image.png](assets/image%2082.png)
-                
-                ![image.png](assets/image%2083.png)
-                
-                ![image.png](assets/image%2084.png)
-                
-            - **Deteccion de Interbloqueos**
-                
-                ![image.png](assets/image%2085.png)
-                
-                ![image.png](assets/image%2086.png)
-                
-                ![image.png](assets/image%2087.png)
-                
-                ![image.png](assets/image%2088.png)
-                
-            - **Interbloqueos**
-                
-                ![image.png](assets/image%2089.png)
-                
-    - **Transacciones (Técnicas de recuperación de Bases de Datos)**
-        
-        ![image.png](assets/image%2090.png)
-        
-        ![image.png](assets/image%2091.png)
-        
-        ![image.png](assets/image%2092.png)
-        
-        ![image.png](assets/image%2093.png)
-        
-        ![image.png](assets/image%2094.png)
-        
-        ![image.png](assets/image%2095.png)
-        
-        ![image.png](assets/image%2096.png)
-        
-        ![Captura de pantalla_2025-05-12_09-36-52.png](assets/Captura_de_pantalla_2025-05-12_09-36-52.png)
-        
-        ![Captura de pantalla_2025-05-12_09-37-40.png](assets/Captura_de_pantalla_2025-05-12_09-37-40.png)
-        
-        - **Tecnicas de recuperacion basadas en la actualizacion diferida**
-            
-            ![Captura de pantalla_2025-05-12_09-42-56.png](assets/Captura_de_pantalla_2025-05-12_09-42-56.png)
-            
-            ![Captura de pantalla_2025-05-12_09-44-11.png](assets/Captura_de_pantalla_2025-05-12_09-44-11.png)
-            
-            ![Captura de pantalla_2025-05-12_09-45-44.png](assets/Captura_de_pantalla_2025-05-12_09-45-44.png)
-            
-        - **Recuperación mediante la actualización diferida en un entorno multiusuario**
-        
-</details>
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
 
-<details>
-<summary>SQL (Structured Query Language)</summary>
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
 
-- **SQL (Structured Query Language)**
-    
-    [Tips Sobre SQL.pdf](assets/Tips_Sobre_SQL.pdf)
-    
-    [ClaseSQLC31.sql](assets/ClaseSQLC31.sql)
-    
-    - **Guia de comandos**
-        
-        ![carbon (10).png](assets/carbon_(10).png)
-        
+mark {
+	background-color: transparent;
+}
 
----
+.indented {
+	padding-left: 1.5em;
+}
 
-- **Trabajos Practicos**
-    - **Tp1 (Modelo Entidad Relacion)**
-        
-        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Entidad Relación.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Entidad_Relacin.pdf)
-        
-        - **1) Pequeña empresa**
-            
-            ![image.png](assets/image%2097.png)
-            
-        - **2) Gabinete de abogados**
-            
-            Se quiere diseñar una base de datos relacional para almacenar información sobre los asuntos que lleva un gabinete de abogados. Cada asunto tiene un número de expediente que lo identifica, y corresponde a un solo cliente. Del asunto se debe almacenar el período (fecha de inicio y fecha de archivo o finalización), su estado (en trámite, archivado, etc.), así como los datos personales del cliente al que pertenece (DNI, nombre, dirección, etc.). Algunos asuntos son llevados por uno o varios procuradores, de los que nos interesa también los datos personales. Realizar el diagrama de ER
-            
-            ![Diagrama1.jpeg](assets/Diagrama1.jpeg)
-            
-        - **3) Club náutico**
-            
-            Se quiere diseñar una base de datos relacional para gestionar los datos de los socios de un club náutico. De cada socio se guardan los datos personales y los datos del barco o barcos que posee: número de matrícula, nombre, número del amarre y cuota que paga por el mismo. Además, se quiere mantener información sobre las salidas realizadas por cada barco, como la fecha y hora de salida, el destino y los datos personales del patrón, que no tiene porque ser el propietario del barco, ni es necesario que sea socio del club.
-            Realizar el diagrama de ER.
-            
-            ![Diagrama1.jpeg](assets/Diagrama1%201.jpeg)
-            
-        - **4) Sedes olímpicas**
-            
-            Las sedes olímpicas se dividen en complejos deportivos. Los complejos deportivos se subdividen en aquellos en los que se desarrolla un único deporte y en los polideportivos. Los complejos polideportivos tienen áreas designadas para cada deporte con un indicador de localización (ejemplo: centro, esquina-NE, etc.). Un complejo tiene una localización, un jefe de organización individual y un área total ocupada.
-            
-            Los dos tipos de complejos (deporte único y polideportivo) tendrán diferentes tipos de
-            información. Para cada tipo de sede, se conservará el número de complejos junto con su presupuesto aproximado.
-            
-            Cada complejo celebra una serie de eventos (ejemplo: la pista del estadio puede celebrar muchas carreras distintas.). Para cada evento está prevista una fecha, duración, número de participantes, número de comisarios. Una lista de todos los comisarios se conservará junto con la lista de los eventos en los que esté involucrado cada comisario ya sea cumpliendo la tarea de juez u observador. Tanto para cada evento como para el mantenimiento se necesitará cierto equipamiento (ejemplo: arcos, pértigas, barras paralelas, etc).
-            
-            ![null (8).png](assets/null_(8).png)
-            
-        - **5) Sistema de control de vuelos**
-            
-            Obtener el diagrama ER para un sistema de control de vuelos adaptado a las siguientes reglas de gestión (indicar las entidades, interrelaciones, etc., que se deducen de cada una de las reglas):
-            a) De cada aeropuerto se conoce su código, nombre, ciudad y país.
-            b) En cada aeropuerto pueden tomar tierra diversos modelos de aviones (el modelo de un avión determina su capacidad, es decir, el número de plazas. 
-            c) En cada aeropuerto existe una colección de programas de vuelo. En cada programa de vuelo se indica el número de vuelo, línea aérea y días de la semana en que existe dicho vuelo.
-            d) Cada programa de vuelo despega de un aeropuerto y aterriza en otro.
-            e) Los números de vuelo son únicos para todo el mundo.
-            f) En cada aeropuerto hay múltiples aterrizajes y despegues. Todos los aeropuertos
-            contemplados están en activo, es decir, tienen algún aterrizaje y algún despegue.
-            g) Cada vuelo realizado pertenece a un cierto programa de vuelo. Para cada vuelo se quiere conocer su fecha, plazas vacías y el modelo de avión utilizado.
-            h) Algunos programas de vuelo incorporan escalas técnicas intermedias entre los aeropuertos de salida y de llegada. Se entiende por escala técnica a un aterrizaje y despegue consecutivos sin altas ó bajas de pasajeros.
-            i) De cada vuelo se quieren conocer las escalas técnicas ordenadas asignándole a cada una un número de orden. 
-            Por ejemplo, el programa de vuelo 555 de Iberia con vuelos los lunes y jueves despega de Barajas-Madrid-España y aterriza en Caudell-Sydney-Australia teniendo las siguientes escalas técnicas: 1- Los Pradiños-Sao Paulo-Brasil, 2-El Emperador-Santiago-Chile y 3-Saint Kitts-Auckland-Nueva Zelanda.
-            ¿Qué cambios se producirán en el caso anterior si en las escalas pudiesen bajar o subir
-            pasajeros?
-            Explicar cómo se podría representar esta nueva situación. → se necesitaria poner una nueva entidad y relacion
-            
-            ![vuelo.jpeg](assets/vuelo.jpeg)
-            
-        - **6) Cadena editorial**
-            
-            Realizar el diagrama de ER para una cadena editorial con los siguientes supuestos:
-            
-            1. La cadena tiene varias sucursales con su nombre, su dirección, población, teléfono y código postal
-            2. La editorial tiene trabajadores que son empleados de sucursales o periodistas.
-            3. De los trabajadores tendremos sus datos personales: DNI, nombre, domicilio, población, teléfono, email
-            4. Cada sucursal tiene varios empleados.
-            5. Un empleado trabaja en una única sucursal y tiene un salario mensual.
-            6. En cada sucursal se publican varias revistas. Cada revista se edita en una sucursal.
-            7. Para cada revista guardaremos su código, nombre de la revista, fecha de fundación, director, periodicidad (semanal, trimestral,...), tipo (información general, deportivas, rosa,...).
-            8. La cadena editorial tiene periodistas (que no trabajan en sucursales) que pueden escribir artículos para varias revistas, guardaremos el tema del artículo , la extensión del artículo y la fecha en la que lo escribió. De los periodistas guardaremos los mismos datos que para los empleados, añadiendo su especialidad.
-            9. Almacenaremos también las secciones fijas de cada revista, que tendrán un título y una extensión (no todas las revistas tienen las mismas secciones fijas).
-            10. De los ejemplares editados por una revista guardaremos: número de la edición (para cada vez que sale la revista), fecha edición, número de páginas y el número de ejemplares vendidos.
-                
-                ![CadenaEditorial.jpeg](assets/CadenaEditorial.jpeg)
-                
-        - **7) Pedidos de viajen en remis**
-            
-            Se desea modelar, usando el diagrama ER, información para el manejo de pedidos de viajes en remis por parte de los empleados de diferentes instituciones.
-            Es necesario guardar información acerca de las instituciones, de cada institución se registra nombre (único), domicilio completo y teléfonos. Cada institución está formada por oficinas en las cuales trabajan empleados, quienes pueden solicitar remises a la agencia que trabaja con la institución. Una agencia puede trabajar con una única institución y en cada institución se trabaja con una sola agencia, pero es común que una institución cambie de agencia a lo largo del tiempo. Cualquier empleado de las diferentes oficinas puede pedir un remis a la agencia, pero el viaje solicitado debe ser autorizado por un empleado jerárquico.
-            Las oficinas se caracterizan por tener un nombre, el cual puede repetirse en diferentes
-            instituciones, pero no dentro de la misma institución. También poseen un número de interno y piso donde se encuentra.
-            De cada empleado se conoce un número de empleado, nombre, apellido, dni, a qué oficina pertenece y si puede autorizar viajes o no. Es importante que quede registrado qué empleado solicitó el viaje y qué empleado lo autorizó en caso de que esto ocurra.
-            Se sabe que nuestro modelo deberá responder a las siguientes solicitudes:
-            
-            - Conocer la cantidad de viajes que pidió cada empleado.
-            - Conocer la oficina que más gasta en viajes.
-            - El destino y el origen del viaje más caro.
-            - Fecha y hora de los viajes de un año determinado.
-            - El empleado jerárquico que autorizó más viajes.
-            - Agencias que trabajaron a lo largo del tiempo con una institución determinada y entre qué fechas lo hicieron.
-            - Conocer la dirección, nombre, teléfono y código de una agencia determinada.
-                
-                ![remises.jpeg](assets/remises.jpeg)
-                
-    - **Tp2 (Modelo Relacional)**
-        
-        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Relacional.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Relacional.pdf)
-        
-        - **1) Biblioteca**
-            
-            ![image.png](assets/image%2098.png)
-            
-            Libro = (ISBN, año, titulo, idioma).
-            
-            Autor = (Nombre).
-            
-            Copia = (Numero, ISBN).
-            
-            Copia_Prestada_Usuario = (Numero, id, ISBN, Fecha_devolucion, Fecha_prestamo).
-            
-            Usuario = (id, nombre).
-            
-            Libro_Autor = (nombre, ISBN).
-            
-            ![drawSQL-image-export-2025-04-19.png](assets/drawSQL-image-export-2025-04-19.png)
-            
-        - **2) Farmacias**
-            
-            
-        - **3) AXB**
-            
-            ![image.png](assets/image%2099.png)
-            
-            A = (A1, A21, A22)
-            
-            B = (B1, B3)
-            
-            B2 = (B1, B2A) → multivalorado se hace una nueva tabla
-            
-            C = (A1, C1, C2) → se pone la clave primaria porque hay una relacion 1…1
-            
-            BC = (B1, C1)
-            
-            ABx = (AB, A1, B1)
-            
-            B2x = (B1,B2)
-            
-            ![drawSQL-image-export-2025-04-19 (2).png](assets/drawSQL-image-export-2025-04-19%20(2).png)
-            
-        
-        **Convertir los diagramas de ER obtenidos en la práctica anterior en modelos relacionales**
-        
-        - **1) Pequeña empresa**
-            
-            ![image.png](assets/image%20100.png)
-            
-            Cliente =(#Cliente, Saldo, Limite de Credito, Descuento)
-            
-            Direcciones de Envio = (#Cliente, N**º**, Calle, Comuna, Ciudad)
-            
-            Pedido = (#Cliente, Fecha, N**º**, Calle, Comuna, Ciudad)
-            
-            Pedido_Articulo = (#Articulo, #Cliente, Fecha, Cantidad)
-            
-            Articulo = (#Articulo, Descripcion)
-            
-            Articulo_Fabrica = (#Articulo, #Fabrica, Existencias)
-            
-            Fabrica = (#Fabrica, Telefono, N**º** Articulos provistos)
-            
-            ![drawSQL-image-export-2025-04-19 (3).png](assets/drawSQL-image-export-2025-04-19%20(3).png)
-            
-        - **2) Gabinete de abogados**
-            
-            ![Diagrama1.jpeg](assets/Diagrama1%202.jpeg)
-            
-            Persona = (DNI, Nombre, Direccion)
-            
-            Cliente = (DNI, #Cliente)
-            
-            Procurador = (DNI, Legajo)
-            
-            Asunto = (#Expediente, Fecha_fin, Fecha_inicio, Estado)
-            
-            Procurador_lleva_Asunto = (#Expediente, Legajo)
-            
-            ![drawSQL-image-export-2025-04-19 (4).png](assets/drawSQL-image-export-2025-04-19%20(4).png)
-            
-        - **3) Club náutico**
-            
-            ![Diagrama1.jpeg](assets/Diagrama1%203.jpeg)
-            
-            Persona = (DNI, Nombre)
-            
-            Socio = (DNI, #Socio)
-            
-            Patron = (DNI, #Patron)
-            
-            Barco = (Matricula, Amarre, Nombre,  Cuota)
-            
-            Salida = (Fecha, Hora, #Salida)
-            
-        - **4) Sedes olímpicas**
-        - **5) Sistema de control de vuelos**
-            
-            ![image.png](assets/image%20101.png)
-            
-            Aeropuerto = (Codigo, Nombre, Ciudad, Pais)
-            
-            Avion = (Matricula, Modelo, Nro Plazas)
-            
-            Vuelo = (IDvuelo, Fecha, Plazas Vacias)
-            
-            Programa de vuelo = (Nro de vuelo, Linea Aerea, Dias de la semana)
-            
-            Escala = (Nro de vuelo, nombre)
-            
-        - **6) Cadena editorial**
-            
-            ![image.png](assets/image%20102.png)
-            
-    - **Tp3 (Algebra Relacional)**
-        
-        [Bases de Datos 2025 - Trabajo Práctico_ Álgebra Relacional.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__lgebra_Relacional.pdf)
-        
-        **Dadas las siguientes relaciones, resolver utilizando Álgebra Relacional las consultas planteadas.**
-        
-        - **Ejercicio 1**
-            
-            ![image.png](assets/image%20103.png)
-            
-            ![null (18).png](assets/null_(18).png)
-            
-        - **Ejercicio 2**
-            
-            ![image.png](assets/image%20104.png)
-            
-            ![null (20).png](assets/null_(20).png)
-            
-        - **Ejercicio 3**
-            
-            ![image.png](assets/image%20105.png)
-            
-            - **Ejercicio 1**
-                
-                tandil ← $π_{codInmueble}$(**$σ_{localidad = tandil}(inmuebles)$**)
-                
-                prop ← $π_{propinmueble.cuil}$(tandil ⨝ ****Propinmueble)
-                
-                p ← $π_{propietarios.dni}$(prop ⨝ ****propietarios)
-                
-                $π_{apellido, nombre}$(p ⨝ personas)
-                
-            - **Ejercicio 2**
-                
-                contrat ←$π_{dni}$$(σ_{fechaActual > fechaVtoContra}(contratos))$
-                
-                $π_{nombre, apellido}$(Personas ⨝ contrat)
-                
-            - **Ejercicio 3**
-                
-                C ←$π_{codInmueble}$ $(σ_{fechaIncioAlquiler > 01/03/2025}(Contratos))$
-                
-                $π_{cuil}$(C ⨝ PropInmueble)
-                
-            - **Ejercicio 4**
-                
-                p ← $π_{propietarios.dni}$(PropInmueble ⨝ ****propietarios)
-                
-                $π_{Personas.Nombre, Peronas.Apellido}$(Personas ⨝ ****P)
-                
-            - **Ejercicio 5**
-                
-                CodEliminar ← $π_{contratos.codInmueble}$(($σ_{fechaVtoContra > fechaActual}$(Contratos))
-                
-                In ← $π_{inmuebles.codInmueble}$(Inmuebles) - CodEliminar
-                
-                C ← $π_{PropInmueble.cuil}$(In ⨝ PropInmueble)
-                
-                P ← $π_{propietarios.dni, propietarios.cuil}$(Propietarios ⨝ C)
-                
-                $π_{Personas.dni, Personas.cuil, Personas.nombre, Personas.apellido}$(P ⨝ Personas)
-                
-            - **Ejercicio 6**
-                
-                $π_{nroContrato}$($σ_{fechaVtoContra > 31/05/2026}$(Contratos))
-                
-            - **Ejercicio 13**
-                
-                InmueblesPropietario ← $π_{codInmueble}$($σ_{cuil = 111111}$ (Propinmueble))
-                
-                Contratos ← Contratos – (Contratos ⨝ InmueblesPropietario)
-                
-                Inmuebles ← Inmuebles - (Inmuebles ⨝ InmueblesPropietario)
-                
-                PropInmuebles ← PropInmuebles - ($σ_{cuil = 111111}$ (Propinmueble))
-                
-                Propietarios ← Propietarios - $σ_{cuil = 111111}$(Propietarios)
-                
-            - **Ejercicio 14**
-                
-                Loc ← $π_{Localidad}$($σ_{cuil = 654321}$(Propietarios))
-                
-                Dir ←  $π_{Localidad}$($σ_{cuil = 654321}$(Propietarios))
-                
-                PropietarioMod ←  $σ_{cuil = 123456}$(Propietarios)
-                
-                Propietarios ← Propietarios - PropietarioMod
-                
-                $∂_{Localidad=loc and Direccion=Dir}$(PropietarioMod)
-                
-                Propietarios ← Propietarios U PropietarioMod
-                
-    - **TP4 (Normalizacion)**
-        
-        [Base de Datos 2025 - Trabajo práctico_Normalización.pdf](assets/Base_de_Datos_2025_-_Trabajo_prctico_Normalizacin.pdf)
-        
-        - **Ejercicio 1**
-            
-            ![image.png](assets/image%20106.png)
-            
-        - **Ejercicio 2**
-            
-            ![image.png](assets/image%20107.png)
-            
-        - **Ejercicio 3**
-            
-            ![image.png](assets/image%20108.png)
-            
-        - **Ejercicio 4**
-            
-            ![image.png](assets/image%20109.png)
-            
-        - **Ejercicio 5**
-            
-            ![image.png](assets/image%20110.png)
-            
-        - **Ejercicio 6**
-            
-            ![image.png](assets/image%20111.png)
-            
-        - **Ejercicio 7**
-            
-            ![image.png](assets/image%20112.png)
-            
-        - **Ejercicio 8**
-            
-            ![image.png](assets/image%20113.png)
-            
-        - **Ejercicio 9**
-            
-            ![image.png](assets/image%20114.png)
-            
-        - **Ejercicio 10**
-            
-            ![image.png](assets/image%20115.png)
-            
-        - **Ejercicio 11**
-            
-            ![image.png](assets/image%20116.png)
-            
-        - **Ejercicio 12**
-            
-            ![image.png](assets/image%20117.png)
-            
-        - **Ejercicio 13**
-            
-            
-        - **Ejercicio 14**
-            
-            
-    - **Tp5 (Transacciones)**
-        
-        [Bases de Datos 2025 - Trabajo Práctico_ Transacciones.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Transacciones.pdf)
-        
-        - **Ejercicio 1**
-            
-            ![image.png](assets/image%20118.png)
-            
-            Estos son los **estados** por los que puede pasar una transaccion:
-            
-            ![image.png](assets/image%20119.png)
-            
-            - Una transacción entra en **estado activo** inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones **LEER** y **ESCRIBIR**. Cuando la transacción termina, pasa al **estado de parcialmente confirmada**.
-            - En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el **estado de confirmada**.
-            - No obstante, una transacción puede entrar en el **estado de fallo** si falla alguna de las comprobaciones o si la transacción es cancelada durante su estado activo.
-            - El **estado terminado** se alcanza cuando la transacción abandona el sistema.
-        - **Ejercicio 2**
-            
-            ![image.png](assets/image%20120.png)
-            
-            Los tres problemas de concurrencia que pueden surgir al momento de acceder a los datos son:
-            
-            - **Actualizacion a perdida**
-                
-                ![image.png](assets/image%20121.png)
-                
-            - **Lectura sucia**
-                
-                ![image.png](assets/image%20122.png)
-                
-            - **Analisis Inconsistente**
-                
-                ![image.png](assets/image%20123.png)
-                
-            
-        - **Ejercicio 3**
-            
-            ![image.png](assets/image%20124.png)
-            
-        - **Ejercicio 4**
-            
-            ![image.png](assets/image%20125.png)
-            
-            Planificacion 1:
-            
-            ![image.png](assets/image%20126.png)
-            
-            ![image.png](assets/image%20127.png)
-            
-            La planificacion 1 es serializable por conflicto ya que no contiene ciclos.
-            
-            Planificacion 2:
-            
-            ![image.png](assets/image%20128.png)
-            
-            ![image.png](assets/image%20129.png)
-            
-            La planificacion 2 es serializable por conflicto ya que no contiene ciclos.
-            
-            Planificacion 3:
-            
-            ![image.png](assets/image%20130.png)
-            
-            ![image.png](assets/image%20131.png)
-            
-            La planificacion 3 no es serializable por conflicto ya que contiene ciclos.
-            
-        - **Ejercicio 5**
-            
-            ![image.png](assets/image%20132.png)
-            
-            1. Los posibles resultados con la ejecucion en serie de estas transacciones son 2!=2, ya que la cantidad de transacciones posibles son *n!*
-            2. 
-        - **Ejercicio 6**
-            
-            ![image.png](assets/image%20133.png)
-            
-            Los posibles resultados con la ejecucion en serie de estas transacciones son 3!=6, ya que la cantidad de transacciones posibles son *n!*, sin embargo los resultados correctos son 3, ya que los otros 3 son iguales.
-            
-            ![image.png](assets/image%20134.png)
-            
-            ![image.png](assets/image%20135.png)
-            
-            ![image.png](assets/image%20136.png)
-            
-        - **Ejercicio 7**
-            
-            ![Sin título.png](assets/Sin_ttulo%202.png)
-            
-        - **Ejercicio 8**
-            
-            ![image.png](assets/image%20137.png)
-            
-            ![image.png](assets/image%20138.png)
-            
-            ![image.png](assets/image%20139.png)
-            
-        - **Ejercicio 9**
-            
-            ![image.png](assets/image%20140.png)
-            
-        - **Ejercicio 10**
-            
-            ![image.png](assets/image%20141.png)
-            
-            ![image.png](assets/image%20142.png)
-            
-        - **Ejercicio 11**
-            
-            ![image.png](assets/image%20143.png)
-            
-            ![image.png](assets/image%20144.png)
-            
-            **La planificación NO cumple con el protocolo de bloqueo de dos fases**, porque la transacción (T1) **libera bloqueos antes de terminar de adquirirlos**, violando la fase de crecimiento del protocolo.
-            
-        - **Ejercicio 12**
-            
-            ![image.png](assets/image%20145.png)
-            
-            a.
-            
-            ![image.png](assets/image%20146.png)
-            
-            b.
-            
-        - **Ejercicio 13**
-            
-            ![image.png](assets/image%20147.png)
-            
-        - **Ejercicio 14**
-            
-            ![image.png](assets/image%20148.png)
-            
-    - **TP's SQL**
-        - **TP1 - SQL Creación y Generación de Información**
-            
-            [Trabajo práctico  - Trabajo Práctico_SQL 1.pdf](assets/Trabajo_prctico__-_Trabajo_Prctico_SQL_1.pdf)
-            
-            - **Ejercicio 1**
-                
-                ![image.png](assets/image%20149.png)
-                
-                ![image.png](assets/image%20150.png)
-                
-            - **Ejercicio 2**
-                
-                ![image.png](assets/image%20151.png)
-                
-                ![image.png](assets/image%20152.png)
-                
-                En **SQL Server**, `UNIQUEIDENTIFIER` es un tipo de dato que almacena un **GUID** (Globally Unique Identifier), es decir, un **identificador único global**. Tiene una longitud fija de **16 bytes** (128 bits).
-                
-                ![image.png](assets/image%20153.png)
-                
-                ![image.png](assets/image%20154.png)
-                
-                ![image.png](assets/image%20155.png)
-                
-                ![image.png](assets/image%20156.png)
-                
-                ![image.png](assets/image%20157.png)
-                
-                ![image.png](assets/image%20158.png)
-                
-                ![image.png](assets/image%20159.png)
-                
-                ![image.png](assets/image%20160.png)
-                
-                Se le agrega **`DEFAULT NEWID()`** para que se asigne automaticamente.
-                
-            - **Ejercicio 3**
-                
-                ![image.png](assets/image%20161.png)
-                
-                ```sql
-                USE ventas_e;
-                
-                -- Eliminar la columna 'Usuario' de la tabla
-                ALTER TABLE Usuario
-                DROP COLUMN Usuario;
-                
-                -- Agregar un nuevo campo que sea email (varchar(70))
-                ALTER TABLE Usuario
-                ADD Email VARCHAR(70);
-                
-                /* Agregar los campos Domicilio (varchar(150)) y Telefono (varcvhar(30)) en la tabla Usuario.
-                Luego, agregar los mismos campos a la tabla Empresa. */
-                
-                ALTER TABLE Usuario
-                ADD Domicilio VARCHAR(150);
-                ALTER TABLE Usuario
-                ADD Telefono VARCHAR(30);
-                
-                ALTER TABLE Empresa
-                ADD Domicilio VARCHAR(150);
-                ALTER TABLE Empresa
-                ADD Telefono VARCHAR(30);
-                ```
-                
-                [Ejercicio3_1.sql](assets/Ejercicio3_1.sql)
-                
-            - **Ejercicio 4**
-                
-                ![image.png](assets/image%20162.png)
-                
-                ![image.png](assets/image%20163.png)
-                
-                ```sql
-                USE ventas_e;
-                
-                -- Agrego la columna Dominio a la tabla 'Empresa'
-                ALTER TABLE Empresa
-                ADD Dominio VARCHAR(50);
-                
-                -- Inserto datos a Empresa
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('ALBOCAR', '20-24563524-1', '536 nro. 67', '0221 455-8523', 'Albocar');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('AUTOCLIPS VAER SA', '30-56225853-4', 'Ate. Brown 876', '011 4457-7778', 'Vaersa');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('GOICOECHEA', '30-57788523-5', 'Pte. Perón 4521', '0224 4522-3652', 'Goicoechea');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('CGO', '27-24246552-2', '46 Nro. 1587', '0221 412-5623', 'Districgo');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('BELPE', '30-45235689-7', '122 Nro. 4201', '0221 423-2323', 'Belpe');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('DISTRIFERR', '20-58545565-1', 'Moreau Nro. 524', '0229 45-5623', 'Distriferr');
-                INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
-                VALUES ('AZ MOTOR', '30-44215532-5', '44 Esq. 200 Nro. 4522', '0221 452-5262', 'Azmotor');
-                
-                ```
-                
-                [Ejercicio4_1.sql](assets/Ejercicio4_1.sql)
-                
-            - **Ejercicio 5**
-                
-                ![image.png](assets/image%20164.png)
-                
-                **Primero ingreso los datos necesarios para resolver el ejercicio:**
-                
-                ```sql
-                USE ventas_e;
-                
-                Select * from usuario
-                
-                -- INSERTAR USUARIOS
-                INSERT INTO Usuario (Token, AyN, Usuario, Password)
-                VALUES
-                (NEWID(), 'Lionel Galo', 'lgalo', 'pass123'),
-                (NEWID(), 'Maximiliano Gonzalez', 'mgonzalez', 'maxi123'),
-                (NEWID(), 'Carlos Gómez', 'cgomez', 'gomez321'),
-                (NEWID(), 'Ana Torres', 'atorres', 'ana456'),
-                (NEWID(), 'Luis Goicoechea', 'lgoico', 'goico789');
-                
-                -- RELACIONES INICIALES (UsuarioXEmpresa)
-                INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
-                VALUES
-                -- Lionel Galo → ALBOCAR (Id 2)
-                ((SELECT Token FROM Usuario WHERE AyN = 'Lionel Galo'), 2),
-                
-                -- Maximiliano Gonzalez → ALBOCAR (Id 2)
-                ((SELECT Token FROM Usuario WHERE AyN = 'Maximiliano Gonzalez'), 2),
-                
-                -- Carlos Gómez → AZ MOTOR (Id 7)
-                ((SELECT Token FROM Usuario WHERE AyN = 'Carlos Gómez'), 7),
-                
-                -- Ana Torres → GOICOECHEA (Id 4)
-                ((SELECT Token FROM Usuario WHERE AyN = 'Ana Torres'), 4),
-                
-                -- Luis Goicoechea → GOICOECHEA (Id 4)
-                ((SELECT Token FROM Usuario WHERE AyN = 'Luis Goicoechea'), 4);
-                
-                ```
-                
-            - **Ejercicio 6**
-                
-                ![image.png](assets/image%20165.png)
-                
-                ```sql
-                USE ventas_e;
-                
-                SELECT * from Usuario
-                SELECT * from Empresa
-                SELECT * from UsuarioXEmpresa
-                
-                -- Lionel Galo abandonó la Empresa en la que trabajaba, y fue contratado por CGO
-                DELETE FROM UsuarioXEmpresa
-                WHERE Token = (SELECT Token FROM Usuario WHERE AyN = 'Lionel Galo');
-                
-                INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
-                VALUES ((SELECT Token FROM Usuario WHERE AyN = 'Lionel Galo'), 5);
-                
-                /* Maximiliano Gonzalez, fue enrolado en el ejército por lo que pidió la baja de la Empresa
-                Albocar en la que trabajaba hasta su regreso. */DELETE FROM UsuarioXEmpresaWHERE Token = (SELECT Token FROM Usuario WHERE AyN = 'Maximiliano Gonzalez')-- Entonces luego, la empresa Albocar, adquirió la empresa Az Motor, y todos sus empleados.INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
-                SELECT Token, 
-                       (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = 'ALBOCAR')
-                FROM UsuarioXEmpresa
-                WHERE IdEmpresa = (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = 'AZ MOTOR');
-                
-                DELETE FROM UsuarioXEmpresa
-                WHERE IdEmpresa = (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = 'AZ MOTOR');
-                ```
-                
-        - **TP2 - Diagramación y consultas SQL**
-            
-            [Trabajo práctico - Trabajo Práctico_SQL 2.pdf](assets/Trabajo_prctico_-_Trabajo_Prctico_SQL_2.pdf)
-            
-            [TP2.sql](assets/TP2.sql)
-            
-            ![image.png](assets/image%20166.png)
-            
-            - **Query para crear la base de datos para la practica**
-                
-                
-            
-            ![image.png](assets/image%20167.png)
-            
-            ```sql
-            SELECT * FROM Cliente;
-            ```
-            
-            ![image.png](assets/image%20168.png)
-            
-            ```sql
-            SELECT Apellido, Nombre
-            FROM Cliente
-            ORDER BY Apellido DESC;
-            ```
-            
-            ![image.png](assets/image%20169.png)
-            
-            ```sql
-            SELECT IDTipoIva, COUNT(*) AS CantidadCliente
-            FROM Cliente
-            GROUP BY IDTipoIVA;
-            ```
-            
-            ![image.png](assets/image%20170.png)
-            
-            ```sql
-            SELECT * FROM Cliente WHERE Apellido = 'Martinez'
-            ```
-            
-            ![image.png](assets/image%20171.png)
-            
-            ```sql
-            SELECT C.RazonSocial, COUNT(C.Token) AS Cantidad
-            FROM Cliente C
-            GROUP BY C.RazonSocial
-            HAVING COUNT(C.Token) > 1;
-            ```
-            
-            ![image.png](assets/image%20172.png)
-            
-            ```sql
-            SELECT A.Descripcion, COUNT(IV.idVenta) AS CantVecesVendida
-            FROM Venta V
-            JOIN ItemVenta IV ON V.idVenta = IV.idVenta
-            JOIN Articulo A ON IV.idArticulo = A.idArticulo
-            WHERE YEAR(V.Fecha) = 2018
-            GROUP BY A.Descripcion;
-            ```
-            
-            ![image.png](assets/image%20173.png)
-            
-            ```sql
-            SELECT RazonSocial, DNI 
-            FROM Cliente
-            WHERE CUIT IS NULL
-            ORDER BY DNI ASC;
-            ```
-            
-            ![image.png](assets/image%20174.png)
-            
-            ```sql
-            SELECT * FROM Cliente
-            WHERE IDTipoIva = (SELECT IDTipoIva FROM TipoDeIva WHERE Descripcion = 'Resp. Inscripto')
-            AND (CUIT IS NULL OR CUIT = '');
-            ```
-            
-            ![image.png](assets/image%20175.png)
-            
-            ```sql
-            SELECT 
-                A.codigo,
-                A.Descripcion, 
-                AVG(IV.cantidad) AS promedio
-            FROM Venta V 
-            JOIN ItemVenta IV ON V.idVenta = IV.idVenta 
-            JOIN Articulo A ON IV.idArticulo = A.idArticulo
-            GROUP BY A.codigo, A.Descripcion
-            ORDER BY promedio DESC;
-            ```
-            
-            ![image.png](assets/image%20176.png)
-            
-            ```sql
-            SELECT 
-                E.RazonSocial,
-                S.NombreSeccion,
-                COUNT(A.idArticulo) AS CantidadArticulos
-            FROM Seccion S
-            JOIN Empresa E ON S.idEmpresa = E.idEmpresa
-            JOIN Rubro R ON R.idSeccion = S.idSeccion
-            JOIN Articulo A ON A.idRubro = R.idRubro
-            GROUP BY E.RazonSocial, S.NombreSeccion
-            ORDER BY E.RazonSocial, S.NombreSeccion;
-            ```
-            
-            ![image.png](assets/image%20177.png)
-            
-            ```sql
-            SELECT 
-                E.RazonSocial, 
-                SUM(IV.Cantidad * IV.Precio) AS MontoVendido
-            FROM Empresa E
-            JOIN Seccion S ON E.idEmpresa = S.idEmpresa
-            JOIN Rubro R ON S.idSeccion = R.idSeccion
-            JOIN Articulo A ON R.idRubro = A.idRubro
-            JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
-            JOIN Venta V ON V.idVenta = IV.idVenta
-            WHERE YEAR(V.Fecha) = YEAR(GETDATE())
-            GROUP BY E.RazonSocial
-            ORDER BY E.RazonSocial;
-            ```
-            
-            ![image.png](assets/image%20178.png)
-            
-            ```sql
-            SELECT Descripcion, Precio FROM Articulo WHERE Descripcion LIKE '%unipolar%';
-            ```
-            
-            ![image.png](assets/image%20179.png)
-            
-            ```sql
-            SELECT 
-                E.RazonSocial AS Empresa,
-                A.Descripcion AS Articulo,
-                A.Precio
-            FROM Empresa E
-            JOIN Seccion S ON E.idEmpresa = S.idEmpresa
-            JOIN Rubro R ON S.idSeccion = R.idSeccion
-            JOIN Articulo A ON R.idRubro = A.idRubro
-            ORDER BY E.RazonSocial, A.Descripcion;
-            ```
-            
-            ![image.png](assets/image%20180.png)
-            
-            ```sql
-            SELECT U.AyN, COUNT(*) AS UsuariosRegistrados
-            FROM Usuario U
-            JOIN UsuarioXEmpresa UXE ON U.UserToken = UXE.UserToken
-            JOIN Empresa E ON UXE.idEmpresa = E.idEmpresa
-            
-            GROUP BY U.AyN
-            HAVING COUNT(DISTINCT UXE.idEmpresa) > 1
-            ```
-            
-            ![image.png](assets/image%20181.png)
-            
-            ```sql
-            SELECT A.idArticulo, A.Descripcion
-            INTO ArticulosNoVendidos
-            FROM Articulo A
-            WHERE A.idArticulo NOT IN (
-                SELECT IV.idArticulo FROM ItemVenta IV
-            );
-            
-            SELECT COUNT(*) AS CantidadArticulosNoVendidos
-            FROM ArticulosNoVendidos;
-            ```
-            
-            ![image.png](assets/image%20182.png)
-            
-            ```sql
-            SELECT 
-                E.RazonSocial, 
-                MONTH(V.Fecha) AS Mes,
-                SUM(IV.Cantidad * IV.Precio) AS MontoPorMes
-            FROM Empresa E
-            JOIN Seccion S ON E.idEmpresa = S.idEmpresa
-            JOIN Rubro R ON S.idSeccion = R.idSeccion
-            JOIN Articulo A ON R.idRubro = A.idRubro
-            JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
-            JOIN Venta V ON V.idVenta = IV.idVenta
-            WHERE YEAR(V.Fecha) = 2019
-            GROUP BY E.RazonSocial, MONTH(V.Fecha)
-            ORDER BY E.RazonSocial, Mes;
-            ```
-            
-            ![image.png](assets/image%20183.png)
-            
-            ```sql
-            SELECT 
-                DATEPART(WEEKDAY, Fecha) AS NumeroDiaSemana,
-                DATENAME(WEEKDAY, Fecha) AS NombreDiaSemana,
-                COUNT(*) AS VentasRealizadasPorDia
-            FROM Venta
-            GROUP BY DATEPART(WEEKDAY, Fecha), DATENAME(WEEKDAY, Fecha)
-            ORDER BY NumeroDiaSemana;
-            
-            -- FULL GEPETO ESTE
-            ```
-            
-        - **TP3 - Stored Procedures (SP)**
-            
-            [Trabajo Práctico - Trabajo Práctico_SQL 3.pdf](assets/Trabajo_Prctico_-_Trabajo_Prctico_SQL_3.pdf)
-            
-            [TP3.sql](assets/TP3.sql)
-            
-            ![image.png](assets/image%20184.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_CantidadVendida
-                @Articulo int,
-                @Fecha1 date,
-                @Fecha2 date
-            AS
-            BEGIN
-                SELECT COUNT(*) AS CantidadVendida
-                FROM Articulo A
-                JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
-                JOIN Venta V ON IV.idVenta = V.idVenta
-                WHERE A.idArticulo = @Articulo
-                  AND V.Fecha BETWEEN @Fecha1 AND @Fecha2;
-            END;
-            ```
-            
-            ![image.png](assets/image%20185.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_ListadoClientes
-                @Mes int,
-                @Anio int
-            AS
-            BEGIN
-                IF EXISTS (
-                    SELECT 1
-                    FROM Venta V
-                    WHERE MONTH(V.Fecha) = @Mes AND YEAR(V.Fecha) = @Anio
-                )
-                BEGIN
-                    SELECT DISTINCT C.*
-                    FROM Cliente C
-                    JOIN Venta V ON C.Token = V.Token
-                    WHERE MONTH(V.Fecha) = @Mes AND YEAR(V.Fecha) = @Anio;
-                END
-                ELSE
-                BEGIN
-                    SELECT 'SIN CLIENTES' AS Mensaje;
-                END;
-            END;
-            
-            ```
-            
-            ![image.png](assets/image%20186.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_ListarMontoClientes
-                @Año int
-            AS
-            BEGIN
-                SELECT 
-                    C.Token,
-                    C.RazonSocial,
-                    SUM(IV.Cantidad * IV.Precio) AS TotalComprado
-                FROM Cliente C
-                JOIN Venta V ON C.Token = V.Token
-                JOIN ItemVenta IV ON V.idVenta = IV.idVenta
-                WHERE YEAR(V.Fecha) = @Año
-                GROUP BY C.Token, C.RazonSocial
-                HAVING SUM(IV.Cantidad * IV.Precio) > 500000;
-            END;
-            
-            ```
-            
-            ![image.png](assets/image%20187.png)
-            
-            ```sql
-            ALTER TABLE Articulo
-            ADD Imagen VARBINARY(MAX)
-            
-            CREATE PROCEDURE SP_AgregarImagenProducto
-            	@img VARBINARY(MAX),
-            	@idArticulo int
-            AS
-            BEGIN
-                IF NOT EXISTS (SELECT 1 FROM Articulo WHERE idArticulo = @idArticulo)
-                BEGIN
-                    RAISERROR('El artículo no existe.', 16, 1);
-                    RETURN;
-                END
-            
-                UPDATE Articulo
-                SET Imagen = @img
-                WHERE idArticulo = @idArticulo;
-            
-            	SELECT COUNT(A.Imagen) AS CantidadFotos
-            	FROM Articulo A
-            	WHERE A.idArticulo = @idArticulo;
-            END;
-            ```
-            
-            ![image.png](assets/image%20188.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_SeccionesSinRubro
-            AS
-            BEGIN
-            	SELECT * FROM Seccion S
-            	WHERE S.idSeccion NOT IN (SELECT R.idSeccion FROM Rubro R);
-            END;
-            ```
-            
-            ![image.png](assets/image%20189.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_RankingClientes
-            AS
-            BEGIN
-            	SELECT 
-            		C.RazonSocial AS Nombre_y_Apellido, 
-            		C.DNI, 
-            		C.Domicilio, 
-            		COUNT(V.idVenta) AS CantidadCompras 
-            	FROM Cliente C
-            	JOIN Venta V ON C.Token = V.Token
-            	GROUP BY C.RazonSocial, C.DNI, C.Domicilio
-            	ORDER BY CantidadCompras DESC;
-            END;
-            ```
-            
-            ![image.png](assets/image%20190.png)
-            
-            ```sql
-            CREATE PROCEDURE SP_BuenosClientes
-            	@monto int
-            AS
-            BEGIN
-            	SELECT 
-            		C.RazonSocial AS Nombre_y_Apellido, 
-            		C.DNI,
-            		V.idVenta
-            	FROM Cliente C
-            	JOIN Venta V ON C.Token = V.Token
-            	JOIN ItemVenta IV ON V.idVenta = IV.idVenta
-            	GROUP BY C.RazonSocial, C.DNI, V.idVenta
-            	HAVING SUM(IV.Cantidad*IV.Precio) > @monto;
-            END;
-            
-            ```
-            
-</details>
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
 
-<details>
-<summary>Proyecto</summary>
+img {
+	max-width: 100%;
+}
 
-- **Proyecto**
-    - **Entrega 1 (Fase 1 y 2)**
-        
-        [Entrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (3).pdf](assets/Entrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(3).pdf)
-        
-        [Reentrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (2) (2).pdf](assets/Reentrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(2)_(2).pdf)
-        
-    - **Entrega 2 (Fase 3, 4 y 5)**
-        
-        [Entrega 2 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano.pdf](assets/Entrega_2_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano.pdf)
-        
-        [Presentación Grupo 10 Entrega 2.pptx](assets/Presentacin_Grupo_10_Entrega_2.pptx)
-        
-    - **Entrega 3 (Fase 6 y 7)**
-        
-        [Entrega 3 - Grupo 10 - Comision S31.pdf](assets/Entrega_3_-_Grupo_10_-_Comision_S31.pdf)
-        
-        [Entrega 3 (1).sql](assets/Entrega_3_(1).sql)
-        
-    - **Integrantes**
-        - **Joaquin Mones - 33459**
-        - **Pedro Fiuza - 33142**
-        - **Maximo Carpignano - 32971**
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
 
-</details>
+@page {
+	margin: 1in;
+}
 
-**Link Drive**: [https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3](https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3)
+.collection-content {
+	font-size: 0.875rem;
+}
 
-**Para practicar SQL:** [https://datalemur.com/](https://datalemur.com/)
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1c1b5fa2-08c1-8062-ac09-db62ddfe8e04" class="page sans"><header><img class="page-cover-image" src="1200px-OOo-2.0-Base-ca.png" style="object-position:center 23.340000000000003%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/database_gray.svg"/></div><h1 class="page-title">Base de Datos</h1><p class="page-description"></p></header><div class="page-body"><ul id="1c1b5fa2-08c1-8046-878e-cfc18c75df4e" class="toggle"><li><details open=""><summary><strong>Conceptos Basicos</strong></summary><figure id="1c1b5fa2-08c1-8022-a401-daf556ca2d86"><div class="source"><a href="Conceptos_bsicos.pdf">Conceptos básicos.pdf</a></div></figure><ul id="1c1b5fa2-08c1-80ee-8987-f171a1c35fb1" class="bulleted-list"><li style="list-style-type:disc">Datos: Son la <strong>mínima unidad semántica</strong>, por sí solos son irrelevantes<br/>como apoyo a la toma de decisiones.<br/></li></ul><ul id="1c1b5fa2-08c1-80f6-a9bc-f96aec82d803" class="bulleted-list"><li style="list-style-type:disc">Informacion:  <strong>Conjunto de datos procesados y que tienen un significado </strong>(relevancia, propósito y contexto), y que por lo tanto son de utilidad para quién debe tomar decisiones, al disminuir su incertidumbre.</li></ul><ul id="1c1b5fa2-08c1-8034-b5bd-d77b42337499" class="toggle"><li><details open=""><summary><strong>Base de datos (BD)</strong></summary><p id="1c1b5fa2-08c1-803a-a690-d6de91f4cf22" class="">Una base de datos es una coleccion de datos relacionados.</p><blockquote id="1c1b5fa2-08c1-80ee-b546-fef60eddaafd" class=""><strong>Definicion completa</strong>: Una base de datos es una colección o conjunto de datos interrelacionados con un propósito específico vinculado a la resolución de un problema del mundo real</blockquote><p id="1c1b5fa2-08c1-8044-928b-ef3c587aab7a" class=""><mark class="highlight-red"><strong>Definir</strong></mark> una B. D. <strong>implica</strong> especificar los <strong>tipos de datos, estructuras y restricciones </strong>de los datos que se almacenarán en la B. D.</p><p id="1c1b5fa2-08c1-8078-b87d-dc613c0958ad" class="">La <mark class="highlight-red"><mark class="highlight-default_background"><strong>construcción</strong></mark></mark> de la B. D. es el proceso consistente en <strong>almacenar los datos en algún medio de almacenamiento controlado por el DBMS.</strong></p><p id="1c1b5fa2-08c1-8049-8e47-f0754b0e75ee" class="">La <mark class="highlight-red"><strong>manipulación</strong></mark> de una B. D. incluye funciones como la <strong>consulta</strong> de la B. D. para <strong>recuperar datos específicos</strong>, <strong>actualizar</strong> la B. D. para reflejar los cambios introducidos en el minimundo y <strong>generar informes</strong> a partir de los datos.</p><p id="1c1b5fa2-08c1-8030-9a7f-edef5a72fa1e" class=""><mark class="highlight-red"><strong>Compartir</strong></mark> una B. D. <strong>permite</strong> que varios usuarios y programas <strong>accedan</strong> a la B. D. en forma <strong>simultánea</strong>.</p></details></li></ul><ul id="1c1b5fa2-08c1-8019-8c53-f8f8571b4300" class="toggle"><li><details open=""><summary><strong>Caracteristicas implicitas de las bases de datos</strong></summary><ul id="1c1b5fa2-08c1-804f-8792-c14e44946667" class="bulleted-list"><li style="list-style-type:disc">Una B. D. representa algún aspecto del mundo real, lo que en ocasiones se denomina minimundo o universo de discurso. Los cambios introducidos en el minimundo se reflejan en ella.</li></ul><ul id="1c1b5fa2-08c1-8047-8137-f61dc301082d" class="bulleted-list"><li style="list-style-type:disc">Una B. D. es una colección de datos lógicamente coherente con algún tipo de significado inherente. No es correcto denominar B. D. a un surtido aleatorio de datos.</li></ul><ul id="1c1b5fa2-08c1-803c-8fa6-e67fc23ccbed" class="bulleted-list"><li style="list-style-type:disc">Una B. D. se diseña, construye y rellena con datos para un propósito específico. Dispone de un grupo pretendido de usuarios y algunas aplicaciones preconcebidas en las que esos usuarios están interesados.</li></ul></details></li></ul><ul id="1c1b5fa2-08c1-8051-bc3a-f79ebec446d4" class="toggle"><li><details open=""><summary><strong>Database management system (DBMS)</strong></summary><p id="1c3b5fa2-08c1-80fb-badc-ca668f8b3a9a" class=""><strong><span style="border-bottom:0.05em solid">Objetivos</span></strong></p><ul id="1c3b5fa2-08c1-80fc-b680-f087380a998e" class="bulleted-list"><li style="list-style-type:disc">Evitar redundancia e inconsistencia de datos</li></ul><ul id="1c3b5fa2-08c1-8095-b983-cfc3809557a6" class="bulleted-list"><li style="list-style-type:disc">Permitir acceso a los datos en todo momento</li></ul><ul id="1c3b5fa2-08c1-808f-a917-f2b3c7bc99f6" class="bulleted-list"><li style="list-style-type:disc">Evitar anomalias en el acceso concurrente</li></ul><ul id="1c3b5fa2-08c1-80a1-8ef6-f92d0f962ecc" class="bulleted-list"><li style="list-style-type:disc">Restriccion a accesos no autorizados→seguridad</li></ul><ul id="1c3b5fa2-08c1-80df-9065-e73eb78687d1" class="bulleted-list"><li style="list-style-type:disc">Suministro de almacenamiento persitente de datos ante fallos</li></ul><ul id="1c3b5fa2-08c1-80b6-aef5-c2f5370af9bd" class="bulleted-list"><li style="list-style-type:disc">Integridad de los datos</li></ul><ul id="1c3b5fa2-08c1-807f-ae8a-fd3339bd71bd" class="bulleted-list"><li style="list-style-type:disc">Backups</li></ul></details></li></ul><p id="1cab5fa2-08c1-803c-94ec-f46d0f66f06a" class=""><strong>Normalizar</strong> los datos significa que los vamos a llevar a un esquema que <strong>garantiza</strong> la calidad de los datos</p><p id="1cab5fa2-08c1-80d8-a15b-d5408b4f91c4" class="">Una dependencia funcional es una restriccion que se establece entre dos relaciones de base de datos</p><hr id="1c1b5fa2-08c1-8091-b6f5-e62543aaeb7d"/><ul id="1c1b5fa2-08c1-80d4-91ea-e294b8247d0f" class="toggle"><li><details open=""><summary><strong>Trabajo Practico: Conceptos Basicos</strong></summary><figure id="1c1b5fa2-08c1-8024-9fe2-efae609851ed"><div class="source"><a href="Bases_de_Datos_2025_-_Trabajo_Prctico__Conceptos_bsicos.pdf">Bases de Datos 2025 - Trabajo Práctico_ Conceptos básicos.pdf</a></div></figure><ol type="1" id="1c1b5fa2-08c1-8049-957a-c929764572f8" class="numbered-list" start="1"><li>Las principales caracteristicas que presenta la metodologia de bases de datos frente a la metodologia de procesamiento de archivos son:<ul id="1c1b5fa2-08c1-8029-bdbb-cce80d40a4d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Naturaleza autodescriptiva de un sistema de base de datos</strong>: Un sistema de bases de datos no solo contiene la propia base de datos, sino tambien una completa definicion de la estructura de la bases de datos y sus restricciones.</li></ul><ul id="1c1b5fa2-08c1-801c-8815-d9803d5d1052" class="bulleted-list"><li style="list-style-type:disc"><strong>Aislamiento entre programas y datos, y abstraccion de datos</strong>: Los DBMS permiten la independencia entre programas y datos, evitando que cambios en la estructura de datos afecten a los programas. Además, las bases de datos orientadas a objetos incluyen operaciones sobre datos, facilitando la abstracción y simplificando el acceso sin conocer los detalles internos.</li></ul><ul id="1c1b5fa2-08c1-8008-b80b-f5061f055517" class="bulleted-list"><li style="list-style-type:disc"><strong>Soporte de varias vistas de los datos</strong>: Un DBMS multiusuario cuyos usuarios tienen variedad de diferentes aplicaciones debe ofrecer facilidades para definir varias vistas, una <strong>vista</strong> puede ser un subconjunto de la base de datos o puede contener datos virtuales derivados de los arDBMSchivos de la base de datos pero que no estan explicitamente almacenados</li></ul><ul id="1c1b5fa2-08c1-8030-b779-f4829993d5ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Comparticion de datos y procesamiento de transacciones multiusuario</strong>: Un DBMS multiusuario permite que varios usuarios accedan a la base de datos simultáneamente, asegurando el control de concurrencia para evitar conflictos. Los sistemas OLTP garantizan transacciones seguras y correctas. Las transacciones deben cumplir propiedades como aislamiento y atomicidad para mantener la integridad de los datos.</li></ul></li></ol><ol type="1" id="1c1b5fa2-08c1-804f-a796-d038533515e9" class="numbered-list" start="2"><li>Los actores que intervienen en el diseño, uso y mantenimiento de una Base de Datos puede depender de la estrcutura organizacional, en el caso de una base de datos pequeña un usuario normalmente define, contruye y manipula la base de datos. Sin embargo en organizaciones mas grandes los actores que inetervienen son:<ul id="1c1b5fa2-08c1-8081-9cd7-fe925880f891" class="bulleted-list"><li style="list-style-type:disc"><strong>Administradores de las bases de datos</strong>: la administracion de la base de datos es responsabilidad del DBA <em><strong>(database administrator). </strong></em>el DBA es responsable del acceso autorizado a la base de datos, de la coordinacion y monitorizacion de su uso, y de adquirir los recursos software y hardware necesarios.</li></ul><ul id="1c1b5fa2-08c1-807f-a485-d9980b9d6ba5" class="bulleted-list"><li style="list-style-type:disc"><strong>Diseñadores de las bases de datos</strong>: Estos son los responsables de identificar los datos que se almacenaran y de elegir las estructuras apropiadas para representar y almacenar estos datos, ademas es responsabilidad de ellos comunicarse con todos los presuntos usuarios para conocer sus requisitos a fines de conseguir lograr un diseño que cumpla con sus necesidades.</li></ul><ul id="1c1b5fa2-08c1-8072-9feb-c06e0d621496" class="bulleted-list"><li style="list-style-type:disc"><strong>Usuarios finales</strong>: Estas son las personas cuyos trabajos requiren acceso a la base de datos para realizar consultas, actualizaciones e informes</li></ul><p id="1c1b5fa2-08c1-80c6-a63c-f4fe41e5509d" class=""><span style="border-bottom:0.05em solid">Pregunta: Que actor interviene en el mantenimiento, es el administrador?</span></p></li></ol><ol type="1" id="1c1b5fa2-08c1-80bf-ab51-ddc8e2938ab3" class="numbered-list" start="3"><li>Las diferentes ventajas de utilizar una metodologia DBMS <em>(database managament system), </em>son:<ul id="1c3b5fa2-08c1-80d3-a56c-e295ed743ac1" class="bulleted-list"><li style="list-style-type:disc"><strong>Control de la redundancia: </strong>se refiere, a la capacidad de la base de datos de no cometer errores de guardar un mismo tipo de dato con distintos datos.</li></ul><ul id="1c3b5fa2-08c1-8030-9ab7-e88b58026b94" class="bulleted-list"><li style="list-style-type:disc"><strong>Restriccion del acceso no autorizado</strong>: Es la capacidad de no permitir que cualquier persona que utiliza la base de datos, pueda acceder a la base de datos completa. Por ejemplo, los datos financieros se puede considerar confidenciales, y solo las personas autorizadas pueden acceder a ellos.</li></ul><ul id="1c3b5fa2-08c1-80c7-a995-f757969cd455" class="bulleted-list"><li style="list-style-type:disc"><strong>Almacenamiento persistente para los objetos del programa: </strong>La metodologia DBMS se encarga de guardar y recuperar directamente estructuras de objetos, manteniendo la compatibilidad con los lenguajes de programacion orientado a objetos.</li></ul><ul id="1c3b5fa2-08c1-80e9-9084-e2dd21caf011" class="bulleted-list"><li style="list-style-type:disc"><strong>Suministro de estructuras de almacenamiento para un procesamiento eficaz de las consultas:</strong> Esta especializado en acelerar la busqueda de datos en los discos de los registros utilizando unos archivos auxiliares utilizando indices.</li></ul><ul id="1c3b5fa2-08c1-8040-b1a7-e4543790b71c" class="bulleted-list"><li style="list-style-type:disc"><strong>Copia de seguridad y recuperacion</strong></li></ul></li></ol><ol type="1" id="1c3b5fa2-08c1-80be-83ab-f5636ba272f9" class="numbered-list" start="4"><li></li></ol></details></li></ul><p id="1c1b5fa2-08c1-809b-8d22-f73571d42d92" class="">
+</p></details></li></ul><ul id="1c7b5fa2-08c1-80d6-bcf9-cfb466130770" class="toggle"><li><details open=""><summary><strong>Modelo Entidad Relacion</strong></summary><figure id="1c7b5fa2-08c1-8029-811b-d87f0c4ef66c"><div class="source"><a href="Modelo_Entidad_Relacin.pdf">Modelo Entidad Relación.pdf</a></div></figure><blockquote id="1c7b5fa2-08c1-8071-be0a-f8227b090ce4" class="">El modelado de datos es un proceso que permite a las organizaciones descubrir, diseñar, visualizar, estandarizar e implementar activos de datos de alta calidad a través de una interfaz gráfica intuitiva.</blockquote><ul id="1c7b5fa2-08c1-808d-87cb-c1891db30018" class="bulleted-list"><li style="list-style-type:disc">Está basado en una percepción del mundo real consistente en objetos básicos, llamados entidades, y de relaciones entre estos objetos. es uno de los diferentes modelos de datos semánticos.</li></ul><ul id="1c7b5fa2-08c1-806a-a62a-d1f18f7a42c0" class="bulleted-list"><li style="list-style-type:disc">El aspecto semántico del modelo yace en la representación del significado de los datos.</li></ul><ul id="1c7b5fa2-08c1-80a5-b0bd-e07a7d17c3f3" class="bulleted-list"><li style="list-style-type:disc">Es extremadamente útil para hacer corresponder los significados e interacciones de las empresas del mundo real con un esquema conceptual.</li></ul><p id="1c7b5fa2-08c1-804b-b4f0-ff97659dffcb" class="">Hay <strong>tres</strong> nociones básicas que emplea el modelo de datos E-R:</p><ul id="1c7b5fa2-08c1-8012-afd2-d770f54883bf" class="bulleted-list"><li style="list-style-type:disc">Conjuntos de entidades</li></ul><ul id="1c7b5fa2-08c1-8021-b964-e139e1f3c49d" class="bulleted-list"><li style="list-style-type:disc">Conjuntos de relaciones</li></ul><ul id="1c7b5fa2-08c1-80ce-8ab9-e357cc010a47" class="bulleted-list"><li style="list-style-type:disc">Atributos.</li></ul><ul id="1c7b5fa2-08c1-8010-96ed-c5bd851183c7" class="toggle"><li><details open=""><summary><strong>Conjunto de entidades</strong></summary></details></li></ul><ul id="1c7b5fa2-08c1-801c-906a-cea42fda3d47" class="toggle"><li><details open=""><summary><strong>Conjunto de relaciones</strong></summary></details></li></ul><ul id="1c7b5fa2-08c1-8015-9e6f-ee43e15f7e35" class="toggle"><li><details open=""><summary><strong>Atributos</strong></summary><ul id="1c7b5fa2-08c1-80a4-b670-cf1922613f0d" class="bulleted-list"><li style="list-style-type:disc">Describen propiedades que posee cada miembro de un conjunto de entidades</li></ul><ul id="1c7b5fa2-08c1-8029-9a48-ce96767f5fa0" class="bulleted-list"><li style="list-style-type:disc">Posibles atributos del conjunto de entidades cliente son id-cliente, nombre-cliente, calle-cliente y ciudad-cliente.</li></ul><ul id="1c7b5fa2-08c1-80fc-9cfe-f5718fc85f94" class="bulleted-list"><li style="list-style-type:disc">Para cada atributo hay un conjunto de valores permitidos, llamados el dominio.</li></ul><ul id="1c7b5fa2-08c1-808f-a34e-dc73d991e30f" class="bulleted-list"><li style="list-style-type:disc">En ciertas ocasiones, <strong>las relaciones también pueden tener atributos.</strong></li></ul><ul id="1c7b5fa2-08c1-80c8-8f8c-cb0ac06ca4f4" class="bulleted-list"><li style="list-style-type:disc">El atributo que permite identificar unívocamente a la entidad, recibe el nombre de clave primaria. (identificar univocamente la entidad significa que esta no se puede repetir, por ejemplo para una persona seria el DNI).</li></ul><h3 id="1c7b5fa2-08c1-8049-929d-c998222ac9b6" class="">Clasificacion de atributos</h3><p id="1c7b5fa2-08c1-8054-8727-daae46f955d3" class="">Los atributos pueden ser:</p><ul id="1c7b5fa2-08c1-80db-8af7-dc6212165384" class="bulleted-list"><li style="list-style-type:disc"><strong>Simples y compuestos: </strong><ul id="1c7b5fa2-08c1-8009-b56c-dc0424ca2554" class="bulleted-list"><li style="list-style-type:circle">Los <strong>simples</strong> NO pueden subdividirse. </li></ul><ul id="1c7b5fa2-08c1-8029-895d-f18b1ee3e6d0" class="bulleted-list"><li style="list-style-type:circle">Los compuestos, en cambio, se pueden dividir en subpartes (es decir, en otros atributos). Por ejemplo, una dirección <strong>puede</strong> estar compuesta por los atributos calle, número y localidad</li></ul></li></ul><ul id="1c7b5fa2-08c1-80c4-acbd-dffada8c9951" class="bulleted-list"><li style="list-style-type:disc"><strong>Monovalorados y multivalorados:</strong><ul id="1c7b5fa2-08c1-8054-80c0-e85d90a0af48" class="bulleted-list"><li style="list-style-type:circle">Los <strong>monovalorados</strong> tiene un valor sólo para una entidad; por ejemplo, el atributo número-préstamo. </li></ul><ul id="1c7b5fa2-08c1-80f5-91bd-cf0b898c17c9" class="bulleted-list"><li style="list-style-type:circle">El atributo número-teléfono para cualquier empleado puede tener cero, uno o más números de teléfono. Este tipo de atributo se llama <strong>multivalorado</strong>. </li></ul></li></ul><ul id="1c7b5fa2-08c1-80c7-8481-ef4126c5122d" class="bulleted-list"><li style="list-style-type:disc"><strong>Derivados</strong>: El valor para este tipo de atributo se puede derivar de los valores de otros atributos o entidades relacionados. Por ejemplo, si la entidad cliente tiene el atributo fecha-nacimiento y edad, la edad deriva de la fecha de nacimiento. Si la entidad cliente tiene un atributo cantidad-préstamos, se puede derivar contando el número de entidades préstamo asociadas con ese cliente.</li></ul></details></li></ul><h3 id="1c7b5fa2-08c1-80e1-96f9-f37cf05a07fd" class="">Diagrama entidad- relación</h3><p id="1c7b5fa2-08c1-800c-a8da-c3c58e106525" class=""><strong>Expresar gráficamente estructura lógica general de una base de datos.</strong></p><p id="1c7b5fa2-08c1-8077-999b-c50ac670a327" class=""><strong>Consta de los siguientes componentes principales:</strong></p><ul id="1c7b5fa2-08c1-8056-a1cc-d5008ff29dc2" class="bulleted-list"><li style="list-style-type:disc"><strong>Rectángulos</strong>, que representan entidades.</li></ul><ul id="1c7b5fa2-08c1-8085-9f52-cb5d2d586fca" class="bulleted-list"><li style="list-style-type:disc"><strong>Elipses</strong>, que representan atributos <strong>(el atributo clave se subraya).</strong></li></ul><ul id="1c7b5fa2-08c1-80a1-9cd2-f25b68033a66" class="bulleted-list"><li style="list-style-type:disc"><strong>Rombos</strong>, que representan relaciones.</li></ul><ul id="1c7b5fa2-08c1-8030-89d0-e1ff7131c9e6" class="bulleted-list"><li style="list-style-type:disc"><strong>Líneas</strong>, que unen atributos a conjuntos de entidades y entidades a relaciones.</li></ul><ul id="1c7b5fa2-08c1-804d-8575-e8f5836bbc3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Elipses dobles</strong>, que representan atributos multivalorados.</li></ul><ul id="1c7b5fa2-08c1-80e3-b2fa-d89756d14f95" class="bulleted-list"><li style="list-style-type:disc"><strong>Elipses discontinuas</strong>, que denotan atributos derivados.</li></ul><ul id="1c7b5fa2-08c1-8004-8c29-d4b3624b53a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Líneas dobles</strong>, que indican participación total de una entidad en una relación.</li></ul><ul id="1c7b5fa2-08c1-80bc-8a73-d33b60c7e591" class="bulleted-list"><li style="list-style-type:disc"><strong>Rectángulos dobles</strong>, que representan conjuntos de entidades débiles.</li></ul><h3 id="1c7b5fa2-08c1-8057-961b-fd5d018b22ee" class="">Diagrama E-R correspondiente a clientes y préstamos.</h3><figure id="1c7b5fa2-08c1-80c9-8f1c-e7632989a7ad" class="image"><a href="Captura_de_pantalla_2025-03-31_08-42-54.png"><img style="width:682px" src="Captura_de_pantalla_2025-03-31_08-42-54.png"/></a></figure><figure id="1c7b5fa2-08c1-80a9-a080-da2a0961ab8f" class="image"><a href="Captura_de_pantalla_2025-03-31_09-14-50.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-03-31_09-14-50.png"/></a></figure><p id="1c7b5fa2-08c1-8009-a8dc-f329d44f9049" class="">Aunque los conceptos básicos de <strong>E-R</strong> pueden modelar la mayoría de las características de las bases de datos, algunos aspectos de una base de datos pueden ser más adecuadamente expresados mediante ciertas extensiones:</p><ul id="1c7b5fa2-08c1-801b-9146-c593c3bb7e13" class="bulleted-list"><li style="list-style-type:disc">Especialización.</li></ul><ul id="1c7b5fa2-08c1-804f-a57e-f7c1304fed3f" class="bulleted-list"><li style="list-style-type:disc">Generalización.</li></ul><ul id="1c7b5fa2-08c1-8056-92ea-cdc7b00a8a9f" class="bulleted-list"><li style="list-style-type:disc">Herencia de atributos</li></ul><ul id="1c7b5fa2-08c1-80b4-8238-f7e35819f2d7" class="bulleted-list"><li style="list-style-type:disc">Agregación.</li></ul><h3 id="1c7b5fa2-08c1-8045-b014-cba7ecd84e65" class="">Especializacion y Generaclizacion</h3><figure id="1c7b5fa2-08c1-80fc-8aa9-f07069d11510" class="image"><a href="Captura_de_pantalla_2025-03-31_09-15-34.png"><img style="width:681.9874877929688px" src="Captura_de_pantalla_2025-03-31_09-15-34.png"/></a></figure><p id="1c7b5fa2-08c1-8078-854a-d4c792eff62f" class="">Este diagrama es <strong>Parcial y Superpuesto (Asumido por defecto)</strong></p><p id="1c7b5fa2-08c1-80ab-b964-cfaa9bcc70e3" class=""><strong>Cuando se usa especialización o generalización se debe definir la cobertura. Existen dos coberturas:</strong></p><ul id="1c7b5fa2-08c1-8092-949f-d94948e5641b" class="bulleted-list"><li style="list-style-type:disc"><strong>Total o parcial:</strong> Es <strong>total</strong> cuando<strong> cada entidad </strong>de nivel más alto <strong>debe pertenecer a una entidad de nivel más bajo</strong>. Es parcial cuando algunas entidades de nivel más alto pueden no pertenecer a alguna entidad de nivel más bajo.</li></ul><ul id="1c7b5fa2-08c1-8058-83de-e85f512d068a" class="bulleted-list"><li style="list-style-type:disc"><strong>Exclusiva o superpuesta</strong>: Lo que se analiza es si un entidad del nivel más alto puede o no estar en más de una entidad del nivel más bajo. Si solo puede estar en una entidad de nivel más bajo, la cobertura es exclusiva; en tanto, si puede estar en varias, se denomina superpuesta.</li></ul><h3 id="1c7b5fa2-08c1-8030-80c0-f1e4a4782897" class=""><strong>Agregacion</strong></h3><p id="1c7b5fa2-08c1-80b9-b8ea-e61448b21a89" class="">Mecanismo de <strong>abstracción</strong> que lleva a considerar una interrelación y las entidades que participan, como una nueva entidad.</p><p id="1c7b5fa2-08c1-802c-a2f4-e08eed63ac3b" class="">
+</p><p id="1c7b5fa2-08c1-80e7-81e9-fbf41210836e" class="">
+</p></details></li></ul><ul id="1ceb5fa2-08c1-8050-8f4f-f524e04bb8bf" class="toggle"><li><details open=""><summary><strong>Modelo Relacional</strong></summary><figure id="1ceb5fa2-08c1-8047-bccf-d22af20d026c"><div class="source"><a href="Modelo_Relacional.pdf">Modelo Relacional.pdf</a></div></figure><h3 id="1ceb5fa2-08c1-8024-a476-f901dd4f4b18" class="">Conceptos Basicos</h3><ul id="1ceb5fa2-08c1-80db-9f88-f20f63f263fd" class="bulleted-list"><li style="list-style-type:disc">El modelo relacional representa a una BD como una<strong> colección de tablas</strong>, las cuales se conforman por registros.</li></ul><ul id="1ceb5fa2-08c1-8023-a0de-e2799051d4bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Cada tabla se denomina relación</strong> y está formada por filas horizontales y columnas verticales. <strong>Cada fila representa un registro y se denomina tupla, mientras que cada columna representa un atributo del registro.</strong></li></ul><h3 id="1ceb5fa2-08c1-801b-add3-d73babd5b74d" class="">Selección de claves</h3><p id="1ceb5fa2-08c1-8019-af27-cdf751049eb8" class="">Si una entidad solo tiene un identificador, este identificador es clave primaria. Si la entidad tuviese varios identificadores, la selección de la <strong>clave primaria (CP)</strong> debe realizarse del siguiente modo:</p><ul id="1ceb5fa2-08c1-8038-870f-e0b215323d01" class="bulleted-list"><li style="list-style-type:disc">Entre un identificador simple y uno compuesto, <strong>debe tomarse el simple</strong>.</li></ul><ul id="1ceb5fa2-08c1-80f8-a9a2-f23e69b8ccd1" class="bulleted-list"><li style="list-style-type:disc">Entre dos identificadores, <strong>se debe optar por aquel de menos tamaño físico</strong>.</li></ul><p id="1ceb5fa2-08c1-8088-bb49-fd4925064a32" class="">El resto de los identificadores será definido como <strong>Clave Candidata (CC)</strong>.</p><h3 id="1ceb5fa2-08c1-80f3-96f9-c4e783d1bdfa" class="">Conversión de entidades</h3><ul id="1ceb5fa2-08c1-80a9-beb4-c06a81218818" class="bulleted-list"><li style="list-style-type:disc">El proceso de conversión para obtener el esquema físico de una BD comienza con el análisis de las entidades definidas en el modelo lógico.</li></ul><ul id="1ceb5fa2-08c1-80ea-ba67-f7c51f477248" class="bulleted-list"><li style="list-style-type:disc">El proceso de conversión muestra que cada una de las entidades fuertes y débiles definidas deben transformarse en una tabla del modelo.<figure id="1ceb5fa2-08c1-80bf-b649-e84f69d0f047" class="image"><a href="Captura_de_pantalla_2025-04-07_08-25-51.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-07_08-25-51.png"/></a></figure></li></ul><h3 id="1ceb5fa2-08c1-8082-8e58-d76c910c51cb" class=""><strong>Conversión de atributos multivalorados</strong></h3><ul id="1ceb5fa2-08c1-80ce-b9c0-c450ef63df47" class="bulleted-list"><li style="list-style-type:disc">Por cada atributo multivalorado (ya sea de entidad o de relación) <strong>se crea una tabla</strong>.</li></ul><ul id="1ceb5fa2-08c1-80cd-89b7-fbb24ed9352d" class="bulleted-list"><li style="list-style-type:disc">Se <strong>agrega un atributo</strong> para el multivalorado.</li></ul><ul id="1ceb5fa2-08c1-8036-a4b5-ecfd4140ac7e" class="bulleted-list"><li style="list-style-type:disc">Se <strong>agrega como atributo la clave primaria de la tabla </strong>que modela la entidad o relación a la cual pertenece el multivalorado.</li></ul><ul id="1ceb5fa2-08c1-8082-bd26-e8d83dfddf9b" class="bulleted-list"><li style="list-style-type:disc"><strong>La clave primaria se forma con todos sus atributos</strong><figure id="1ceb5fa2-08c1-8006-8db6-d2c0e2c28231" class="image"><a href="Captura_de_pantalla_2025-04-07_08-29-20.png"><img style="width:653.9791870117188px" src="Captura_de_pantalla_2025-04-07_08-29-20.png"/></a></figure></li></ul><h3 id="1ceb5fa2-08c1-80e4-9046-f487ec8a7e0c" class="">Conversión de atributos compuestos</h3><figure id="1ceb5fa2-08c1-80ea-ba6d-de6b1a5932be" class="image"><a href="Captura_de_pantalla_2025-04-07_08-36-13.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-04-07_08-36-13.png"/></a></figure><h3 id="1ceb5fa2-08c1-804c-86cb-d246c2c12569" class="">Conversión de relaciones</h3><figure id="1ceb5fa2-08c1-8058-95cb-e2d739110f2f" class="image"><a href="Captura_de_pantalla_2025-04-07_08-48-25.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-04-07_08-48-25.png"/></a></figure><p id="1ceb5fa2-08c1-807e-9d06-e3501701ff4b" class="">No toda entidad tiene que tener un foreign key (F.K.) con otra entidad</p><h3 id="1ceb5fa2-08c1-806d-bea7-db3293c01d84" class="">Conversión de relaciones</h3><ol type="1" id="1ceb5fa2-08c1-80bc-b786-ea9d8b7709ee" class="numbered-list" start="1"><li>La clave primaria de Presidente se almacena en la tabla País como un atributo y pasa a ser foreing key.<br/><br/><mark class="highlight-red">Presidente = (DNI, nombre, apellido)<br/>Pais = (id, nombre, cantidad_habitantes, DNI)<br/>- DNI: FOREING KEY de Presidente<br/></mark></li></ol><ol type="1" id="1ceb5fa2-08c1-8043-acf2-f380bebe0f7a" class="numbered-list" start="2"><li>La clave primaria de País almacena en la tabla Presidente como un atributo y pasa a ser foreing key.<br/><br/><mark class="highlight-red">Pais = (id, nombre, cantidad_habitantes)<br/>Presidente = (DNI, nombre, apellido, id_país)<br/>- id_país: FOREING KEY de País<br/></mark></li></ol><ol type="1" id="1ceb5fa2-08c1-80aa-a163-cfcbe60a1ebe" class="numbered-list" start="3"><li>Las claves primarias de ambas entidades se guardan en la tabla de la otra entidad. Es decir, la tabla Presidente guardaría la clave primaria de País y la tabla País guardaría también la clave primaria de Presidente. Esta solución puede presentar redundancia,<br/>pero puede ser interesante en algunas ocasiones, dependiendo de las consultas que se vayan a realizar sobre estas tablas a nivel de aplicación. En este caso los atributos id_país y id_presidente serían foreign key (FK).<br/><br/><mark class="highlight-red">Presidente = (DNI, nombre, apellido, id_país)<br/>id_país: FOREING KEY de País<br/>Pais = (id, nombre, cantidad_habitantes, DNI)<br/>DNI: FOREING KEY de Presidente<br/></mark></li></ol><figure id="1ceb5fa2-08c1-8061-acb2-f803f66a10f6" class="image"><a href="Captura_de_pantalla_2025-04-07_09-06-02.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-07_09-06-02.png"/></a></figure><h3 id="1ceb5fa2-08c1-8044-aa52-f84ed6ace890" class="">Generalizaciones/Especializaciones</h3><p id="1ceb5fa2-08c1-80a7-a880-ee374a5ceb29" class="">Básicamente, <strong>hay tres opciones para tratar una especialización</strong>.</p><ol type="1" id="1ceb5fa2-08c1-80c1-9ab8-f52eb39897e4" class="numbered-list" start="1"><li><strong>Eliminar las subentidades</strong>, dejando sólo la entidad padre a la cual se le incorporan todos los atributos de sus hijos. Cada uno de ellos deberá ser no obligatorio.<figure id="1ceb5fa2-08c1-80b1-926c-f8e5e316360d" class="image"><a href="Captura_de_pantalla_2025-04-07_09-36-18.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-07_09-36-18.png"/></a></figure></li></ol><ol type="1" id="1ceb5fa2-08c1-80a6-8fb6-fc2844644dcb" class="numbered-list" start="2"><li><strong>Eliminar la entidad padre</strong>, dejando sólo las subentidades. Con esta solución, los atributos del padre deberán incluirse en cada uno de los hijos.<figure id="1ceb5fa2-08c1-80df-a0aa-e26311940ccd" class="image"><a href="Captura_de_pantalla_2025-04-07_09-36-34.png"><img style="width:653.9791870117188px" src="Captura_de_pantalla_2025-04-07_09-36-34.png"/></a></figure></li></ol><ol type="1" id="1ceb5fa2-08c1-806c-92da-ed8c9ae6769e" class="numbered-list" start="3"><li><strong>Dejar todas las entidades de la jerarquía</strong>, convirtiéndolas en relaciones uno a uno entre el padre y cada uno de los hijos.<figure id="1ceb5fa2-08c1-809d-9c33-c569eb08a825" class="image"><a href="Captura_de_pantalla_2025-04-07_09-37-02.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-07_09-37-02.png"/></a></figure></li></ol><p id="1ceb5fa2-08c1-8068-8f06-db4d8422b034" class="">Las tres soluciones <strong>no</strong> son aplicables en todos los casos.</p><ul id="1ceb5fa2-08c1-80a4-9873-eb5a8f2dd868" class="bulleted-list"><li style="list-style-type:disc">Si la cobertura fuese parcial, la segunda solución no sería aplicable debido a que la conversión generaría un modelo no equivalente ya que se perdería información</li></ul><ul id="1ceb5fa2-08c1-80fd-ae77-e3aba55666c2" class="bulleted-list"><li style="list-style-type:disc">La cobertura es la que determina la solución viable en cada caso.</li></ul><p id="1ceb5fa2-08c1-80ab-924f-d1e51037b0a8" class="">Si se analiza la cobertura superpuesta, la segunda solución no resulta práctica. Algunos elementos del padre se repiten en varios hijos, esto significa que se deberá repetir información en las subentidades generadas.</p><p id="1ceb5fa2-08c1-8067-8498-ca3888102806" class="">Se puede afirmar que la tercera alternativa de solución es la que capta mejor la esencia de la<br/>herencia y, por ende, la que resulta más interesante aplicar. Sin embargo, esta solución es la que genera mayor número de entidades y relaciones en el modelo final. Esto podría significar, a futuro, problema de performance en la utilización de la B.D.<br/></p><h3 id="1ceb5fa2-08c1-806b-bd06-d6591e529fc2" class="">Integridad referencial (IR)</h3><p id="1ceb5fa2-08c1-8041-ae6d-d2a53022dbb1" class="">Propiedad deseable de las BD.</p><ul id="1ceb5fa2-08c1-8029-8ae4-f57adff79c39" class="bulleted-list"><li style="list-style-type:disc">Asegura que un valor que aparece para un atributo en una tabla, aparezca además en otra tabla para el mismo atributo.</li></ul><ul id="1ceb5fa2-08c1-80d5-8989-e56facd09c69" class="bulleted-list"><li style="list-style-type:disc">Plantea restricciones entre tablas y sirve para mantener la consistencia entre las tuplas de dichas tablas.</li></ul><ul id="1ceb5fa2-08c1-808d-a881-e9a46d9b6d9a" class="bulleted-list"><li style="list-style-type:disc">Ejemplo:<br/>Facturas = (<br/><span style="border-bottom:0.05em solid">nroFactura</span>, fecha, monto, nroCliente (CF))<br/>Clientes = (<br/><span style="border-bottom:0.05em solid">nroCliente</span>, nombre, dirección)<ul id="1ceb5fa2-08c1-8051-876f-c896e5ca217a" class="bulleted-list"><li style="list-style-type:circle">En la tabla Facturas, nroCliente es una CF. Esta CF permite establecer IR entre las tablas Facturas y Clientes. Notar que nroCliente es CP en Clientes.</li></ul></li></ul><p id="217b5fa2-08c1-8063-9972-c8c53ee3697d" class=""><strong>Resumen de conversion con Multiplicidades</strong></p><p id="217b5fa2-08c1-808a-a2a6-ca7002d7d7ed" class="">0..n → 1..1 Se guarda la cp de la entidad de 0..n en la tabla 1..1</p><p id="217b5fa2-08c1-8067-b6af-eb1cb02e65d0" class="">1..1 → 1..1 Se guarda la cp en la entidad que prefiera, pero siempre se guarda en alguna</p><p id="217b5fa2-08c1-800f-bb54-cb0ddb47f49f" class="">0..n → 0..n Se guarda la relacion con ambas claves primarias</p></details></li></ul><ul id="1cab5fa2-08c1-8049-9b86-cbdb52249f9c" class="toggle"><li><details open=""><summary><strong>Normalizacion</strong></summary><figure id="1e2b5fa2-08c1-8036-bb4e-eefbc1ecd586"><div class="source"><a href="Normalizacion.pdf">Normalizacion.pdf</a></div></figure><h3 id="1cab5fa2-08c1-80b6-8542-ef8e7b3bd556" class="">Dependencias funcionales</h3><p id="1cab5fa2-08c1-8053-9be6-e815d74459ce" class="">Una <strong>dependencia funcional</strong> es una <strong>restricción</strong> que se establece entre dos conjuntos de atributos de una tabla de la Base de Datos. </p><p id="1cab5fa2-08c1-80ff-b36d-d728ed729119" class="">Una <strong>dependencia funcional </strong>es una <strong>propiedad de la semántica</strong> o significado de los atributos. Los diseñadores de la B. D. utilizarán su comprensión de la semántica de los atributos de R (esto es, cómo se relacionan unos con otros) para especificar las dependencias funcionales que deben mantenerse en todos los estados de relación r de R.</p><figure id="1cab5fa2-08c1-80b8-be80-de79d3f85996" class="image"><a href="Captura_de_pantalla_2025-04-03_12-17-57.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-04-03_12-17-57.png"/></a></figure><figure id="1cab5fa2-08c1-80fd-9fc2-c8cdcb966446" class="image"><a href="Captura_de_pantalla_2025-04-03_12-23-30.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-04-03_12-23-30.png"/></a></figure><h2 id="1cab5fa2-08c1-80e5-b7f4-eef0d43dc46f" class="">Normalización</h2><blockquote id="1cab5fa2-08c1-80f9-a732-d72064009ab6" class="">Técnica de diseño de BD que comienza examinando las relaciones que existen entre los atributos (dependencias funcionales). La normalización identifica el agrupamiento óptimo de estos atributos, con el fin de identificar un conjunto de relaciones que soporten adecuadamente los requisitos de datos de la organización.</blockquote><p id="1cab5fa2-08c1-806a-8b7a-ca44350d0dcb" class="">El <strong>proposito</strong> es producir un conjunto de relaciones (tablas) con una serie de propiedades deseables partiendo de los requisitos de datos de una organización.</p><p id="1cab5fa2-08c1-8040-9307-c42c275c73f4" class="">La <strong>normalización</strong> es un mecanismo que permite que un conjunto de tablas, que integran una BD, <strong>cumpla</strong> una serie de propiedades deseables. Estas <strong>propiedades</strong> consisten en evitar:</p><ul id="1cab5fa2-08c1-80dc-b712-fa34f614652f" class="bulleted-list"><li style="list-style-type:disc">Redundancia de datos. → Evitar redundancia de datos no claves</li></ul><ul id="1cab5fa2-08c1-80b4-add0-dc214985b6ea" class="bulleted-list"><li style="list-style-type:disc">Anomalías de actualización.</li></ul><ul id="1cab5fa2-08c1-805e-992c-c3bd5a66e62d" class="bulleted-list"><li style="list-style-type:disc">Pérdida de integridad de datos.<figure id="1e3b5fa2-08c1-80c4-a107-ef754bf96056"><div class="source"><a href="BASE_DE_DATOS_24-4.pdf">BASE DE DATOS 24-4.pdf</a></div></figure></li></ul></details></li></ul><ul id="1d5b5fa2-08c1-80d7-a217-fb4f511e00e2" class="toggle"><li><details open=""><summary><strong>Algebra Relacional</strong></summary><figure id="1d5b5fa2-08c1-80f3-b7fe-def8d43314cc"><div class="source"><a href="lgebra_Relacional_modif_11-4.pdf">Álgebra Relacional_modif_11-4.pdf</a></div></figure><ul id="1d5b5fa2-08c1-800d-b0f2-db963f62482a" class="bulleted-list"><li style="list-style-type:disc">Un modelo de datos debe incluir un conjunto de operaciones para manipular la base de datos junto con los conceptos necesarios para la definición de su estructura y restricciones.</li></ul><ul id="1d5b5fa2-08c1-804d-8ed4-d7bb2d9a5580" class="bulleted-list"><li style="list-style-type:disc">El conjunto de operaciones básicas del modelo relacional es el <strong>álgebra relacional</strong>, el cual permite al usuario especificar las peticiones fundamentales de recuperación.</li></ul><ul id="1d5b5fa2-08c1-80e7-b258-c6ad38fb3149" class="bulleted-list"><li style="list-style-type:disc">El resultado de una recuperación es una nueva relación, la cual puede estar constituida por una o más relaciones.</li></ul><ul id="1d5b5fa2-08c1-805b-8888-d184a7dae835" class="toggle"><li><details open=""><summary>Razones por las que es importante el algebra relacional</summary><ul id="1d5b5fa2-08c1-80de-b9a2-fab04e428f3e" class="bulleted-list"><li style="list-style-type:disc">El álgebra relacional es muy importante por varias razones. La primera, porque <strong>proporciona </strong>un <strong>fundamento formal para las operaciones del modelo formal</strong>.</li></ul><ul id="1d5b5fa2-08c1-8037-8bd0-c54169f10aeb" class="bulleted-list"><li style="list-style-type:disc">La segunda razón, es que se utiliza como base para la implementación y optimización de consultas en los RDBMS (Sistemas de administración de bases de datos relacionales). Tercera, porque algunos de sus conceptos se han incorporado al lenguaje estándar de consultas SQL para los RDBMS.</li></ul></details></li></ul><h3 id="1d5b5fa2-08c1-80dc-9825-d40d240ca280" class="">Tipos de Operadores Básicos</h3><p id="1d5b5fa2-08c1-80b4-817a-e49b0ed35ee2" class=""><strong>Unarios: Operan sobre una sola relación:</strong></p><ul id="1d5b5fa2-08c1-8006-81d3-dbe64c4127e4" class="toggle"><li><details open=""><summary><strong>Selección (</strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">σ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></span><span>﻿</span></span><strong>)</strong></summary><ul id="1d5b5fa2-08c1-80b9-a06a-c2ff979cfe39" class="bulleted-list"><li style="list-style-type:disc">Se emplea para seleccionar un subconjunto de las tuplas que satisfacen un predicado.</li></ul><ul id="1d5b5fa2-08c1-80bf-bb89-c95e12831897" class="bulleted-list"><li style="list-style-type:disc">Se puede considerar esta operación como un filtro que mantiene sólo las tuplas que satisfacen una determinada condición.</li></ul><p id="1d5b5fa2-08c1-80d0-9d1c-ec72ec8f47b5" class=""><strong>Filtra filas (tuplas) que cumplen una condición.</strong><div class="indented"><figure id="1d5b5fa2-08c1-80a0-9404-e3a26edcea2f" class="image"><a href="Captura_de_pantalla_2025-04-14_08-45-04.png"><img style="width:625.9896240234375px" src="Captura_de_pantalla_2025-04-14_08-45-04.png"/></a></figure></div></p></details></li></ul><ul id="1d5b5fa2-08c1-80d2-9d0d-fa70342404d1" class="toggle"><li><details open=""><summary><strong>Proyección (</strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>π</mi></mrow><annotation encoding="application/x-tex">π</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span></span></span></span></span><span>﻿</span></span><strong>)</strong></summary><ul id="1d5b5fa2-08c1-80ff-8f0b-f262b0b0d212" class="bulleted-list"><li style="list-style-type:disc">Permite presentar los atributos especificados de una relación y no presentar el resto.</li></ul><ul id="1d5b5fa2-08c1-804c-b565-e552c6a00ba9" class="bulleted-list"><li style="list-style-type:disc">Esta operación selecciona ciertas columnas de la tabla y descarta otras.</li></ul><p id="1d5b5fa2-08c1-8003-a0c9-c25bd3aae5b8" class="">Va a ser 0 si la tabla original es vacia, sino un elemento al menos va tener</p><p id="1d5b5fa2-08c1-807d-9c45-d064f8881d49" class=""><strong>Elige columnas específicas.</strong></p><figure id="1d5b5fa2-08c1-802b-9393-ec0bc8e3bf43" class="image"><a href="Captura_de_pantalla_2025-04-14_08-48-03.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_08-48-03.png"/></a></figure><figure id="1d5b5fa2-08c1-805f-abc3-deb918b990f8" class="image"><a href="Captura_de_pantalla_2025-04-14_08-49-17.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_08-49-17.png"/></a></figure></details></li></ul><ul id="1d5b5fa2-08c1-80d0-81fa-dc3e9be46fb3" class="toggle"><li><details open=""><summary><strong>Renombre (</strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi></mrow><annotation encoding="application/x-tex">ρ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span></span></span></span></span><span>﻿</span></span><strong>)</strong></summary><ul id="1d5b5fa2-08c1-807d-8d85-e128a1c839b0" class="bulleted-list"><li style="list-style-type:disc">Define un alias para una relación.</li></ul><ul id="1d5b5fa2-08c1-80bc-9b9b-c3da761a0287" class="bulleted-list"><li style="list-style-type:disc">Útil para evitar ambigüedades cuando una relación aparece más de una vez en una consulta.</li></ul><ul id="1d5b5fa2-08c1-8022-aab3-d347882ace2e" class="bulleted-list"><li style="list-style-type:disc">Esta operación aplicada a una relación R de grado n aparece denotada de cualquiera de estas tres formas:<figure id="1d5b5fa2-08c1-801e-b6cc-c95d1f7e7138" class="image"><a href="Captura_de_pantalla_2025-04-14_08-50-32.png"><img style="width:625.96875px" src="Captura_de_pantalla_2025-04-14_08-50-32.png"/></a></figure><figure id="1d5b5fa2-08c1-8060-930c-fbaf8e2d9c97" class="image"><a href="Captura_de_pantalla_2025-04-14_08-51-04.png"><img style="width:626px" src="Captura_de_pantalla_2025-04-14_08-51-04.png"/></a></figure><p id="1d5b5fa2-08c1-80ac-8981-c8dde63b00af" class=""><strong>Combina dos relaciones con el mismo esquema (atributos).</strong></p></li></ul></details></li></ul><p id="1d5b5fa2-08c1-8043-a67c-f46c974ec7a5" class=""><strong>Binarios: operan sobre dos relaciones:</strong></p><ul id="1d5b5fa2-08c1-80fe-b745-da0ff0f6935e" class="toggle"><li><details open=""><summary><strong>Producto cartesiano (</strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span><strong>)</strong></summary><ul id="1d5b5fa2-08c1-8003-a568-fa087d32f0d0" class="bulleted-list"><li style="list-style-type:disc">El producto cartesiano es una operación que, a partir de dos relaciones vincula cada tupla de una de las relaciones con cada tupla de la otra relación.</li></ul><ul id="1d5b5fa2-08c1-8059-b308-d7f0130eae7f" class="bulleted-list"><li style="list-style-type:disc">La operación aplicada es, por sí misma, absurda. Es útil cuando va seguida por una selección que correlaciones los valores de los atributos procedentes de las relaciones componentes.</li></ul><ul id="1d5b5fa2-08c1-800d-9748-e11cefa22806" class="bulleted-list"><li style="list-style-type:disc">Número de columnas de <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>x</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">R x S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span><span>﻿</span></span> = Cols. de R + Cols. de S</li></ul><ul id="1d5b5fa2-08c1-8081-80ea-da0450817ee3" class="bulleted-list"><li style="list-style-type:disc">Número de tuplas de <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>x</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">R x S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span><span>﻿</span></span> = Tuplas de R * Tuplas de S</li></ul><ul id="1d5b5fa2-08c1-807e-b5bb-f95ccc4198a7" class="bulleted-list"><li style="list-style-type:disc">Para evitar ambigüedades: Usar sintaxis tabla.columna<figure id="1d5b5fa2-08c1-8018-9c00-e61daa4a2e8e" class="image"><a href="Captura_de_pantalla_2025-04-14_08-56-55.png"><img style="width:625.9791870117188px" src="Captura_de_pantalla_2025-04-14_08-56-55.png"/></a></figure></li></ul></details></li></ul><ul id="1d5b5fa2-08c1-80d4-8211-f533ff92bbe7" class="toggle"><li><details open=""><summary><strong>Unión (U)</strong></summary><ul id="1d5b5fa2-08c1-806c-9418-fc664d61d632" class="bulleted-list"><li style="list-style-type:disc">Equivale a la unión matemática de conjuntos.</li></ul><ul id="1d5b5fa2-08c1-804a-90fc-fa3ac9cab8a4" class="bulleted-list"><li style="list-style-type:disc">Las tuplas repetidas son eliminadas.</li></ul><ul id="1d5b5fa2-08c1-80e4-92d2-d49dfa9dc3eb" class="bulleted-list"><li style="list-style-type:disc">Las relaciones a unir deben ser <strong>compatibles </strong>(Igual número de atributos<br/>Dominios iguales dos a dos)<br/></li></ul><figure id="1d5b5fa2-08c1-800c-9eb5-d3113b76d0c3" class="image"><a href="Captura_de_pantalla_2025-04-14_09-00-28.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_09-00-28.png"/></a></figure></details></li></ul><ul id="1d5b5fa2-08c1-8097-9f05-dd20200d997b" class="toggle"><li><details open=""><summary><strong>Diferencia (-)</strong></summary><ul id="1d5b5fa2-08c1-80c2-a1b4-fa2300e257a0" class="bulleted-list"><li style="list-style-type:disc">Equivale a la diferencia matemática de conjuntos.</li></ul><ul id="1d5b5fa2-08c1-8013-b45f-dfa58c9f2515" class="bulleted-list"><li style="list-style-type:disc">Incluye tuplas que están en una relación pero no en la otra.</li></ul></details></li></ul><h3 id="1cab5fa2-08c1-80ff-8979-dbcae08a9e48" class="">Operaciones adicionales.</h3><ul id="1d5b5fa2-08c1-8069-88ff-f53a21d1bc09" class="toggle"><li><details open=""><summary><strong>Producto natural (⨝)</strong></summary><ul id="1d5b5fa2-08c1-807c-a98f-d3e243389be7" class="bulleted-list"><li style="list-style-type:disc">Combina los elementos de la primera relación que se relacionan con los elementos de la segunda relación.</li></ul><ul id="1d5b5fa2-08c1-80b6-a233-c060782ed19a" class="bulleted-list"><li style="list-style-type:disc">Simplifica consultas que combinan varias relaciones.</li></ul><ul id="1d5b5fa2-08c1-8057-be74-edf8163cf407" class="bulleted-list"><li style="list-style-type:disc">Es una reunión con el operador de igualdad para combinar los atributos comunes de las relaciones.</li></ul><ul id="1d5b5fa2-08c1-8021-9463-cb72ed0dd247" class="bulleted-list"><li style="list-style-type:disc">No especifica explícitamente el predicado de combinación y la selección se hace en base a los campos comunes.</li></ul><p id="1d5b5fa2-08c1-8075-8615-f931ee4f8a58" class=""><em>(Es lo mismo que realizar una operación de selección posterior a un<br/>producto cartesiano.)<br/></em></p><figure id="1d5b5fa2-08c1-80f5-b2bb-e3441f3952ec" class="image"><a href="Captura_de_pantalla_2025-04-14_09-16-15.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_09-16-15.png"/></a></figure></details></li></ul><ul id="1d5b5fa2-08c1-807d-8142-e4894ef2b614" class="toggle"><li><details open=""><summary><strong>Intersección (</strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∩</mo></mrow><annotation encoding="application/x-tex">∩</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5556em;"></span><span class="mord">∩</span></span></span></span></span><span>﻿</span></span><strong>)</strong></summary><ul id="1d5b5fa2-08c1-80dc-a31e-e8df29f467af" class="bulleted-list"><li style="list-style-type:disc">Equivale a la intersección matemática de conjuntos.</li></ul><ul id="1d5b5fa2-08c1-80e2-9fa1-e0ad88f97dc7" class="bulleted-list"><li style="list-style-type:disc">Incluye tuplas que están en todas las relaciones.</li></ul><ul id="1d5b5fa2-08c1-8099-a209-e7bb9736ba84" class="bulleted-list"><li style="list-style-type:disc">Incluye las tuplas que están en <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span></span><span>﻿</span></span> y en <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span></span><span>﻿</span></span>.<figure id="1d5b5fa2-08c1-8068-91ec-e42aa4d3ba9f" class="image"><a href="Captura_de_pantalla_2025-04-14_09-17-49.png"><img style="width:625.9791870117188px" src="Captura_de_pantalla_2025-04-14_09-17-49.png"/></a></figure></li></ul></details></li></ul><ul id="1d5b5fa2-08c1-80bc-a57f-d88dacf925e2" class="toggle"><li><details open=""><summary><strong>Asignación (🡨)</strong></summary><ul id="1d5b5fa2-08c1-8001-83c1-d875a242d499" class="bulleted-list"><li style="list-style-type:disc">Crea una nueva relación a partir de otra.</li></ul><ul id="1d5b5fa2-08c1-805b-9e08-ce381e1abd13" class="bulleted-list"><li style="list-style-type:disc">Lo que se asigna puede ser una relación existente o el resultado de una operación.</li></ul><blockquote id="1d5b5fa2-08c1-8049-a48b-f68d9369256e" class="">Nueva 🡨 Expresión de AR</blockquote></details></li></ul><ul id="1d5b5fa2-08c1-8037-b029-c8bd700d7384" class="toggle"><li><details open=""><summary><strong>División (”/”)</strong></summary><ul id="1d5b5fa2-08c1-8086-b0a3-cce5d26e115a" class="bulleted-list"><li style="list-style-type:disc">Retorna aquellos elementos de la primera relación que se relacionan con todos los elementos de la segunda relación.</li></ul><ul id="1d5b5fa2-08c1-8084-8b5d-fc1c6fe9ebf2" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi mathvariant="normal">/</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">A/B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span><span>﻿</span></span> retorna los elementos de A que se relacionan con todos los elementos de B, donde las columnas de B deben estar incluidas en las columnas de A.</li></ul><figure id="1d5b5fa2-08c1-80e4-9316-eee4cf070140" class="image"><a href="Captura_de_pantalla_2025-04-14_09-44-10.png"><img style="width:654px" src="Captura_de_pantalla_2025-04-14_09-44-10.png"/></a></figure></details></li></ul><p id="1d5b5fa2-08c1-8095-a552-c81a1874f72a" class="">
+</p><ul id="1d5b5fa2-08c1-808c-b795-e21ddbff8d7f" class="toggle"><li><details open=""><summary><strong>Ejercicios</strong></summary><figure id="1d5b5fa2-08c1-8090-a3ec-d51ff9729450" class="image"><a href="Captura_de_pantalla_2025-04-14_09-25-59.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_09-25-59.png"/></a></figure><p id="1d5b5fa2-08c1-8010-a76f-fdf5e994e2d6" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>L</mi><mi>i</mi><mi>b</mi><mi>r</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>a</mi><mover accent="true"><mi>n</mi><mo>~</mo></mover><mi>o</mi><mi>E</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mn>2015</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{Libros.añoEdicion=2015}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">ib</span><span class="mord mathnormal mtight">ros</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">a</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mathnormal mtight">n</span></span><span style="top:-3.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord mtight">~</span></span></span></span></span></span></span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">2015</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>L</mi><mi>i</mi><mi>b</mi><mi>r</mi><mi>o</mi><mo>−</mo><mi>E</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi>A</mi><mover accent="true"><mi>n</mi><mo>~</mo></mover><mi>o</mi><mi>E</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo separator="true">,</mo><mi>L</mi><mi>i</mi><mi>b</mi><mi>r</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>t</mi><mi>i</mi><mi>t</mi><mi>u</mi><mi>l</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{Libro-Edicion.AñoEdicion, Libros.titulo}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">ib</span><span class="mord mathnormal mtight">ro</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">A</span><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6679em;"><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord mathnormal mtight">n</span></span><span style="top:-3.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord mtight">~</span></span></span></span></span></span></span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">ib</span><span class="mord mathnormal mtight">ros</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Libro-Editorial <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span></span><span>﻿</span></span> Libros))</p><figure id="1d5b5fa2-08c1-8050-9cc2-f6adb8fdd6b6" class="image"><a href="Captura_de_pantalla_2025-04-14_09-56-31.png"><img style="width:653.9896240234375px" src="Captura_de_pantalla_2025-04-14_09-56-31.png"/></a></figure><p id="1d5b5fa2-08c1-80f1-ae8b-fbbe0768e430" class="">(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>E</mi><mi>d</mi><mi>i</mi><mi>t</mi><mi>o</mi><mi>r</mi><mi>i</mi><mi>a</mi><mi>l</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>D</mi><mi>e</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>i</mi><mi>n</mi><mi>a</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mi mathvariant="normal">&quot;</mi><mi>E</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mi>e</mi><mi>s</mi><mi>A</mi><mi mathvariant="normal">&quot;</mi></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{Editoriales.Denominacion = &quot;Ediciones A&quot;}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">or</span><span class="mord mathnormal mtight">ia</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">es</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">De</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mina</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mtight">&quot;</span><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">es</span><span class="mord mathnormal mtight">A</span><span class="mord mtight">&quot;</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>)</p><figure id="1d5b5fa2-08c1-805a-85e6-e0bd2e1ede1f" class="image"><a href="Captura_de_pantalla_2025-04-14_09-19-24.png"><img style="width:681.9896240234375px" src="Captura_de_pantalla_2025-04-14_09-19-24.png"/></a></figure><p id="1d5b5fa2-08c1-801a-9b59-ecfd41f29b24" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>i</mi><mi>g</mi><mi>o</mi><mo separator="true">,</mo><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>o</mi><mo separator="true">,</mo><mi>n</mi><mi>o</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{codigo, apellido, nombre}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span><span class="mord mathnormal mtight">o</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">o</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mb</span><span class="mord mathnormal mtight">re</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Socios)</p></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-80b0-8e35-c27126c6e85c" class="toggle"><li><details open=""><summary><strong>Transacciones</strong></summary><figure id="1eab5fa2-08c1-801a-b1a4-d64121c270ba"><div class="source"><a href="Transacciones.pdf">Transacciones.pdf</a></div></figure><ul id="1eab5fa2-08c1-809a-97c3-d0e59a198650" class="toggle"><li><details open=""><summary><strong>Transacciones (Conceptos - Estados de ejecución - Planificiones)</strong></summary><figure id="1edb5fa2-08c1-808f-971f-ce62e1b28346" class="image"><a href="image.png"><img style="width:682px" src="image.png"/></a></figure><p id="1edb5fa2-08c1-8062-bac2-cb7f270aa03f" class="">El procesamiento de transacciones en bases de datos se refiere a la <strong>gestión de operaciones que cambian el estado de una base de datos, garantizando que estas operaciones se completen de manera consistente y fiable</strong>. Las transacciones son unidades de trabajo que deben completarse en su totalidad o no se completan, asegurando la integridad de los datos. </p><figure id="1edb5fa2-08c1-8071-b9a9-e4221c26eae0" class="image"><a href="image%201.png"><img style="width:682px" src="image%201.png"/></a></figure><figure id="1edb5fa2-08c1-80e1-b8c6-cd8e708654d2" class="image"><a href="Sin_ttulo.png"><img style="width:681.984375px" src="Sin_ttulo.png"/></a></figure><ul id="1edb5fa2-08c1-8092-84c9-d9168d1a9640" class="toggle"><li><details open=""><summary><strong>Transaccion - Definicion</strong></summary><figure id="1edb5fa2-08c1-80a1-9b6e-f480680c937f" class="image"><a href="image%202.png"><img style="width:681.984375px" src="image%202.png"/></a></figure><p id="1edb5fa2-08c1-80a4-9d6b-c21318b8bb59" class="">Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.</p><figure id="1edb5fa2-08c1-8068-a11c-c0b41be64990" class="image"><a href="image%203.png"><img style="width:681.984375px" src="image%203.png"/></a></figure><figure id="1edb5fa2-08c1-8004-a153-c6f8c3975f1c" class="image"><a href="image%204.png"><img style="width:625.96875px" src="image%204.png"/></a></figure></details></li></ul><ul id="1edb5fa2-08c1-80eb-9a0d-e2aeb65d383a" class="toggle"><li><details open=""><summary><strong>Concurrencia</strong></summary><figure id="1edb5fa2-08c1-8059-9570-e5744398225b" class="image"><a href="image%205.png"><img style="width:620px" src="image%205.png"/></a></figure><p id="1edb5fa2-08c1-8081-8538-e36ea3933105" class="">Cada transaccion tiene una memoria local, es decir, trae una copia del dato consultado para trabajar con el, y recien cuando se guarda se pisa con el anterior.</p><ul id="1edb5fa2-08c1-802b-9ec9-e5f44893398d" class="toggle"><li><details open=""><summary><strong>Actualizacion a perdida</strong></summary><figure id="1edb5fa2-08c1-807d-9af3-dbc9704ec86c" class="image"><a href="image%206.png"><img style="width:626px" src="image%206.png"/></a></figure><p id="1edb5fa2-08c1-80f2-9ef1-f3696d07f7f0" class="">Cuando dos transacciones que intentan modificar la BD ambas leen datos antiguos y una modifica el dato pero se pierde porque la otra tambien lo hace y la escribe (guarda) sin haberse escrito la primera transaccion. Una forma de controlarlo es que las transacciones tienen que pedir permiso para acceder al recurso compartido</p></details></li></ul><ul id="1edb5fa2-08c1-80d3-bad6-c08488ccf024" class="toggle"><li><details open=""><summary><strong>Lectura sucia</strong></summary><figure id="1edb5fa2-08c1-8047-9ed3-fdb9e39d1cc9" class="image"><a href="image%207.png"><img style="width:597.984375px" src="image%207.png"/></a></figure><p id="1edb5fa2-08c1-80ff-bba1-fcb02e7a64eb" class="">T1 lee A luego que la T2 lo escribio, osea que el valor que lee T1 es un valor que produjo T2. Si hay un problema en T2, la misma no se pudo completar, porque no se pueden hacer por partes las transacciones, deben cumplir las propiedades<strong> ACID</strong>:</p><ul id="1edb5fa2-08c1-80d2-9f71-efa3781c23e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Atomicidad</strong>: una transaccion no se puede dividir en partes.</li></ul><ul id="1edb5fa2-08c1-8003-a681-fdecb8540973" class="bulleted-list"><li style="list-style-type:disc"><strong>Consistencia</strong>: se refiere a que la informacion guardada en la BD es fiel a la realidad.</li></ul><ul id="1edb5fa2-08c1-80e4-90f7-dacab562df7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Aislamiento</strong>: ninguna transaccion debe interferir con otra, se deben ejecutar de manera unica.</li></ul><ul id="1edb5fa2-08c1-8081-ac54-c42d22561107" class="bulleted-list"><li style="list-style-type:disc"><strong>Durabilidad</strong>: si una transaccion finaliza bien, los cambios deben perdurar en el tiempo.</li></ul></details></li></ul><ul id="1edb5fa2-08c1-8014-b154-e7e29cc5e52f" class="toggle"><li><details open=""><summary><strong>Analisis Inconsistente</strong></summary><figure id="1edb5fa2-08c1-805c-b771-f7264fc07ae7" class="image"><a href="image%208.png"><img style="width:626px" src="image%208.png"/></a></figure><p id="1edb5fa2-08c1-80b9-aa51-dc0c06a9c9c8" class="">T1 llega a un <strong>análisis inconsistente</strong> porque <strong>lee datos que ya fueron modificados por otra transacción (T2), pero no desde el inicio</strong>, generando así una <strong>mezcla de valores antiguos y nuevos</strong> que no reflejan ningún estado real de la base de datos.<br/><br/><br/></p></details></li></ul><figure id="1eeb5fa2-08c1-80e1-9a74-fa67b46a407c" class="image"><a href="image%209.png"><img style="width:653.984375px" src="image%209.png"/></a></figure></details></li></ul><ul id="1edb5fa2-08c1-8074-8dc7-d28dc012a1ff" class="toggle"><li><details open=""><summary><strong>¿Por qué es necesaria la recuperación?</strong></summary><figure id="1edb5fa2-08c1-8064-ba5d-d25df5b6eb0e" class="image"><a href="image%2010.png"><img style="width:682px" src="image%2010.png"/></a></figure><figure id="1edb5fa2-08c1-80fc-8e5b-e506f0491639" class="image"><a href="image%2011.png"><img style="width:654px" src="image%2011.png"/></a></figure><p id="1edb5fa2-08c1-8008-b0f8-eb58855cc7e0" class="">
+</p></details></li></ul><ul id="1edb5fa2-08c1-80d5-b9a9-df2c687b69fb" class="toggle"><li><details open=""><summary><strong>Estados de ejecución</strong></summary><figure id="1edb5fa2-08c1-8036-8a61-d97131a8fa5c" class="image"><a href="image%2012.png"><img style="width:654px" src="image%2012.png"/></a></figure><figure id="1edb5fa2-08c1-803d-8426-db8eeb6c8bf3" class="image"><a href="image%2013.png"><img style="width:625.96875px" src="image%2013.png"/></a></figure><ul id="1edb5fa2-08c1-808e-ab4c-e741d7e5d3fd" class="bulleted-list"><li style="list-style-type:disc">Una transacción entra en <strong>estado activo</strong> inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones LEER y ESCRIBIR. Cuando la transacción termina, pasa al <strong>estado de parcialmente confirmada</strong>.</li></ul><ul id="1edb5fa2-08c1-80c5-abf5-f9c862b08003" class="bulleted-list"><li style="list-style-type:disc">En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el <strong>estado de confirmada</strong>.</li></ul><ul id="1edb5fa2-08c1-8073-a1c7-f96d5deec9b2" class="bulleted-list"><li style="list-style-type:disc">No obstante, una transacción puede entrar en el <strong>estado de fallo </strong>si falla alguna de las comprobaciones o si la transacción es cancelada durante su estado activo.</li></ul><ul id="1edb5fa2-08c1-80ce-954f-e156a85d68d4" class="bulleted-list"><li style="list-style-type:disc">El <strong>estado terminado</strong> se alcanza cuando la transacción abandona el sistema.</li></ul></details></li></ul><ul id="1edb5fa2-08c1-8088-bbf7-c13ba5607521" class="toggle"><li><details open=""><summary><strong>Propiedades ACID</strong></summary><figure id="1edb5fa2-08c1-8099-9441-e2a6f1299151" class="image"><a href="image%2014.png"><img style="width:681.984375px" src="image%2014.png"/></a></figure><p id="1edb5fa2-08c1-80ff-9226-f9349f4df56a" class=""><strong>Las transacciones poseen las siguientes propiedades:</strong></p><ul id="1edb5fa2-08c1-80cc-b2a0-fd2f50cd2047" class="bulleted-list"><li style="list-style-type:disc"><strong>Atomicidad</strong>: Una transacción es una unidad atómica de procesamiento; o se ejecuta en su totalidad o no se ejecuta en absoluto.</li></ul><ul id="1edb5fa2-08c1-80c1-92a4-f072d17b7256" class="bulleted-list"><li style="list-style-type:disc"><strong>Conservación de la consistencia</strong>: Una transacción está conservando la consistencia si su ejecución completa lleva a la B. D. de un estado consistente a otro.</li></ul><ul id="1edb5fa2-08c1-8092-9d7b-d38f6237763b" class="bulleted-list"><li style="list-style-type:disc"><strong>Aislamiento (Isolation)</strong>: Una transacción debe aparecer como si estuviera ejecutándose de forma aislada a las demás. Es decir, la ejecución de una transacción no debe interferir con la ejecución de ninguna otra transacción simultánea.</li></ul><ul id="1edb5fa2-08c1-8014-8dc9-f8bf68b2be29" class="bulleted-list"><li style="list-style-type:disc"><strong>Durabilidad</strong>: Los cambios aplicados a la B. D. por una transacción confirmada deben persistir en la B. D. Estos cambios no deben perderse por culpa de un fallo.</li></ul></details></li></ul><ul id="1edb5fa2-08c1-8055-88bc-f227293e8dc6" class="toggle"><li><details open=""><summary><strong>Planificaciones</strong></summary><figure id="1edb5fa2-08c1-8057-bdd2-efe600590646" class="image"><a href="image%2015.png"><img style="width:654px" src="image%2015.png"/></a></figure><figure id="1edb5fa2-08c1-8087-8c5c-e7de0ceedbfc" class="image"><a href="image%2016.png"><img style="width:654px" src="image%2016.png"/></a></figure><ul id="1edb5fa2-08c1-8024-a454-f3c0187c18ed" class="toggle"><li><details open=""><summary><strong>Ejemplo</strong></summary><figure id="1edb5fa2-08c1-8005-a33c-e036b9c6985a" class="image"><a href="image%2017.png"><img style="width:597.984375px" src="image%2017.png"/></a></figure><figure id="1edb5fa2-08c1-80d7-b791-f689467c690b" class="image"><a href="image%2018.png"><img style="width:598px" src="image%2018.png"/></a></figure><figure id="1edb5fa2-08c1-8048-8043-e4df654ef59d" class="image"><a href="image%2019.png"><img style="width:597.984375px" src="image%2019.png"/></a></figure><figure id="1edb5fa2-08c1-80dd-aafc-f064805e389b" class="image"><a href="image%2020.png"><img style="width:598px" src="image%2020.png"/></a></figure></details></li></ul><figure id="1edb5fa2-08c1-809d-8488-eb1ec6d46c78" class="image"><a href="image%2021.png"><img style="width:625.96875px" src="image%2021.png"/></a></figure><figure id="1edb5fa2-08c1-80fc-8ffe-ec6e8355a851" class="image"><a href="image%2022.png"><img style="width:626px" src="image%2022.png"/></a></figure><figure id="1edb5fa2-08c1-8010-a811-d6c56a446edb" class="image"><a href="image%2023.png"><img style="width:625.984375px" src="image%2023.png"/></a></figure><ul id="1edb5fa2-08c1-8014-a807-fa6c08f0c799" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><p id="1edb5fa2-08c1-800e-84b8-d79c3dafe0a1" class=""><strong>Dos planificaciones son equivalentes por conflicto si el orden de cualquier par de operaciones en conflicto es el mismo en las dos planificaciones.</strong></p><figure id="1edb5fa2-08c1-80c1-8d7f-c99411880352" class="image"><a href="image%2024.png"><img style="width:598px" src="image%2024.png"/></a></figure><figure id="1edb5fa2-08c1-80db-a27f-c171ff807335" class="image"><a href="image%2025.png"><img style="width:498px" src="image%2025.png"/></a></figure><figure id="1edb5fa2-08c1-80e1-b122-f216a044ed23" class="image"><a href="image%2026.png"><img style="width:359px" src="image%2026.png"/></a></figure></details></li></ul><ul id="1edb5fa2-08c1-809d-ac2d-c3f1063facc1" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><figure id="1edb5fa2-08c1-805d-aa70-f5310a9d525a" class="image"><a href="image%2027.png"><img style="width:597.984375px" src="image%2027.png"/></a></figure><p id="1eab5fa2-08c1-8017-a21c-fad2a25e4b8c" class="">
+</p><p id="1eeb5fa2-08c1-8097-94f9-c1fe599d3686" class="">
+</p></details></li></ul><figure id="1eeb5fa2-08c1-8006-97cd-f025138fa1c9" class="image"><a href="image%2028.png"><img style="width:625.96875px" src="image%2028.png"/></a></figure><figure id="1eeb5fa2-08c1-8071-b3b6-db23caf7271c" class="image"><a href="image%2029.png"><img src="image%2029.png"/></a></figure><figure id="1eeb5fa2-08c1-80f9-8ec4-db5f523e924d" class="image"><a href="image%2030.png"><img style="width:626px" src="image%2030.png"/></a></figure><figure id="1eeb5fa2-08c1-801c-a1e4-ee09c3933732" class="image"><a href="image%2031.png"><img style="width:625.984375px" src="image%2031.png"/></a></figure><ul id="1eeb5fa2-08c1-8026-aa31-d80e0cc245b3" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><figure id="1eeb5fa2-08c1-80be-8f64-dcb75537c428" class="image"><a href="image%2032.png"><img style="width:598px" src="image%2032.png"/></a></figure><figure id="1eeb5fa2-08c1-80a4-9edf-d408ad748cf7" class="image"><a href="image%2033.png"><img style="width:410px" src="image%2033.png"/></a></figure><figure id="1eeb5fa2-08c1-8095-9507-f11f54967bb8" class="image"><a href="image%2034.png"><img style="width:560px" src="image%2034.png"/></a></figure><figure id="1eeb5fa2-08c1-8064-acb5-eca492cde4bf" class="image"><a href="image%2035.png"><img style="width:390px" src="image%2035.png"/></a></figure><figure id="1eeb5fa2-08c1-8029-9e73-c533f8aa1b7f" class="image"><a href="image%2036.png"><img style="width:625.984375px" src="image%2036.png"/></a></figure><figure id="1eeb5fa2-08c1-80fa-949f-cf0ba94d7003" class="image"><a href="image%2037.png"><img style="width:409px" src="image%2037.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80bd-bfbc-cb308bc2db96" class="toggle"><li><details open=""><summary><strong>Planificaciones en Serie (Secuenciales)</strong></summary><figure id="1eeb5fa2-08c1-8049-b260-ff16bfad57b7" class="image"><a href="image%2038.png"><img style="width:626px" src="image%2038.png"/></a></figure><figure id="1eeb5fa2-08c1-801b-90db-e6dc3b3070c4" class="image"><a href="image%2039.png"><img style="width:625.984375px" src="image%2039.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-8040-bd54-fb5a0711811c" class="toggle"><li><details open=""><summary><strong>Planificaciones serializables</strong></summary><figure id="1eeb5fa2-08c1-80d2-964a-f10b7639ad45" class="image"><a href="image%2040.png"><img style="width:626px" src="image%2040.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-8069-9d4d-ffaf50c8c9ad" class="toggle"><li><details open=""><summary><strong>Transacciones (Control de concurrencia - Bloqueos - Protocolos - Granularidad - Interbloqueos)</strong></summary><figure id="1eeb5fa2-08c1-80bb-a10f-c275b03dfd2d" class="image"><a href="Sin_ttulo%201.png"><img style="width:681.984375px" src="Sin_ttulo%201.png"/></a></figure><ul id="1eeb5fa2-08c1-809d-94f1-c383af07d42b" class="toggle"><li><details open=""><summary><strong>Bloqueos</strong></summary><figure id="1eeb5fa2-08c1-8026-8c3c-e8764b443eeb" class="image"><a href="image%2041.png"><img style="width:653.984375px" src="image%2041.png"/></a></figure><ul id="1eeb5fa2-08c1-80e6-9e17-f6f44daad746" class="toggle"><li><details open=""><summary><strong>Bloqueo Compartido</strong></summary><figure id="1eeb5fa2-08c1-80b8-936a-ca34bb305ff4" class="image"><a href="image%2042.png"><img style="width:625.96875px" src="image%2042.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80a4-8de8-f5f7d7608ecc" class="toggle"><li><details open=""><summary><strong>Bloqueo Exlusivo</strong></summary><figure id="1eeb5fa2-08c1-80be-9868-e7ece0d91a28" class="image"><a href="image%2043.png"><img style="width:625.953125px" src="image%2043.png"/></a></figure></details></li></ul><figure id="1eeb5fa2-08c1-808e-acc5-f0361be20be4" class="image"><a href="image%2044.png"><img style="width:625.984375px" src="image%2044.png"/></a></figure><figure id="1eeb5fa2-08c1-8029-8e19-f52435569b7e" class="image"><a href="image%2045.png"><img style="width:620px" src="image%2045.png"/></a></figure><ul id="1eeb5fa2-08c1-805c-8b34-dacc9493c02d" class="toggle"><li><details open=""><summary><strong>Ejemplos</strong></summary><figure id="1eeb5fa2-08c1-80fd-a84b-c3e652ab4cef" class="image"><a href="image%2046.png"><img style="width:597.96875px" src="image%2046.png"/></a></figure><figure id="1eeb5fa2-08c1-8071-89f6-d34b299c01de" class="image"><a href="image%2047.png"><img style="width:626px" src="image%2047.png"/></a></figure><figure id="1eeb5fa2-08c1-80fe-8db2-c924b1eaba25" class="image"><a href="image%2048.png"><img style="width:625.984375px" src="image%2048.png"/></a></figure><figure id="1eeb5fa2-08c1-80bf-b0c5-cfd8be6acbe5" class="image"><a href="image%2049.png"><img style="width:626px" src="image%2049.png"/></a></figure><figure id="1eeb5fa2-08c1-80a5-a740-ec91da09928a" class="image"><a href="image%2050.png"><img style="width:597.984375px" src="image%2050.png"/></a></figure><figure id="1eeb5fa2-08c1-80c3-a69f-d8038202b2c0" class="image"><a href="image%2051.png"><img style="width:626px" src="image%2051.png"/></a></figure><figure id="1eeb5fa2-08c1-801e-bfda-df7192c7ded3" class="image"><a href="image%2052.png"><img style="width:626px" src="image%2052.png"/></a></figure></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-808f-b922-d02efb5d2351" class="toggle"><li><details open=""><summary><strong>Protocolos de bloqueo</strong></summary><figure id="1eeb5fa2-08c1-8068-a046-dfa88e841cfc" class="image"><a href="image%2053.png"><img style="width:625.984375px" src="image%2053.png"/></a></figure><figure id="1eeb5fa2-08c1-80ce-b834-f1b1e01074ba" class="image"><a href="image%2054.png"><img style="width:620.9943237304688px" src="image%2054.png"/></a></figure><ul id="1eeb5fa2-08c1-8056-9203-c768c7faa528" class="toggle"><li><details open=""><summary><strong>Protocolos de bloqueo de dos fases</strong></summary><figure id="1eeb5fa2-08c1-80ca-95b3-d3cb30d79317" class="image"><a href="image%2055.png"><img style="width:597.984375px" src="image%2055.png"/></a></figure><figure id="1eeb5fa2-08c1-80a4-b8e1-d6c20290b5cf" class="image"><a href="image%2056.png"><img style="width:626px" src="image%2056.png"/></a></figure><figure id="1eeb5fa2-08c1-80f5-8e7d-f05badab59b0" class="image"><a href="image%2057.png"><img style="width:597.984375px" src="image%2057.png"/></a></figure><figure id="1eeb5fa2-08c1-8058-8009-c4d78afdf093" class="image"><a href="image%2058.png"><img style="width:597.984375px" src="image%2058.png"/></a></figure><figure id="1eeb5fa2-08c1-80da-af9b-c7a1c1472ee4" class="image"><a href="image%2059.png"><img style="width:597.984375px" src="image%2059.png"/></a></figure><figure id="1eeb5fa2-08c1-80ab-af5e-d0e375744855" class="image"><a href="image%2060.png"><img style="width:625.96875px" src="image%2060.png"/></a></figure><ul id="1eeb5fa2-08c1-8017-a1b3-f69a4862a898" class="toggle"><li><details open=""><summary><strong>Ejercicio 4</strong></summary><figure id="1eeb5fa2-08c1-8089-9de5-cae7846e0b66" class="image"><a href="image%2061.png"><img style="width:626px" src="image%2061.png"/></a></figure><figure id="1eeb5fa2-08c1-8030-8cab-c9ca51827223" class="image"><a href="Captura_de_pantalla_2025-05-12_09-18-50.png"><img style="width:570.1135864257812px" src="Captura_de_pantalla_2025-05-12_09-18-50.png"/></a></figure></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-8057-b623-d404ffecc671" class="toggle"><li><details open=""><summary><strong>Protocolo basado en marcas temporales</strong></summary><figure id="1eeb5fa2-08c1-805c-8068-c01da963b540" class="image"><a href="image%2062.png"><img style="width:626px" src="image%2062.png"/></a></figure><figure id="1eeb5fa2-08c1-807d-b8e5-d59ebb41c66e" class="image"><a href="image%2063.png"><img style="width:625.984375px" src="image%2063.png"/></a></figure><figure id="1eeb5fa2-08c1-8079-bda9-e4e531c78a2c" class="image"><a href="image%2064.png"><img style="width:626px" src="image%2064.png"/></a></figure><figure id="1eeb5fa2-08c1-80b8-87fb-d17e3e3dd387" class="image"><a href="image%2065.png"><img style="width:625.984375px" src="image%2065.png"/></a></figure><figure id="1eeb5fa2-08c1-803d-b869-dc2590c43898" class="image"><a href="image%2066.png"><img style="width:626px" src="image%2066.png"/></a></figure><figure id="1eeb5fa2-08c1-8044-8133-c4724118cf85" class="image"><a href="image%2067.png"><img style="width:625.984375px" src="image%2067.png"/></a></figure><figure id="1eeb5fa2-08c1-801d-bf56-f7f7a20e081c" class="image"><a href="image%2068.png"><img style="width:626px" src="image%2068.png"/></a></figure><figure id="1eeb5fa2-08c1-8063-a8cc-f06330091bea" class="image"><a href="image%2069.png"><img style="width:625.984375px" src="image%2069.png"/></a></figure><figure id="1eeb5fa2-08c1-801b-b399-fd58ff2a7f00" class="image"><a href="image%2070.png"><img style="width:625.984375px" src="image%2070.png"/></a></figure><figure id="1eeb5fa2-08c1-80bd-97cd-d7167f5f6198" class="image"><a href="image%2071.png"><img style="width:625.984375px" src="image%2071.png"/></a></figure></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-80d3-aded-e46759b75b2c" class="toggle"><li><details open=""><summary><strong>Granularidad</strong></summary><figure id="1eeb5fa2-08c1-809e-81a0-c34a5f99d9b5" class="image"><a href="image%2072.png"><img style="width:625.984375px" src="image%2072.png"/></a></figure><figure id="1eeb5fa2-08c1-809a-b245-db4028cebb26" class="image"><a href="image%2073.png"><img style="width:626px" src="image%2073.png"/></a></figure><figure id="1eeb5fa2-08c1-8001-bfd4-d5d08d0c5325" class="image"><a href="image%2074.png"><img style="width:611px" src="image%2074.png"/></a></figure><figure id="1eeb5fa2-08c1-8090-a45e-c227e8e31910" class="image"><a href="image%2075.png"><img style="width:626px" src="image%2075.png"/></a></figure><figure id="1eeb5fa2-08c1-8006-9381-d2ced792f394" class="image"><a href="image%2076.png"><img style="width:625.984375px" src="image%2076.png"/></a></figure><figure id="1eeb5fa2-08c1-80a0-b700-c704c96e89f3" class="image"><a href="image%2077.png"><img style="width:625.984375px" src="image%2077.png"/></a></figure><figure id="1eeb5fa2-08c1-80ab-a312-e001aa77f986" class="image"><a href="image%2078.png"><img style="width:625.984375px" src="image%2078.png"/></a></figure><figure id="1eeb5fa2-08c1-809c-b420-c5305da32907" class="image"><a href="image%2079.png"><img style="width:625.984375px" src="image%2079.png"/></a></figure><figure id="1eeb5fa2-08c1-802b-85a7-eeebdb067d2e" class="image"><a href="image%2080.png"><img style="width:624px" src="image%2080.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-803f-9117-f1975a01c5bd" class="toggle"><li><details open=""><summary><strong>Interbloqueos</strong></summary><figure id="1eeb5fa2-08c1-8093-af1a-f94460af957a" class="image"><a href="image%2081.png"><img style="width:626px" src="image%2081.png"/></a></figure><ul id="1eeb5fa2-08c1-8051-b3fc-ee67b630e43e" class="toggle"><li><details open=""><summary><strong>Prevención de Interbloqueos</strong></summary><figure id="1eeb5fa2-08c1-8011-8e78-df92a0c81476" class="image"><a href="image%2082.png"><img style="width:625.984375px" src="image%2082.png"/></a></figure><figure id="1eeb5fa2-08c1-8087-b735-c02a13572ebd" class="image"><a href="image%2083.png"><img style="width:626px" src="image%2083.png"/></a></figure><figure id="1eeb5fa2-08c1-806e-bf9e-c3fc6f6553e3" class="image"><a href="image%2084.png"><img style="width:598px" src="image%2084.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-805b-926d-c56e8a62f034" class="toggle"><li><details open=""><summary><strong>Deteccion de Interbloqueos</strong></summary><figure id="1eeb5fa2-08c1-80b9-acb1-cff25d7ed7a5" class="image"><a href="image%2085.png"><img style="width:598px" src="image%2085.png"/></a></figure><figure id="1eeb5fa2-08c1-8068-aa20-e022e04bb617" class="image"><a href="image%2086.png"><img style="width:597.984375px" src="image%2086.png"/></a></figure><figure id="1eeb5fa2-08c1-804a-bcbe-f26e7cd3c6ee" class="image"><a href="image%2087.png"><img style="width:597.984375px" src="image%2087.png"/></a></figure><figure id="1eeb5fa2-08c1-801e-9b6b-e0261ca04740" class="image"><a href="image%2088.png"><img style="width:597.984375px" src="image%2088.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-801f-9315-f1187950eb6a" class="toggle"><li><details open=""><summary><strong>Interbloqueos</strong></summary><figure id="1eeb5fa2-08c1-8035-95dd-c0ec5ebbc370" class="image"><a href="image%2089.png"><img style="width:591px" src="image%2089.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="1eeb5fa2-08c1-80ad-af4b-f74ac1d660d1" class="toggle"><li><details open=""><summary><strong>Transacciones (Técnicas de recuperación de Bases de Datos)</strong></summary><figure id="1eeb5fa2-08c1-8088-996b-e114ee9ac057" class="image"><a href="image%2090.png"><img style="width:654px" src="image%2090.png"/></a></figure><figure id="1eeb5fa2-08c1-8063-bb49-d26cb2c52f0d" class="image"><a href="image%2091.png"><img style="width:654px" src="image%2091.png"/></a></figure><figure id="1eeb5fa2-08c1-8017-954e-cd3fa41b3a9a" class="image"><a href="image%2092.png"><img style="width:653.984375px" src="image%2092.png"/></a></figure><figure id="1eeb5fa2-08c1-80b0-bb17-d9dde5d12825" class="image"><a href="image%2093.png"><img style="width:654px" src="image%2093.png"/></a></figure><figure id="1eeb5fa2-08c1-8069-8953-d399f0072394" class="image"><a href="image%2094.png"><img style="width:653.984375px" src="image%2094.png"/></a></figure><figure id="1eeb5fa2-08c1-8089-bdc2-e977fd1d675a" class="image"><a href="image%2095.png"><img style="width:653.96875px" src="image%2095.png"/></a></figure><figure id="1eeb5fa2-08c1-8067-81b4-c74bdfc9a9aa" class="image"><a href="image%2096.png"><img style="width:653.984375px" src="image%2096.png"/></a></figure><figure id="1f1b5fa2-08c1-8016-9de2-c7c15991cae5" class="image"><a href="Captura_de_pantalla_2025-05-12_09-36-52.png"><img style="width:654.0340576171875px" src="Captura_de_pantalla_2025-05-12_09-36-52.png"/></a></figure><figure id="1f1b5fa2-08c1-8030-9868-d3ad08a72ea1" class="image"><a href="Captura_de_pantalla_2025-05-12_09-37-40.png"><img style="width:654.0198364257812px" src="Captura_de_pantalla_2025-05-12_09-37-40.png"/></a></figure><ul id="1f1b5fa2-08c1-80a7-85c0-da271d4a8eaf" class="toggle"><li><details open=""><summary><strong>Tecnicas de recuperacion basadas en la actualizacion diferida</strong></summary><figure id="1f1b5fa2-08c1-8013-854d-d7dfb2b4a3ca" class="image"><a href="Captura_de_pantalla_2025-05-12_09-42-56.png"><img style="width:654.0340576171875px" src="Captura_de_pantalla_2025-05-12_09-42-56.png"/></a></figure><figure id="1f1b5fa2-08c1-80bd-bf87-cca21b664a02" class="image"><a href="Captura_de_pantalla_2025-05-12_09-44-11.png"><img style="width:626.0795288085938px" src="Captura_de_pantalla_2025-05-12_09-44-11.png"/></a></figure><figure id="1f1b5fa2-08c1-8006-862e-ee7713de7646" class="image"><a href="Captura_de_pantalla_2025-05-12_09-45-44.png"><img style="width:615.9943237304688px" src="Captura_de_pantalla_2025-05-12_09-45-44.png"/></a></figure></details></li></ul><ul id="1f1b5fa2-08c1-80a0-b457-ccd76b052362" class="toggle"><li><details open=""><summary><strong>Recuperación mediante la actualización diferida en un entorno multiusuario                                                                                                                                               </strong></summary></details></li></ul><p id="1eeb5fa2-08c1-806c-bcd2-f64cf3b815fc" class="">
+</p></details></li></ul></details></li></ul><ul id="1fcb5fa2-08c1-8085-ab7b-fe59c681a5b8" class="toggle"><li><details open=""><summary><strong>SQL (Structured Query Language)</strong></summary><figure id="1fcb5fa2-08c1-805d-b409-ed698760eae0"><div class="source"><a href="Tips_Sobre_SQL.pdf">Tips Sobre SQL.pdf</a></div></figure><figure id="1fcb5fa2-08c1-8040-b947-ef07afdd1db3"><div class="source"><a href="ClaseSQLC31.sql">ClaseSQLC31.sql</a></div></figure><ul id="1fdb5fa2-08c1-804a-805c-d056809c2865" class="toggle"><li><details open=""><summary><strong>Guia de comandos</strong></summary><figure id="228b5fa2-08c1-8049-9d3c-ed107e4ad3b1" class="image"><a href="carbon_(10).png"><img style="width:4152px" src="carbon_(10).png"/></a></figure></details></li></ul></details></li></ul><hr id="1c3b5fa2-08c1-801a-b07f-dae4669d9621"/><ul id="1cab5fa2-08c1-807d-9d4e-e5ea07e4b542" class="toggle"><li><details open=""><summary><strong>Trabajos Practicos</strong></summary><ul id="1cab5fa2-08c1-80d7-92a2-ebf13b8ef408" class="toggle"><li><details open=""><summary><strong>Tp1 (Modelo Entidad Relacion)</strong></summary><figure id="1cab5fa2-08c1-804d-89cd-e0e856dd48fc"><div class="source"><a href="Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Entidad_Relacin.pdf">Bases de Datos 2025 - Trabajo Práctico_ Modelo Entidad Relación.pdf</a></div></figure><ul id="1cab5fa2-08c1-80f9-ba21-f4e6e8a2110e" class="toggle"><li><details open=""><summary><strong>1) Pequeña empresa</strong></summary><figure id="1cab5fa2-08c1-8064-8970-c29caa6886c8" class="image"><a href="image%2097.png"><img style="width:572px" src="image%2097.png"/></a></figure></details></li></ul><ul id="1cab5fa2-08c1-80a1-912f-d60ff9984164" class="toggle"><li><details open=""><summary><strong>2) Gabinete de abogados</strong></summary><p id="1ccb5fa2-08c1-8032-9657-df4cb566b88d" class="">Se quiere diseñar una base de datos relacional para almacenar información sobre los asuntos que lleva un gabinete de abogados. Cada asunto tiene un número de expediente que lo identifica, y corresponde a un solo cliente. Del asunto se debe almacenar el período (fecha de inicio y fecha de archivo o finalización), su estado (en trámite, archivado, etc.), así como los datos personales del cliente al que pertenece (DNI, nombre, dirección, etc.). Algunos asuntos son llevados por uno o varios procuradores, de los que nos interesa también los datos personales. Realizar el diagrama de ER</p><figure id="1cab5fa2-08c1-8025-b87d-c4951fd13d1e" class="image"><a href="Diagrama1.jpeg"><img style="width:625.984375px" src="Diagrama1.jpeg"/></a></figure></details></li></ul><ul id="1cab5fa2-08c1-8059-a3a5-fc958b56cf10" class="toggle"><li><details open=""><summary><strong>3) Club náutico</strong></summary><p id="1ccb5fa2-08c1-80a0-a27f-c7a5df9232c9" class="">Se quiere diseñar una base de datos relacional para gestionar los datos de los socios de un club náutico. De cada socio se guardan los datos personales y los datos del barco o barcos que posee: número de matrícula, nombre, número del amarre y cuota que paga por el mismo. Además, se quiere mantener información sobre las salidas realizadas por cada barco, como la fecha y hora de salida, el destino y los datos personales del patrón, que no tiene porque ser el propietario del barco, ni es necesario que sea socio del club.<br/>Realizar el diagrama de ER.<br/></p><figure id="1dbb5fa2-08c1-803d-b905-e3cec3d16993" class="image"><a href="Diagrama1%201.jpeg"><img style="width:625.96875px" src="Diagrama1%201.jpeg"/></a></figure></details></li></ul><ul id="1cab5fa2-08c1-8091-a22e-dd00409e22b4" class="toggle"><li><details open=""><summary><strong>4) Sedes olímpicas</strong></summary><p id="1ccb5fa2-08c1-80c2-8971-d7e264637a7c" class="">Las sedes olímpicas se dividen en complejos deportivos. Los complejos deportivos se subdividen en aquellos en los que se desarrolla un único deporte y en los polideportivos. Los complejos polideportivos tienen áreas designadas para cada deporte con un indicador de localización (ejemplo: centro, esquina-NE, etc.). Un complejo tiene una localización, un jefe de organización individual y un área total ocupada.</p><p id="1ccb5fa2-08c1-8022-9ee8-e012dd866678" class=""><br/>Los dos tipos de complejos (deporte único y polideportivo) tendrán diferentes tipos de<br/>información. Para cada tipo de sede, se conservará el número de complejos junto con su presupuesto aproximado.<br/></p><p id="1ccb5fa2-08c1-8012-8cc2-d51be9b97fe9" class=""><br/>Cada complejo celebra una serie de eventos (ejemplo: la pista del estadio puede celebrar muchas carreras distintas.). Para cada evento está prevista una fecha, duración, número de participantes, número de comisarios. Una lista de todos los comisarios se conservará junto con la lista de los eventos en los que esté involucrado cada comisario ya sea cumpliendo la tarea de juez u observador. Tanto para cada evento como para el mantenimiento se necesitará cierto equipamiento (ejemplo: arcos, pértigas, barras paralelas, etc).<br/></p><figure id="1d9b5fa2-08c1-80cb-9b6b-c8e0498db191" class="image"><a href="null_(8).png"><img style="width:4513px" src="null_(8).png"/></a></figure></details></li></ul><ul id="1d9b5fa2-08c1-8053-a803-e303f73b5f6d" class="toggle"><li><details open=""><summary><strong>5) Sistema de control de vuelos </strong></summary><p id="1d9b5fa2-08c1-802b-83dc-ce6d634884ec" class="">Obtener el diagrama ER para un sistema de control de vuelos adaptado a las siguientes reglas de gestión (indicar las entidades, interrelaciones, etc., que se deducen de cada una de las reglas):<br/>a) De cada aeropuerto se conoce su código, nombre, ciudad y país.<br/>b) En cada aeropuerto pueden tomar tierra diversos modelos de aviones (el modelo de un avión determina su capacidad, es decir, el número de plazas. <br/>c) En cada aeropuerto existe una colección de programas de vuelo. En cada programa de vuelo se indica el número de vuelo, línea aérea y días de la semana en que existe dicho vuelo.<br/>d) Cada programa de vuelo despega de un aeropuerto y aterriza en otro.<br/>e) Los números de vuelo son únicos para todo el mundo.<br/>f) En cada aeropuerto hay múltiples aterrizajes y despegues. Todos los aeropuertos<br/>contemplados están en activo, es decir, tienen algún aterrizaje y algún despegue.<br/>g) Cada vuelo realizado pertenece a un cierto programa de vuelo. Para cada vuelo se quiere conocer su fecha, plazas vacías y el modelo de avión utilizado.<br/>h) Algunos programas de vuelo incorporan escalas técnicas intermedias entre los aeropuertos de salida y de llegada. Se entiende por escala técnica a un aterrizaje y despegue consecutivos sin altas ó bajas de pasajeros.<br/>i) De cada vuelo se quieren conocer las escalas técnicas ordenadas asignándole a cada una un número de orden. <br/>Por ejemplo, el programa de vuelo 555 de Iberia con vuelos los lunes y jueves despega de Barajas-Madrid-España y aterriza en Caudell-Sydney-Australia teniendo las siguientes escalas técnicas: 1- Los Pradiños-Sao Paulo-Brasil, 2-El Emperador-Santiago-Chile y 3-Saint Kitts-Auckland-Nueva Zelanda.<br/>¿Qué cambios se producirán en el caso anterior si en las escalas pudiesen bajar o subir<br/>pasajeros?<br/>Explicar cómo se podría representar esta nueva situación. <br/><mark class="highlight-yellow">→ se necesitaria poner una nueva entidad y relacion</mark></p><figure id="1ddb5fa2-08c1-8056-bb21-ead31f2379ad" class="image"><a href="vuelo.jpeg"><img style="width:625.984375px" src="vuelo.jpeg"/></a></figure></details></li></ul><ul id="1d9b5fa2-08c1-808a-b4b2-d8ec14e84aab" class="toggle"><li><details open=""><summary><strong>6) Cadena editorial</strong></summary><p id="1d9b5fa2-08c1-80b6-a876-ed26a7b36ec4" class="">Realizar el diagrama de ER para una cadena editorial con los siguientes supuestos:</p><ol type="1" id="1d9b5fa2-08c1-80ae-bee8-c9ecc9d3d829" class="numbered-list" start="1"><li>La cadena tiene varias sucursales con su nombre, su dirección, población, teléfono y código postal</li></ol><ol type="1" id="1d9b5fa2-08c1-8011-aab3-c9a4e18a5923" class="numbered-list" start="2"><li>La editorial tiene trabajadores que son empleados de sucursales o periodistas.</li></ol><ol type="1" id="1d9b5fa2-08c1-8057-8aa8-d403cade3315" class="numbered-list" start="3"><li>De los trabajadores tendremos sus datos personales: DNI, nombre, domicilio, población, teléfono, email</li></ol><ol type="1" id="1d9b5fa2-08c1-8057-8940-ecb6867207fb" class="numbered-list" start="4"><li>Cada sucursal tiene varios empleados.</li></ol><ol type="1" id="1d9b5fa2-08c1-80df-afd2-ea3f0a4e7b94" class="numbered-list" start="5"><li>Un empleado trabaja en una única sucursal y tiene un salario mensual.</li></ol><ol type="1" id="1d9b5fa2-08c1-80ae-8d8f-c1a6dc02f56d" class="numbered-list" start="6"><li>En cada sucursal se publican varias revistas. Cada revista se edita en una sucursal.</li></ol><ol type="1" id="1d9b5fa2-08c1-80ae-bf46-e59c7872124c" class="numbered-list" start="7"><li>Para cada revista guardaremos su código, nombre de la revista, fecha de fundación, director, periodicidad (semanal, trimestral,...), tipo (información general, deportivas, rosa,...).</li></ol><ol type="1" id="1d9b5fa2-08c1-8042-a4b1-f6a9afb067e6" class="numbered-list" start="8"><li>La cadena editorial tiene periodistas (que no trabajan en sucursales) que pueden escribir artículos para varias revistas, guardaremos el tema del artículo , la extensión del artículo y la fecha en la que lo escribió. De los periodistas guardaremos los mismos datos que para los empleados, añadiendo su especialidad.</li></ol><ol type="1" id="1d9b5fa2-08c1-8027-8a0b-c7ccabbcdc7d" class="numbered-list" start="9"><li>Almacenaremos también las secciones fijas de cada revista, que tendrán un título y una extensión (no todas las revistas tienen las mismas secciones fijas).</li></ol><ol type="1" id="1d9b5fa2-08c1-803c-9859-e7f265a4fdc2" class="numbered-list" start="10"><li>De los ejemplares editados por una revista guardaremos: número de la edición (para cada vez que sale la revista), fecha edición, número de páginas y el número de ejemplares vendidos.<figure id="1dab5fa2-08c1-80dc-833a-e324a51ce89c" class="image"><a href="CadenaEditorial.jpeg"><img style="width:597.984375px" src="CadenaEditorial.jpeg"/></a></figure></li></ol></details></li></ul><ul id="1dab5fa2-08c1-808b-a20f-ddae3e5e8b0b" class="toggle"><li><details open=""><summary><strong>7) Pedidos de viajen en remis</strong></summary><p id="1dab5fa2-08c1-80e1-a8d3-f4b94c6cfc9d" class="">Se desea modelar, usando el diagrama ER, información para el manejo de pedidos de viajes en remis por parte de los empleados de diferentes instituciones.<br/>Es necesario guardar información acerca de las instituciones, de cada institución se registra nombre (único), domicilio completo y teléfonos. Cada institución está formada por oficinas en las cuales trabajan empleados, quienes pueden solicitar remises a la agencia que trabaja con la institución. Una agencia puede trabajar con una única institución y en cada institución se trabaja con una sola agencia, pero es común que una institución cambie de agencia a lo largo del tiempo. Cualquier empleado de las diferentes oficinas puede pedir un remis a la agencia, pero el viaje solicitado debe ser autorizado por un empleado jerárquico.<br/>Las oficinas se caracterizan por tener un nombre, el cual puede repetirse en diferentes<br/>instituciones, pero no dentro de la misma institución. También poseen un número de interno y piso donde se encuentra.<br/>De cada empleado se conoce un número de empleado, nombre, apellido, dni, a qué oficina pertenece y si puede autorizar viajes o no. Es importante que quede registrado qué empleado solicitó el viaje y qué empleado lo autorizó en caso de que esto ocurra.<br/>Se sabe que nuestro modelo deberá responder a las siguientes solicitudes:<br/></p><ul id="1dab5fa2-08c1-8031-a89f-ec3c1f60d3e8" class="bulleted-list"><li style="list-style-type:disc">Conocer la cantidad de viajes que pidió cada empleado.</li></ul><ul id="1dab5fa2-08c1-8006-9667-d6940a7101c3" class="bulleted-list"><li style="list-style-type:disc">Conocer la oficina que más gasta en viajes.</li></ul><ul id="1dab5fa2-08c1-8088-9c4e-e8314b8d0752" class="bulleted-list"><li style="list-style-type:disc">El destino y el origen del viaje más caro.</li></ul><ul id="1dab5fa2-08c1-8017-9b45-c0a113475878" class="bulleted-list"><li style="list-style-type:disc">Fecha y hora de los viajes de un año determinado.</li></ul><ul id="1dab5fa2-08c1-8020-bbd8-e9d81ef0b8c6" class="bulleted-list"><li style="list-style-type:disc">El empleado jerárquico que autorizó más viajes.</li></ul><ul id="1dab5fa2-08c1-804a-b5d2-fd378273bac9" class="bulleted-list"><li style="list-style-type:disc">Agencias que trabajaron a lo largo del tiempo con una institución determinada y entre qué fechas lo hicieron.</li></ul><ul id="1dab5fa2-08c1-8072-928d-f8c4ce06c7de" class="bulleted-list"><li style="list-style-type:disc">Conocer la dirección, nombre, teléfono y código de una agencia determinada.<figure id="1dab5fa2-08c1-8002-a9de-c4687f637cb9" class="image"><a href="remises.jpeg"><img style="width:597.984375px" src="remises.jpeg"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="1ceb5fa2-08c1-80e8-9eb0-d827025f3e47" class="toggle"><li><details open=""><summary><strong>Tp2 (Modelo Relacional)</strong></summary><figure id="1ceb5fa2-08c1-8012-85a4-d287306c0638"><div class="source"><a href="Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Relacional.pdf">Bases de Datos 2025 - Trabajo Práctico_ Modelo Relacional.pdf</a></div></figure><ul id="1ceb5fa2-08c1-8087-9c68-dcc53fa97d1d" class="toggle"><li><details open=""><summary><strong>1) Biblioteca</strong></summary><figure id="1dab5fa2-08c1-80bb-97b0-f3a8ec002490" class="image"><a href="image%2098.png"><img style="width:553px" src="image%2098.png"/></a></figure><p id="1ceb5fa2-08c1-802a-990e-ea38a676dfd4" class="">Libro = (<span style="border-bottom:0.05em solid">ISBN</span>, año, titulo, idioma).</p><p id="1ceb5fa2-08c1-8038-a5b4-e2e0f443de30" class="">Autor = (<span style="border-bottom:0.05em solid">Nombre</span>).</p><p id="1ceb5fa2-08c1-80a9-bd4f-fdad67c13274" class="">Copia = (<span style="border-bottom:0.05em solid">Numero</span>, <span style="border-bottom:0.05em solid">ISBN</span>).</p><p id="1ceb5fa2-08c1-80dc-b163-f9c399017c21" class="">Copia_Prestada_Usuario = (<span style="border-bottom:0.05em solid">Numero</span>, <span style="border-bottom:0.05em solid">id</span>, <span style="border-bottom:0.05em solid">ISBN</span>, Fecha_devolucion, <span style="border-bottom:0.05em solid">Fecha_prestamo</span>).</p><p id="1ceb5fa2-08c1-802c-b94f-d23032245990" class="">Usuario = (<span style="border-bottom:0.05em solid">id</span>, nombre).</p><p id="1ceb5fa2-08c1-8083-a460-e2ace7b3c44d" class="">Libro_Autor = (<span style="border-bottom:0.05em solid">nombre</span>, <span style="border-bottom:0.05em solid">ISBN</span>).</p><figure id="1dab5fa2-08c1-8001-95c1-d59c941c578c" class="image"><a href="drawSQL-image-export-2025-04-19.png"><img style="width:2122px" src="drawSQL-image-export-2025-04-19.png"/></a></figure></details></li></ul><ul id="1ceb5fa2-08c1-8098-b8e5-fbae676514c5" class="toggle"><li><details open=""><summary><strong>2) Farmacias</strong></summary><p id="1dab5fa2-08c1-8021-b67c-d313e3b71944" class="">
+</p></details></li></ul><ul id="1ceb5fa2-08c1-8089-b003-d7be887c9f67" class="toggle"><li><details open=""><summary><strong>3) AXB</strong></summary><figure id="1dab5fa2-08c1-800c-b5a4-c48dbf0a0931" class="image"><a href="image%2099.png"><img style="width:609px" src="image%2099.png"/></a></figure><p id="1ceb5fa2-08c1-8080-831b-c012aafa7905" class="">A = (<span style="border-bottom:0.05em solid">A1</span>, A21, A22)</p><p id="1dab5fa2-08c1-804b-990e-ed55d07dd8be" class="">B = (<span style="border-bottom:0.05em solid">B1</span>, B3)</p><p id="1dab5fa2-08c1-809f-b8a7-ef3d4e2e4966" class="">B2 = (<span style="border-bottom:0.05em solid">B1</span>, <span style="border-bottom:0.05em solid">B2A</span>) → multivalorado se hace una nueva tabla</p><p id="1dab5fa2-08c1-806c-9d83-ccb24e8d8e83" class="">C = (<span style="border-bottom:0.05em solid">A1</span>, <span style="border-bottom:0.05em solid">C1</span>, C2) → se pone la clave primaria porque hay una relacion 1…1</p><p id="1dab5fa2-08c1-80f3-97db-ceafc47fc6f6" class="">BC = (<span style="border-bottom:0.05em solid">B1</span>, <span style="border-bottom:0.05em solid">C1</span>)</p><p id="1dab5fa2-08c1-8098-915e-cdeaa4c61953" class="">ABx = (AB, <span style="border-bottom:0.05em solid">A1</span>, <span style="border-bottom:0.05em solid">B1</span>)</p><p id="1dab5fa2-08c1-80d3-a7dc-d38d1d711fb3" class="">B2x = (<span style="border-bottom:0.05em solid">B1</span>,<span style="border-bottom:0.05em solid">B2</span>)</p><figure id="1dab5fa2-08c1-8041-9580-d4d97b9e1fa6" class="image"><a href="drawSQL-image-export-2025-04-19_(2).png"><img style="width:2862px" src="drawSQL-image-export-2025-04-19_(2).png"/></a></figure></details></li></ul><p id="1dab5fa2-08c1-80c9-8f46-c7e005ac1f9d" class=""><strong>Convertir los diagramas de ER obtenidos en la práctica anterior en modelos relacionales</strong></p><ul id="1dab5fa2-08c1-80e2-94ff-f11f12edd88b" class="toggle"><li><details open=""><summary><strong>1) Pequeña empresa</strong></summary><figure id="1dab5fa2-08c1-80de-b1c8-f1e829a5446f" class="image"><a href="image%20100.png"><img style="width:543.96875px" src="image%20100.png"/></a></figure><p id="1dab5fa2-08c1-80d6-9c15-d03239cf92a8" class="">Cliente =(<span style="border-bottom:0.05em solid">#Cliente</span>, Saldo, Limite de Credito, Descuento)</p><p id="1dab5fa2-08c1-80e8-942e-ec3212acffa1" class="">Direcciones de Envio = (<span style="border-bottom:0.05em solid">#Cliente</span>, N<strong>º</strong>, Calle, Comuna, Ciudad)</p><p id="1dab5fa2-08c1-804e-9bd5-c700094ec3ff" class="">Pedido = (<span style="border-bottom:0.05em solid">#Cliente</span>, <span style="border-bottom:0.05em solid">Fecha</span>, N<strong>º</strong>, Calle, Comuna, Ciudad)</p><p id="1dab5fa2-08c1-8074-b2cd-c126cec1be08" class="">Pedido_Articulo = (<span style="border-bottom:0.05em solid">#Articulo</span>, <span style="border-bottom:0.05em solid">#Cliente</span>, <span style="border-bottom:0.05em solid">Fecha</span>, Cantidad)</p><p id="1dab5fa2-08c1-80a2-9354-e36abf959d99" class="">Articulo = (<span style="border-bottom:0.05em solid">#Articulo</span>, Descripcion)</p><p id="1dab5fa2-08c1-80b9-9062-f0f598899e65" class="">Articulo_Fabrica = (<span style="border-bottom:0.05em solid">#Articulo</span>, <span style="border-bottom:0.05em solid">#Fabrica</span>, Existencias)</p><p id="1dab5fa2-08c1-809d-b544-dda1bbecbe78" class="">Fabrica = (<span style="border-bottom:0.05em solid">#Fabrica</span>, Telefono, N<strong>º</strong> Articulos provistos)</p><figure id="1dab5fa2-08c1-8055-9ea1-c12d27a5f74e" class="image"><a href="drawSQL-image-export-2025-04-19_(3).png"><img style="width:3580px" src="drawSQL-image-export-2025-04-19_(3).png"/></a></figure></details></li></ul><ul id="1dab5fa2-08c1-8008-863b-c61ea92b820a" class="toggle"><li><details open=""><summary><strong>2) Gabinete de abogados</strong></summary><figure id="1dab5fa2-08c1-8075-b57c-eacef2250396" class="image"><a href="Diagrama1%202.jpeg"><img style="width:625.984375px" src="Diagrama1%202.jpeg"/></a></figure><p id="1dab5fa2-08c1-80cc-b694-ec48f9fabc71" class="">Persona = (<span style="border-bottom:0.05em solid">DNI</span>, Nombre, Direccion)</p><p id="1dab5fa2-08c1-803c-a708-c550a773ed93" class="">Cliente = (<span style="border-bottom:0.05em solid">DNI</span>, <span style="border-bottom:0.05em solid">#Cliente</span>)</p><p id="1dab5fa2-08c1-80f5-bf2f-c6dd8edad845" class="">Procurador = (<span style="border-bottom:0.05em solid">DNI</span>, <span style="border-bottom:0.05em solid">Legajo</span>)</p><p id="1dab5fa2-08c1-8099-9362-feca6a907566" class="">Asunto = (<span style="border-bottom:0.05em solid">#Expediente</span>, Fecha_fin, Fecha_inicio, Estado)</p><p id="1dab5fa2-08c1-8074-b82f-d5355eca1872" class="">Procurador_lleva_Asunto = (<span style="border-bottom:0.05em solid">#Expediente</span>, <span style="border-bottom:0.05em solid">Legajo</span>)</p><figure id="1dab5fa2-08c1-80aa-bc65-f59bdfc0e5a0" class="image"><a href="drawSQL-image-export-2025-04-19_(4).png"><img style="width:2620px" src="drawSQL-image-export-2025-04-19_(4).png"/></a></figure></details></li></ul><ul id="1dbb5fa2-08c1-80e5-9822-f2942c9feeb9" class="toggle"><li><details open=""><summary><strong>3) Club náutico</strong></summary><figure id="1dbb5fa2-08c1-802c-89c3-f27c055c0319" class="image"><a href="Diagrama1%203.jpeg"><img style="width:625.96875px" src="Diagrama1%203.jpeg"/></a></figure><p id="1dbb5fa2-08c1-80d3-912c-dc24b72fa4b5" class="">Persona = (<span style="border-bottom:0.05em solid">DNI</span>, Nombre)</p><p id="1dbb5fa2-08c1-80d8-b505-ff353f0ef2cd" class="">Socio = (<span style="border-bottom:0.05em solid">DNI</span>, <span style="border-bottom:0.05em solid">#Socio</span>)</p><p id="1dbb5fa2-08c1-8071-992d-d359d01b0641" class="">Patron = (<span style="border-bottom:0.05em solid">DNI</span>, <span style="border-bottom:0.05em solid">#Patron</span>)</p><p id="1dbb5fa2-08c1-8031-8c07-e257ef481e6b" class="">Barco = (<span style="border-bottom:0.05em solid">Matricula</span>, Amarre, Nombre,  Cuota)</p><p id="1dbb5fa2-08c1-80e3-a8b2-dd15e939df17" class="">Salida = (Fecha, Hora, <span style="border-bottom:0.05em solid">#Salida</span>)</p></details></li></ul><ul id="1dab5fa2-08c1-803b-9700-e83d4bbbd198" class="toggle"><li><details open=""><summary><strong>4) Sedes olímpicas</strong></summary></details></li></ul><ul id="1dbb5fa2-08c1-80fb-baa1-ece067762cf2" class="toggle"><li><details open=""><summary><strong>5) Sistema de control de vuelos</strong></summary><figure id="1ddb5fa2-08c1-80ac-b9a6-d2d2582c3274" class="image"><a href="image%20101.png"><img style="width:625.984375px" src="image%20101.png"/></a></figure><p id="1dbb5fa2-08c1-8085-9d5d-e382183cebaa" class="">Aeropuerto = (<span style="border-bottom:0.05em solid">Codigo</span>, Nombre, Ciudad, Pais)</p><p id="1dbb5fa2-08c1-8007-91e7-c0074b11568f" class="">Avion = (<span style="border-bottom:0.05em solid">Matricula</span>, Modelo, Nro Plazas)</p><p id="1dbb5fa2-08c1-8096-b7f8-f4d25b31082a" class="">Vuelo = (<span style="border-bottom:0.05em solid">IDvuelo</span>, Fecha, Plazas Vacias)</p><p id="1dbb5fa2-08c1-80c5-80a3-da46b192ff63" class="">Programa de vuelo = (<span style="border-bottom:0.05em solid">Nro de vuelo</span>, Linea Aerea, Dias de la semana)</p><p id="1dbb5fa2-08c1-80c1-b4af-c4ec88582947" class="">Escala = (<span style="border-bottom:0.05em solid">Nro de vuelo</span>, nombre)</p></details></li></ul><ul id="1dcb5fa2-08c1-8037-900c-d20f4a11904f" class="toggle"><li><details open=""><summary><strong>6) Cadena editorial</strong></summary><figure id="1dcb5fa2-08c1-8063-ad43-e7b15a5f629a" class="image"><a href="image%20102.png"><img style="width:625.9791870117188px" src="image%20102.png"/></a></figure></details></li></ul></details></li></ul><ul id="1d9b5fa2-08c1-80bd-8d27-d85d269a8d5d" class="toggle"><li><details open=""><summary><strong>Tp3 (Algebra Relacional)</strong></summary><figure id="1dbb5fa2-08c1-80bd-8427-dbe4451f7507"><div class="source"><a href="Bases_de_Datos_2025_-_Trabajo_Prctico__lgebra_Relacional.pdf">Bases de Datos 2025 - Trabajo Práctico_ Álgebra Relacional.pdf</a></div></figure><p id="1dbb5fa2-08c1-8033-9107-ce5881516faa" class=""><strong>Dadas las siguientes relaciones, resolver utilizando Álgebra Relacional las consultas planteadas.</strong></p><ul id="1dbb5fa2-08c1-8039-afb2-e06cda8ade7e" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><figure id="1dbb5fa2-08c1-8029-ac0d-db828acb4386" class="image"><a href="image%20103.png"><img style="width:538px" src="image%20103.png"/></a></figure><figure id="1ddb5fa2-08c1-8056-9fed-cd137ece7bc9" class="image"><a href="null_(18).png"><img style="width:625.984375px" src="null_(18).png"/></a></figure></details></li></ul><ul id="1dbb5fa2-08c1-80c9-b4a8-ca1e681825b2" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><figure id="1dcb5fa2-08c1-8046-924e-c027527aedce" class="image"><a href="image%20104.png"><img style="width:543.984375px" src="image%20104.png"/></a></figure><figure id="1deb5fa2-08c1-8016-a730-ead230d84bd5" class="image"><a href="null_(20).png"><img style="width:625.984375px" src="null_(20).png"/></a></figure></details></li></ul><ul id="1dbb5fa2-08c1-806c-85f7-d91f377b4033" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><figure id="1dcb5fa2-08c1-80c0-ae6c-cdfe44d78771" class="image"><a href="image%20105.png"><img style="width:487.0000305175781px" src="image%20105.png"/></a></figure><ul id="204b5fa2-08c1-80d3-997f-f52f6bdd2170" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><p id="204b5fa2-08c1-80b4-a1f5-dbb86b7e92e0" class="">tandil ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{codInmueble}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>l</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>d</mi><mo>=</mo><mi>t</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>i</mi><mi>l</mi></mrow></msub><mo stretchy="false">(</mo><mi>i</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">σ_{localidad = tandil}(inmuebles)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">d</span><span class="mrel mtight">=</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">an</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">inm</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">es</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>)</p><p id="204b5fa2-08c1-800c-92e4-c72729d6f287" class="">prop ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>i</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{propinmueble.cuil}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">inm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(tandil ⨝<strong> </strong>Propinmueble)</p><p id="204b5fa2-08c1-8079-9240-ded4a71a830c" class="">p ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>d</mi><mi>n</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{propietarios.dni}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">os</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">ni</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(prop ⨝<strong> </strong>propietarios)</p><p id="204b5fa2-08c1-8090-90d0-d0dfe6ae887f" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>o</mi><mo separator="true">,</mo><mi>n</mi><mi>o</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{apellido, nombre}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">o</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mb</span><span class="mord mathnormal mtight">re</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(p ⨝ personas)</p></details></li></ul><ul id="204b5fa2-08c1-803d-a362-f02bf3313a73" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><p id="204b5fa2-08c1-8061-8971-da31099e9b23" class="">contrat ←<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>d</mi><mi>n</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{dni}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">ni</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>σ</mi><mrow><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi><mo>&gt;</mo><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>V</mi><mi>t</mi><mi>o</mi><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi></mrow></msub><mo stretchy="false">(</mo><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>s</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(σ_{fechaActual &gt; fechaVtoContra}(contratos))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight">ha</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">&gt;</span><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">haV</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">co</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">os</span><span class="mclose">))</span></span></span></span></span><span>﻿</span></span></p><p id="204b5fa2-08c1-803d-9058-d69d10a43b9a" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>n</mi><mi>o</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>e</mi><mo separator="true">,</mo><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{nombre, apellido}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mb</span><span class="mord mathnormal mtight">re</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Personas ⨝ contrat)</p></details></li></ul><ul id="204b5fa2-08c1-8045-a97d-c8c3d08695b4" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><p id="204b5fa2-08c1-80c6-8c41-f782ae51df2d" class="">C ←<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{codInmueble} </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>σ</mi><mrow><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>I</mi><mi>n</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>A</mi><mi>l</mi><mi>q</mi><mi>u</mi><mi>i</mi><mi>l</mi><mi>e</mi><mi>r</mi><mo>&gt;</mo><mn>01</mn><mi mathvariant="normal">/</mi><mn>03</mn><mi mathvariant="normal">/</mi><mn>2025</mn></mrow></msub><mo stretchy="false">(</mo><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>s</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(σ_{fechaIncioAlquiler &gt; 01/03/2025}(Contratos))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1052em;vertical-align:-0.3552em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight">ha</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">lq</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">er</span><span class="mrel mtight">&gt;</span><span class="mord mtight">01/03/2025</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">os</span><span class="mclose">))</span></span></span></span></span><span>﻿</span></span></p><p id="204b5fa2-08c1-80ee-86a7-de606cfe26b7" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{cuil}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(C ⨝ PropInmueble)</p></details></li></ul><ul id="204b5fa2-08c1-8078-9fe5-d69f525c65dc" class="toggle"><li><details open=""><summary><strong>Ejercicio 4</strong></summary><p id="204b5fa2-08c1-80aa-810d-ec74a3c9f4cb" class="">p ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>d</mi><mi>n</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{propietarios.dni}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">os</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">ni</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(PropInmueble ⨝<strong> </strong>propietarios)</p><p id="204b5fa2-08c1-802a-8896-d4d1b95b76df" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>N</mi><mi>o</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>e</mi><mo separator="true">,</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>A</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{Personas.Nombre, Peronas.Apellido}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">erso</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mb</span><span class="mord mathnormal mtight">re</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">ero</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Personas ⨝<strong> </strong>P)</p></details></li></ul><ul id="204b5fa2-08c1-80a5-a3a2-cdea867812ac" class="toggle"><li><details open=""><summary><strong>Ejercicio 5</strong></summary><p id="204b5fa2-08c1-80ee-86fd-ea4c1489063e" class="">CodEliminar ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>d</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{contratos.codInmueble}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">os</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>((<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>V</mi><mi>t</mi><mi>o</mi><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mo>&gt;</mo><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>A</mi><mi>c</mi><mi>t</mi><mi>u</mi><mi>a</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{fechaVtoContra &gt; fechaActual}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">haV</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">a</span><span class="mrel mtight">&gt;</span><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight">ha</span><span class="mord mathnormal mtight">A</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Contratos))</p><p id="204b5fa2-08c1-8018-b13f-d2c0e9d0a2e6" class="">In ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>i</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>o</mi><mi>d</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{inmuebles.codInmueble}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">inm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">es</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Inmuebles) - CodEliminar</p><p id="204b5fa2-08c1-8093-967e-fa7492e5e651" class="">C ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>P</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{PropInmueble.cuil}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(In ⨝ PropInmueble)</p><p id="204b5fa2-08c1-8069-a3b0-ec9451d7c3c5" class="">P ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>d</mi><mi>n</mi><mi>i</mi><mo separator="true">,</mo><mi>p</mi><mi>r</mi><mi>o</mi><mi>p</mi><mi>i</mi><mi>e</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>o</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{propietarios.dni, propietarios.cuil}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">os</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">ni</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">os</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Propietarios ⨝ C)</p><p id="204b5fa2-08c1-80fb-9bb7-ebed3f7a7674" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>d</mi><mi>n</mi><mi>i</mi><mo separator="true">,</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo separator="true">,</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>n</mi><mi>o</mi><mi>m</mi><mi>b</mi><mi>r</mi><mi>e</mi><mo separator="true">,</mo><mi>P</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">.</mi><mi>a</mi><mi>p</mi><mi>e</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{Personas.dni, Personas.cuil, Personas.nombre, Personas.apellido}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">erso</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">ni</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">erso</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">erso</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">mb</span><span class="mord mathnormal mtight">re</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.13889em;">P</span><span class="mord mathnormal mtight">erso</span><span class="mord mathnormal mtight">na</span><span class="mord mathnormal mtight">s</span><span class="mord mtight">.</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">p</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(P ⨝ Personas)</p></details></li></ul><ul id="204b5fa2-08c1-80b1-9e5e-fdbb3fe0bac1" class="toggle"><li><details open=""><summary><strong>Ejercicio 6</strong></summary><p id="204b5fa2-08c1-802c-aebf-cb3d5634fb60" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>n</mi><mi>r</mi><mi>o</mi><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mi>t</mi><mi>o</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{nroContrato}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">ro</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">o</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>f</mi><mi>e</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>V</mi><mi>t</mi><mi>o</mi><mi>C</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>r</mi><mi>a</mi><mo>&gt;</mo><mn>31</mn><mi mathvariant="normal">/</mi><mn>05</mn><mi mathvariant="normal">/</mi><mn>2026</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{fechaVtoContra &gt; 31/05/2026}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7858em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">ec</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">haV</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">a</span><span class="mrel mtight">&gt;</span><span class="mord mtight">31/05/2026</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Contratos))</p></details></li></ul><ul id="204b5fa2-08c1-80ab-a2ad-c4ce462264ab" class="toggle"><li><details open=""><summary><strong>Ejercicio 13</strong></summary><p id="204b5fa2-08c1-8035-a529-f7db32d77ac1" class="">InmueblesPropietario ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>c</mi><mi>o</mi><mi>d</mi><mi>I</mi><mi>n</mi><mi>m</mi><mi>u</mi><mi>e</mi><mi>b</mi><mi>l</mi><mi>e</mi></mrow></msub></mrow><annotation encoding="application/x-tex">π_{codInmueble}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">co</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">I</span><span class="mord mathnormal mtight">nm</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>111111</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 111111}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">111111</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> (Propinmueble))</p><p id="204b5fa2-08c1-8057-a1ed-c05cbe309248" class="">Contratos ← Contratos – (Contratos ⨝ InmueblesPropietario)</p><p id="204b5fa2-08c1-80ba-bf05-f1539da94c7a" class="">Inmuebles ← Inmuebles - (Inmuebles ⨝ InmueblesPropietario)</p><p id="204b5fa2-08c1-80c6-901d-cfd7059acca1" class="">PropInmuebles ← PropInmuebles - (<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>111111</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 111111}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">111111</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> (Propinmueble))</p><p id="204b5fa2-08c1-8076-a296-f37c41824ff6" class="">Propietarios ← Propietarios - <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>111111</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 111111}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">111111</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Propietarios)</p></details></li></ul><ul id="204b5fa2-08c1-8086-9c97-c5e4f1a68444" class="toggle"><li><details open=""><summary><strong>Ejercicio 14</strong></summary><p id="204b5fa2-08c1-806f-aa78-f9924c33a31d" class="">Loc ←<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>L</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex"> π_{Localidad}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>654321</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 654321}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">654321</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Propietarios))</p><p id="204b5fa2-08c1-8097-b676-c5715befeb92" class="">Dir ← <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mrow><mi>L</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>d</mi></mrow></msub></mrow><annotation encoding="application/x-tex"> π_{Localidad}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>654321</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 654321}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">654321</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Propietarios))</p><p id="204b5fa2-08c1-808a-b930-fe1c608f1ef5" class="">PropietarioMod ←  <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mrow><mi>c</mi><mi>u</mi><mi>i</mi><mi>l</mi><mo>=</mo><mn>123456</mn></mrow></msub></mrow><annotation encoding="application/x-tex">σ_{cuil = 123456}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mrel mtight">=</span><span class="mord mtight">123456</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(Propietarios)</p><p id="204b5fa2-08c1-80ed-a9e9-ed1c93adcb98" class="">Propietarios ← Propietarios - PropietarioMod</p><p id="204b5fa2-08c1-80ff-8d76-e8f369a3a184" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">∂</mi><mrow><mi>L</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>d</mi><mo>=</mo><mi>l</mi><mi>o</mi><mi>c</mi><mi>a</mi><mi>n</mi><mi>d</mi><mi>D</mi><mi>i</mi><mi>r</mi><mi>e</mi><mi>c</mi><mi>c</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>=</mo><mi>D</mi><mi>i</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">∂_{Localidad=loc and Direccion=Dir}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0556em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">L</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight">d</span><span class="mrel mtight">=</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">oc</span><span class="mord mathnormal mtight">an</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">recc</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">n</span><span class="mrel mtight">=</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>(PropietarioMod)</p><p id="204b5fa2-08c1-806c-9ca2-e75abe418e64" class="">Propietarios ← Propietarios U PropietarioMod</p><p id="206b5fa2-08c1-8032-8f4f-ca897fea21bb" class="">
+</p></details></li></ul></details></li></ul></details></li></ul><ul id="1ffb5fa2-08c1-803e-afee-ed8ec71ebb65" class="toggle"><li><details open=""><summary><strong>TP4 (Normalizacion)</strong></summary><figure id="1ffb5fa2-08c1-802d-aa38-ef4b4991da59"><div class="source"><a href="Base_de_Datos_2025_-_Trabajo_prctico_Normalizacin.pdf">Base de Datos 2025 - Trabajo práctico_Normalización.pdf</a></div></figure><ul id="200b5fa2-08c1-805e-b43e-d73fcae21476" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><figure id="200b5fa2-08c1-8033-bff7-c6e913baf046" class="image"><a href="image%20106.png"><img style="width:629px" src="image%20106.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-80cd-b451-d65d49d02bf0" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><figure id="200b5fa2-08c1-803a-b1c3-e406e244175c" class="image"><a href="image%20107.png"><img style="width:501px" src="image%20107.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-80f0-8964-f17a9b71dad0" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><figure id="200b5fa2-08c1-80c0-acb5-fa519982367d" class="image"><a href="image%20108.png"><img style="width:625.984375px" src="image%20108.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8058-a94c-dfde1ca930dd" class="toggle"><li><details open=""><summary><strong>Ejercicio 4</strong></summary><figure id="200b5fa2-08c1-80c4-a895-ca7eefa5b16a" class="image"><a href="image%20109.png"><img style="width:625.984375px" src="image%20109.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8060-b5b6-c4e279e71a13" class="toggle"><li><details open=""><summary><strong>Ejercicio 5</strong></summary><figure id="200b5fa2-08c1-80b8-aea9-f1c1114274db" class="image"><a href="image%20110.png"><img style="width:543.984375px" src="image%20110.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-80ae-a74a-d63e6fc795fd" class="toggle"><li><details open=""><summary><strong>Ejercicio 6</strong></summary><figure id="200b5fa2-08c1-80bc-8742-c6e17f72cd55" class="image"><a href="image%20111.png"><img style="width:625.96875px" src="image%20111.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-80fe-8ab5-c83c822f72ef" class="toggle"><li><details open=""><summary><strong>Ejercicio 7</strong></summary><figure id="200b5fa2-08c1-800c-ae14-ec45cc2c789a" class="image"><a href="image%20112.png"><img style="width:625.984375px" src="image%20112.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-808f-86f9-fa6f2d91bcfc" class="toggle"><li><details open=""><summary><strong>Ejercicio 8 </strong></summary><figure id="200b5fa2-08c1-80fe-95d0-df250bccbec8" class="image"><a href="image%20113.png"><img style="width:572.4107666015625px" src="image%20113.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8081-9e6b-f5bb4908e69f" class="toggle"><li><details open=""><summary><strong>Ejercicio 9</strong></summary><figure id="200b5fa2-08c1-80ca-9485-eec56fa21843" class="image"><a href="image%20114.png"><img style="width:543.96875px" src="image%20114.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8093-912d-c78f86ec60a0" class="toggle"><li><details open=""><summary><strong>Ejercicio 10</strong></summary><figure id="200b5fa2-08c1-80c5-9f6a-d04e923fc784" class="image"><a href="image%20115.png"><img style="width:472.0000305175781px" src="image%20115.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8050-9948-c35da8edff6e" class="toggle"><li><details open=""><summary><strong>Ejercicio 11</strong></summary><figure id="200b5fa2-08c1-8060-a4d9-d7f9da2d8e62" class="image"><a href="image%20116.png"><img style="width:478.0000305175781px" src="image%20116.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-808e-8dd7-e1bb63d01a16" class="toggle"><li><details open=""><summary><strong>Ejercicio 12</strong></summary><figure id="200b5fa2-08c1-80a0-87a6-e21beb782891" class="image"><a href="image%20117.png"><img style="width:486.0000305175781px" src="image%20117.png"/></a></figure></details></li></ul><ul id="200b5fa2-08c1-8009-a9ff-de4f548a6138" class="toggle"><li><details open=""><summary><strong>Ejercicio 13</strong></summary><p id="200b5fa2-08c1-806c-829c-f83402452051" class="">
+</p></details></li></ul><ul id="200b5fa2-08c1-808e-8322-fdbf76b763ca" class="toggle"><li><details open=""><summary><strong>Ejercicio 14</strong></summary><p id="200b5fa2-08c1-80f1-807e-fe01f487431b" class="">
+</p></details></li></ul></details></li></ul><ul id="1edb5fa2-08c1-8051-bafe-e8324c053fe5" class="toggle"><li><details open=""><summary><strong>Tp5 (Transacciones)</strong></summary><figure id="1eeb5fa2-08c1-80b6-8028-e3ca4808f02b"><div class="source"><a href="Bases_de_Datos_2025_-_Trabajo_Prctico__Transacciones.pdf">Bases de Datos 2025 - Trabajo Práctico_ Transacciones.pdf</a></div></figure><ul id="1eeb5fa2-08c1-80be-ae7b-ff33cfc084b6" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><figure id="1eeb5fa2-08c1-8058-8a02-d30f654ce81f" class="image"><a href="image%20118.png"><img style="width:625.890625px" src="image%20118.png"/></a></figure><p id="1eeb5fa2-08c1-80c9-9861-e58815797314" class="">Estos son los <strong>estados </strong>por los que puede pasar una transaccion:</p><figure id="1eeb5fa2-08c1-800b-99c5-d0897df15d2c" class="image"><a href="image%20119.png"><img style="width:625.96875px" src="image%20119.png"/></a></figure><ul id="1eeb5fa2-08c1-8063-a315-c4ff7f4e70c9" class="bulleted-list"><li style="list-style-type:disc">Una transacción entra en <strong>estado activo</strong> inmediatamente después de iniciarse su ejecución; en este estado puede emitir operaciones <strong>LEER </strong>y <strong>ESCRIBIR</strong>. Cuando la transacción termina, pasa al <strong>estado de parcialmente confirmada</strong>.</li></ul><ul id="1eeb5fa2-08c1-8049-8b13-e49d508b579c" class="bulleted-list"><li style="list-style-type:disc">En ese punto, se necesitan algunos protocolos para comprobar que los cambios de la transacción sean efectivos y una vez que esta comprobación es satisfactoria, se dice que la transacción ha alcanzado su punto de confirmación y entra en el <strong>estado de confirmada</strong>.</li></ul><ul id="1eeb5fa2-08c1-809d-9e9a-fa0e7110753c" class="bulleted-list"><li style="list-style-type:disc">No obstante, una transacción puede entrar en el <strong>estado de fallo </strong>si falla alguna de las comprobaciones o si la transacción es cancelada durante su estado activo.</li></ul><ul id="1eeb5fa2-08c1-805c-8bad-dc2b3dfaa95b" class="bulleted-list"><li style="list-style-type:disc">El <strong>estado terminado</strong> se alcanza cuando la transacción abandona el sistema.</li></ul></details></li></ul><ul id="1eeb5fa2-08c1-801e-820d-f704d148af22" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><figure id="1eeb5fa2-08c1-8051-87c8-e179534c1f5a" class="image"><a href="image%20120.png"><img style="width:625.9375px" src="image%20120.png"/></a></figure><p id="1eeb5fa2-08c1-8039-90c8-c1988ccafb07" class="">Los tres problemas de concurrencia que pueden surgir al momento de acceder a los datos son:</p><ul id="1eeb5fa2-08c1-80e4-aca5-d87d3f63e616" class="bulleted-list"><li style="list-style-type:disc"><strong>Actualizacion a perdida</strong><figure id="1eeb5fa2-08c1-803b-9b95-f568b9901bb1" class="image"><a href="image%20121.png"><img style="width:434px" src="image%20121.png"/></a></figure></li></ul><ul id="1eeb5fa2-08c1-80b2-a7cf-edae62a88dba" class="bulleted-list"><li style="list-style-type:disc"><strong>Lectura sucia</strong><figure id="1eeb5fa2-08c1-80dd-93e5-c4fad2c92497" class="image"><a href="image%20122.png"><img style="width:444px" src="image%20122.png"/></a></figure></li></ul><ul id="1eeb5fa2-08c1-80a9-8f23-fc4fc5fee9a2" class="bulleted-list"><li style="list-style-type:disc"><strong>Analisis Inconsistente</strong><figure id="1eeb5fa2-08c1-8044-a446-f9f892124f3a" class="image"><a href="image%20123.png"><img style="width:554px" src="image%20123.png"/></a></figure></li></ul><p id="1eeb5fa2-08c1-8068-a118-cb056f0d9963" class=""><div class="indented"><p id="1eeb5fa2-08c1-8019-b829-f01228d77b3a" class="">
+</p></div></p></details></li></ul><ul id="1eeb5fa2-08c1-80db-b794-c283b2de2c3a" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><figure id="1eeb5fa2-08c1-80c3-a644-c81c19883b9a" class="image"><a href="image%20124.png"><img style="width:386.9317932128906px" src="image%20124.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80ec-92a8-fcf8ee431d52" class="toggle"><li><details open=""><summary><strong>Ejercicio 4</strong></summary><figure id="1eeb5fa2-08c1-801a-8a1d-f3edb2008d76" class="image"><a href="image%20125.png"><img style="width:626px" src="image%20125.png"/></a></figure><p id="1eeb5fa2-08c1-80aa-99e5-eb49380c66c2" class="">Planificacion 1:</p><figure id="1eeb5fa2-08c1-80c0-b84f-ed07974dc8d1" class="image"><a href="image%20126.png"><img style="width:300px" src="image%20126.png"/></a></figure><figure id="1eeb5fa2-08c1-808f-aaa9-e81e2e792781" class="image"><a href="image%20127.png"><img style="width:369.9573669433594px" src="image%20127.png"/></a></figure><p id="1eeb5fa2-08c1-8010-9cb1-d13e6bb8fb16" class="">La planificacion 1 es serializable por conflicto ya que no contiene ciclos.</p><p id="1eeb5fa2-08c1-80c7-8baf-ff063817caae" class="">Planificacion 2:</p><figure id="1eeb5fa2-08c1-8019-9064-e6a6d409bce2" class="image"><a href="image%20128.png"><img style="width:325.9659118652344px" src="image%20128.png"/></a></figure><figure id="1eeb5fa2-08c1-8083-a168-e535807a9b80" class="image"><a href="image%20129.png"><img style="width:368.9630432128906px" src="image%20129.png"/></a></figure><p id="1eeb5fa2-08c1-80af-a81b-efe06c8e8f46" class="">La planificacion 2 es serializable por conflicto ya que no contiene ciclos.</p><p id="1eeb5fa2-08c1-801b-8a1b-ce611ef80888" class="">Planificacion 3:</p><figure id="1eeb5fa2-08c1-800b-9d31-d67b9c963149" class="image"><a href="image%20130.png"><img style="width:355.9942932128906px" src="image%20130.png"/></a></figure><figure id="1eeb5fa2-08c1-8034-94a3-c61d9973ab24" class="image"><a href="image%20131.png"><img style="width:335.9942932128906px" src="image%20131.png"/></a></figure><p id="1eeb5fa2-08c1-8076-bb49-fe8cf25bcd01" class="">La planificacion 3 no es serializable por conflicto ya que contiene ciclos.</p></details></li></ul><ul id="1eeb5fa2-08c1-8044-8838-e50fb71c1094" class="toggle"><li><details open=""><summary><strong>Ejercicio 5</strong></summary><figure id="1eeb5fa2-08c1-80cc-b0c6-e2617869cb97" class="image"><a href="image%20132.png"><img style="width:625.984375px" src="image%20132.png"/></a></figure><ol type="a" id="1eeb5fa2-08c1-8016-889b-cf881f4072b6" class="numbered-list" start="1"><li>Los posibles resultados con la ejecucion en serie de estas transacciones son 2!=2, ya que la cantidad de transacciones posibles son <em>n!</em></li></ol><ol type="a" id="1eeb5fa2-08c1-80d8-939e-e5b2292f8d23" class="numbered-list" start="2"><li></li></ol></details></li></ul><ul id="1eeb5fa2-08c1-8087-9837-eefc3b23d4fb" class="toggle"><li><details open=""><summary><strong>Ejercicio 6</strong></summary><figure id="1eeb5fa2-08c1-8057-85fd-f39e02ab4982" class="image"><a href="image%20133.png"><img style="width:625.9375px" src="image%20133.png"/></a></figure><p id="1eeb5fa2-08c1-80fc-9d0b-d0f755803088" class="">Los posibles resultados con la ejecucion en serie de estas transacciones son 3!=6, ya que la cantidad de transacciones posibles son <em>n!</em>, sin embargo los resultados correctos son 3, ya que los otros 3 son iguales.</p><figure id="1eeb5fa2-08c1-80cb-81ab-caac6e9ac8e6" class="image"><a href="image%20134.png"><img style="width:625.96875px" src="image%20134.png"/></a></figure><figure id="1eeb5fa2-08c1-802e-8ba6-ec53064b9ec8" class="image"><a href="image%20135.png"><img style="width:623.9630737304688px" src="image%20135.png"/></a></figure><figure id="1eeb5fa2-08c1-80d2-a3fe-fb43595929c8" class="image"><a href="image%20136.png"><img style="width:623.9630737304688px" src="image%20136.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-8007-80e0-eeffeadaf00a" class="toggle"><li><details open=""><summary><strong>Ejercicio 7</strong></summary><figure id="1eeb5fa2-08c1-8062-8a40-d258e6df8e68" class="image"><a href="Sin_ttulo%202.png"><img style="width:625.984375px" src="Sin_ttulo%202.png"/></a></figure><p id="1eeb5fa2-08c1-800b-8694-f8f7d463cf61" class="">
+</p></details></li></ul><ul id="1eeb5fa2-08c1-80d5-b288-f795b6d720a5" class="toggle"><li><details open=""><summary><strong>Ejercicio 8</strong></summary><figure id="1eeb5fa2-08c1-800d-ad52-c6e60b93dcab" class="image"><a href="image%20137.png"><img style="width:626px" src="image%20137.png"/></a></figure><figure id="1f2b5fa2-08c1-800c-b82a-def9cc1715b1" class="image"><a href="image%20138.png"><img style="width:463.0000305175781px" src="image%20138.png"/></a></figure><figure id="1f2b5fa2-08c1-8091-881f-ff295705e3dd" class="image"><a href="image%20139.png"><img style="width:466.0000305175781px" src="image%20139.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-8043-89fe-e131bb998b93" class="toggle"><li><details open=""><summary><strong>Ejercicio 9</strong></summary><figure id="1eeb5fa2-08c1-8083-b695-f2eccb6a614b" class="image"><a href="image%20140.png"><img style="width:625.90625px" src="image%20140.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80f2-864b-c20316f2cbd5" class="toggle"><li><details open=""><summary><strong>Ejercicio 10</strong></summary><figure id="1eeb5fa2-08c1-8049-a38c-c8a866a1856e" class="image"><a href="image%20141.png"><img style="width:625.96875px" src="image%20141.png"/></a></figure><figure id="1eeb5fa2-08c1-8003-9e10-eb6e2168f810" class="image"><a href="image%20142.png"><img style="width:625.984375px" src="image%20142.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80fc-aa60-f063db77b123" class="toggle"><li><details open=""><summary><strong>Ejercicio 11</strong></summary><figure id="1eeb5fa2-08c1-805e-85e3-c79f1686a07b" class="image"><a href="image%20143.png"><img style="width:625.953125px" src="image%20143.png"/></a></figure><figure id="1eeb5fa2-08c1-80ac-a410-f7a8fa7a40a0" class="image"><a href="image%20144.png"><img style="width:625.984375px" src="image%20144.png"/></a></figure><p id="1eeb5fa2-08c1-802d-8026-ef45b16fbbbb" class=""><strong>La planificación NO cumple con el protocolo de bloqueo de dos fases</strong>, porque la transacción (T1) <strong>libera bloqueos antes de terminar de adquirirlos</strong>, violando la fase de crecimiento del protocolo.</p></details></li></ul><ul id="1eeb5fa2-08c1-808d-a1cc-eda62b07e542" class="toggle"><li><details open=""><summary><strong>Ejercicio 12</strong></summary><figure id="1eeb5fa2-08c1-80f1-b18d-e2382f166689" class="image"><a href="image%20145.png"><img style="width:625.96875px" src="image%20145.png"/></a></figure><p id="1eeb5fa2-08c1-8010-ad59-f0f0d3a07cc1" class="">a.</p><figure id="1eeb5fa2-08c1-80da-a873-e81adb690674" class="image"><a href="image%20146.png"><img style="width:625.984375px" src="image%20146.png"/></a></figure><p id="1eeb5fa2-08c1-8079-a20f-ee4137478190" class="">b.</p><p id="1eeb5fa2-08c1-808d-9bb3-da48b7229342" class="">
+</p></details></li></ul><ul id="1eeb5fa2-08c1-805d-a6f8-e1115fdbfeed" class="toggle"><li><details open=""><summary><strong>Ejercicio 13</strong></summary><figure id="1eeb5fa2-08c1-80a1-8eb5-d0168915fb20" class="image"><a href="image%20147.png"><img style="width:625.984375px" src="image%20147.png"/></a></figure></details></li></ul><ul id="1eeb5fa2-08c1-80b8-82e4-d13de58cec1b" class="toggle"><li><details open=""><summary><strong>Ejercicio 14</strong></summary><figure id="1eeb5fa2-08c1-8006-903a-feb496c1bcff" class="image"><a href="image%20148.png"><img style="width:625.96875px" src="image%20148.png"/></a></figure></details></li></ul></details></li></ul><ul id="1fcb5fa2-08c1-80e4-adf1-eb08a31b2611" class="toggle"><li><details open=""><summary><strong>TP’s SQL</strong></summary><ul id="1fdb5fa2-08c1-8030-be1a-ffbacc7416d9" class="toggle"><li><details open=""><summary><strong>TP1 - SQL Creación y Generación de Información</strong></summary><figure id="1fdb5fa2-08c1-80c8-8f88-cb84a9c4db7a"><div class="source"><a href="Trabajo_prctico__-_Trabajo_Prctico_SQL_1.pdf">Trabajo práctico  - Trabajo Práctico_SQL 1.pdf</a></div></figure><ul id="1fdb5fa2-08c1-80c3-9303-c19232840d96" class="toggle"><li><details open=""><summary><strong>Ejercicio 1</strong></summary><figure id="1fdb5fa2-08c1-80d6-824b-f688dc83fece" class="image"><a href="image%20149.png"><img style="width:625.9375px" src="image%20149.png"/></a></figure><figure id="1fdb5fa2-08c1-807e-8ed7-f8ef28551c0c" class="image"><a href="image%20150.png"><img style="width:625.984375px" src="image%20150.png"/></a></figure></details></li></ul><ul id="1fdb5fa2-08c1-801c-ba7b-df07378a36be" class="toggle"><li><details open=""><summary><strong>Ejercicio 2</strong></summary><figure id="1fdb5fa2-08c1-80f9-964a-c8fc95119a44" class="image"><a href="image%20151.png"><img style="width:490px" src="image%20151.png"/></a></figure><figure id="1fdb5fa2-08c1-80b5-ab38-d8ba920f2516" class="image"><a href="image%20152.png"><img style="width:417px" src="image%20152.png"/></a></figure><p id="1feb5fa2-08c1-80e0-b491-e6772bd68910" class="">En <strong>SQL Server</strong>, <code>UNIQUEIDENTIFIER</code> es un tipo de dato que almacena un <strong>GUID</strong> (Globally Unique Identifier), es decir, un <strong>identificador único global</strong>. Tiene una longitud fija de <strong>16 bytes</strong> (128 bits).</p><figure id="1fdb5fa2-08c1-8089-aaa7-e48cb3447eca" class="image"><a href="image%20153.png"><img style="width:383px" src="image%20153.png"/></a></figure><figure id="1feb5fa2-08c1-8096-85d8-f73835e8b9b8" class="image"><a href="image%20154.png"><img style="width:378px" src="image%20154.png"/></a></figure><figure id="1feb5fa2-08c1-805b-95e0-e76076a44c95" class="image"><a href="image%20155.png"><img style="width:597.953125px" src="image%20155.png"/></a></figure><figure id="1feb5fa2-08c1-8054-b100-ebfb0a6eb696" class="image"><a href="image%20156.png"><img style="width:452px" src="image%20156.png"/></a></figure><figure id="1feb5fa2-08c1-80a4-be2a-d211f00a774e" class="image"><a href="image%20157.png"><img style="width:598px" src="image%20157.png"/></a></figure><figure id="1feb5fa2-08c1-80f4-ac42-e36b64ee6e20" class="image"><a href="image%20158.png"><img style="width:457px" src="image%20158.png"/></a></figure><figure id="1feb5fa2-08c1-80f7-872a-ee81948aa450" class="image"><a href="image%20159.png"><img style="width:597.953125px" src="image%20159.png"/></a></figure><figure id="1feb5fa2-08c1-8057-9780-fd7fdaa58adf" class="image"><a href="image%20160.png"><img style="width:529px" src="image%20160.png"/></a></figure><p id="1feb5fa2-08c1-8042-ad47-fc11418fe99a" class="">Se le agrega<strong> </strong><code><strong>DEFAULT NEWID()</strong></code> para que se asigne automaticamente.</p></details></li></ul><ul id="1fdb5fa2-08c1-8000-b7d7-f3b145417a26" class="toggle"><li><details open=""><summary><strong>Ejercicio 3</strong></summary><figure id="1feb5fa2-08c1-8086-84f4-cb22a9df6622" class="image"><a href="image%20161.png"><img style="width:598px" src="image%20161.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80ad-afb2-fb80ef6fad55" class="code"><code class="language-SQL">USE ventas_e;
+
+-- Eliminar la columna &#x27;Usuario&#x27; de la tabla
+ALTER TABLE Usuario
+DROP COLUMN Usuario;
+
+-- Agregar un nuevo campo que sea email (varchar(70))
+ALTER TABLE Usuario
+ADD Email VARCHAR(70);
+
+/* Agregar los campos Domicilio (varchar(150)) y Telefono (varcvhar(30)) en la tabla Usuario.
+Luego, agregar los mismos campos a la tabla Empresa. */
+
+ALTER TABLE Usuario
+ADD Domicilio VARCHAR(150);
+ALTER TABLE Usuario
+ADD Telefono VARCHAR(30);
+
+ALTER TABLE Empresa
+ADD Domicilio VARCHAR(150);
+ALTER TABLE Empresa
+ADD Telefono VARCHAR(30);</code></pre><figure id="1feb5fa2-08c1-802b-990d-c3afd5590e5d"><div class="source"><a href="Ejercicio3_1.sql">Ejercicio3_1.sql</a></div></figure></details></li></ul><ul id="1fdb5fa2-08c1-80f4-9387-da82689f2717" class="toggle"><li><details open=""><summary><strong>Ejercicio 4</strong></summary><figure id="1feb5fa2-08c1-80bf-b267-c49659a37a7e" class="image"><a href="image%20162.png"><img style="width:598px" src="image%20162.png"/></a></figure><figure id="1feb5fa2-08c1-8012-be93-d2ef9bcd31b8" class="image"><a href="image%20163.png"><img style="width:597.96875px" src="image%20163.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8059-809a-c94f8bae3b57" class="code"><code class="language-SQL">USE ventas_e;
+
+-- Agrego la columna Dominio a la tabla &#x27;Empresa&#x27;
+ALTER TABLE Empresa
+ADD Dominio VARCHAR(50);
+
+-- Inserto datos a Empresa
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;ALBOCAR&#x27;, &#x27;20-24563524-1&#x27;, &#x27;536 nro. 67&#x27;, &#x27;0221 455-8523&#x27;, &#x27;Albocar&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;AUTOCLIPS VAER SA&#x27;, &#x27;30-56225853-4&#x27;, &#x27;Ate. Brown 876&#x27;, &#x27;011 4457-7778&#x27;, &#x27;Vaersa&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;GOICOECHEA&#x27;, &#x27;30-57788523-5&#x27;, &#x27;Pte. Perón 4521&#x27;, &#x27;0224 4522-3652&#x27;, &#x27;Goicoechea&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;CGO&#x27;, &#x27;27-24246552-2&#x27;, &#x27;46 Nro. 1587&#x27;, &#x27;0221 412-5623&#x27;, &#x27;Districgo&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;BELPE&#x27;, &#x27;30-45235689-7&#x27;, &#x27;122 Nro. 4201&#x27;, &#x27;0221 423-2323&#x27;, &#x27;Belpe&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;DISTRIFERR&#x27;, &#x27;20-58545565-1&#x27;, &#x27;Moreau Nro. 524&#x27;, &#x27;0229 45-5623&#x27;, &#x27;Distriferr&#x27;);
+INSERT INTO Empresa (RazonSocial, CUIT, Domicilio, Telefono, Dominio) 
+VALUES (&#x27;AZ MOTOR&#x27;, &#x27;30-44215532-5&#x27;, &#x27;44 Esq. 200 Nro. 4522&#x27;, &#x27;0221 452-5262&#x27;, &#x27;Azmotor&#x27;);
+</code></pre><figure id="1feb5fa2-08c1-80e2-a2fc-e54f72a15ac0"><div class="source"><a href="Ejercicio4_1.sql">Ejercicio4_1.sql</a></div></figure></details></li></ul><ul id="1fdb5fa2-08c1-8047-9a87-e4bda6c28bdc" class="toggle"><li><details open=""><summary><strong>Ejercicio 5</strong></summary><figure id="1feb5fa2-08c1-802a-902b-d1a8fa50bc4b" class="image"><a href="image%20164.png"><img style="width:597.96875px" src="image%20164.png"/></a></figure><p id="1feb5fa2-08c1-802d-85f4-e9ee1ad97dd6" class=""><strong>Primero ingreso los datos necesarios para resolver el ejercicio:</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80ae-99f2-e5405361f87c" class="code"><code class="language-SQL">USE ventas_e;
+
+Select * from usuario
+
+-- INSERTAR USUARIOS
+INSERT INTO Usuario (Token, AyN, Usuario, Password)
+VALUES
+(NEWID(), &#x27;Lionel Galo&#x27;, &#x27;lgalo&#x27;, &#x27;pass123&#x27;),
+(NEWID(), &#x27;Maximiliano Gonzalez&#x27;, &#x27;mgonzalez&#x27;, &#x27;maxi123&#x27;),
+(NEWID(), &#x27;Carlos Gómez&#x27;, &#x27;cgomez&#x27;, &#x27;gomez321&#x27;),
+(NEWID(), &#x27;Ana Torres&#x27;, &#x27;atorres&#x27;, &#x27;ana456&#x27;),
+(NEWID(), &#x27;Luis Goicoechea&#x27;, &#x27;lgoico&#x27;, &#x27;goico789&#x27;);
+
+-- RELACIONES INICIALES (UsuarioXEmpresa)
+INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
+VALUES
+-- Lionel Galo → ALBOCAR (Id 2)
+((SELECT Token FROM Usuario WHERE AyN = &#x27;Lionel Galo&#x27;), 2),
+
+-- Maximiliano Gonzalez → ALBOCAR (Id 2)
+((SELECT Token FROM Usuario WHERE AyN = &#x27;Maximiliano Gonzalez&#x27;), 2),
+
+-- Carlos Gómez → AZ MOTOR (Id 7)
+((SELECT Token FROM Usuario WHERE AyN = &#x27;Carlos Gómez&#x27;), 7),
+
+-- Ana Torres → GOICOECHEA (Id 4)
+((SELECT Token FROM Usuario WHERE AyN = &#x27;Ana Torres&#x27;), 4),
+
+-- Luis Goicoechea → GOICOECHEA (Id 4)
+((SELECT Token FROM Usuario WHERE AyN = &#x27;Luis Goicoechea&#x27;), 4);
+</code></pre><p id="1feb5fa2-08c1-807b-9586-f8b103210068" class="">
+</p></details></li></ul><ul id="1feb5fa2-08c1-80c1-b048-da0de8f57f39" class="toggle"><li><details open=""><summary><strong>Ejercicio 6</strong></summary><figure id="1feb5fa2-08c1-80cc-82a8-d611e5297f83" class="image"><a href="image%20165.png"><img style="width:597.96875px" src="image%20165.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8008-a03f-df05ac6aa445" class="code"><code class="language-SQL">USE ventas_e;
+
+SELECT * from Usuario
+SELECT * from Empresa
+SELECT * from UsuarioXEmpresa
+
+-- Lionel Galo abandonó la Empresa en la que trabajaba, y fue contratado por CGO
+DELETE FROM UsuarioXEmpresa
+WHERE Token = (SELECT Token FROM Usuario WHERE AyN = &#x27;Lionel Galo&#x27;);
+
+INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
+VALUES ((SELECT Token FROM Usuario WHERE AyN = &#x27;Lionel Galo&#x27;), 5);
+
+/* Maximiliano Gonzalez, fue enrolado en el ejército por lo que pidió la baja de la Empresa
+Albocar en la que trabajaba hasta su regreso. */DELETE FROM UsuarioXEmpresaWHERE Token = (SELECT Token FROM Usuario WHERE AyN = &#x27;Maximiliano Gonzalez&#x27;)-- Entonces luego, la empresa Albocar, adquirió la empresa Az Motor, y todos sus empleados.INSERT INTO UsuarioXEmpresa (Token, IdEmpresa)
+SELECT Token, 
+       (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = &#x27;ALBOCAR&#x27;)
+FROM UsuarioXEmpresa
+WHERE IdEmpresa = (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = &#x27;AZ MOTOR&#x27;);
+
+DELETE FROM UsuarioXEmpresa
+WHERE IdEmpresa = (SELECT IdEmpresa FROM Empresa WHERE RazonSocial = &#x27;AZ MOTOR&#x27;);</code></pre></details></li></ul></details></li></ul><ul id="1feb5fa2-08c1-8061-9a43-fa6d4a81fb9e" class="toggle"><li><details open=""><summary><strong>TP2 - Diagramación y consultas SQL</strong></summary><figure id="1feb5fa2-08c1-80d3-87e6-eaa10131a557"><div class="source"><a href="Trabajo_prctico_-_Trabajo_Prctico_SQL_2.pdf">Trabajo práctico - Trabajo Práctico_SQL 2.pdf</a></div></figure><figure id="1feb5fa2-08c1-80d7-adf8-e876a99803a8"><div class="source"><a href="TP2.sql">TP2.sql</a></div></figure><figure id="1feb5fa2-08c1-80e5-899e-f3b13a6bae6b" class="image"><a href="image%20166.png"><img style="width:625.984375px" src="image%20166.png"/></a></figure><ul id="1feb5fa2-08c1-8064-af3c-d1e30fc421d8" class="toggle"><li><details open=""><summary><strong>Query para crear la base de datos para la practica</strong></summary><p id="1feb5fa2-08c1-8061-8b37-f4b22e31e15d" class="">
+</p></details></li></ul><figure id="1feb5fa2-08c1-80df-af94-ee3d409eff0d" class="image"><a href="image%20167.png"><img style="width:320px" src="image%20167.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8051-977d-eda68cf8294e" class="code"><code class="language-SQL">SELECT * FROM Cliente;</code></pre><figure id="1feb5fa2-08c1-80c7-b1b4-caf481921566" class="image"><a href="image%20168.png"><img style="width:572.375px" src="image%20168.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8000-88d2-f9fcb6e95f5e" class="code"><code class="language-SQL">SELECT Apellido, Nombre
+FROM Cliente
+ORDER BY Apellido DESC;</code></pre><figure id="1feb5fa2-08c1-8006-bdbc-fab58a365dc8" class="image"><a href="image%20169.png"><img style="width:625.828125px" src="image%20169.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8049-a0fe-c212a1521877" class="code"><code class="language-SQL">SELECT IDTipoIva, COUNT(*) AS CantidadCliente
+FROM Cliente
+GROUP BY IDTipoIVA;</code></pre><figure id="1feb5fa2-08c1-802d-ab87-eeae5e826ea6" class="image"><a href="image%20170.png"><img style="width:626px" src="image%20170.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8080-af07-c76b71f89797" class="code"><code class="language-SQL">SELECT * FROM Cliente WHERE Apellido = &#x27;Martinez&#x27;</code></pre><figure id="1feb5fa2-08c1-80f4-9470-e93351eb267d" class="image"><a href="image%20171.png"><img style="width:625.953125px" src="image%20171.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-805c-9b84-d935b61230ca" class="code"><code class="language-SQL">SELECT C.RazonSocial, COUNT(C.Token) AS Cantidad
+FROM Cliente C
+GROUP BY C.RazonSocial
+HAVING COUNT(C.Token) &gt; 1;</code></pre><figure id="1feb5fa2-08c1-8037-a859-c643f6230586" class="image"><a href="image%20172.png"><img style="width:625.921875px" src="image%20172.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80ea-b67e-d874a32feafc" class="code"><code class="language-SQL">SELECT A.Descripcion, COUNT(IV.idVenta) AS CantVecesVendida
+FROM Venta V
+JOIN ItemVenta IV ON V.idVenta = IV.idVenta
+JOIN Articulo A ON IV.idArticulo = A.idArticulo
+WHERE YEAR(V.Fecha) = 2018
+GROUP BY A.Descripcion;</code></pre><figure id="1feb5fa2-08c1-804b-99f2-f5613730c20b" class="image"><a href="image%20173.png"><img style="width:626px" src="image%20173.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8041-aa4f-ef8d6621f07a" class="code"><code class="language-SQL">SELECT RazonSocial, DNI 
+FROM Cliente
+WHERE CUIT IS NULL
+ORDER BY DNI ASC;</code></pre><figure id="1feb5fa2-08c1-809c-b56b-d9418e449985" class="image"><a href="image%20174.png"><img style="width:625.875px" src="image%20174.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-804e-b831-d360412bf159" class="code"><code class="language-SQL">SELECT * FROM Cliente
+WHERE IDTipoIva = (SELECT IDTipoIva FROM TipoDeIva WHERE Descripcion = &#x27;Resp. Inscripto&#x27;)
+AND (CUIT IS NULL OR CUIT = &#x27;&#x27;);</code></pre><figure id="1feb5fa2-08c1-8074-b521-f6f961cf9837" class="image"><a href="image%20175.png"><img style="width:625.9375px" src="image%20175.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80eb-8d46-f0f37b8ea2ed" class="code"><code class="language-SQL">SELECT 
+    A.codigo,
+    A.Descripcion, 
+    AVG(IV.cantidad) AS promedio
+FROM Venta V 
+JOIN ItemVenta IV ON V.idVenta = IV.idVenta 
+JOIN Articulo A ON IV.idArticulo = A.idArticulo
+GROUP BY A.codigo, A.Descripcion
+ORDER BY promedio DESC;</code></pre><figure id="1feb5fa2-08c1-80e1-b692-c665f1bc5e0d" class="image"><a href="image%20176.png"><img style="width:626px" src="image%20176.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8060-891a-e1d1fcfc1fe2" class="code"><code class="language-SQL">SELECT 
+    E.RazonSocial,
+    S.NombreSeccion,
+    COUNT(A.idArticulo) AS CantidadArticulos
+FROM Seccion S
+JOIN Empresa E ON S.idEmpresa = E.idEmpresa
+JOIN Rubro R ON R.idSeccion = S.idSeccion
+JOIN Articulo A ON A.idRubro = R.idRubro
+GROUP BY E.RazonSocial, S.NombreSeccion
+ORDER BY E.RazonSocial, S.NombreSeccion;</code></pre><figure id="1feb5fa2-08c1-8025-b253-f52204f2fc99" class="image"><a href="image%20177.png"><img style="width:625.953125px" src="image%20177.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8071-a358-e98e4092a314" class="code"><code class="language-SQL">SELECT 
+    E.RazonSocial, 
+    SUM(IV.Cantidad * IV.Precio) AS MontoVendido
+FROM Empresa E
+JOIN Seccion S ON E.idEmpresa = S.idEmpresa
+JOIN Rubro R ON S.idSeccion = R.idSeccion
+JOIN Articulo A ON R.idRubro = A.idRubro
+JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
+JOIN Venta V ON V.idVenta = IV.idVenta
+WHERE YEAR(V.Fecha) = YEAR(GETDATE())
+GROUP BY E.RazonSocial
+ORDER BY E.RazonSocial;</code></pre><figure id="1feb5fa2-08c1-80ae-b5e0-f84d5b92c861" class="image"><a href="image%20178.png"><img style="width:625.796875px" src="image%20178.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8049-8bcc-d713f45193bd" class="code"><code class="language-SQL">SELECT Descripcion, Precio FROM Articulo WHERE Descripcion LIKE &#x27;%unipolar%&#x27;;</code></pre><figure id="1feb5fa2-08c1-8025-8554-c34f38e2a2f7" class="image"><a href="image%20179.png"><img style="width:626px" src="image%20179.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80c7-8e77-f74dae919671" class="code"><code class="language-SQL">SELECT 
+    E.RazonSocial AS Empresa,
+    A.Descripcion AS Articulo,
+    A.Precio
+FROM Empresa E
+JOIN Seccion S ON E.idEmpresa = S.idEmpresa
+JOIN Rubro R ON S.idSeccion = R.idSeccion
+JOIN Articulo A ON R.idRubro = A.idRubro
+ORDER BY E.RazonSocial, A.Descripcion;</code></pre><figure id="1feb5fa2-08c1-80cd-a918-f4a0ae9ec4e2" class="image"><a href="image%20180.png"><img style="width:626px" src="image%20180.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80a7-869e-e8b7bcb66922" class="code"><code class="language-SQL">SELECT U.AyN, COUNT(*) AS UsuariosRegistrados
+FROM Usuario U
+JOIN UsuarioXEmpresa UXE ON U.UserToken = UXE.UserToken
+JOIN Empresa E ON UXE.idEmpresa = E.idEmpresa
+
+GROUP BY U.AyN
+HAVING COUNT(DISTINCT UXE.idEmpresa) &gt; 1</code></pre><figure id="1feb5fa2-08c1-80bd-b5c5-cd78b1628193" class="image"><a href="image%20181.png"><img style="width:625.96875px" src="image%20181.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80c1-a9fd-fe684a644ac6" class="code"><code class="language-SQL">SELECT A.idArticulo, A.Descripcion
+INTO ArticulosNoVendidos
+FROM Articulo A
+WHERE A.idArticulo NOT IN (
+    SELECT IV.idArticulo FROM ItemVenta IV
+);
+
+SELECT COUNT(*) AS CantidadArticulosNoVendidos
+FROM ArticulosNoVendidos;</code></pre><figure id="1feb5fa2-08c1-80dd-829a-e0600bdce182" class="image"><a href="image%20182.png"><img style="width:625.875px" src="image%20182.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80f3-b37f-e44397907e03" class="code"><code class="language-SQL">SELECT 
+    E.RazonSocial, 
+    MONTH(V.Fecha) AS Mes,
+    SUM(IV.Cantidad * IV.Precio) AS MontoPorMes
+FROM Empresa E
+JOIN Seccion S ON E.idEmpresa = S.idEmpresa
+JOIN Rubro R ON S.idSeccion = R.idSeccion
+JOIN Articulo A ON R.idRubro = A.idRubro
+JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
+JOIN Venta V ON V.idVenta = IV.idVenta
+WHERE YEAR(V.Fecha) = 2019
+GROUP BY E.RazonSocial, MONTH(V.Fecha)
+ORDER BY E.RazonSocial, Mes;</code></pre><figure id="1feb5fa2-08c1-80c9-b009-d177a6693e4e" class="image"><a href="image%20183.png"><img style="width:626px" src="image%20183.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80e5-a600-f577ffcf9aff" class="code"><code class="language-SQL">SELECT 
+    DATEPART(WEEKDAY, Fecha) AS NumeroDiaSemana,
+    DATENAME(WEEKDAY, Fecha) AS NombreDiaSemana,
+    COUNT(*) AS VentasRealizadasPorDia
+FROM Venta
+GROUP BY DATEPART(WEEKDAY, Fecha), DATENAME(WEEKDAY, Fecha)
+ORDER BY NumeroDiaSemana;
+
+-- FULL GEPETO ESTE</code></pre></details></li></ul><ul id="1feb5fa2-08c1-80a8-b2c5-ce9ac4275c30" class="toggle"><li><details open=""><summary><strong>TP3 - Stored Procedures (SP)</strong></summary><figure id="1feb5fa2-08c1-80c7-bdad-e377b7d13875"><div class="source"><a href="Trabajo_Prctico_-_Trabajo_Prctico_SQL_3.pdf">Trabajo Práctico - Trabajo Práctico_SQL 3.pdf</a></div></figure><figure id="1ffb5fa2-08c1-8097-979f-f002e9720eff"><div class="source"><a href="TP3.sql">TP3.sql</a></div></figure><figure id="1feb5fa2-08c1-8053-b24b-d38f3c2c8ebe" class="image"><a href="image%20184.png"><img style="width:625.96875px" src="image%20184.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8002-a2db-c58dbefbee04" class="code"><code class="language-SQL">CREATE PROCEDURE SP_CantidadVendida
+    @Articulo int,
+    @Fecha1 date,
+    @Fecha2 date
+AS
+BEGIN
+    SELECT COUNT(*) AS CantidadVendida
+    FROM Articulo A
+    JOIN ItemVenta IV ON A.idArticulo = IV.idArticulo
+    JOIN Venta V ON IV.idVenta = V.idVenta
+    WHERE A.idArticulo = @Articulo
+      AND V.Fecha BETWEEN @Fecha1 AND @Fecha2;
+END;</code></pre><figure id="1feb5fa2-08c1-80f0-b965-d34aa04ccea3" class="image"><a href="image%20185.png"><img style="width:626px" src="image%20185.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8012-ac18-e7b506dbdff0" class="code"><code class="language-SQL">CREATE PROCEDURE SP_ListadoClientes
+    @Mes int,
+    @Anio int
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM Venta V
+        WHERE MONTH(V.Fecha) = @Mes AND YEAR(V.Fecha) = @Anio
+    )
+    BEGIN
+        SELECT DISTINCT C.*
+        FROM Cliente C
+        JOIN Venta V ON C.Token = V.Token
+        WHERE MONTH(V.Fecha) = @Mes AND YEAR(V.Fecha) = @Anio;
+    END
+    ELSE
+    BEGIN
+        SELECT &#x27;SIN CLIENTES&#x27; AS Mensaje;
+    END;
+END;
+</code></pre><figure id="1feb5fa2-08c1-80a6-a8d4-c929aee5b241" class="image"><a href="image%20186.png"><img style="width:625.90625px" src="image%20186.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-80b1-8041-f8bc8ecf58a2" class="code"><code class="language-SQL">CREATE PROCEDURE SP_ListarMontoClientes
+    @Año int
+AS
+BEGIN
+    SELECT 
+        C.Token,
+        C.RazonSocial,
+        SUM(IV.Cantidad * IV.Precio) AS TotalComprado
+    FROM Cliente C
+    JOIN Venta V ON C.Token = V.Token
+    JOIN ItemVenta IV ON V.idVenta = IV.idVenta
+    WHERE YEAR(V.Fecha) = @Año
+    GROUP BY C.Token, C.RazonSocial
+    HAVING SUM(IV.Cantidad * IV.Precio) &gt; 500000;
+END;
+</code></pre><figure id="1feb5fa2-08c1-8081-be04-daa5855035c2" class="image"><a href="image%20187.png"><img style="width:625.984375px" src="image%20187.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8091-827a-cdd779088629" class="code"><code class="language-SQL">ALTER TABLE Articulo
+ADD Imagen VARBINARY(MAX)
+
+CREATE PROCEDURE SP_AgregarImagenProducto
+	@img VARBINARY(MAX),
+	@idArticulo int
+AS
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM Articulo WHERE idArticulo = @idArticulo)
+    BEGIN
+        RAISERROR(&#x27;El artículo no existe.&#x27;, 16, 1);
+        RETURN;
+    END
+
+    UPDATE Articulo
+    SET Imagen = @img
+    WHERE idArticulo = @idArticulo;
+
+	SELECT COUNT(A.Imagen) AS CantidadFotos
+	FROM Articulo A
+	WHERE A.idArticulo = @idArticulo;
+END;</code></pre><figure id="1feb5fa2-08c1-80d5-a4ea-ce892370f284" class="image"><a href="image%20188.png"><img style="width:626px" src="image%20188.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1feb5fa2-08c1-8072-a2bf-eb8d990321e5" class="code"><code class="language-SQL">CREATE PROCEDURE SP_SeccionesSinRubro
+AS
+BEGIN
+	SELECT * FROM Seccion S
+	WHERE S.idSeccion NOT IN (SELECT R.idSeccion FROM Rubro R);
+END;</code></pre><figure id="1ffb5fa2-08c1-8037-91da-c4245191af5c" class="image"><a href="image%20189.png"><img style="width:625.9375px" src="image%20189.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ffb5fa2-08c1-8083-8956-d80022607e4f" class="code"><code class="language-SQL">CREATE PROCEDURE SP_RankingClientes
+AS
+BEGIN
+	SELECT 
+		C.RazonSocial AS Nombre_y_Apellido, 
+		C.DNI, 
+		C.Domicilio, 
+		COUNT(V.idVenta) AS CantidadCompras 
+	FROM Cliente C
+	JOIN Venta V ON C.Token = V.Token
+	GROUP BY C.RazonSocial, C.DNI, C.Domicilio
+	ORDER BY CantidadCompras DESC;
+END;</code></pre><figure id="1ffb5fa2-08c1-804a-b9cd-e305b06b3ec6" class="image"><a href="image%20190.png"><img style="width:625.921875px" src="image%20190.png"/></a></figure><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1ffb5fa2-08c1-80be-9779-f05d8cc84cf0" class="code"><code class="language-SQL">CREATE PROCEDURE SP_BuenosClientes
+	@monto int
+AS
+BEGIN
+	SELECT 
+		C.RazonSocial AS Nombre_y_Apellido, 
+		C.DNI,
+		V.idVenta
+	FROM Cliente C
+	JOIN Venta V ON C.Token = V.Token
+	JOIN ItemVenta IV ON V.idVenta = IV.idVenta
+	GROUP BY C.RazonSocial, C.DNI, V.idVenta
+	HAVING SUM(IV.Cantidad*IV.Precio) &gt; @monto;
+END;
+</code></pre></details></li></ul></details></li></ul></details></li></ul><ul id="1c3b5fa2-08c1-8097-bb80-e9acca63ba41" class="toggle"><li><details open=""><summary><strong>Proyecto</strong></summary><ul id="1e1b5fa2-08c1-8031-bb3b-d382f3f3b4f9" class="toggle"><li><details open=""><summary><strong>Entrega 1 (Fase 1 y 2)</strong></summary><figure id="1e1b5fa2-08c1-8046-9e8f-e8b05d7762cb"><div class="source"><a href="Entrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(3).pdf">Entrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (3).pdf</a></div></figure><figure id="1e1b5fa2-08c1-8085-a596-dfae1f35f872"><div class="source"><a href="Reentrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(2)_(2).pdf">Reentrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (2) (2).pdf</a></div></figure></details></li></ul><ul id="1e1b5fa2-08c1-80c0-a7fa-dbbe0c1a4f43" class="toggle"><li><details open=""><summary><strong>Entrega 2 (Fase 3, 4 y 5)</strong></summary><figure id="1e3b5fa2-08c1-8039-ae6b-c9fa63f9e1c5"><div class="source"><a href="Entrega_2_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano.pdf">Entrega 2 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano.pdf</a></div></figure><figure id="1e3b5fa2-08c1-80ca-b81d-fa46eb86dcd3"><div class="source"><a href="Presentacin_Grupo_10_Entrega_2.pptx">Presentación Grupo 10 Entrega 2.pptx</a></div></figure></details></li></ul><ul id="1e3b5fa2-08c1-80ef-a943-d352a51bdb3f" class="toggle"><li><details open=""><summary><strong>Entrega 3 (Fase 6 y 7)</strong></summary><figure id="20db5fa2-08c1-8028-9b6c-c07bba385241"><div class="source"><a href="Entrega_3_-_Grupo_10_-_Comision_S31.pdf">Entrega 3 - Grupo 10 - Comision S31.pdf</a></div></figure><figure id="20db5fa2-08c1-80eb-b7d1-ea4cf3649b83"><div class="source"><a href="Entrega_3_(1).sql">Entrega 3 (1).sql</a></div></figure></details></li></ul><ul id="1c7b5fa2-08c1-807d-928b-ecdca51baa90" class="toggle"><li><details open=""><summary><strong>Integrantes</strong></summary><ul id="1c7b5fa2-08c1-802a-b1cc-e2874390bd5e" class="bulleted-list"><li style="list-style-type:disc"><strong>Joaquin Mones - 33459</strong></li></ul><ul id="1c7b5fa2-08c1-800e-bba5-f2a45ed0b416" class="bulleted-list"><li style="list-style-type:disc"><strong>Pedro Fiuza - 33142</strong></li></ul><ul id="1c7b5fa2-08c1-804d-a5dc-f6d1e60df26e" class="bulleted-list"><li style="list-style-type:disc"><strong>Maximo Carpignano - 32971</strong></li></ul></details></li></ul></details></li></ul><hr id="1dfb5fa2-08c1-800a-8e01-e3ab80841954"/><p id="1dfb5fa2-08c1-8044-b299-f6903fe16165" class=""><strong>Link Drive</strong>: <a href="https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3">https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3</a></p><p id="1ffb5fa2-08c1-80ad-a07b-c95291a969a7" class=""><strong>Para practicar SQL: </strong><a href="https://datalemur.com/">https://datalemur.com/</a></p><p id="206b5fa2-08c1-8003-a24a-d0b009d6ea45" class="">
+</p><p id="206b5fa2-08c1-80e6-9c4b-f4daa6c8791f" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
