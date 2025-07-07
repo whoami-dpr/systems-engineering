@@ -1,4 +1,4 @@
-![UTN](https://img.shields.io/badge/UTN-V1.0-blue?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAlrUlEQVR4nO1deVgV5f5/kcO+mRImVyHFFHAp1+uSCwp6FUHDDbwE...&logoColor=white)
+![UTN](https://img.shields.io/badge/UTN-V1.0-blue?style=for-the-badge&logo=data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1nQUFBRElDQVlBQUFDdFdLNmVBQUFsclVsRVFWUjRuTzFkZVZnVjVmNS9rY08rbVJJbVZ5SE...&logoColor=white)
 ![Sistemas Operativos](https://img.shields.io/badge/SISTEMAS%20OPERATIVOS-blue?style=for-the-badge&logo=arch-linux&labelColor=gray&logoColor=white)
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/AN%C3%81LISIS%20FUNCIONAL%20DE%20SISTEMAS-blue?style=for-the-badge&logo=codeforces&labelColor=gray&logoColor=white)
 ![Redes y Comunicaciones](https://img.shields.io/badge/REDES%20Y%20COMUNICACIONES-blue?style=for-the-badge&logo=cisco&labelColor=gray&logoColor=white)
