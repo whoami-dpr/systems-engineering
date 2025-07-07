@@ -26,9 +26,13 @@
   </details>
   <details>
   <summary>Caracteristicas implicitas de las bases de datos</summary>
+  
   - Una B. D. representa algún aspecto del mundo real, lo que en ocasiones se denomina minimundo o universo de discurso. Los cambios introducidos en el minimundo se reflejan en ella.
+  
   - Una B. D. es una colección de datos lógicamente coherente con algún tipo de significado inherente. No es correcto denominar B. D. a un surtido aleatorio de datos.
+  
   - Una B. D. se diseña, construye y rellena con datos para un propósito específico. Dispone de un grupo pretendido de usuarios y algunas aplicaciones preconcebidas en las que esos usuarios están interesados.
+  
   </details>
   <details>
   <summary>Database management system (DBMS)</summary>
@@ -514,6 +518,31 @@
     <summary>TP's SQL</summary>
     ...
     </details>
+
+</details>
+
+<details>
+<summary>Proyecto</summary>
+
+- **Proyecto**
+    <details>
+    <summary>Entrega 1 (Fase 1 y 2)</summary>
+    ...
+    </details>
+    <details>
+    <summary>Entrega 2 (Fase 3, 4 y 5)</summary>
+    ...
+    </details>
+    <details>
+    <summary>Entrega 3 (Fase 6 y 7)</summary>
+    ...
+    </details>
+    <details>
+    <summary>Integrantes</summary>
+    ...
+    </details>
+
+</details>
 
 </details>
 
