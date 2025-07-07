@@ -2,7 +2,7 @@
 
 - **Conceptos Basicos**
     
-    [Conceptos básicos.pdf](Conceptos_bsicos.pdf)
+    [Conceptos básicos.pdf](assets/Conceptos_bsicos.pdf)
     
     - Datos: Son la **mínima unidad semántica**, por sí solos son irrelevantes
     como apoyo a la toma de decisiones.
@@ -46,7 +46,7 @@
     
     - **Trabajo Practico: Conceptos Basicos**
         
-        [Bases de Datos 2025 - Trabajo Práctico_ Conceptos básicos.pdf](Bases_de_Datos_2025_-_Trabajo_Prctico__Conceptos_bsicos.pdf)
+        [Bases de Datos 2025 - Trabajo Práctico_ Conceptos básicos.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Conceptos_bsicos.pdf)
         
         1. Las principales caracteristicas que presenta la metodologia de bases de datos frente a la metodologia de procesamiento de archivos son:
             - **Naturaleza autodescriptiva de un sistema de base de datos**: Un sistema de bases de datos no solo contiene la propia base de datos, sino tambien una completa definicion de la estructura de la bases de datos y sus restricciones.
@@ -70,7 +70,7 @@
     
 - **Modelo Entidad Relacion**
     
-    [Modelo Entidad Relación.pdf](Modelo_Entidad_Relacin.pdf)
+    [Modelo Entidad Relación.pdf](assets/Modelo_Entidad_Relacin.pdf)
     
     > El modelado de datos es un proceso que permite a las organizaciones descubrir, diseñar, visualizar, estandarizar e implementar activos de datos de alta calidad a través de una interfaz gráfica intuitiva.
     > 
@@ -149,7 +149,7 @@
     
 - **Modelo Relacional**
     
-    [Modelo Relacional.pdf](Modelo_Relacional.pdf)
+    [Modelo Relacional.pdf](assets/Modelo_Relacional.pdf)
     
     ### Conceptos Basicos
     
@@ -260,7 +260,7 @@
     
 - **Normalizacion**
     
-    [Normalizacion.pdf](Normalizacion.pdf)
+    [Normalizacion.pdf](assets/Normalizacion.pdf)
     
     ### Dependencias funcionales
     
@@ -287,11 +287,11 @@
     - Anomalías de actualización.
     - Pérdida de integridad de datos.
         
-        [BASE DE DATOS 24-4.pdf](BASE_DE_DATOS_24-4.pdf)
+        [BASE DE DATOS 24-4.pdf](assets/BASE_DE_DATOS_24-4.pdf)
         
 - **Algebra Relacional**
     
-    [Álgebra Relacional_modif_11-4.pdf](lgebra_Relacional_modif_11-4.pdf)
+    [Álgebra Relacional_modif_11-4.pdf](assets/lgebra_Relacional_modif_11-4.pdf)
     
     - Un modelo de datos debe incluir un conjunto de operaciones para manipular la base de datos junto con los conceptos necesarios para la definición de su estructura y restricciones.
     - El conjunto de operaciones básicas del modelo relacional es el **álgebra relacional**, el cual permite al usuario especificar las peticiones fundamentales de recuperación.
@@ -408,7 +408,7 @@
         
 - **Transacciones**
     
-    [Transacciones.pdf](Transacciones.pdf)
+    [Transacciones.pdf](assets/Transacciones.pdf)
     
     - **Transacciones (Conceptos - Estados de ejecución - Planificiones)**
         
@@ -720,9 +720,9 @@
         
 - **SQL (Structured Query Language)**
     
-    [Tips Sobre SQL.pdf](Tips_Sobre_SQL.pdf)
+    [Tips Sobre SQL.pdf](assets/Tips_Sobre_SQL.pdf)
     
-    [ClaseSQLC31.sql](ClaseSQLC31.sql)
+    [ClaseSQLC31.sql](assets/ClaseSQLC31.sql)
     
     - **Guia de comandos**
         
@@ -734,7 +734,7 @@
 - **Trabajos Practicos**
     - **Tp1 (Modelo Entidad Relacion)**
         
-        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Entidad Relación.pdf](Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Entidad_Relacin.pdf)
+        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Entidad Relación.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Entidad_Relacin.pdf)
         
         - **1) Pequeña empresa**
             
@@ -822,7 +822,7 @@
                 
     - **Tp2 (Modelo Relacional)**
         
-        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Relacional.pdf](Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Relacional.pdf)
+        [Bases de Datos 2025 - Trabajo Práctico_ Modelo Relacional.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Modelo_Relacional.pdf)
         
         - **1) Biblioteca**
             
@@ -939,7 +939,7 @@
             
     - **Tp3 (Algebra Relacional)**
         
-        [Bases de Datos 2025 - Trabajo Práctico_ Álgebra Relacional.pdf](Bases_de_Datos_2025_-_Trabajo_Prctico__lgebra_Relacional.pdf)
+        [Bases de Datos 2025 - Trabajo Práctico_ Álgebra Relacional.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__lgebra_Relacional.pdf)
         
         **Dadas las siguientes relaciones, resolver utilizando Álgebra Relacional las consultas planteadas.**
         
@@ -1031,7 +1031,7 @@
                 
     - **TP4 (Normalizacion)**
         
-        [Base de Datos 2025 - Trabajo práctico_Normalización.pdf](Base_de_Datos_2025_-_Trabajo_prctico_Normalizacin.pdf)
+        [Base de Datos 2025 - Trabajo práctico_Normalización.pdf](assets/Base_de_Datos_2025_-_Trabajo_prctico_Normalizacin.pdf)
         
         - **Ejercicio 1**
             
@@ -1089,7 +1089,7 @@
             
     - **Tp5 (Transacciones)**
         
-        [Bases de Datos 2025 - Trabajo Práctico_ Transacciones.pdf](Bases_de_Datos_2025_-_Trabajo_Prctico__Transacciones.pdf)
+        [Bases de Datos 2025 - Trabajo Práctico_ Transacciones.pdf](assets/Bases_de_Datos_2025_-_Trabajo_Prctico__Transacciones.pdf)
         
         - **Ejercicio 1**
             
@@ -1220,10 +1220,10 @@
             
             ![image.png](image%20148.png)
             
-    - **TP’s SQL**
+    - **TP's SQL**
         - **TP1 - SQL Creación y Generación de Información**
             
-            [Trabajo práctico  - Trabajo Práctico_SQL 1.pdf](Trabajo_prctico__-_Trabajo_Prctico_SQL_1.pdf)
+            [Trabajo práctico  - Trabajo Práctico_SQL 1.pdf](assets/Trabajo_prctico__-_Trabajo_Prctico_SQL_1.pdf)
             
             - **Ejercicio 1**
                 
@@ -1286,7 +1286,7 @@
                 ADD Telefono VARCHAR(30);
                 ```
                 
-                [Ejercicio3_1.sql](Ejercicio3_1.sql)
+                [Ejercicio3_1.sql](assets/Ejercicio3_1.sql)
                 
             - **Ejercicio 4**
                 
@@ -1319,7 +1319,7 @@
                 
                 ```
                 
-                [Ejercicio4_1.sql](Ejercicio4_1.sql)
+                [Ejercicio4_1.sql](assets/Ejercicio4_1.sql)
                 
             - **Ejercicio 5**
                 
@@ -1392,9 +1392,9 @@
                 
         - **TP2 - Diagramación y consultas SQL**
             
-            [Trabajo práctico - Trabajo Práctico_SQL 2.pdf](Trabajo_prctico_-_Trabajo_Prctico_SQL_2.pdf)
+            [Trabajo práctico - Trabajo Práctico_SQL 2.pdf](assets/Trabajo_prctico_-_Trabajo_Prctico_SQL_2.pdf)
             
-            [TP2.sql](TP2.sql)
+            [TP2.sql](assets/TP2.sql)
             
             ![image.png](image%20166.png)
             
@@ -1593,9 +1593,9 @@
             
         - **TP3 - Stored Procedures (SP)**
             
-            [Trabajo Práctico - Trabajo Práctico_SQL 3.pdf](Trabajo_Prctico_-_Trabajo_Prctico_SQL_3.pdf)
+            [Trabajo Práctico - Trabajo Práctico_SQL 3.pdf](assets/Trabajo_Prctico_-_Trabajo_Prctico_SQL_3.pdf)
             
-            [TP3.sql](TP3.sql)
+            [TP3.sql](assets/TP3.sql)
             
             ![image.png](image%20184.png)
             
@@ -1742,21 +1742,21 @@
 - **Proyecto**
     - **Entrega 1 (Fase 1 y 2)**
         
-        [Entrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (3).pdf](Entrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(3).pdf)
+        [Entrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (3).pdf](assets/Entrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(3).pdf)
         
-        [Reentrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (2) (2).pdf](Reentrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(2)_(2).pdf)
+        [Reentrega 1 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano (2) (2).pdf](assets/Reentrega_1_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano_(2)_(2).pdf)
         
     - **Entrega 2 (Fase 3, 4 y 5)**
         
-        [Entrega 2 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano.pdf](Entrega_2_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano.pdf)
+        [Entrega 2 - grupo 10 - Joaquin Montes, Pedro Fiuza, Maximo Carpignano.pdf](assets/Entrega_2_-_grupo_10_-_Joaquin_Montes_Pedro_Fiuza_Maximo_Carpignano.pdf)
         
-        [Presentación Grupo 10 Entrega 2.pptx](Presentacin_Grupo_10_Entrega_2.pptx)
+        [Presentación Grupo 10 Entrega 2.pptx](assets/Presentacin_Grupo_10_Entrega_2.pptx)
         
     - **Entrega 3 (Fase 6 y 7)**
         
-        [Entrega 3 - Grupo 10 - Comision S31.pdf](Entrega_3_-_Grupo_10_-_Comision_S31.pdf)
+        [Entrega 3 - Grupo 10 - Comision S31.pdf](assets/Entrega_3_-_Grupo_10_-_Comision_S31.pdf)
         
-        [Entrega 3 (1).sql](Entrega_3_(1).sql)
+        [Entrega 3 (1).sql](assets/Entrega_3_(1).sql)
         
     - **Integrantes**
         - **Joaquin Mones - 33459**
