@@ -521,10 +521,6 @@
 
 </details>
 
-<details>
-<summary>Proyecto</summary>
-
-
 </details>
 
 **Link Drive**: [https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3](https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3)
