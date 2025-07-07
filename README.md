@@ -1,7 +1,6 @@
 <a href="https://utn.edu.ar/">
   <img src="https://diagonalalaro.com.ar/wp-content/uploads/2018/03/UTN.png" alt="UTN Logo" height="25"/>
   <img src="https://img.shields.io/badge/Plan%202023-blue?style=for-the-badge&labelColor=gray" alt="Plan 2023"/>
-</a>
 ![Sistemas Operativos](https://img.shields.io/badge/SISTEMAS%20OPERATIVOS-blue?style=for-the-badge&logo=arch-linux&labelColor=gray&logoColor=white)
 ![Análisis Funcional de Sistemas](https://img.shields.io/badge/AN%C3%81LISIS%20FUNCIONAL%20DE%20SISTEMAS-blue?style=for-the-badge&logo=codeforces&labelColor=gray&logoColor=white)
 ![Redes y Comunicaciones](https://img.shields.io/badge/REDES%20Y%20COMUNICACIONES-blue?style=for-the-badge&logo=cisco&labelColor=gray&logoColor=white)
