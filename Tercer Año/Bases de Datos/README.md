@@ -1,5 +1,8 @@
 # Base de Datos
 
+<details>
+<summary>Conceptos Basicos</summary>
+
 - **Conceptos Basicos**
     
     [Conceptos básicos.pdf](assets/Conceptos_bsicos.pdf)
@@ -68,6 +71,11 @@
             - **Copia de seguridad y recuperacion**
         4. 
     
+</details>
+
+<details>
+<summary>Modelo Entidad Relacion</summary>
+
 - **Modelo Entidad Relacion**
     
     [Modelo Entidad Relación.pdf](assets/Modelo_Entidad_Relacin.pdf)
@@ -147,6 +155,11 @@
     
     Mecanismo de **abstracción** que lleva a considerar una interrelación y las entidades que participan, como una nueva entidad.
     
+</details>
+
+<details>
+<summary>Modelo Relacional</summary>
+
 - **Modelo Relacional**
     
     [Modelo Relacional.pdf](assets/Modelo_Relacional.pdf)
@@ -258,6 +271,11 @@
     
     0..n → 0..n Se guarda la relacion con ambas claves primarias
     
+</details>
+
+<details>
+<summary>Normalizacion</summary>
+
 - **Normalizacion**
     
     [Normalizacion.pdf](assets/Normalizacion.pdf)
@@ -289,6 +307,11 @@
         
         [BASE DE DATOS 24-4.pdf](assets/BASE_DE_DATOS_24-4.pdf)
         
+</details>
+
+<details>
+<summary>Algebra Relacional</summary>
+
 - **Algebra Relacional**
     
     [Álgebra Relacional_modif_11-4.pdf](assets/lgebra_Relacional_modif_11-4.pdf)
@@ -406,6 +429,11 @@
         
         $σ_{codigo, apellido, nombre}$(Socios)
         
+</details>
+
+<details>
+<summary>Transacciones</summary>
+
 - **Transacciones**
     
     [Transacciones.pdf](assets/Transacciones.pdf)
@@ -718,6 +746,11 @@
             
         - **Recuperación mediante la actualización diferida en un entorno multiusuario**
         
+</details>
+
+<details>
+<summary>SQL (Structured Query Language)</summary>
+
 - **SQL (Structured Query Language)**
     
     [Tips Sobre SQL.pdf](assets/Tips_Sobre_SQL.pdf)
@@ -1739,6 +1772,11 @@
             
             ```
             
+</details>
+
+<details>
+<summary>Proyecto</summary>
+
 - **Proyecto**
     - **Entrega 1 (Fase 1 y 2)**
         
@@ -1763,7 +1801,7 @@
         - **Pedro Fiuza - 33142**
         - **Maximo Carpignano - 32971**
 
----
+</details>
 
 **Link Drive**: [https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3](https://drive.google.com/drive/folders/1aDWIgEzHrZhI3O9pzaD10qo-A6jFnpe3)
 
