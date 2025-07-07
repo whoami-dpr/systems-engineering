@@ -9,12 +9,13 @@
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Haskell](https://img.shields.io/badge/Haskell-5e5086?style=for-the-badge&logo=haskell&logoColor=white)
+![Smalltalk](https://img.shields.io/badge/Smalltalk-%23563D7C.svg?style=for-the-badge&logo=data:image/svg+xml;base64,<!--PEGA_AQUI_EL_BASE64_DEL_SVG-->&logoColor=white)
+![Prolog](https://img.shields.io/badge/Prolog-%23E61B23.svg?style=for-the-badge&logo=data:image/svg+xml;base64,<!--BASE64_DEL_LOGO_PROLOG-->&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-![Smalltalk](https://img.shields.io/badge/Smalltalk-%23563D7C.svg?style=for-the-badge&logo=smalltalk&logoColor=white)
-![Prolog](https://img.shields.io/badge/Prolog-%23E61B23.svg?style=for-the-badge&logo=prolog&logoColor=white)
+
 
 ## Sistemas Operativos utilizados
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
