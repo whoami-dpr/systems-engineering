@@ -524,25 +524,6 @@
 <details>
 <summary>Proyecto</summary>
 
-- **Proyecto**
-    <details>
-    <summary>Entrega 1 (Fase 1 y 2)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Entrega 2 (Fase 3, 4 y 5)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Entrega 3 (Fase 6 y 7)</summary>
-    ...
-    </details>
-    <details>
-    <summary>Integrantes</summary>
-    ...
-    </details>
-
-</details>
 
 </details>
 
