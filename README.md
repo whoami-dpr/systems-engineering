@@ -1,6 +1,6 @@
-<a href="https://utn.edu.ar/">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQxDogY_QPvIai_GqjWgiHGJVSL7TwaMS4jA&s" alt="UTN Logo" height="25"/>
-  <img src="https://img.shields.io/badge/Plan%202023-blue?style=for-the-badge&labelColor=gray" alt="Plan 2023"/>
+<a href="https://utn.edu.ar/" style="display: inline-flex; align-items: center; background: white; border-radius: 4px; overflow: hidden; text-decoration: none;">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQxDogY_QPvIai_GqjWgiHGJVSL7TwaMS4jA&s" alt="UTN Logo" height="28" style="margin-right: 0;"/>
+  <img src="https://img.shields.io/badge/Plan%202023-blue?style=for-the-badge&labelColor=gray" alt="Plan 2023" style="height: 28px;"/>
 </a>
 
 ![Sistemas Operativos](https://img.shields.io/badge/SISTEMAS%20OPERATIVOS-blue?style=for-the-badge&logo=arch-linux&labelColor=gray&logoColor=white)
