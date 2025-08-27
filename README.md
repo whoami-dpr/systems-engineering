@@ -82,8 +82,9 @@ Todos los créditos van para todas las personas que ayudaron, colaboraron e hici
 - Comunicacion de Datos
 - Analisis Numerico
 - Desarrollo de Software
-- Tecnologia y gestion web
+- Tecnologia y gestion web (electiva)
 - Economia
+- Sistemas en tiempo real (electiva)
 
 ---
 
